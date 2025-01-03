@@ -4,6 +4,7 @@
 export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 1, date: '2025-01-01', note: 'docs: update project documentation for 2025-01-01' },
   { day: 2, date: '2025-01-02', note: 'style: refine UI component spacing' },
+  { day: 3, date: '2025-01-03', note: 'refactor: optimize data fetching logic' },
 ];
-export const TOTAL_DAYS = 2;
+export const TOTAL_DAYS = 3;
 
