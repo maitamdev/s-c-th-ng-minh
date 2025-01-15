@@ -16,6 +16,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 12, date: '2025-01-12', note: 'chore: optimize build performance' },
   { day: 13, date: '2025-01-13', note: 'docs: update README with new features' },
   { day: 14, date: '2025-01-14', note: 'style: enhance dark mode styling' },
+  { day: 15, date: '2025-01-15', note: 'refactor: improve form validation flow' },
 ];
-export const TOTAL_DAYS = 14;
+export const TOTAL_DAYS = 15;
 
