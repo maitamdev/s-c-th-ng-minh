@@ -23,6 +23,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 19, date: '2025-01-19', note: 'refactor: optimize search algorithm' },
   { day: 20, date: '2025-01-20', note: 'chore: configure lint rules' },
   { day: 21, date: '2025-01-21', note: 'docs: document deployment process' },
+  { day: 22, date: '2025-01-22', note: 'style: improve animation timing' },
 ];
-export const TOTAL_DAYS = 21;
+export const TOTAL_DAYS = 22;
 
