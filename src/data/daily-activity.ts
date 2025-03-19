@@ -79,6 +79,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 75, date: '2025-03-16', note: 'docs: add accessibility guidelines' },
   { day: 76, date: '2025-03-17', note: 'style: adjust button hover effects' },
   { day: 77, date: '2025-03-18', note: 'refactor: optimize image loading' },
+  { day: 78, date: '2025-03-19', note: 'chore: update security headers' },
 ];
-export const TOTAL_DAYS = 77;
+export const TOTAL_DAYS = 78;
 
