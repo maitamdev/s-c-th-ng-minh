@@ -82,6 +82,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 78, date: '2025-03-19', note: 'chore: update security headers' },
   { day: 79, date: '2025-03-20', note: 'docs: improve error message docs' },
   { day: 80, date: '2025-03-21', note: 'style: refine card shadow values' },
+  { day: 81, date: '2025-03-22', note: 'refactor: enhance auth flow logic' },
 ];
-export const TOTAL_DAYS = 80;
+export const TOTAL_DAYS = 81;
 
