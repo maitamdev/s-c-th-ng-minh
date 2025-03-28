@@ -88,6 +88,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 84, date: '2025-03-25', note: 'style: improve input field styling' },
   { day: 85, date: '2025-03-26', note: 'refactor: optimize list rendering' },
   { day: 86, date: '2025-03-27', note: 'chore: update meta tags' },
+  { day: 87, date: '2025-03-28', note: 'docs: add performance tuning notes' },
 ];
-export const TOTAL_DAYS = 86;
+export const TOTAL_DAYS = 87;
 
