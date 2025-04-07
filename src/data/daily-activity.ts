@@ -98,6 +98,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 94, date: '2025-04-04', note: 'chore: optimize bundle splitting' },
   { day: 95, date: '2025-04-05', note: 'docs: add troubleshooting guide' },
   { day: 96, date: '2025-04-06', note: 'style: improve loading skeleton' },
+  { day: 97, date: '2025-04-07', note: 'refactor: enhance bookmark feature' },
 ];
-export const TOTAL_DAYS = 96;
+export const TOTAL_DAYS = 97;
 
