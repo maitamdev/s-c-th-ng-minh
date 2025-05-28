@@ -149,6 +149,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 145, date: '2025-05-25', note: 'docs: add troubleshooting guide' },
   { day: 146, date: '2025-05-26', note: 'style: improve loading skeleton' },
   { day: 147, date: '2025-05-27', note: 'refactor: enhance bookmark feature' },
+  { day: 148, date: '2025-05-28', note: 'chore: update service worker config' },
 ];
-export const TOTAL_DAYS = 147;
+export const TOTAL_DAYS = 148;
 
