@@ -169,6 +169,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 165, date: '2025-06-14', note: 'refactor: improve form validation flow' },
   { day: 166, date: '2025-06-15', note: 'chore: clean up unused imports' },
   { day: 167, date: '2025-06-16', note: 'docs: add component usage examples' },
+  { day: 168, date: '2025-06-17', note: 'style: update typography scale' },
 ];
-export const TOTAL_DAYS = 167;
+export const TOTAL_DAYS = 168;
 
