@@ -179,6 +179,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 175, date: '2025-06-24', note: 'docs: add accessibility guidelines' },
   { day: 176, date: '2025-06-25', note: 'style: adjust button hover effects' },
   { day: 177, date: '2025-06-26', note: 'refactor: optimize image loading' },
+  { day: 178, date: '2025-06-27', note: 'chore: update security headers' },
 ];
-export const TOTAL_DAYS = 177;
+export const TOTAL_DAYS = 178;
 
