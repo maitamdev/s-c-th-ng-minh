@@ -269,6 +269,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 265, date: '2025-09-22', note: 'refactor: improve form validation flow' },
   { day: 266, date: '2025-09-23', note: 'chore: clean up unused imports' },
   { day: 267, date: '2025-09-24', note: 'docs: add component usage examples' },
+  { day: 268, date: '2025-09-25', note: 'style: update typography scale' },
 ];
-export const TOTAL_DAYS = 267;
+export const TOTAL_DAYS = 268;
 
