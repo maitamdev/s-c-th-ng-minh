@@ -298,6 +298,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 294, date: '2025-10-21', note: 'chore: optimize bundle splitting' },
   { day: 295, date: '2025-10-22', note: 'docs: add troubleshooting guide' },
   { day: 296, date: '2025-10-23', note: 'style: improve loading skeleton' },
+  { day: 297, date: '2025-10-24', note: 'refactor: enhance bookmark feature' },
 ];
-export const TOTAL_DAYS = 296;
+export const TOTAL_DAYS = 297;
 
