@@ -326,6 +326,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 322, date: '2025-11-18', note: 'style: improve animation timing' },
   { day: 323, date: '2025-11-19', note: 'refactor: enhance routing configuration' },
   { day: 324, date: '2025-11-20', note: 'chore: update environment variables' },
+  { day: 325, date: '2025-11-21', note: 'docs: add accessibility guidelines' },
 ];
-export const TOTAL_DAYS = 324;
+export const TOTAL_DAYS = 325;
 
