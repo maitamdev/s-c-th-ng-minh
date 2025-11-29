@@ -334,6 +334,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 330, date: '2025-11-26', note: 'style: refine card shadow values' },
   { day: 331, date: '2025-11-27', note: 'refactor: enhance auth flow logic' },
   { day: 332, date: '2025-11-28', note: 'chore: configure caching strategy' },
+  { day: 333, date: '2025-11-29', note: 'docs: update contribution guide' },
 ];
-export const TOTAL_DAYS = 332;
+export const TOTAL_DAYS = 333;
 
