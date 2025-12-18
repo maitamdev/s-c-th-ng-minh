@@ -8,6 +8,11 @@ import Explore from "./pages/Explore";
 import StationDetail from "./pages/StationDetail";
 import Pricing from "./pages/Pricing";
 import Auth from "./pages/Auth";
+import Dashboard from "./pages/Dashboard";
+import VehicleSettings from "./pages/VehicleSettings";
+import MyBookings from "./pages/MyBookings";
+import Favorites from "./pages/Favorites";
+import Subscription from "./pages/Subscription";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +30,11 @@ const App = () => (
             <Route path="/station/:id" element={<StationDetail />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/vehicle" element={<VehicleSettings />} />
+            <Route path="/dashboard/bookings" element={<MyBookings />} />
+            <Route path="/dashboard/favorites" element={<Favorites />} />
+            <Route path="/dashboard/subscription" element={<Subscription />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
