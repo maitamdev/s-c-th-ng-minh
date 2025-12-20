@@ -8,13 +8,10 @@ import { NoStationsFound } from '@/components/ui/empty-state';
 import { Button } from '@/components/ui/button';
 import { enrichedStations } from '@/data/mockStations';
 import { getTopRecommendations } from '@/ai/recommendation';
-import { StationFilters, SortOption, Station, Vehicle, OptimizationMode } from '@/types';
+import { StationFilters, SortOption, Vehicle, OptimizationMode } from '@/types';
 import { 
   MapPin, 
-  Locate, 
   Sparkles,
-  Filter,
-  Target,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -49,26 +46,67 @@ export default function Explore() {
 
   // Get user location
   useEffect(() => {
-    if ('geolocation' in navigator) {
+    const getLocation = () => {
+      // Check if geolocation is available
+      if (!('geolocation' in navigator)) {
+        console.log('Geolocation not supported');
+        setUserLocation({ lat: 21.0285, lng: 105.8542 });
+        setLocationError('Trình duyệt không hỗ trợ định vị. Đang sử dụng vị trí mặc định (Hà Nội).');
+        setLoading(false);
+        return;
+      }
+
+      // Set a timeout in case geolocation takes too long
+      const timeoutId = setTimeout(() => {
+        console.log('Geolocation timeout');
+        setUserLocation({ lat: 21.0285, lng: 105.8542 });
+        setLocationError('Lấy vị trí quá lâu. Đang sử dụng vị trí mặc định (Hà Nội).');
+        setLoading(false);
+      }, 10000);
+
       navigator.geolocation.getCurrentPosition(
         (position) => {
+          clearTimeout(timeoutId);
+          console.log('Got location:', position.coords);
           setUserLocation({
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           });
+          setLocationError(null);
           setLoading(false);
         },
         (error) => {
-          // Default to Hanoi
+          clearTimeout(timeoutId);
+          console.log('Geolocation error:', error.code, error.message);
+          
+          let errorMessage = 'Không thể lấy vị trí. ';
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              errorMessage += 'Bạn đã từ chối quyền truy cập vị trí.';
+              break;
+            case error.POSITION_UNAVAILABLE:
+              errorMessage += 'Thông tin vị trí không khả dụng.';
+              break;
+            case error.TIMEOUT:
+              errorMessage += 'Yêu cầu vị trí đã hết thời gian.';
+              break;
+            default:
+              errorMessage += 'Lỗi không xác định.';
+          }
+          
           setUserLocation({ lat: 21.0285, lng: 105.8542 });
-          setLocationError('Không thể lấy vị trí. Đang sử dụng vị trí mặc định.');
+          setLocationError(errorMessage + ' Đang sử dụng vị trí mặc định (Hà Nội).');
           setLoading(false);
+        },
+        {
+          enableHighAccuracy: false,
+          timeout: 10000,
+          maximumAge: 300000, // Cache location for 5 minutes
         }
       );
-    } else {
-      setUserLocation({ lat: 21.0285, lng: 105.8542 });
-      setLoading(false);
-    }
+    };
+
+    getLocation();
   }, []);
 
   // Calculate distance and AI scores
@@ -248,8 +286,8 @@ export default function Explore() {
 
             {loading ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <StationCardSkeleton key={i} />
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <StationCardSkeleton key={index} />
                 ))}
               </div>
             ) : filteredStations.length === 0 ? (

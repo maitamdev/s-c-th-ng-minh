@@ -228,7 +228,7 @@ export function BookingWizard({
           </div>
         );
         
-      case 'confirm':
+      case 'confirm': {
         const endTime = selectedSlot ? new Date(selectedSlot) : null;
         if (endTime) endTime.setMinutes(endTime.getMinutes() + duration);
         
@@ -307,6 +307,7 @@ export function BookingWizard({
             </Button>
           </div>
         );
+      }
     }
   };
 

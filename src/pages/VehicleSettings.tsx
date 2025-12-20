@@ -169,7 +169,7 @@ export default function VehicleSettings() {
               {editing ? (
                 <Select 
                   value={vehicle.preferred_connector}
-                  onValueChange={(v) => setVehicle({ ...vehicle, preferred_connector: v as any })}
+                  onValueChange={(v) => setVehicle({ ...vehicle, preferred_connector: v as Vehicle['preferred_connector'] })}
                 >
                   <SelectTrigger>
                     <SelectValue />

@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* SCS GO Design System - Premium EV-tech SaaS */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
@@ -46,26 +47,26 @@
   }
 
   .dark {
-    --background: 222 47% 8%;
+    --background: 222 47% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 11%;
+    --card: 222 47% 9%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 11%;
+    --popover: 222 47% 9%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 187 94% 50%;
-    --primary-foreground: 222 47% 8%;
+    --primary-foreground: 222 47% 6%;
 
-    --secondary: 222 47% 15%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 222 47% 14%;
+    --secondary-foreground: 210 40% 96%;
 
-    --muted: 222 47% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 222 47% 14%;
+    --muted-foreground: 215 20% 68%;
 
     --accent: 187 94% 50%;
-    --accent-foreground: 222 47% 8%;
+    --accent-foreground: 222 47% 6%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
@@ -76,8 +77,8 @@
     --warning: 38 92% 55%;
     --warning-foreground: 0 0% 0%;
 
-    --border: 222 47% 18%;
-    --input: 222 47% 18%;
+    --border: 222 47% 16%;
+    --input: 222 47% 16%;
     --ring: 187 94% 50%;
   }
 }
@@ -88,56 +89,63 @@
   }
 
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "ss02";
+    letter-spacing: -0.01em;
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground;
+    @apply text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground;
+    letter-spacing: -0.03em;
   }
 
   h2 {
     @apply text-3xl md:text-4xl font-bold tracking-tight text-foreground;
+    letter-spacing: -0.025em;
   }
 
   h3 {
     @apply text-2xl md:text-3xl font-semibold text-foreground;
+    letter-spacing: -0.02em;
   }
 
   h4 {
     @apply text-xl md:text-2xl font-semibold text-foreground;
+    letter-spacing: -0.015em;
   }
 
   h5 {
-    @apply text-lg font-medium text-foreground;
+    @apply text-lg font-semibold text-foreground;
   }
 
   p {
-    @apply text-foreground;
+    @apply text-foreground leading-relaxed;
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-card/80 backdrop-blur-xl border border-border;
+    @apply bg-card/80 backdrop-blur-xl border border-border/60;
   }
 
   .glass-strong {
-    @apply bg-card/90 backdrop-blur-2xl border border-border;
+    @apply bg-card/95 backdrop-blur-2xl border border-border/60;
   }
 
   .card-premium {
-    @apply rounded-2xl border border-border bg-card text-card-foreground shadow-lg;
+    @apply rounded-2xl border border-border/60 bg-card text-card-foreground shadow-lg shadow-black/5;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card-premium:hover {
-    @apply shadow-xl;
+    @apply shadow-xl border-border;
     transform: translateY(-2px);
   }
 
@@ -187,6 +195,16 @@
   .animation-delay-400 { animation-delay: 400ms; }
   .animation-delay-500 { animation-delay: 500ms; }
   .text-balance { text-wrap: balance; }
+}
+
+/* Custom animations */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-scan {
+  animation: scan 3s ease-in-out infinite;
 }
 
 /* Leaflet map overrides */

@@ -317,40 +317,38 @@ export default function StationDetail() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <h3 className="font-semibold mb-4">Đặt chỗ sạc</h3>
+                <h3 className="font-semibold mb-4 text-foreground">Đặt chỗ sạc</h3>
 
-                {selectedCharger ? (
-                  <div className="space-y-4">
-                    <div className="p-3 bg-secondary/50 rounded-xl">
-                      <p className="text-sm text-muted-foreground mb-1">Cổng đã chọn</p>
-                      <p className="font-medium">
-                        {CONNECTOR_LABELS[selectedCharger.connector_type]} - {selectedCharger.power_kw} kW
-                      </p>
-                      <p className="text-sm text-primary font-medium">
-                        {selectedCharger.price_per_kwh.toLocaleString()}đ/kWh
-                      </p>
+                <div className="space-y-4">
+                  <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                        <Zap className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground">{availableChargers.length} cổng trống</p>
+                        <p className="text-sm text-foreground/60">Từ {station.min_price?.toLocaleString()}đ/kWh</p>
+                      </div>
                     </div>
+                    <p className="text-xs text-foreground/50">
+                      Đặt chỗ trước để đảm bảo có cổng sạc khi bạn đến
+                    </p>
+                  </div>
 
-                    <Button variant="hero" className="w-full" size="lg">
+                  <Button variant="hero" className="w-full" size="lg" asChild>
+                    <Link to={`/booking/${station.id}`}>
                       <Calendar className="w-4 h-4" />
-                      Giữ chỗ ngay
-                    </Button>
+                      Đặt chỗ ngay
+                    </Link>
+                  </Button>
 
-                    <p className="text-xs text-muted-foreground text-center">
-                      Giữ chỗ trong 10 phút, hủy miễn phí trước 30 phút
-                    </p>
-                  </div>
-                ) : (
-                  <div className="text-center py-4">
-                    <Plug className="w-12 h-12 text-muted-foreground mx-auto mb-3" />
-                    <p className="text-muted-foreground">
-                      Chọn cổng sạc để đặt chỗ
-                    </p>
-                  </div>
-                )}
+                  <p className="text-xs text-foreground/50 text-center">
+                    Hủy miễn phí trước 30 phút • Giữ chỗ trong 10 phút
+                  </p>
+                </div>
 
                 {/* Quick Actions */}
-                <div className="flex gap-2 mt-4 pt-4 border-t border-border/50">
+                <div className="flex gap-2 mt-4 pt-4 border-t border-border/40">
                   <Button variant="outline" size="sm" className="flex-1">
                     <Navigation className="w-4 h-4" />
                     Chỉ đường

@@ -56,19 +56,19 @@ function scoreStation(
   const travelTime = estimateTravelTime(distance);
   
   // Base scores (0-100)
-  let distanceScore = Math.max(0, 100 - distance * 5); // -5 points per km
-  let priceScore = station.min_price ? Math.max(0, 100 - (station.min_price - 3000) / 30) : 50;
-  let powerScore = station.max_power ? Math.min(100, (station.max_power / 350) * 100) : 50;
-  let availabilityScore = station.available_chargers 
+  const distanceScore = Math.max(0, 100 - distance * 5); // -5 points per km
+  const priceScore = station.min_price ? Math.max(0, 100 - (station.min_price - 3000) / 30) : 50;
+  const powerScore = station.max_power ? Math.min(100, (station.max_power / 350) * 100) : 50;
+  const availabilityScore = station.available_chargers 
     ? Math.min(100, (station.available_chargers / (station.chargers?.length || 1)) * 100)
     : 50;
-  let ratingScore = station.avg_rating ? (station.avg_rating / 5) * 100 : 50;
+  const ratingScore = station.avg_rating ? (station.avg_rating / 5) * 100 : 50;
   
   // Check connector compatibility
   const hasPreferredConnector = station.chargers?.some(
     (c) => c.connector_type === vehicle.preferred_connector && c.status === 'available'
   );
-  let connectorBonus = hasPreferredConnector ? 20 : 0;
+  const connectorBonus = hasPreferredConnector ? 20 : 0;
   
   // Calculate detour if destination provided
   let detour: number | undefined;

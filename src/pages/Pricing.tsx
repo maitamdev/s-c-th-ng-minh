@@ -232,12 +232,12 @@ export default function Pricing() {
                       <Sparkles className="w-6 h-6 text-primary" />
                     )}
                   </div>
-                  <h3 className="text-xl font-bold mb-1">{plan.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
+                  <h3 className="text-xl font-bold mb-1 text-foreground">{plan.name}</h3>
+                  <p className="text-sm text-foreground/60 mb-4">{plan.description}</p>
                   <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-4xl font-bold">{plan.price}</span>
+                    <span className="text-4xl font-bold text-foreground">{plan.price}</span>
                     {plan.period && (
-                      <span className="text-muted-foreground">{plan.period}</span>
+                      <span className="text-foreground/60">{plan.period}</span>
                     )}
                   </div>
                 </div>
@@ -256,7 +256,7 @@ export default function Pricing() {
                       ) : (
                         <X className="w-4 h-4 text-muted-foreground/50 flex-shrink-0" />
                       )}
-                      <span>{feature.text}</span>
+                      <span className={feature.included ? 'text-foreground' : ''}>{feature.text}</span>
                     </div>
                   ))}
                 </div>
@@ -303,8 +303,8 @@ export default function Pricing() {
                   <div className="flex items-start gap-3">
                     <HelpCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-medium mb-1">{faq.q}</p>
-                      <p className="text-sm text-muted-foreground">{faq.a}</p>
+                      <p className="font-medium mb-1 text-foreground">{faq.q}</p>
+                      <p className="text-sm text-foreground/70">{faq.a}</p>
                     </div>
                   </div>
                 </div>

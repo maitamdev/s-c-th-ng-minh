@@ -35,7 +35,7 @@ export function InsightsPanel({ station, planLevel = 0, onUpgrade }: InsightsPan
     confidence: p.confidence,
   }));
 
-  const CustomTooltip = ({ active, payload }: any) => {
+  const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<{ payload: { label: string; level: string; confidence: number } }> }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (

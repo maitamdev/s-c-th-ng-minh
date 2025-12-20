@@ -37,7 +37,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Mobile header */}
-      <header className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-card/90 backdrop-blur-xl border-b border-border z-40 flex items-center justify-between px-4">
+      <header className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-card/95 backdrop-blur-xl border-b border-border/60 z-40 flex items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center">
             <Zap className="w-4 h-4 text-primary-foreground" fill="currentColor" />
@@ -54,13 +54,13 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
       {/* Sidebar */}
       <aside className={cn(
-        'fixed top-0 left-0 bottom-0 w-64 bg-card border-r border-border z-50 transition-transform duration-300',
+        'fixed top-0 left-0 bottom-0 w-64 bg-card/95 backdrop-blur-xl border-r border-border/60 z-50 transition-transform duration-300',
         'lg:translate-x-0',
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       )}>
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="h-16 flex items-center gap-2 px-4 border-b border-border">
+          <div className="h-16 flex items-center gap-2 px-4 border-b border-border/60">
             <Link to="/" className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center">
                 <Zap className="w-5 h-5 text-primary-foreground" fill="currentColor" />
@@ -93,7 +93,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           </nav>
 
           {/* User section */}
-          <div className="p-4 border-t border-border">
+          <div className="p-4 border-t border-border/60">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                 <User className="w-5 h-5 text-primary" />

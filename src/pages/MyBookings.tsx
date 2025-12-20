@@ -96,9 +96,17 @@ export default function MyBookings() {
   return (
     <DashboardLayout>
       <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-foreground">Lịch đặt chỗ</h1>
-          <p className="text-muted-foreground">Quản lý các lượt đặt chỗ sạc xe</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground">Lịch đặt chỗ</h1>
+            <p className="text-foreground/60">Quản lý các lượt đặt chỗ sạc xe</p>
+          </div>
+          <Button variant="hero" asChild>
+            <a href="/explore">
+              <Calendar className="w-4 h-4" />
+              Đặt chỗ mới
+            </a>
+          </Button>
         </div>
 
         {/* Tabs */}

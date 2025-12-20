@@ -96,9 +96,9 @@ export function StationCard({ station, aiScore, aiReasons, className }: StationC
       {aiReasons && aiReasons.length > 0 && (
         <div className="p-2 bg-primary/5 rounded-lg mb-3 space-y-1">
           {aiReasons.slice(0, 2).map((reason, i) => (
-            <div key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
+            <div key={i} className="flex items-center gap-2 text-xs">
               <span className="text-primary">•</span>
-              <span>{reason.text}</span>
+              <span className="text-muted-foreground">{reason.text}</span>
               {reason.value && <span className="text-foreground font-medium">{reason.value}</span>}
             </div>
           ))}
@@ -106,7 +106,7 @@ export function StationCard({ station, aiScore, aiReasons, className }: StationC
       )}
 
       {/* Footer */}
-      <div className="flex items-center justify-between pt-3 border-t border-border/50">
+      <div className="flex items-center justify-between pt-3 border-t border-border/40">
         <div>
           <span className="text-lg font-bold text-primary">
             {station.min_price?.toLocaleString() || '-'}đ

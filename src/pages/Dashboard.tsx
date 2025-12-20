@@ -60,7 +60,7 @@ export default function Dashboard() {
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-foreground">{stat.value}</p>
-                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+                  <p className="text-xs text-foreground/60">{stat.label}</p>
                 </div>
               </div>
               {stat.change && (
@@ -120,21 +120,21 @@ export default function Dashboard() {
           <Link to="/explore" className="card-premium p-6 group">
             <MapPin className="w-8 h-8 text-primary mb-3" />
             <h3 className="font-semibold text-foreground mb-1">Tìm trạm sạc</h3>
-            <p className="text-sm text-muted-foreground">Khám phá trạm sạc gần bạn</p>
+            <p className="text-sm text-foreground/70">Khám phá trạm sạc gần bạn</p>
             <ArrowRight className="w-5 h-5 text-primary mt-3 group-hover:translate-x-1 transition-transform" />
           </Link>
           
           <Link to="/dashboard/vehicle" className="card-premium p-6 group">
             <Zap className="w-8 h-8 text-primary mb-3" />
             <h3 className="font-semibold text-foreground mb-1">Cập nhật xe</h3>
-            <p className="text-sm text-muted-foreground">Thêm hoặc chỉnh sửa thông tin xe</p>
+            <p className="text-sm text-foreground/70">Thêm hoặc chỉnh sửa thông tin xe</p>
             <ArrowRight className="w-5 h-5 text-primary mt-3 group-hover:translate-x-1 transition-transform" />
           </Link>
           
           <Link to="/pricing" className="card-premium p-6 group">
             <Sparkles className="w-8 h-8 text-primary mb-3" />
             <h3 className="font-semibold text-foreground mb-1">Nâng cấp gói</h3>
-            <p className="text-sm text-muted-foreground">Mở khóa thêm tính năng AI</p>
+            <p className="text-sm text-foreground/70">Mở khóa thêm tính năng AI</p>
             <ArrowRight className="w-5 h-5 text-primary mt-3 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
