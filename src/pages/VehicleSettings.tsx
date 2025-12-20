@@ -94,6 +94,36 @@ export default function VehicleSettings() {
     }
   };
 
+  // Disconnect vehicle - clear data
+  const handleDisconnect = async () => {
+    try {
+      await updateVehicle({
+        name: '',
+        battery_kwh: 0,
+        soc_current: 0,
+        consumption_kwh_per_100km: 0,
+        preferred_connector: 'CCS2',
+      });
+      setVehicle({
+        name: '',
+        battery_kwh: 60,
+        soc_current: 50,
+        consumption_kwh_per_100km: 16,
+        preferred_connector: 'CCS2',
+      });
+      toast({
+        title: 'Đã ngắt kết nối',
+        description: 'Thông tin xe đã được xóa',
+      });
+    } catch {
+      toast({
+        title: 'Lỗi',
+        description: 'Không thể ngắt kết nối xe',
+        variant: 'destructive',
+      });
+    }
+  };
+
   // Simulate connecting to vehicle
   const handleConnect = async () => {
     setConnecting(true);
@@ -258,10 +288,15 @@ export default function VehicleSettings() {
                 )}
               </div>
               {!editing && (
-                <Button variant="outline" size="sm" onClick={() => setShowConnectModal(true)}>
-                  <Usb className="w-4 h-4 mr-1" />
-                  Đồng bộ
-                </Button>
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" onClick={() => setShowConnectModal(true)}>
+                    <Usb className="w-4 h-4 mr-1" />
+                    Đồng bộ
+                  </Button>
+                  <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive" onClick={handleDisconnect}>
+                    <X className="w-4 h-4" />
+                  </Button>
+                </div>
               )}
             </div>
 

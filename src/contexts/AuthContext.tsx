@@ -249,6 +249,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const updateVehicle = async (vehicleData: Partial<Vehicle>) => {
     if (!user || !firebaseUser || !db) return;
 
+    // If name is empty, clear the vehicle
+    if (vehicleData.name === '') {
+      const userRef = doc(db, 'users', firebaseUser.uid);
+      await setDoc(userRef, { vehicle: null }, { merge: true });
+      setUser({ ...user, vehicle: null });
+      return;
+    }
+
     const updatedVehicle = user.vehicle
       ? { ...user.vehicle, ...vehicleData, updated_at: new Date().toISOString() }
       : {
