@@ -9,6 +9,8 @@ export interface StationWithDetails extends Station {
   min_price: number;
   max_power: number;
   available_chargers: number;
+  image_url?: string;
+  reviews?: any[];
 }
 
 export function useStations() {

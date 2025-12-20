@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Header } from '@/components/layout/Header';
@@ -7,8 +7,9 @@ import { PredictionChip } from '@/components/ui/prediction-chip';
 import { AIScoreBadge } from '@/components/ui/ai-score-badge';
 import { Button } from '@/components/ui/button';
 import { StationDetailSkeleton } from '@/components/ui/skeleton';
-import { enrichedStations, mockReviews } from '@/data/mockStations';
-import { CONNECTOR_LABELS, AMENITIES } from '@/lib/constants';
+import { useStation } from '@/hooks/useStations';
+import { useFavorites } from '@/hooks/useFavorites';
+import { CONNECTOR_LABELS } from '@/lib/constants';
 import { getSimplePrediction } from '@/ai/prediction';
 import { Charger, ChargerStatus } from '@/types';
 import { 
@@ -35,10 +36,11 @@ import {
 import { cn } from '@/lib/utils';
 
 const amenityIcons: Record<string, React.ElementType> = {
-  'Nhà vệ sinh': User,
-  'Quán cà phê': Coffee,
-  'WiFi miễn phí': Wifi,
-  'Bãi đỗ có mái che': Car,
+  'toilet': User,
+  'cafe': Coffee,
+  'wifi': Wifi,
+  'parking': Car,
+  'shopping': Car,
 };
 
 const chargerStatusConfig: Record<ChargerStatus, { icon: React.ElementType; label: string; className: string }> = {
@@ -49,18 +51,11 @@ const chargerStatusConfig: Record<ChargerStatus, { icon: React.ElementType; labe
 
 export default function StationDetail() {
   const { id } = useParams<{ id: string }>();
+  const { station, loading } = useStation(id || '');
+  const { isFavorite, toggleFavorite } = useFavorites();
   const [selectedCharger, setSelectedCharger] = useState<Charger | null>(null);
-  const [isFavorite, setIsFavorite] = useState(false);
 
-  const station = useMemo(() => {
-    return enrichedStations.find((s) => s.id === id);
-  }, [id]);
-
-  const reviews = useMemo(() => {
-    return mockReviews.filter((r) => r.station_id === id).slice(0, 5);
-  }, [id]);
-
-  if (!station) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-background">
         <Header />
@@ -71,8 +66,29 @@ export default function StationDetail() {
     );
   }
 
+  if (!station) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main className="pt-20 container mx-auto px-4 text-center py-12">
+          <Zap className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+          <h1 className="text-2xl font-bold mb-2">Không tìm thấy trạm sạc</h1>
+          <p className="text-muted-foreground mb-4">Trạm sạc này không tồn tại hoặc đã bị xóa</p>
+          <Button asChild>
+            <Link to="/explore">Quay lại khám phá</Link>
+          </Button>
+        </main>
+      </div>
+    );
+  }
+
   const prediction = getSimplePrediction(station);
   const availableChargers = station.chargers?.filter((c) => c.status === 'available') || [];
+  const stationFavorite = isFavorite(station.id);
+
+  const handleToggleFavorite = () => {
+    toggleFavorite(station.id);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -80,7 +96,6 @@ export default function StationDetail() {
 
       <main className="pt-20 pb-24">
         <div className="container mx-auto px-4">
-          {/* Back button */}
           <Button variant="ghost" size="sm" className="mb-4" asChild>
             <Link to="/explore">
               <ChevronLeft className="w-4 h-4" />
@@ -89,7 +104,6 @@ export default function StationDetail() {
           </Button>
 
           <div className="grid lg:grid-cols-3 gap-6">
-            {/* Main Content */}
             <div className="lg:col-span-2 space-y-6">
               {/* Hero Image */}
               <motion.div 
@@ -97,11 +111,14 @@ export default function StationDetail() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Zap className="w-20 h-20 text-primary/30" />
-                </div>
+                {station.image_url ? (
+                  <img src={station.image_url} alt={station.name} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Zap className="w-20 h-20 text-primary/30" />
+                  </div>
+                )}
                 
-                {/* Badges */}
                 <div className="absolute top-4 left-4 flex gap-2">
                   {station.hours_json?.is_24h && (
                     <span className="px-2.5 py-1 bg-success/90 text-success-foreground rounded-full text-sm font-medium">
@@ -111,13 +128,12 @@ export default function StationDetail() {
                   <PredictionChip level={prediction.level} />
                 </div>
 
-                {/* Actions */}
                 <div className="absolute top-4 right-4 flex gap-2">
                   <button 
-                    onClick={() => setIsFavorite(!isFavorite)}
+                    onClick={handleToggleFavorite}
                     className="p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors"
                   >
-                    <Heart className={cn('w-5 h-5', isFavorite && 'fill-destructive text-destructive')} />
+                    <Heart className={cn('w-5 h-5', stationFavorite && 'fill-destructive text-destructive')} />
                   </button>
                   <button className="p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors">
                     <Share2 className="w-5 h-5" />
@@ -134,11 +150,9 @@ export default function StationDetail() {
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <div>
                     <h1 className="text-2xl md:text-3xl font-bold mb-2">{station.name}</h1>
-                    <div className="flex items-center gap-4 text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        <span className="text-sm">{station.address}</span>
-                      </div>
+                    <div className="flex items-center gap-1 text-muted-foreground">
+                      <MapPin className="w-4 h-4" />
+                      <span className="text-sm">{station.address}</span>
                     </div>
                   </div>
                   <AIScoreBadge score={85} size="lg" />
@@ -179,11 +193,9 @@ export default function StationDetail() {
                       }
                     </span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <span className="px-2 py-0.5 bg-secondary rounded-full">
-                      {station.provider}
-                    </span>
-                  </div>
+                  <span className="px-2 py-0.5 bg-secondary rounded-full text-sm">
+                    {station.provider}
+                  </span>
                 </div>
 
                 {/* Amenities */}
@@ -196,7 +208,7 @@ export default function StationDetail() {
                         return (
                           <div 
                             key={amenity}
-                            className="flex items-center gap-1.5 px-3 py-1.5 bg-secondary rounded-lg text-sm"
+                            className="flex items-center gap-1.5 px-3 py-1.5 bg-secondary rounded-lg text-sm capitalize"
                           >
                             <Icon className="w-4 h-4 text-primary" />
                             {amenity}
@@ -261,56 +273,56 @@ export default function StationDetail() {
               </motion.div>
 
               {/* Reviews */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                <h3 className="font-semibold mb-4">Đánh giá gần đây</h3>
-                <div className="space-y-4">
-                  {reviews.map((review) => (
-                    <div key={review.id} className="card-premium p-4">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                          <User className="w-4 h-4 text-primary" />
+              {(station as any).reviews && (station as any).reviews.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <h3 className="font-semibold mb-4">Đánh giá gần đây</h3>
+                  <div className="space-y-4">
+                    {(station as any).reviews.slice(0, 5).map((review: any) => (
+                      <div key={review.id} className="card-premium p-4">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                            <User className="w-4 h-4 text-primary" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm font-medium">{review.profiles?.full_name || 'Người dùng'}</p>
+                            <p className="text-xs text-muted-foreground">
+                              {new Date(review.created_at).toLocaleDateString('vi-VN')}
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            {Array.from({ length: 5 }).map((_, i) => (
+                              <Star 
+                                key={i}
+                                className={cn(
+                                  'w-4 h-4',
+                                  i < review.rating ? 'text-amber-500 fill-amber-500' : 'text-muted'
+                                )}
+                              />
+                            ))}
+                          </div>
                         </div>
-                        <div className="flex-1">
-                          <p className="text-sm font-medium">Người dùng</p>
-                          <p className="text-xs text-muted-foreground">
-                            {new Date(review.created_at).toLocaleDateString('vi-VN')}
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          {Array.from({ length: 5 }).map((_, i) => (
-                            <Star 
-                              key={i}
-                              className={cn(
-                                'w-4 h-4',
-                                i < review.rating ? 'text-amber-500 fill-amber-500' : 'text-muted'
-                              )}
-                            />
-                          ))}
-                        </div>
+                        {review.comment && (
+                          <p className="text-sm text-muted-foreground">{review.comment}</p>
+                        )}
                       </div>
-                      {review.comment && (
-                        <p className="text-sm text-muted-foreground">{review.comment}</p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
             </div>
 
             {/* Sidebar */}
             <div className="space-y-6">
-              {/* AI Insights */}
               <InsightsPanel 
                 station={station} 
                 planLevel={1}
                 onUpgrade={() => {}}
               />
 
-              {/* Booking Panel */}
               <motion.div 
                 className="card-premium p-6 sticky top-24"
                 initial={{ opacity: 0, x: 20 }}
@@ -347,7 +359,6 @@ export default function StationDetail() {
                   </p>
                 </div>
 
-                {/* Quick Actions */}
                 <div className="flex gap-2 mt-4 pt-4 border-t border-border/40">
                   <Button variant="outline" size="sm" className="flex-1">
                     <Navigation className="w-4 h-4" />

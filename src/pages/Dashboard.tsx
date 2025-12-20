@@ -2,6 +2,9 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/contexts/AuthContext';
+import { useBookings } from '@/hooks/useBookings';
+import { useFavorites } from '@/hooks/useFavorites';
 import { 
   Zap,
   MapPin,
@@ -11,29 +14,63 @@ import {
   ArrowRight,
   Sparkles,
   Clock,
+  Loader2,
 } from 'lucide-react';
 
-// Mock data
-const recentBookings = [
-  { id: '1', station: 'VinFast Hà Nội 1', time: '14:00 - 15:00', date: 'Hôm nay', status: 'confirmed' },
-  { id: '2', station: 'EVN Cầu Giấy', time: '10:00 - 11:00', date: 'Ngày mai', status: 'held' },
-];
-
-const stats = [
-  { label: 'Lượt sạc tháng này', value: '12', icon: Zap, change: '+3' },
-  { label: 'Trạm yêu thích', value: '5', icon: Heart },
-  { label: 'AI gợi ý còn lại', value: '180/200', icon: Sparkles },
-  { label: 'Booking còn lại', value: '18/20', icon: Calendar },
-];
-
 export default function Dashboard() {
+  const { user } = useAuth();
+  const { bookings, loading: bookingsLoading } = useBookings();
+  const { favorites, loading: favoritesLoading } = useFavorites();
+
+  // Filter upcoming bookings
+  const upcomingBookings = bookings
+    .filter(b => b.status === 'confirmed' || b.status === 'held')
+    .filter(b => new Date(b.start_time) >= new Date())
+    .slice(0, 3);
+
+  // Calculate stats
+  const thisMonthBookings = bookings.filter(b => {
+    const bookingDate = new Date(b.created_at);
+    const now = new Date();
+    return bookingDate.getMonth() === now.getMonth() && 
+           bookingDate.getFullYear() === now.getFullYear();
+  }).length;
+
+  const stats = [
+    { label: 'Lượt sạc tháng này', value: thisMonthBookings.toString(), icon: Zap, change: null },
+    { label: 'Trạm yêu thích', value: favorites.length.toString(), icon: Heart, change: null },
+    { label: 'AI gợi ý còn lại', value: '180/200', icon: Sparkles, change: null },
+    { label: 'Booking còn lại', value: `${20 - bookings.filter(b => b.status === 'confirmed').length}/20`, icon: Calendar, change: null },
+  ];
+
+  const formatBookingTime = (startTime: string, endTime: string) => {
+    const start = new Date(startTime);
+    const end = new Date(endTime);
+    return `${start.getHours().toString().padStart(2, '0')}:${start.getMinutes().toString().padStart(2, '0')} - ${end.getHours().toString().padStart(2, '0')}:${end.getMinutes().toString().padStart(2, '0')}`;
+  };
+
+  const formatBookingDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    if (date.toDateString() === today.toDateString()) return 'Hôm nay';
+    if (date.toDateString() === tomorrow.toDateString()) return 'Ngày mai';
+    return date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' });
+  };
+
+  const loading = bookingsLoading || favoritesLoading;
+
   return (
     <DashboardLayout>
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold text-foreground">Xin chào, Nguyễn Văn A</h1>
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+              Xin chào, {user?.profile?.full_name || 'Bạn'}
+            </h1>
             <p className="text-muted-foreground">Quản lý hoạt động sạc xe của bạn</p>
           </div>
           <Button variant="hero" asChild>
@@ -59,7 +96,11 @@ export default function Dashboard() {
                   <stat.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                  {loading ? (
+                    <Loader2 className="w-5 h-5 animate-spin text-muted-foreground" />
+                  ) : (
+                    <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                  )}
                   <p className="text-xs text-foreground/60">{stat.label}</p>
                 </div>
               </div>
@@ -85,34 +126,50 @@ export default function Dashboard() {
             </Button>
           </div>
 
-          <div className="space-y-3">
-            {recentBookings.map((booking) => (
-              <div 
-                key={booking.id}
-                className="flex items-center justify-between p-3 bg-secondary/50 rounded-xl"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground">{booking.station}</p>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Clock className="w-3.5 h-3.5" />
-                      {booking.time} • {booking.date}
+          {loading ? (
+            <div className="flex items-center justify-center py-8">
+              <Loader2 className="w-6 h-6 animate-spin text-primary" />
+            </div>
+          ) : upcomingBookings.length === 0 ? (
+            <div className="text-center py-8">
+              <Calendar className="w-12 h-12 text-muted-foreground mx-auto mb-3" />
+              <p className="text-muted-foreground">Chưa có lịch đặt chỗ nào</p>
+              <Button variant="outline" size="sm" className="mt-3" asChild>
+                <Link to="/explore">Tìm trạm sạc</Link>
+              </Button>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              {upcomingBookings.map((booking) => (
+                <div 
+                  key={booking.id}
+                  className="flex items-center justify-between p-3 bg-secondary/50 rounded-xl"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Zap className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">
+                        {booking.station?.name || 'Trạm sạc'}
+                      </p>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Clock className="w-3.5 h-3.5" />
+                        {formatBookingTime(booking.start_time, booking.end_time)} • {formatBookingDate(booking.start_time)}
+                      </div>
                     </div>
                   </div>
+                  <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+                    booking.status === 'confirmed' 
+                      ? 'bg-success/10 text-success' 
+                      : 'bg-warning/10 text-warning'
+                  }`}>
+                    {booking.status === 'confirmed' ? 'Đã xác nhận' : 'Đang giữ'}
+                  </span>
                 </div>
-                <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                  booking.status === 'confirmed' 
-                    ? 'bg-success/10 text-success' 
-                    : 'bg-warning/10 text-warning'
-                }`}>
-                  {booking.status === 'confirmed' ? 'Đã xác nhận' : 'Đang giữ'}
-                </span>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Quick Actions */}
