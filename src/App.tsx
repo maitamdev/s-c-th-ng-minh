@@ -16,6 +16,7 @@ import VehicleSettings from "./pages/VehicleSettings";
 import MyBookings from "./pages/MyBookings";
 import Favorites from "./pages/Favorites";
 import Subscription from "./pages/Subscription";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ const App = () => (
               <Route path="/dashboard/bookings" element={<MyBookings />} />
               <Route path="/dashboard/favorites" element={<Favorites />} />
               <Route path="/dashboard/subscription" element={<Subscription />} />
+              <Route path="/dashboard/settings" element={<Settings />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

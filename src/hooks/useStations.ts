@@ -1,6 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Station, Charger } from '@/types';
+
+interface ReviewData {
+  id: string;
+  station_id: string;
+  rating: number;
+  comment?: string;
+  created_at: string;
+  profiles?: {
+    full_name: string;
+    avatar_url: string;
+  };
+}
+
+interface StationData {
+  id: string;
+  chargers: Charger[];
+  hours_open?: string;
+  hours_close?: string;
+  is_24h?: boolean;
+  amenities?: string[];
+  [key: string]: unknown;
+}
 
 export interface StationWithDetails extends Station {
   chargers: Charger[];
@@ -10,7 +32,7 @@ export interface StationWithDetails extends Station {
   max_power: number;
   available_chargers: number;
   image_url?: string;
-  reviews?: any[];
+  reviews?: ReviewData[];
 }
 
 export function useStations() {
@@ -18,11 +40,7 @@ export function useStations() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchStations();
-  }, []);
-
-  const fetchStations = async () => {
+  const fetchStations = useCallback(async () => {
     if (!supabase) {
       setError('Supabase not configured');
       setLoading(false);
@@ -30,7 +48,6 @@ export function useStations() {
     }
 
     try {
-      // Fetch stations with chargers
       const { data: stationsData, error: stationsError } = await supabase
         .from('stations')
         .select(`
@@ -41,18 +58,16 @@ export function useStations() {
 
       if (stationsError) throw stationsError;
 
-      // Fetch reviews for ratings
       const { data: reviewsData } = await supabase
         .from('reviews')
         .select('station_id, rating');
 
-      // Calculate aggregates
-      const stationsWithDetails: StationWithDetails[] = (stationsData || []).map((station: any) => {
+      const stationsWithDetails: StationWithDetails[] = (stationsData || []).map((station: StationData) => {
         const chargers = station.chargers || [];
-        const stationReviews = (reviewsData || []).filter((r: any) => r.station_id === station.id);
+        const stationReviews = (reviewsData || []).filter((r: ReviewData) => r.station_id === station.id);
         
         const avgRating = stationReviews.length > 0
-          ? stationReviews.reduce((sum: number, r: any) => sum + r.rating, 0) / stationReviews.length
+          ? stationReviews.reduce((sum: number, r: ReviewData) => sum + r.rating, 0) / stationReviews.length
           : 0;
 
         return {
@@ -73,16 +88,20 @@ export function useStations() {
             ? Math.max(...chargers.map((c: Charger) => c.power_kw))
             : 0,
           available_chargers: chargers.filter((c: Charger) => c.status === 'available').length,
-        };
+        } as StationWithDetails;
       });
 
       setStations(stationsWithDetails);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchStations();
+  }, [fetchStations]);
 
   return { stations, loading, error, refetch: fetchStations };
 }
@@ -92,11 +111,7 @@ export function useStation(id: string) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (id) fetchStation();
-  }, [id]);
-
-  const fetchStation = async () => {
+  const fetchStation = useCallback(async () => {
     if (!supabase) {
       setError('Supabase not configured');
       setLoading(false);
@@ -115,7 +130,6 @@ export function useStation(id: string) {
 
       if (fetchError) throw fetchError;
 
-      // Fetch reviews
       const { data: reviews } = await supabase
         .from('reviews')
         .select('*, profiles(full_name, avatar_url)')
@@ -124,7 +138,7 @@ export function useStation(id: string) {
 
       const chargers = data.chargers || [];
       const avgRating = reviews && reviews.length > 0
-        ? reviews.reduce((sum: number, r: any) => sum + r.rating, 0) / reviews.length
+        ? reviews.reduce((sum: number, r: ReviewData) => sum + r.rating, 0) / reviews.length
         : 0;
 
       setStation({
@@ -146,13 +160,17 @@ export function useStation(id: string) {
           : 0,
         available_chargers: chargers.filter((c: Charger) => c.status === 'available').length,
         reviews,
-      });
-    } catch (err: any) {
-      setError(err.message);
+      } as StationWithDetails);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    if (id) fetchStation();
+  }, [id, fetchStation]);
 
   return { station, loading, error, refetch: fetchStation };
 }

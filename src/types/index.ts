@@ -11,6 +11,9 @@ export interface Profile {
   phone?: string | null;
   address?: string | null;
   onboarding_completed?: boolean;
+  subscription_plan?: 'free' | 'plus' | 'pro';
+  subscription_start?: string;
+  ai_calls_today?: number;
   created_at: string;
 }
 

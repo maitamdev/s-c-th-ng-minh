@@ -907,7 +907,7 @@ function BookingSuccess({
   duration, 
   totalPrice 
 }: { 
-  station: any; 
+  station: { id: string; name: string; address: string }; 
   selectedCharger: Charger | null; 
   selectedTime: Date | null; 
   duration: number; 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -36,11 +36,7 @@ export function useBookings() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (user) fetchBookings();
-  }, [user]);
-
-  const fetchBookings = async () => {
+  const fetchBookings = useCallback(async () => {
     if (!supabase || !user) {
       setLoading(false);
       return;
@@ -59,14 +55,18 @@ export function useBookings() {
 
       if (fetchError) throw fetchError;
       setBookings(data || []);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
 
-  const createBooking = async (bookingData: {
+  useEffect(() => {
+    if (user) fetchBookings();
+  }, [user, fetchBookings]);
+
+  const createBooking = useCallback(async (bookingData: {
     station_id: string;
     charger_id: string;
     start_time: string;
@@ -93,7 +93,6 @@ export function useBookings() {
 
       if (insertError) throw insertError;
       
-      // Update charger status
       await supabase
         .from('chargers')
         .update({ status: 'occupied' })
@@ -101,12 +100,12 @@ export function useBookings() {
 
       await fetchBookings();
       return { data, error: null };
-    } catch (err: any) {
-      return { data: null, error: err.message };
+    } catch (err) {
+      return { data: null, error: err instanceof Error ? err.message : 'Unknown error' };
     }
-  };
+  }, [user, fetchBookings]);
 
-  const cancelBooking = async (bookingId: string) => {
+  const cancelBooking = useCallback(async (bookingId: string) => {
     if (!supabase) return { error: 'Supabase not configured' };
 
     try {
@@ -119,7 +118,6 @@ export function useBookings() {
 
       if (updateError) throw updateError;
 
-      // Release charger
       if (booking) {
         await supabase
           .from('chargers')
@@ -129,10 +127,10 @@ export function useBookings() {
 
       await fetchBookings();
       return { error: null };
-    } catch (err: any) {
-      return { error: err.message };
+    } catch (err) {
+      return { error: err instanceof Error ? err.message : 'Unknown error' };
     }
-  };
+  }, [bookings, fetchBookings]);
 
   return { bookings, loading, error, createBooking, cancelBooking, refetch: fetchBookings };
 }

@@ -273,7 +273,7 @@ export default function StationDetail() {
               </motion.div>
 
               {/* Reviews */}
-              {(station as any).reviews && (station as any).reviews.length > 0 && (
+              {station.reviews && station.reviews.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -281,7 +281,7 @@ export default function StationDetail() {
                 >
                   <h3 className="font-semibold mb-4">Đánh giá gần đây</h3>
                   <div className="space-y-4">
-                    {(station as any).reviews.slice(0, 5).map((review: any) => (
+                    {station.reviews.slice(0, 5).map((review) => (
                       <div key={review.id} className="card-premium p-4">
                         <div className="flex items-center gap-3 mb-2">
                           <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">

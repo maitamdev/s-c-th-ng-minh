@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -23,11 +23,7 @@ export function useFavorites() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (user) fetchFavorites();
-  }, [user]);
-
-  const fetchFavorites = async () => {
+  const fetchFavorites = useCallback(async () => {
     if (!supabase || !user) {
       setLoading(false);
       return;
@@ -45,14 +41,18 @@ export function useFavorites() {
 
       if (fetchError) throw fetchError;
       setFavorites(data || []);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
 
-  const addFavorite = async (stationId: string) => {
+  useEffect(() => {
+    if (user) fetchFavorites();
+  }, [user, fetchFavorites]);
+
+  const addFavorite = useCallback(async (stationId: string) => {
     if (!supabase || !user) {
       return { error: 'Not authenticated' };
     }
@@ -68,12 +68,12 @@ export function useFavorites() {
       if (insertError) throw insertError;
       await fetchFavorites();
       return { error: null };
-    } catch (err: any) {
-      return { error: err.message };
+    } catch (err) {
+      return { error: err instanceof Error ? err.message : 'Unknown error' };
     }
-  };
+  }, [user, fetchFavorites]);
 
-  const removeFavorite = async (stationId: string) => {
+  const removeFavorite = useCallback(async (stationId: string) => {
     if (!supabase || !user) {
       return { error: 'Not authenticated' };
     }
@@ -88,22 +88,22 @@ export function useFavorites() {
       if (deleteError) throw deleteError;
       await fetchFavorites();
       return { error: null };
-    } catch (err: any) {
-      return { error: err.message };
+    } catch (err) {
+      return { error: err instanceof Error ? err.message : 'Unknown error' };
     }
-  };
+  }, [user, fetchFavorites]);
 
-  const isFavorite = (stationId: string) => {
+  const isFavorite = useCallback((stationId: string) => {
     return favorites.some(f => f.station_id === stationId);
-  };
+  }, [favorites]);
 
-  const toggleFavorite = async (stationId: string) => {
+  const toggleFavorite = useCallback(async (stationId: string) => {
     if (isFavorite(stationId)) {
       return removeFavorite(stationId);
     } else {
       return addFavorite(stationId);
     }
-  };
+  }, [isFavorite, removeFavorite, addFavorite]);
 
   return { 
     favorites, 
