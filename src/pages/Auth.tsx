@@ -7,7 +7,6 @@ import { Label } from '@/components/ui/label';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { 
-  Zap, 
   Mail, 
   Lock, 
   User,
@@ -115,8 +114,8 @@ export default function Auth() {
         >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center shadow-lg shadow-primary/30">
-              <Zap className="w-5 h-5 text-primary-foreground" fill="currentColor" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-primary/30">
+              <img src="/logo.png" alt="SCS GO" className="w-full h-full object-cover" />
             </div>
             <span className="text-xl font-bold gradient-text">SCS GO</span>
           </Link>
@@ -280,8 +279,8 @@ export default function Auth() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/30">
-            <Zap className="w-10 h-10 text-primary-foreground" fill="currentColor" />
+          <div className="w-20 h-20 rounded-2xl overflow-hidden mx-auto mb-6 shadow-lg shadow-primary/30">
+            <img src="/logo.png" alt="SCS GO" className="w-full h-full object-cover" />
           </div>
           <h2 className="text-3xl font-bold mb-4">
             Sạc xe thông minh với <span className="gradient-text">SCS GO</span>

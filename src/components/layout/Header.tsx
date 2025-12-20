@@ -2,12 +2,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { 
-  Zap, 
   Menu, 
   X,
   MapPin,
   LogIn,
-  ChevronDown,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -46,11 +44,11 @@ export function Header() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group">
           <motion.div 
-            className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center shadow-lg shadow-primary/25"
-            whileHover={{ scale: 1.05, rotate: 5 }}
+            className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-primary/25"
+            whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <Zap className="w-5 h-5 text-primary-foreground" fill="currentColor" />
+            <img src="/logo.png" alt="SCS GO" className="w-full h-full object-cover" />
           </motion.div>
           <span className="text-xl font-bold gradient-text">SCS GO</span>
         </Link>
