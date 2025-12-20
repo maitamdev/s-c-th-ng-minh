@@ -9,7 +9,7 @@ import {
   updateProfile as firebaseUpdateProfile,
 } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { auth, db, googleProvider } from '@/lib/firebase';
+import { auth, db, googleProvider, isFirebaseConfigured } from '@/lib/firebase';
 import { Profile, Vehicle } from '@/types';
 
 interface User {
@@ -39,8 +39,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   // Fetch user data from Firestore
-  const fetchUserData = async (firebaseUser: FirebaseUser): Promise<User> => {
-    const userRef = doc(db, 'users', firebaseUser.uid);
+  const fetchUserData = async (fbUser: FirebaseUser): Promise<User> => {
+    if (!db) {
+      return {
+        id: fbUser.uid,
+        email: fbUser.email || '',
+        profile: {
+          id: fbUser.uid,
+          role: 'user',
+          full_name: fbUser.displayName || 'User',
+          avatar_url: fbUser.photoURL || null,
+          created_at: new Date().toISOString(),
+        },
+        vehicle: null,
+      };
+    }
+
+    const userRef = doc(db, 'users', fbUser.uid);
     const userSnap = await getDoc(userRef);
 
     let profile: Profile | null = null;
@@ -51,12 +66,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       profile = data.profile || null;
       vehicle = data.vehicle || null;
     } else {
-      // Create new user document
       profile = {
-        id: firebaseUser.uid,
+        id: fbUser.uid,
         role: 'user',
-        full_name: firebaseUser.displayName || firebaseUser.email?.split('@')[0] || 'User',
-        avatar_url: firebaseUser.photoURL || null,
+        full_name: fbUser.displayName || fbUser.email?.split('@')[0] || 'User',
+        avatar_url: fbUser.photoURL || null,
         created_at: new Date().toISOString(),
       };
       
@@ -68,32 +82,36 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     return {
-      id: firebaseUser.uid,
-      email: firebaseUser.email || '',
+      id: fbUser.uid,
+      email: fbUser.email || '',
       profile,
       vehicle,
     };
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      setFirebaseUser(firebaseUser);
+    if (!auth) {
+      setLoading(false);
+      return;
+    }
+
+    const unsubscribe = onAuthStateChanged(auth, async (fbUser) => {
+      setFirebaseUser(fbUser);
       
-      if (firebaseUser) {
+      if (fbUser) {
         try {
-          const userData = await fetchUserData(firebaseUser);
+          const userData = await fetchUserData(fbUser);
           setUser(userData);
         } catch (error) {
           console.error('Error fetching user data:', error);
-          // Fallback to basic user info
           setUser({
-            id: firebaseUser.uid,
-            email: firebaseUser.email || '',
+            id: fbUser.uid,
+            email: fbUser.email || '',
             profile: {
-              id: firebaseUser.uid,
+              id: fbUser.uid,
               role: 'user',
-              full_name: firebaseUser.displayName || 'User',
-              avatar_url: firebaseUser.photoURL || null,
+              full_name: fbUser.displayName || 'User',
+              avatar_url: fbUser.photoURL || null,
               created_at: new Date().toISOString(),
             },
             vehicle: null,
@@ -110,6 +128,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = async (email: string, password: string): Promise<{ error: string | null }> => {
+    if (!auth) {
+      return { error: 'Firebase chưa được cấu hình' };
+    }
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
       return { error: null };
@@ -140,25 +162,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signUp = async (email: string, password: string, name: string): Promise<{ error: string | null }> => {
+    if (!auth) {
+      return { error: 'Firebase chưa được cấu hình' };
+    }
+
     try {
       const { user: newUser } = await createUserWithEmailAndPassword(auth, email, password);
       
-      // Update display name
       await firebaseUpdateProfile(newUser, { displayName: name });
       
-      // Create user document in Firestore
-      const userRef = doc(db, 'users', newUser.uid);
-      await setDoc(userRef, {
-        profile: {
-          id: newUser.uid,
-          role: 'user',
-          full_name: name,
-          avatar_url: null,
-          created_at: new Date().toISOString(),
-        },
-        vehicle: null,
-        createdAt: new Date().toISOString(),
-      });
+      if (db) {
+        const userRef = doc(db, 'users', newUser.uid);
+        await setDoc(userRef, {
+          profile: {
+            id: newUser.uid,
+            role: 'user',
+            full_name: name,
+            avatar_url: null,
+            created_at: new Date().toISOString(),
+          },
+          vehicle: null,
+          createdAt: new Date().toISOString(),
+        });
+      }
       
       return { error: null };
     } catch (error: unknown) {
@@ -182,6 +208,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signInWithGoogle = async (): Promise<{ error: string | null }> => {
+    if (!auth) {
+      return { error: 'Firebase chưa được cấu hình' };
+    }
+
     try {
       await signInWithPopup(auth, googleProvider);
       return { error: null };
@@ -198,26 +228,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signOut = async () => {
-    await firebaseSignOut(auth);
+    if (auth) {
+      await firebaseSignOut(auth);
+    }
     setUser(null);
     setFirebaseUser(null);
   };
 
   const updateProfile = async (profileData: Partial<Profile>) => {
-    if (!user || !firebaseUser) return;
+    if (!user || !firebaseUser || !db) return;
 
     const updatedProfile = { ...user.profile, ...profileData };
     
-    // Update Firestore
     const userRef = doc(db, 'users', firebaseUser.uid);
     await setDoc(userRef, { profile: updatedProfile }, { merge: true });
     
-    // Update local state
     setUser({ ...user, profile: updatedProfile as Profile });
   };
 
   const updateVehicle = async (vehicleData: Partial<Vehicle>) => {
-    if (!user || !firebaseUser) return;
+    if (!user || !firebaseUser || !db) return;
 
     const updatedVehicle = user.vehicle
       ? { ...user.vehicle, ...vehicleData, updated_at: new Date().toISOString() }
@@ -233,11 +263,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           ...vehicleData,
         };
 
-    // Update Firestore
     const userRef = doc(db, 'users', firebaseUser.uid);
     await setDoc(userRef, { vehicle: updatedVehicle }, { merge: true });
     
-    // Update local state
     setUser({ ...user, vehicle: updatedVehicle as Vehicle });
   };
 

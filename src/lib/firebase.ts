@@ -11,8 +11,16 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+// Check if Firebase config is valid
+const isConfigValid = firebaseConfig.apiKey && firebaseConfig.projectId;
 
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+if (!isConfigValid) {
+  console.warn('Firebase config is missing. Authentication will not work.');
+}
+
+const app = isConfigValid ? initializeApp(firebaseConfig) : null;
+
+export const auth = app ? getAuth(app) : null;
+export const db = app ? getFirestore(app) : null;
 export const googleProvider = new GoogleAuthProvider();
+export const isFirebaseConfigured = isConfigValid;
