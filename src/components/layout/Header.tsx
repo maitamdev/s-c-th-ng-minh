@@ -2,12 +2,14 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { TranslationKey } from '@/lib/translations';
 import { 
   Menu, 
   X,
   MapPin,
   LogIn,
+  LayoutDashboard,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -23,6 +25,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { t } = useLanguage();
+  const { user } = useAuth();
 
   const isHomePage = location.pathname === '/';
 
@@ -81,12 +84,21 @@ export function Header() {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm" asChild>
-            <Link to="/auth">
-              <LogIn className="w-4 h-4" />
-              {t('auth.login')}
-            </Link>
-          </Button>
+          {user ? (
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/dashboard">
+                <LayoutDashboard className="w-4 h-4" />
+                {t('nav.dashboard')}
+              </Link>
+            </Button>
+          ) : (
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/auth">
+                <LogIn className="w-4 h-4" />
+                {t('auth.login')}
+              </Link>
+            </Button>
+          )}
           <Button variant="hero" size="sm" asChild>
             <Link to="/explore">
               <MapPin className="w-4 h-4" />
@@ -136,12 +148,21 @@ export function Header() {
               );
             })}
             <div className="pt-4 border-t border-border/40 space-y-3">
-              <Button variant="outline" className="w-full" asChild>
-                <Link to="/auth" onClick={() => setMobileMenuOpen(false)}>
-                  <LogIn className="w-4 h-4" />
-                  {t('auth.login')}
-                </Link>
-              </Button>
+              {user ? (
+                <Button variant="outline" className="w-full" asChild>
+                  <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)}>
+                    <LayoutDashboard className="w-4 h-4" />
+                    {t('nav.dashboard')}
+                  </Link>
+                </Button>
+              ) : (
+                <Button variant="outline" className="w-full" asChild>
+                  <Link to="/auth" onClick={() => setMobileMenuOpen(false)}>
+                    <LogIn className="w-4 h-4" />
+                    {t('auth.login')}
+                  </Link>
+                </Button>
+              )}
               <Button variant="hero" className="w-full" asChild>
                 <Link to="/explore" onClick={() => setMobileMenuOpen(false)}>
                   <MapPin className="w-4 h-4" />
