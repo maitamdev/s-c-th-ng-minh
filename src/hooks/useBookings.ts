@@ -43,6 +43,8 @@ export function useBookings() {
     }
 
     try {
+      const firebaseUserId = user.uid;
+      
       const { data, error: fetchError } = await supabase
         .from('bookings')
         .select(`
@@ -50,12 +52,13 @@ export function useBookings() {
           station:stations(id, name, address, provider, image_url),
           charger:chargers(id, connector_type, power_kw, charger_number)
         `)
-        .eq('user_id', user.id)
+        .eq('user_id', firebaseUserId)
         .order('start_time', { ascending: false });
 
       if (fetchError) throw fetchError;
       setBookings(data || []);
     } catch (err) {
+      console.error('Fetch bookings error:', err);
       setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {
       setLoading(false);
@@ -81,18 +84,32 @@ export function useBookings() {
     }
 
     try {
+      // Use Firebase UID as user_id (stored as text in Supabase)
+      const firebaseUserId = user.uid;
+      
       const { data, error: insertError } = await supabase
         .from('bookings')
         .insert({
-          ...bookingData,
-          user_id: user.id,
+          station_id: bookingData.station_id,
+          charger_id: bookingData.charger_id,
+          start_time: bookingData.start_time,
+          end_time: bookingData.end_time,
+          total_price: bookingData.total_price || 0,
+          services: bookingData.services || [],
+          payment_method: bookingData.payment_method || 'card',
+          notes: bookingData.notes || '',
+          user_id: firebaseUserId,
           status: 'confirmed',
         })
         .select()
         .single();
 
-      if (insertError) throw insertError;
+      if (insertError) {
+        console.error('Booking insert error:', insertError);
+        throw insertError;
+      }
       
+      // Update charger status
       await supabase
         .from('chargers')
         .update({ status: 'occupied' })
@@ -101,6 +118,7 @@ export function useBookings() {
       await fetchBookings();
       return { data, error: null };
     } catch (err) {
+      console.error('Create booking error:', err);
       return { data: null, error: err instanceof Error ? err.message : 'Unknown error' };
     }
   }, [user, fetchBookings]);
