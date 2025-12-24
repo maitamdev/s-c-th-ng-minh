@@ -7,8 +7,11 @@ import { PredictionChip } from '@/components/ui/prediction-chip';
 import { AIScoreBadge } from '@/components/ui/ai-score-badge';
 import { Button } from '@/components/ui/button';
 import { StationDetailSkeleton } from '@/components/ui/skeleton';
+import { ReviewModal } from '@/components/ReviewModal';
+import { ShareModal } from '@/components/ShareModal';
 import { useStation } from '@/hooks/useStations';
 import { useFavorites } from '@/hooks/useFavorites';
+import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { CONNECTOR_LABELS } from '@/lib/constants';
 import { getSimplePrediction } from '@/ai/prediction';
@@ -46,10 +49,13 @@ const amenityIcons: Record<string, React.ElementType> = {
 
 export default function StationDetail() {
   const { id } = useParams<{ id: string }>();
-  const { station, loading } = useStation(id || '');
+  const { station, loading, refetch } = useStation(id || '');
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { user } = useAuth();
   const { t } = useLanguage();
   const [selectedCharger, setSelectedCharger] = useState<Charger | null>(null);
+  const [showReviewModal, setShowReviewModal] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   const chargerStatusConfig: Record<ChargerStatus, { icon: React.ElementType; label: string; className: string }> = {
     available: { icon: CheckCircle2, label: t('booking.chargerAvailable'), className: 'text-success' },
@@ -137,7 +143,10 @@ export default function StationDetail() {
                   >
                     <Heart className={cn('w-5 h-5', stationFavorite && 'fill-destructive text-destructive')} />
                   </button>
-                  <button className="p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors">
+                  <button 
+                    onClick={() => setShowShareModal(true)}
+                    className="p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors"
+                  >
                     <Share2 className="w-5 h-5" />
                   </button>
                 </div>
@@ -281,7 +290,15 @@ export default function StationDetail() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <h3 className="font-semibold mb-4">{t('station.recentReviews')}</h3>
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-semibold">{t('station.recentReviews')}</h3>
+                    {user && (
+                      <Button variant="outline" size="sm" onClick={() => setShowReviewModal(true)}>
+                        <Star className="w-4 h-4" />
+                        {t('station.writeReview')}
+                      </Button>
+                    )}
+                  </div>
                   <div className="space-y-4">
                     {station.reviews.slice(0, 5).map((review) => (
                       <div key={review.id} className="card-premium p-4">
@@ -313,6 +330,25 @@ export default function StationDetail() {
                       </div>
                     ))}
                   </div>
+                </motion.div>
+              )}
+
+              {/* Write Review Button (if no reviews yet) */}
+              {(!station.reviews || station.reviews.length === 0) && user && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="card-premium p-6 text-center"
+                >
+                  <Star className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
+                  <p className="text-muted-foreground mb-4">
+                    {t('station.reviews')} - Chưa có đánh giá nào
+                  </p>
+                  <Button variant="outline" onClick={() => setShowReviewModal(true)}>
+                    <Star className="w-4 h-4" />
+                    {t('station.writeReview')}
+                  </Button>
                 </motion.div>
               )}
             </div>
@@ -376,6 +412,22 @@ export default function StationDetail() {
           </div>
         </div>
       </main>
+
+      {/* Modals */}
+      <ReviewModal
+        isOpen={showReviewModal}
+        onClose={() => setShowReviewModal(false)}
+        stationId={station.id}
+        stationName={station.name}
+        onSuccess={() => refetch()}
+      />
+      <ShareModal
+        isOpen={showShareModal}
+        onClose={() => setShowShareModal(false)}
+        stationId={station.id}
+        stationName={station.name}
+        stationAddress={station.address}
+      />
     </div>
   );
 }

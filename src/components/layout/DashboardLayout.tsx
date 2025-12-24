@@ -14,6 +14,7 @@ import {
   LogOut,
   Menu,
   X,
+  History,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { TranslationKey } from '@/lib/translations';
@@ -23,6 +24,7 @@ const sidebarLinks: { href: string; labelKey: TranslationKey; icon: typeof User 
   { href: '/dashboard/vehicle', labelKey: 'nav.vehicle', icon: Car },
   { href: '/dashboard/favorites', labelKey: 'nav.favorites', icon: Heart },
   { href: '/dashboard/bookings', labelKey: 'nav.bookings', icon: Calendar },
+  { href: '/dashboard/history', labelKey: 'nav.history', icon: History },
   { href: '/dashboard/subscription', labelKey: 'nav.subscription', icon: CreditCard },
   { href: '/dashboard/settings', labelKey: 'nav.settings', icon: Settings },
 ];

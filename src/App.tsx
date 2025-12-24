@@ -20,6 +20,7 @@ import Onboarding from "./pages/Onboarding";
 import Dashboard from "./pages/Dashboard";
 import VehicleSettings from "./pages/VehicleSettings";
 import MyBookings from "./pages/MyBookings";
+import ChargingHistory from "./pages/ChargingHistory";
 import Favorites from "./pages/Favorites";
 import Subscription from "./pages/Subscription";
 import Settings from "./pages/Settings";
@@ -59,6 +60,7 @@ const App = () => (
                       <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
                       <Route path="/dashboard/vehicle" element={<ProtectedRoute><VehicleSettings /></ProtectedRoute>} />
                       <Route path="/dashboard/bookings" element={<ProtectedRoute><MyBookings /></ProtectedRoute>} />
+                      <Route path="/dashboard/history" element={<ProtectedRoute><ChargingHistory /></ProtectedRoute>} />
                       <Route path="/dashboard/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
                       <Route path="/dashboard/subscription" element={<ProtectedRoute><Subscription /></ProtectedRoute>} />
                       <Route path="/dashboard/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
