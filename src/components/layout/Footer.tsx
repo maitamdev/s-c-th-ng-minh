@@ -1,58 +1,87 @@
 import { Link } from 'react-router-dom';
-import { Zap, Github, Twitter, Mail } from 'lucide-react';
-
-const footerLinks = {
-  product: [
-    { label: 'Tính năng', href: '#features' },
-    { label: 'Bảng giá', href: '/pricing' },
-    { label: 'Khám phá', href: '/explore' },
-    { label: 'Cho doanh nghiệp', href: '/pricing#operator' },
-  ],
-  company: [
-    { label: 'Giới thiệu', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Tuyển dụng', href: '/careers' },
-    { label: 'Liên hệ', href: '/contact' },
-  ],
-  legal: [
-    { label: 'Điều khoản sử dụng', href: '/terms' },
-    { label: 'Chính sách bảo mật', href: '/privacy' },
-    { label: 'Cookie', href: '/cookies' },
-  ],
-};
+import { useLanguage } from '@/contexts/LanguageContext';
+import { 
+  Zap, 
+  Mail, 
+  Phone, 
+  MapPin,
+  Facebook,
+  Youtube,
+  MessageCircle,
+} from 'lucide-react';
 
 export function Footer() {
+  const { language } = useLanguage();
+  const currentYear = new Date().getFullYear();
+
+  const footerLinks = {
+    product: [
+      { href: '/explore', label: language === 'vi' ? 'Tìm trạm sạc' : 'Find Stations' },
+      { href: '/pricing', label: language === 'vi' ? 'Bảng giá' : 'Pricing' },
+      { href: '/#features', label: language === 'vi' ? 'Tính năng' : 'Features' },
+      { href: '/#how-it-works', label: language === 'vi' ? 'Cách hoạt động' : 'How it works' },
+    ],
+    support: [
+      { href: '/contact', label: language === 'vi' ? 'Liên hệ' : 'Contact' },
+      { href: '/faq', label: 'FAQ' },
+      { href: '/help', label: language === 'vi' ? 'Trung tâm hỗ trợ' : 'Help Center' },
+    ],
+    legal: [
+      { href: '/terms', label: language === 'vi' ? 'Điều khoản sử dụng' : 'Terms of Service' },
+      { href: '/privacy', label: language === 'vi' ? 'Chính sách bảo mật' : 'Privacy Policy' },
+    ],
+  };
+
   return (
-    <footer className="border-t border-border/40 bg-card/30">
+    <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center">
-                <Zap className="w-5 h-5 text-primary-foreground" fill="currentColor" />
+              <div className="w-10 h-10 rounded-xl overflow-hidden">
+                <img src="/logo.png" alt="SCS GO" className="w-full h-full object-cover" />
               </div>
               <span className="text-xl font-bold gradient-text">SCS GO</span>
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
-              Nền tảng tìm và đặt trạm sạc xe điện thông minh hàng đầu Việt Nam.
+              {language === 'vi' 
+                ? 'Nền tảng tìm kiếm và đặt chỗ trạm sạc xe điện thông minh hàng đầu Việt Nam.'
+                : 'Vietnam\'s leading smart EV charging station search and booking platform.'}
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="w-5 h-5" />
+            <div className="flex gap-3">
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+              >
+                <Facebook className="w-4 h-4" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Github className="w-5 h-5" />
+              <a 
+                href="https://youtube.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+              >
+                <Youtube className="w-4 h-4" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Mail className="w-5 h-5" />
+              <a 
+                href="https://zalo.me" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Links */}
+          {/* Product */}
           <div>
-            <h4 className="font-semibold mb-4">Sản phẩm</h4>
+            <h4 className="font-semibold text-foreground mb-4">
+              {language === 'vi' ? 'Sản phẩm' : 'Product'}
+            </h4>
             <ul className="space-y-2">
               {footerLinks.product.map((link) => (
                 <li key={link.href}>
@@ -67,10 +96,13 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Support */}
           <div>
-            <h4 className="font-semibold mb-4">Công ty</h4>
+            <h4 className="font-semibold text-foreground mb-4">
+              {language === 'vi' ? 'Hỗ trợ' : 'Support'}
+            </h4>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
+              {footerLinks.support.map((link) => (
                 <li key={link.href}>
                   <Link 
                     to={link.href}
@@ -83,31 +115,44 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4">Pháp lý</h4>
-            <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
-                <li key={link.href}>
-                  <Link 
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="font-semibold text-foreground mb-4">
+              {language === 'vi' ? 'Liên hệ' : 'Contact'}
+            </h4>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span>Tầng 10, Tòa nhà ABC, 123 Nguyễn Huệ, Q.1, TP.HCM</span>
+              </li>
+              <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                <a href="tel:1900xxxx" className="hover:text-primary">1900 xxxx</a>
+              </li>
+              <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <a href="mailto:support@scsgo.vn" className="hover:text-primary">support@scsgo.vn</a>
+              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-border/40 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            2024 SCS GO. Bản quyền thuộc về SCS GO.
+            © {currentYear} SCS GO. {language === 'vi' ? 'Bảo lưu mọi quyền.' : 'All rights reserved.'}
           </p>
-          <p className="text-sm text-muted-foreground">
-            Được xây dựng với tâm huyết tại Việt Nam
-          </p>
+          <div className="flex items-center gap-4">
+            {footerLinks.legal.map((link) => (
+              <Link 
+                key={link.href}
+                to={link.href}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

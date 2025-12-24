@@ -16,6 +16,11 @@ import StationDetail from "./pages/StationDetail";
 import BookingPage from "./pages/BookingPage";
 import Pricing from "./pages/Pricing";
 import Auth from "./pages/Auth";
+import ForgotPassword from "./pages/ForgotPassword";
+import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 import Onboarding from "./pages/Onboarding";
 import Dashboard from "./pages/Dashboard";
 import VehicleSettings from "./pages/VehicleSettings";
@@ -53,6 +58,12 @@ const App = () => (
                       <Route path="/station/:id" element={<StationDetail />} />
                       <Route path="/pricing" element={<Pricing />} />
                       <Route path="/auth" element={<Auth />} />
+                      <Route path="/forgot-password" element={<ForgotPassword />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/faq" element={<FAQ />} />
+                      <Route path="/help" element={<FAQ />} />
+                      <Route path="/terms" element={<Terms />} />
+                      <Route path="/privacy" element={<Privacy />} />
                       
                       {/* Protected routes - require login */}
                       <Route path="/booking/:id" element={<ProtectedRoute><BookingPage /></ProtectedRoute>} />
