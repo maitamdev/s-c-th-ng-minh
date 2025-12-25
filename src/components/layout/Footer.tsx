@@ -38,8 +38,8 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl overflow-hidden">
+            <Link to="/" className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl overflow-hidden">
                 <img src="/logo.jpg" alt="SCS GO" className="w-full h-full object-cover" />
               </div>
               <span className="text-xl font-bold gradient-text">SCS GO</span>

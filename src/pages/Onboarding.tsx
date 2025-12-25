@@ -85,8 +85,8 @@ export default function Onboarding() {
         animate={{ opacity: 1, y: 0 }}
       >
         {/* Logo */}
-        <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg">
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="w-14 h-14 rounded-xl overflow-hidden shadow-lg">
             <img src="/logo.jpg" alt="SCS GO" className="w-full h-full object-cover" />
           </div>
           <span className="text-2xl font-bold gradient-text">SCS GO</span>

@@ -61,15 +61,15 @@ export function Header() {
     >
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 group">
+        <Link to="/" className="flex items-center gap-3 group">
           <motion.div 
-            className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-primary/25"
+            className="w-12 h-12 rounded-xl overflow-hidden shadow-lg shadow-primary/25"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
             <img src="/logo.jpg" alt="SCS GO" className="w-full h-full object-cover" />
           </motion.div>
-          <span className="text-xl font-bold gradient-text">SCS GO</span>
+          <span className="text-2xl font-bold gradient-text">SCS GO</span>
         </Link>
 
         {/* Desktop Navigation - Center */}

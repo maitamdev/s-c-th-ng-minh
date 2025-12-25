@@ -49,11 +49,11 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
     <div className="min-h-screen bg-background">
       {/* Mobile header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-card/95 backdrop-blur-xl border-b border-border/60 z-40 flex items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg overflow-hidden">
+        <Link to="/" className="flex items-center gap-2.5">
+          <div className="w-10 h-10 rounded-xl overflow-hidden">
             <img src="/logo.jpg" alt="SCS GO" className="w-full h-full object-cover" />
           </div>
-          <span className="font-bold gradient-text">SCS GO</span>
+          <span className="text-lg font-bold gradient-text">SCS GO</span>
         </Link>
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -71,9 +71,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       )}>
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="h-16 flex items-center gap-2 px-4 border-b border-border/60">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl overflow-hidden">
+          <div className="h-16 flex items-center gap-3 px-4 border-b border-border/60">
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl overflow-hidden">
                 <img src="/logo.jpg" alt="SCS GO" className="w-full h-full object-cover" />
               </div>
               <span className="text-xl font-bold gradient-text">SCS GO</span>
