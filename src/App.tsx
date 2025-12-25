@@ -31,6 +31,14 @@ import Subscription from "./pages/Subscription";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
+// Operator pages
+import OperatorDashboard from "./pages/operator/OperatorDashboard";
+import OperatorStations from "./pages/operator/OperatorStations";
+import StationForm from "./pages/operator/StationForm";
+import OperatorBookings from "./pages/operator/OperatorBookings";
+import OperatorAnalytics from "./pages/operator/OperatorAnalytics";
+import OperatorRevenue from "./pages/operator/OperatorRevenue";
+
 const queryClient = new QueryClient();
 
 // Analytics wrapper component
@@ -75,6 +83,16 @@ const App = () => (
                       <Route path="/dashboard/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
                       <Route path="/dashboard/subscription" element={<ProtectedRoute><Subscription /></ProtectedRoute>} />
                       <Route path="/dashboard/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+                      
+                      {/* Operator routes - require login */}
+                      <Route path="/operator" element={<ProtectedRoute><OperatorDashboard /></ProtectedRoute>} />
+                      <Route path="/operator/stations" element={<ProtectedRoute><OperatorStations /></ProtectedRoute>} />
+                      <Route path="/operator/stations/new" element={<ProtectedRoute><StationForm /></ProtectedRoute>} />
+                      <Route path="/operator/stations/:id" element={<ProtectedRoute><StationForm /></ProtectedRoute>} />
+                      <Route path="/operator/stations/:id/edit" element={<ProtectedRoute><StationForm /></ProtectedRoute>} />
+                      <Route path="/operator/bookings" element={<ProtectedRoute><OperatorBookings /></ProtectedRoute>} />
+                      <Route path="/operator/analytics" element={<ProtectedRoute><OperatorAnalytics /></ProtectedRoute>} />
+                      <Route path="/operator/revenue" element={<ProtectedRoute><OperatorRevenue /></ProtectedRoute>} />
                       
                       <Route path="*" element={<NotFound />} />
                     </Routes>

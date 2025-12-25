@@ -16,7 +16,10 @@ CREATE TABLE IF NOT EXISTS profiles (
   avatar_url TEXT,
   phone TEXT,
   address TEXT,
+  business_name TEXT,
+  business_license TEXT,
   onboarding_completed BOOLEAN DEFAULT FALSE,
+  operator_verified BOOLEAN DEFAULT FALSE,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -82,7 +85,7 @@ CREATE TABLE IF NOT EXISTS bookings (
   charger_id UUID REFERENCES chargers(id) ON DELETE CASCADE NOT NULL,
   start_time TIMESTAMPTZ NOT NULL,
   end_time TIMESTAMPTZ NOT NULL,
-  status TEXT DEFAULT 'confirmed' CHECK (status IN ('held', 'confirmed', 'cancelled', 'completed')),
+  status TEXT DEFAULT 'confirmed' CHECK (status IN ('held', 'confirmed', 'cancelled', 'completed', 'expired')),
   total_price NUMERIC,
   services TEXT[] DEFAULT '{}',
   payment_method TEXT,
@@ -91,7 +94,36 @@ CREATE TABLE IF NOT EXISTS bookings (
 );
 
 -- =============================================
--- 6. REVIEWS TABLE
+-- 6. STATION_REVENUE TABLE (for operator analytics)
+-- =============================================
+CREATE TABLE IF NOT EXISTS station_revenue (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  station_id UUID REFERENCES stations(id) ON DELETE CASCADE NOT NULL,
+  date DATE NOT NULL,
+  total_bookings INTEGER DEFAULT 0,
+  total_revenue NUMERIC DEFAULT 0,
+  total_kwh NUMERIC DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(station_id, date)
+);
+
+-- =============================================
+-- 7. OPERATOR_PAYOUTS TABLE
+-- =============================================
+CREATE TABLE IF NOT EXISTS operator_payouts (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  operator_id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,
+  amount NUMERIC NOT NULL,
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'processing', 'completed', 'failed')),
+  bank_name TEXT,
+  bank_account TEXT,
+  payout_date TIMESTAMPTZ,
+  notes TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- =============================================
+-- 8. REVIEWS TABLE
 -- =============================================
 CREATE TABLE IF NOT EXISTS reviews (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
@@ -103,7 +135,7 @@ CREATE TABLE IF NOT EXISTS reviews (
 );
 
 -- =============================================
--- 7. FAVORITES TABLE
+-- 9. FAVORITES TABLE
 -- =============================================
 CREATE TABLE IF NOT EXISTS favorites (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
@@ -125,6 +157,8 @@ ALTER TABLE chargers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE bookings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE reviews ENABLE ROW LEVEL SECURITY;
 ALTER TABLE favorites ENABLE ROW LEVEL SECURITY;
+ALTER TABLE station_revenue ENABLE ROW LEVEL SECURITY;
+ALTER TABLE operator_payouts ENABLE ROW LEVEL SECURITY;
 
 -- Profiles policies
 CREATE POLICY "Users can view own profile" ON profiles FOR SELECT USING (auth.uid() = id);
@@ -148,8 +182,22 @@ CREATE POLICY "Operators can manage chargers" ON chargers FOR ALL
 
 -- Bookings policies
 CREATE POLICY "Users can view own bookings" ON bookings FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Operators can view station bookings" ON bookings FOR SELECT 
+  USING (EXISTS (SELECT 1 FROM stations WHERE stations.id = bookings.station_id AND stations.operator_id = auth.uid()));
 CREATE POLICY "Users can create bookings" ON bookings FOR INSERT WITH CHECK (auth.uid() = user_id);
 CREATE POLICY "Users can update own bookings" ON bookings FOR UPDATE USING (auth.uid() = user_id);
+CREATE POLICY "Operators can update station bookings" ON bookings FOR UPDATE 
+  USING (EXISTS (SELECT 1 FROM stations WHERE stations.id = bookings.station_id AND stations.operator_id = auth.uid()));
+
+-- Station Revenue policies
+CREATE POLICY "Operators can view own station revenue" ON station_revenue FOR SELECT 
+  USING (EXISTS (SELECT 1 FROM stations WHERE stations.id = station_revenue.station_id AND stations.operator_id = auth.uid()));
+CREATE POLICY "System can insert revenue" ON station_revenue FOR INSERT WITH CHECK (true);
+CREATE POLICY "System can update revenue" ON station_revenue FOR UPDATE USING (true);
+
+-- Operator Payouts policies
+CREATE POLICY "Operators can view own payouts" ON operator_payouts FOR SELECT USING (auth.uid() = operator_id);
+CREATE POLICY "Operators can request payouts" ON operator_payouts FOR INSERT WITH CHECK (auth.uid() = operator_id);
 
 -- Reviews policies
 CREATE POLICY "Anyone can view reviews" ON reviews FOR SELECT USING (true);

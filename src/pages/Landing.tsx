@@ -36,9 +36,6 @@ export default function Landing() {
   const [searchQuery, setSearchQuery] = useState('');
   const [distanceFilter, setDistanceFilter] = useState<'5' | '10' | '20'>('10');
   const [powerFilter, setPowerFilter] = useState<'60' | '120' | 'all'>('all');
-  const [batteryLevel, setBatteryLevel] = useState(30);
-  const [activeTab, setActiveTab] = useState<'nearest' | 'fastest' | 'cheapest'>('nearest');
-  const [isCalculating, setIsCalculating] = useState(false);
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   const handleSearch = () => {
@@ -56,12 +53,6 @@ export default function Landing() {
         navigate('/explore?nearby=true');
       });
     }
-  };
-
-  const handleBatteryChange = (value: number) => {
-    setBatteryLevel(value);
-    setIsCalculating(true);
-    setTimeout(() => setIsCalculating(false), 800);
   };
 
   const stats = [
@@ -94,30 +85,9 @@ export default function Landing() {
     { name: 'Đức Anh', role: 'Hyundai Ioniq 5', text: t('landing.testimonials.t3') },
   ];
 
-  const getAIReason = (tab: string, battery: number) => {
-    if (tab === 'nearest') return `Phù hợp pin ${battery}% • Gần nhất • Giá tốt`;
-    if (tab === 'fastest') return `Sạc nhanh cho pin ${battery}% • Công suất cao`;
-    return `Tiết kiệm chi phí • ${battery > 50 ? 'Không cần sạc nhanh' : 'Đủ thời gian sạc'}`;
-  };
-
-  const demoStations = {
-    nearest: [
-      { name: 'VinFast Hà Nội 1', score: 95, power: '150 kW', distance: '1.2 km', price: '3,500đ/kWh', available: 3 },
-      { name: 'EVN Cầu Giấy', score: 88, power: '100 kW', distance: '2.5 km', price: '3,200đ/kWh', available: 2 },
-    ],
-    fastest: [
-      { name: 'VinFast Times City', score: 92, power: '250 kW', distance: '3.8 km', price: '4,000đ/kWh', available: 4 },
-      { name: 'EV One Long Biên', score: 85, power: '150 kW', distance: '4.2 km', price: '3,800đ/kWh', available: 1 },
-    ],
-    cheapest: [
-      { name: 'EVN Thanh Xuân', score: 80, power: '60 kW', distance: '5.1 km', price: '2,800đ/kWh', available: 5 },
-      { name: 'GreenCharge Đống Đa', score: 78, power: '50 kW', distance: '3.5 km', price: '2,900đ/kWh', available: 2 },
-    ],
-  };
-
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
+    <div className="min-h-screen bg-background">
       <SEO />
       <Header />
       <InstallPWA />
@@ -125,9 +95,9 @@ export default function Landing() {
       {/* HERO SECTION with Quick Search */}
       <section className="relative pt-20 pb-16 overflow-hidden">
         {/* Background effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-900/20 via-transparent to-transparent" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -137,47 +107,47 @@ export default function Landing() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
-                <Sparkles className="w-4 h-4 text-emerald-400" />
-                <span className="text-sm text-emerald-400">{t('landing.badge')}</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span className="text-sm text-primary">{t('landing.badge')}</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
                 {t('landing.hero.title')}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
                   {' '}{t('landing.hero.highlight')}
                 </span>
               </h1>
 
-              <p className="text-lg text-gray-300 mb-6 max-w-xl">
+              <p className="text-lg text-muted-foreground mb-6 max-w-xl">
                 {t('landing.hero.subtitle')}
               </p>
 
               {/* Quick Search Bar - IMPROVED */}
-              <div className="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-5 border border-gray-700/50 mb-4 shadow-xl">
+              <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border mb-4 shadow-xl">
                 {/* Search input with location button */}
                 <div className="flex gap-2 mb-4">
                   <div className="flex-1 relative">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                     <input
                       type="text"
                       placeholder="VD: Quận 1, TP.HCM / Hà Nội / Bình Dương..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       onKeyPress={handleKeyPress}
-                      className="w-full pl-12 pr-12 py-4 bg-gray-900/70 border border-gray-600 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all text-base"
+                      className="w-full pl-12 pr-12 py-4 bg-secondary border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-base"
                     />
                     <button
                       onClick={useMyLocation}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 hover:bg-gray-700 rounded-lg transition-colors group"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 hover:bg-secondary rounded-lg transition-colors group"
                       title={t('landing.search.useLocation')}
                     >
-                      <Crosshair className="w-5 h-5 text-gray-400 group-hover:text-emerald-400 transition-colors" />
+                      <Crosshair className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                     </button>
                   </div>
                   <Button
                     onClick={handleSearch}
-                    className="px-8 py-4 h-auto bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all"
+                    className="px-8 py-4 h-auto bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all"
                   >
                     <Search className="w-5 h-5 mr-2" />
                     {t('landing.search.button')}
@@ -188,8 +158,8 @@ export default function Landing() {
                 <div className="flex flex-wrap items-center gap-4">
                   {/* Distance filter */}
                   <div className="flex items-center gap-2">
-                    <span className="text-gray-400 text-sm">{t('landing.filters.distance')}:</span>
-                    <div className="flex bg-gray-900/50 rounded-lg p-1">
+                    <span className="text-muted-foreground text-sm">{t('landing.filters.distance')}:</span>
+                    <div className="flex bg-secondary rounded-lg p-1">
                       {(['5', '10', '20'] as const).map(d => (
                         <button
                           key={d}
@@ -197,8 +167,8 @@ export default function Landing() {
                           className={cn(
                             "px-3 py-1.5 rounded-md text-sm font-medium transition-all",
                             distanceFilter === d
-                              ? "bg-emerald-500 text-white"
-                              : "text-gray-400 hover:text-white"
+                              ? "bg-primary text-white"
+                              : "text-muted-foreground hover:text-foreground"
                           )}
                         >
                           {d}km
@@ -209,8 +179,8 @@ export default function Landing() {
 
                   {/* Power filter */}
                   <div className="flex items-center gap-2">
-                    <span className="text-gray-400 text-sm">{t('landing.filters.power')}:</span>
-                    <div className="flex bg-gray-900/50 rounded-lg p-1">
+                    <span className="text-muted-foreground text-sm">{t('landing.filters.power')}:</span>
+                    <div className="flex bg-secondary rounded-lg p-1">
                       {([
                         { value: 'all', label: t('landing.filters.all') },
                         { value: '60', label: '≥60kW' },
@@ -222,8 +192,8 @@ export default function Landing() {
                           className={cn(
                             "px-3 py-1.5 rounded-md text-sm font-medium transition-all",
                             powerFilter === p.value
-                              ? "bg-emerald-500 text-white"
-                              : "text-gray-400 hover:text-white"
+                              ? "bg-primary text-white"
+                              : "text-muted-foreground hover:text-foreground"
                           )}
                         >
                           {p.label}
@@ -235,7 +205,7 @@ export default function Landing() {
                   {/* Advanced filters button */}
                   <button
                     onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-                    className="flex items-center gap-1.5 text-gray-400 hover:text-emerald-400 text-sm transition-colors"
+                    className="flex items-center gap-1.5 text-muted-foreground hover:text-primary text-sm transition-colors"
                   >
                     <SlidersHorizontal className="w-4 h-4" />
                     {t('landing.filters.advanced')}
@@ -247,7 +217,7 @@ export default function Landing() {
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
-                    className="mt-4 pt-4 border-t border-gray-700/50 flex flex-wrap gap-3"
+                    className="mt-4 pt-4 border-t border-border flex flex-wrap gap-3"
                   >
                     {[
                       { id: 'available', label: t('landing.filters.available') },
@@ -257,7 +227,7 @@ export default function Landing() {
                     ].map(filter => (
                       <button
                         key={filter.id}
-                        className="px-3 py-1.5 rounded-full text-sm bg-gray-700/50 text-gray-300 hover:bg-emerald-500 hover:text-white transition-all"
+                        className="px-3 py-1.5 rounded-full text-sm bg-secondary text-muted-foreground hover:bg-primary hover:text-white transition-all"
                       >
                         {filter.label}
                       </button>
@@ -270,102 +240,163 @@ export default function Landing() {
               <Button
                 onClick={() => navigate('/explore')}
                 size="lg"
-                className="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white px-8 py-4 h-auto rounded-xl font-semibold shadow-lg shadow-emerald-500/25"
+                className="bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-600 text-white px-8 py-4 h-auto rounded-xl font-semibold shadow-lg shadow-primary/25"
               >
                 <MapPin className="w-5 h-5 mr-2" />
                 {t('landing.cta.explore')}
               </Button>
             </motion.div>
 
-            {/* Right: Interactive Demo - IMPROVED with AI reasons */}
+            {/* Right: Animated Logo */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative flex items-center justify-center"
             >
-              <div className="bg-gray-800/60 backdrop-blur-sm rounded-3xl p-6 border border-gray-700/50 shadow-2xl">
-                {/* Battery Slider */}
-                <div className="mb-6">
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="text-gray-400 text-sm">{t('landing.demo.currentBattery')}</span>
-                    <span className="text-emerald-400 font-bold text-xl">{batteryLevel}%</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="5"
-                    max="95"
-                    value={batteryLevel}
-                    onChange={(e) => handleBatteryChange(Number(e.target.value))}
-                    className="w-full h-3 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+              {/* Glow effect behind logo */}
+              <motion.div
+                className="absolute w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-r from-primary/30 to-cyan-500/30 blur-3xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 0.8, 0.5],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              
+              {/* Rotating ring */}
+              <motion.div
+                className="absolute w-72 h-72 md:w-80 md:h-80 rounded-full border-2 border-dashed border-primary/30"
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+              
+              {/* Second rotating ring (opposite direction) */}
+              <motion.div
+                className="absolute w-64 h-64 md:w-72 md:h-72 rounded-full border border-cyan-500/20"
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 15,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+
+              {/* Floating particles */}
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-2 h-2 rounded-full bg-primary"
+                  style={{
+                    top: `${20 + Math.random() * 60}%`,
+                    left: `${20 + Math.random() * 60}%`,
+                  }}
+                  animate={{
+                    y: [0, -20, 0],
+                    opacity: [0.3, 1, 0.3],
+                    scale: [0.8, 1.2, 0.8],
+                  }}
+                  transition={{
+                    duration: 2 + Math.random() * 2,
+                    repeat: Infinity,
+                    delay: i * 0.3,
+                    ease: "easeInOut",
+                  }}
+                />
+              ))}
+
+              {/* Main logo container */}
+              <motion.div
+                className="relative z-10"
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <motion.div
+                  className="relative"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {/* Logo shadow/glow */}
+                  <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-2xl transform scale-110" />
+                  
+                  {/* Logo image */}
+                  <motion.img
+                    src="/logo.jpg"
+                    alt="SCS Go Logo"
+                    className="relative w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 object-contain rounded-3xl shadow-2xl shadow-primary/30"
+                    initial={{ rotateY: 0 }}
+                    animate={{
+                      rotateY: [0, 5, 0, -5, 0],
+                    }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
                   />
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>5%</span>
-                    <span>95%</span>
-                  </div>
-                </div>
+                  
+                  {/* Shine effect */}
+                  <motion.div
+                    className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-white/20 to-transparent"
+                    animate={{
+                      opacity: [0, 0.5, 0],
+                      x: [-100, 100],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      repeatDelay: 2,
+                      ease: "easeInOut",
+                    }}
+                  />
+                </motion.div>
 
-                {/* Tabs */}
-                <div className="flex gap-2 mb-4">
-                  {(['nearest', 'fastest', 'cheapest'] as const).map(tab => (
-                    <button
-                      key={tab}
-                      onClick={() => setActiveTab(tab)}
-                      className={cn(
-                        "flex-1 py-2.5 px-3 rounded-xl text-sm font-medium transition-all",
-                        activeTab === tab
-                          ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/30"
-                          : "bg-gray-700/50 text-gray-400 hover:text-white hover:bg-gray-700"
-                      )}
-                    >
-                      {t(`landing.demo.tabs.${tab}`)}
-                    </button>
-                  ))}
-                </div>
+                {/* Zap icons floating around */}
+                <motion.div
+                  className="absolute -top-4 -right-4 w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 10, -10, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Zap className="w-5 h-5 text-white" />
+                </motion.div>
 
-                {/* Calculating animation */}
-                {isCalculating && (
-                  <div className="flex items-center justify-center gap-2 py-8 text-emerald-400">
-                    <RefreshCw className="w-5 h-5 animate-spin" />
-                    <span>{t('landing.demo.calculating')}</span>
-                  </div>
-                )}
-
-                {/* Station results with AI reasons */}
-                {!isCalculating && (
-                  <div className="space-y-3">
-                    {demoStations[activeTab].map((station, idx) => (
-                      <motion.div
-                        key={station.name}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="bg-gray-900/60 rounded-xl p-4 border border-gray-700/50 hover:border-emerald-500/50 transition-all cursor-pointer hover:shadow-lg hover:shadow-emerald-500/10"
-                      >
-                        <div className="flex justify-between items-start mb-2">
-                          <div>
-                            <h4 className="text-white font-medium">{station.name}</h4>
-                            <p className="text-gray-400 text-sm">{station.distance} • {station.power}</p>
-                          </div>
-                          <div className="flex items-center gap-1 bg-emerald-500/20 px-2.5 py-1 rounded-full">
-                            <Star className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
-                            <span className="text-emerald-400 text-sm font-semibold">{station.score}</span>
-                          </div>
-                        </div>
-                        {/* AI reason microcopy */}
-                        <p className="text-xs text-emerald-400/80 mb-2 flex items-center gap-1">
-                          <Brain className="w-3 h-3" />
-                          {getAIReason(activeTab, batteryLevel)}
-                        </p>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-gray-400">{station.price}</span>
-                          <span className="text-emerald-400 font-medium">{station.available} {t('landing.demo.available')}</span>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                )}
-              </div>
+                <motion.div
+                  className="absolute -bottom-2 -left-2 w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center shadow-lg"
+                  animate={{
+                    scale: [1, 1.15, 1],
+                    y: [0, -5, 0],
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5,
+                  }}
+                >
+                  <MapPin className="w-4 h-4 text-white" />
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -376,14 +407,14 @@ export default function Landing() {
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >
-          <span className="text-gray-500 text-xs">{t('landing.scroll')}</span>
-          <ChevronDown className="w-6 h-6 text-emerald-500" />
+          <span className="text-muted-foreground text-xs">{t('landing.scroll')}</span>
+          <ChevronDown className="w-6 h-6 text-primary" />
         </motion.div>
       </section>
 
 
       {/* STATS BAR */}
-      <section className="py-8 border-y border-gray-800">
+      <section className="py-8 border-y border-border">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-8 md:gap-16">
             {stats.map((stat, idx) => (
@@ -396,19 +427,19 @@ export default function Landing() {
                 className="text-center"
               >
                 <div className="flex items-center justify-center gap-2 mb-1">
-                  <stat.icon className="w-5 h-5 text-emerald-400" />
-                  <span className="text-2xl md:text-3xl font-bold text-white">{stat.value}</span>
+                  <stat.icon className="w-5 h-5 text-primary" />
+                  <span className="text-2xl md:text-3xl font-bold text-foreground">{stat.value}</span>
                 </div>
-                <p className="text-gray-400 text-sm">{stat.label}</p>
+                <p className="text-muted-foreground text-sm">{stat.label}</p>
               </motion.div>
             ))}
           </div>
-          <p className="text-center text-gray-500 text-xs mt-4">{t('landing.stats.updated')}</p>
+          <p className="text-center text-muted-foreground/70 text-xs mt-4">{t('landing.stats.updated')}</p>
         </div>
       </section>
 
       {/* IMPACT STATS */}
-      <section className="py-8 bg-gradient-to-r from-emerald-900/20 to-cyan-900/20">
+      <section className="py-8 bg-gradient-to-r from-primary/10 to-cyan-500/10">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-12">
             {impactStats.map((stat, idx) => (
@@ -420,12 +451,12 @@ export default function Landing() {
                 transition={{ delay: idx * 0.1 }}
                 className="flex items-center gap-4"
               >
-                <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                  <stat.icon className="w-6 h-6 text-emerald-400" />
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                  <stat.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">{stat.value}</p>
-                  <p className="text-gray-400 text-sm">{stat.label}</p>
+                  <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                  <p className="text-muted-foreground text-sm">{stat.label}</p>
                 </div>
               </motion.div>
             ))}
@@ -434,9 +465,9 @@ export default function Landing() {
       </section>
 
       {/* TRUST BAR - neutral logos */}
-      <section className="py-12 border-b border-gray-800">
+      <section className="py-12 border-b border-border">
         <div className="container mx-auto px-4">
-          <p className="text-center text-gray-400 text-sm mb-6">{t('landing.trust.title')}</p>
+          <p className="text-center text-muted-foreground text-sm mb-6">{t('landing.trust.title')}</p>
           <div className="flex flex-wrap justify-center gap-6 items-center">
             {[
               { icon: Zap, label: 'DC Fast' },
@@ -444,9 +475,9 @@ export default function Landing() {
               { icon: RefreshCw, label: 'CCS/CHAdeMO' },
               { icon: MapPin, label: 'Type 2' },
             ].map((item) => (
-              <div key={item.label} className="flex items-center gap-2 px-5 py-2.5 bg-gray-800/50 rounded-lg border border-gray-700/50">
-                <item.icon className="w-4 h-4 text-emerald-400" />
-                <span className="text-gray-300 font-medium text-sm">{item.label}</span>
+              <div key={item.label} className="flex items-center gap-2 px-5 py-2.5 bg-secondary/50 rounded-lg border border-border">
+                <item.icon className="w-4 h-4 text-primary" />
+                <span className="text-foreground font-medium text-sm">{item.label}</span>
               </div>
             ))}
           </div>
@@ -456,8 +487,8 @@ export default function Landing() {
               { icon: Clock, text: t('landing.trust.support') },
               { icon: CheckCircle2, text: t('landing.trust.verified') },
             ].map((item) => (
-              <div key={item.text} className="flex items-center gap-2 text-gray-400 text-sm">
-                <item.icon className="w-4 h-4 text-emerald-400" />
+              <div key={item.text} className="flex items-center gap-2 text-muted-foreground text-sm">
+                <item.icon className="w-4 h-4 text-primary" />
                 <span>{item.text}</span>
               </div>
             ))}
@@ -474,8 +505,8 @@ export default function Landing() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('landing.steps.title')}</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">{t('landing.steps.subtitle')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t('landing.steps.title')}</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">{t('landing.steps.subtitle')}</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -488,19 +519,19 @@ export default function Landing() {
                 transition={{ delay: idx * 0.15 }}
                 className="relative"
               >
-                <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50 hover:border-emerald-500/50 transition-colors text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-card/50 rounded-2xl p-6 border border-border hover:border-primary/50 transition-colors text-center">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-cyan-500 flex items-center justify-center mx-auto mb-4">
                     <step.icon className="w-8 h-8 text-white" />
                   </div>
-                  <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold">
+                  <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold">
                     {idx + 1}
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-                  <p className="text-gray-400">{step.desc}</p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground">{step.desc}</p>
                 </div>
                 {idx < steps.length - 1 && (
                   <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <ArrowRight className="w-6 h-6 text-gray-600" />
+                    <ArrowRight className="w-6 h-6 text-muted-foreground/50" />
                   </div>
                 )}
               </motion.div>
@@ -510,7 +541,7 @@ export default function Landing() {
       </section>
 
       {/* WHY DIFFERENT SECTION */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-950">
+      <section className="py-20 bg-gradient-to-b from-secondary/30 to-secondary/50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -518,8 +549,8 @@ export default function Landing() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('landing.why.title')}</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">{t('landing.why.subtitle')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t('landing.why.title')}</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">{t('landing.why.subtitle')}</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -530,13 +561,13 @@ export default function Landing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700/50 hover:border-emerald-500/30 transition-all hover:bg-gray-800/50"
+                className="bg-card/50 rounded-2xl p-6 border border-border hover:border-primary/30 transition-all hover:bg-card/80"
               >
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-emerald-400" />
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4">
+                  <item.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -553,8 +584,8 @@ export default function Landing() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('landing.map.title')}</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">{t('landing.map.subtitle')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t('landing.map.title')}</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">{t('landing.map.subtitle')}</p>
           </motion.div>
 
           <motion.div
@@ -563,8 +594,8 @@ export default function Landing() {
             viewport={{ once: true }}
             className="relative max-w-5xl mx-auto"
           >
-            <div className="bg-gray-800/50 rounded-3xl overflow-hidden border border-gray-700/50">
-              <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 relative">
+            <div className="bg-card/50 rounded-3xl overflow-hidden border border-border">
+              <div className="aspect-video bg-gradient-to-br from-secondary to-secondary/80 relative">
                 <div className="absolute inset-0 opacity-30">
                   <div className="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMzMyIgb3BhY2l0eT0iMC4yIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')]" />
                 </div>
@@ -586,10 +617,10 @@ export default function Landing() {
                     transition={{ delay: 0.3 + idx * 0.1 }}
                   >
                     <div className="relative">
-                      <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                      <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
                         <Zap className="w-4 h-4 text-white" />
                       </div>
-                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-emerald-500 rotate-45" />
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rotate-45" />
                     </div>
                   </motion.div>
                 ))}
@@ -597,7 +628,7 @@ export default function Landing() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Button
                     onClick={() => navigate('/explore')}
-                    className="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl font-medium shadow-lg shadow-emerald-500/20"
+                    className="bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-600 text-white px-8 py-4 rounded-xl font-medium shadow-lg shadow-primary/20"
                   >
                     <MapPin className="w-5 h-5 mr-2" />
                     {t('landing.map.cta')}
@@ -610,7 +641,7 @@ export default function Landing() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-20 bg-gradient-to-b from-gray-950 to-gray-900">
+      <section className="py-20 bg-gradient-to-b from-secondary/50 to-secondary/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -618,8 +649,8 @@ export default function Landing() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('landing.testimonials.title')}</h2>
-            <p className="text-gray-400">{t('landing.testimonials.subtitle')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t('landing.testimonials.title')}</h2>
+            <p className="text-muted-foreground">{t('landing.testimonials.subtitle')}</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -630,21 +661,21 @@ export default function Landing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700/50"
+                className="bg-card/50 rounded-2xl p-6 border border-border"
               >
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                   ))}
                 </div>
-                <p className="text-gray-300 mb-4 italic">"{item.text}"</p>
+                <p className="text-muted-foreground mb-4 italic">"{item.text}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-white font-bold">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-cyan-500 flex items-center justify-center text-white font-bold">
                     {item.name[0]}
                   </div>
                   <div>
-                    <p className="text-white font-medium">{item.name}</p>
-                    <p className="text-gray-400 text-sm">{item.role}</p>
+                    <p className="text-foreground font-medium">{item.name}</p>
+                    <p className="text-muted-foreground text-sm">{item.role}</p>
                   </div>
                 </div>
               </motion.div>
@@ -662,8 +693,8 @@ export default function Landing() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('landing.pricing.title')}</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">{t('landing.pricing.subtitle')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t('landing.pricing.title')}</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">{t('landing.pricing.subtitle')}</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -671,19 +702,19 @@ export default function Landing() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700/50"
+              className="bg-card/50 rounded-2xl p-6 border border-border"
             >
-              <h3 className="text-xl font-semibold text-white mb-2">{t('landing.pricing.free.name')}</h3>
-              <p className="text-3xl font-bold text-white mb-4">0đ<span className="text-gray-400 text-base font-normal">/{t('landing.pricing.month')}</span></p>
+              <h3 className="text-xl font-semibold text-foreground mb-2">{t('landing.pricing.free.name')}</h3>
+              <p className="text-3xl font-bold text-foreground mb-4">0đ<span className="text-muted-foreground text-base font-normal">/{t('landing.pricing.month')}</span></p>
               <ul className="space-y-3 mb-6">
                 {['search', 'basic', 'ads'].map(key => (
-                  <li key={key} className="flex items-center gap-2 text-gray-300 text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <li key={key} className="flex items-center gap-2 text-muted-foreground text-sm">
+                    <CheckCircle2 className="w-4 h-4 text-primary" />
                     {t(`landing.pricing.free.${key}` as keyof typeof import('@/lib/translations').translations.vi)}
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-800">
+              <Button variant="outline" className="w-full border-border text-foreground hover:bg-secondary">
                 {t('landing.pricing.free.cta')}
               </Button>
             </motion.div>
@@ -693,22 +724,22 @@ export default function Landing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-gradient-to-b from-emerald-900/30 to-gray-800/30 rounded-2xl p-6 border border-emerald-500/50 relative"
+              className="bg-gradient-to-b from-primary/20 to-card/50 rounded-2xl p-6 border border-primary/50 relative"
             >
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-emerald-500 rounded-full text-white text-xs font-medium">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary rounded-full text-white text-xs font-medium">
                 {t('landing.pricing.popular')}
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">{t('landing.pricing.pro.name')}</h3>
-              <p className="text-3xl font-bold text-white mb-4">49K<span className="text-gray-400 text-base font-normal">/{t('landing.pricing.month')}</span></p>
+              <h3 className="text-xl font-semibold text-foreground mb-2">{t('landing.pricing.pro.name')}</h3>
+              <p className="text-3xl font-bold text-foreground mb-4">49K<span className="text-muted-foreground text-base font-normal">/{t('landing.pricing.month')}</span></p>
               <ul className="space-y-3 mb-6">
                 {['unlimited', 'ai', 'booking', 'noads'].map(key => (
-                  <li key={key} className="flex items-center gap-2 text-gray-300 text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <li key={key} className="flex items-center gap-2 text-muted-foreground text-sm">
+                    <CheckCircle2 className="w-4 h-4 text-primary" />
                     {t(`landing.pricing.pro.${key}` as keyof typeof import('@/lib/translations').translations.vi)}
                   </li>
                 ))}
               </ul>
-              <Button className="w-full bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white">
+              <Button className="w-full bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-600 text-white">
                 {t('landing.pricing.pro.cta')}
               </Button>
             </motion.div>
@@ -718,26 +749,26 @@ export default function Landing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700/50"
+              className="bg-card/50 rounded-2xl p-6 border border-border"
             >
-              <h3 className="text-xl font-semibold text-white mb-2">{t('landing.pricing.business.name')}</h3>
-              <p className="text-3xl font-bold text-white mb-4">{t('landing.pricing.business.price')}</p>
+              <h3 className="text-xl font-semibold text-foreground mb-2">{t('landing.pricing.business.name')}</h3>
+              <p className="text-3xl font-bold text-foreground mb-4">{t('landing.pricing.business.price')}</p>
               <ul className="space-y-3 mb-6">
                 {['fleet', 'api', 'support', 'custom'].map(key => (
-                  <li key={key} className="flex items-center gap-2 text-gray-300 text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <li key={key} className="flex items-center gap-2 text-muted-foreground text-sm">
+                    <CheckCircle2 className="w-4 h-4 text-primary" />
                     {t(`landing.pricing.business.${key}` as keyof typeof import('@/lib/translations').translations.vi)}
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="w-full border-gray-600 text-gray-300 hover:bg-gray-800">
+              <Button variant="outline" className="w-full border-border text-foreground hover:bg-secondary">
                 {t('landing.pricing.business.cta')}
               </Button>
             </motion.div>
           </div>
 
           <div className="text-center mt-8">
-            <Link to="/pricing" className="text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1">
+            <Link to="/pricing" className="text-primary hover:text-primary/80 inline-flex items-center gap-1">
               {t('landing.pricing.viewAll')}
               <ChevronRight className="w-4 h-4" />
             </Link>
@@ -746,7 +777,7 @@ export default function Landing() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-20 bg-gradient-to-r from-emerald-900/30 to-cyan-900/30">
+      <section className="py-20 bg-gradient-to-r from-primary/20 to-cyan-500/20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -754,12 +785,12 @@ export default function Landing() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('landing.finalCta.title')}</h2>
-            <p className="text-gray-300 mb-8">{t('landing.finalCta.subtitle')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t('landing.finalCta.title')}</h2>
+            <p className="text-muted-foreground mb-8">{t('landing.finalCta.subtitle')}</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button
                 onClick={() => navigate('/explore')}
-                className="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white px-8 py-4 h-auto rounded-xl font-semibold text-lg shadow-lg shadow-emerald-500/25"
+                className="bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-600 text-white px-8 py-4 h-auto rounded-xl font-semibold text-lg shadow-lg shadow-primary/25"
               >
                 {t('landing.finalCta.primary')}
               </Button>

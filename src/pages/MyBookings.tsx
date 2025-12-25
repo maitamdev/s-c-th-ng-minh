@@ -110,7 +110,12 @@ export default function MyBookings() {
     return date.toLocaleDateString('vi-VN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
   };
 
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = (status: string, endTime?: string) => {
+    // Check if booking is expired (past end time but not cancelled/completed)
+    if (endTime && (status === 'confirmed' || status === 'held') && new Date(endTime) < now) {
+      return <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">{t('bookings.status.expired')}</span>;
+    }
+    
     switch (status) {
       case 'confirmed':
         return <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-success/10 text-success">{t('bookings.status.confirmed')}</span>;
@@ -219,7 +224,7 @@ export default function MyBookings() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
                         <h3 className="font-semibold text-foreground truncate">{booking.station?.name || 'Trạm sạc'}</h3>
-                        {getStatusBadge(booking.status)}
+                        {getStatusBadge(booking.status, booking.end_time)}
                       </div>
                       <div className="flex items-center gap-1 text-sm text-muted-foreground mb-2">
                         <MapPin className="w-3.5 h-3.5" />
@@ -346,7 +351,7 @@ export default function MyBookings() {
                       <CheckCircle2 className="w-4 h-4 text-primary" />
                       <p className="text-sm text-foreground/60">{t('bookings.status.confirmed')}</p>
                     </div>
-                    {getStatusBadge(selectedBooking.status)}
+                    {getStatusBadge(selectedBooking.status, selectedBooking.end_time)}
                   </div>
                 </div>
 
