@@ -25,7 +25,7 @@ interface AuthContextType {
   firebaseUser: FirebaseUser | null;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
-  signUp: (email: string, password: string, name: string) => Promise<{ error: string | null }>;
+  signUp: (email: string, password: string, name: string) => Promise<{ data?: { user: { id: string; uid: string } }; error: string | null }>;
   signInWithGoogle: () => Promise<{ error: string | null }>;
   signOut: () => Promise<void>;
   updateProfile: (profile: Partial<Profile>) => Promise<void>;
@@ -162,7 +162,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const signUp = async (email: string, password: string, name: string): Promise<{ error: string | null }> => {
+  const signUp = async (email: string, password: string, name: string): Promise<{ data?: { user: { id: string; uid: string } }; error: string | null }> => {
     if (!auth) {
       return { error: 'Firebase chưa được cấu hình' };
     }
@@ -193,7 +193,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         userName: name,
       });
       
-      return { error: null };
+      return { data: { user: { id: newUser.uid, uid: newUser.uid } }, error: null };
     } catch (error: unknown) {
       const firebaseError = error as { code?: string };
       let message = 'Đã xảy ra lỗi khi đăng ký';

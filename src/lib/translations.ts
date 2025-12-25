@@ -79,6 +79,10 @@ export const translations = {
     'auth.businessName': 'Tên doanh nghiệp',
     'auth.phone': 'Số điện thoại',
     'auth.operatorRegistered': 'Đăng ký thành công! Chào mừng đến với SCS GO Operator',
+    'auth.stationInfo': 'Thông tin trạm sạc',
+    'auth.stationInfoDesc': 'Thêm trạm sạc đầu tiên của bạn',
+    'auth.stationName': 'Tên trạm sạc',
+    'auth.stationAddress': 'Địa chỉ trạm',
     
     // Navigation
     'nav.home': 'Trang chủ',
@@ -753,6 +757,10 @@ export const translations = {
     'auth.businessName': 'Business Name',
     'auth.phone': 'Phone Number',
     'auth.operatorRegistered': 'Registration successful! Welcome to SCS GO Operator',
+    'auth.stationInfo': 'Station Information',
+    'auth.stationInfoDesc': 'Add your first charging station',
+    'auth.stationName': 'Station Name',
+    'auth.stationAddress': 'Station Address',
     
     // Navigation
     'nav.home': 'Home',
