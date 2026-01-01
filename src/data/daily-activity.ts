@@ -367,6 +367,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 363, date: '2025-12-29', note: 'docs: update README with new features' },
   { day: 364, date: '2025-12-30', note: 'style: enhance dark mode styling' },
   { day: 365, date: '2025-12-31', note: 'refactor: improve form validation flow' },
+  { day: 366, date: '2026-01-01', note: 'chore: clean up unused imports' },
 ];
-export const TOTAL_DAYS = 365;
+export const TOTAL_DAYS = 366;
 
