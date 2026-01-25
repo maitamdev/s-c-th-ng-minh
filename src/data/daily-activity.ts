@@ -391,6 +391,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 387, date: '2026-01-22', note: 'docs: add performance tuning notes' },
   { day: 388, date: '2026-01-23', note: 'style: enhance modal animations' },
   { day: 389, date: '2026-01-24', note: 'refactor: improve data mapping logic' },
+  { day: 390, date: '2026-01-25', note: 'chore: update favicon assets' },
 ];
-export const TOTAL_DAYS = 389;
+export const TOTAL_DAYS = 390;
 
