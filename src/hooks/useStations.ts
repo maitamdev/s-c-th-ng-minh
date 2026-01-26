@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Station, Charger } from '@/types';
+import { fetchOCMStations, OCMStation } from '@/services/openChargeMapService';
 
 interface ReviewData {
   id: string;
@@ -33,6 +34,8 @@ export interface StationWithDetails extends Station {
   available_chargers: number;
   image_url?: string;
   reviews?: ReviewData[];
+  source?: 'supabase' | 'openchargeMap';
+  distance_km?: number;
 }
 
 export function useStations() {
@@ -41,57 +44,38 @@ export function useStations() {
   const [error, setError] = useState<string | null>(null);
 
   const fetchStations = useCallback(async () => {
-    if (!supabase) {
-      setError('Supabase not configured');
-      setLoading(false);
-      return;
-    }
+    setLoading(true);
+    setError(null);
 
     try {
-      const { data: stationsData, error: stationsError } = await supabase
-        .from('stations')
-        .select(`
-          *,
-          chargers (*)
-        `)
-        .eq('status', 'approved');
+      // Fetch from both sources in parallel
+      const [supabaseResult, ocmResult] = await Promise.allSettled([
+        fetchSupabaseStations(),
+        fetchOpenChargeMapStations(),
+      ]);
 
-      if (stationsError) throw stationsError;
+      const supabaseStations = supabaseResult.status === 'fulfilled' ? supabaseResult.value : [];
+      const ocmStations = ocmResult.status === 'fulfilled' ? ocmResult.value : [];
 
-      const { data: reviewsData } = await supabase
-        .from('reviews')
-        .select('station_id, rating');
+      if (supabaseResult.status === 'rejected') {
+        console.warn('Supabase fetch failed:', supabaseResult.reason);
+      }
+      if (ocmResult.status === 'rejected') {
+        console.warn('OpenChargeMap fetch failed:', ocmResult.reason);
+      }
 
-      const stationsWithDetails: StationWithDetails[] = (stationsData || []).map((station: StationData) => {
-        const chargers = station.chargers || [];
-        const stationReviews = (reviewsData || []).filter((r: ReviewData) => r.station_id === station.id);
-        
-        const avgRating = stationReviews.length > 0
-          ? stationReviews.reduce((sum: number, r: ReviewData) => sum + r.rating, 0) / stationReviews.length
-          : 0;
+      // Merge stations - Supabase first, then OCM
+      const allStations = [...supabaseStations, ...ocmStations];
 
-        return {
-          ...station,
-          chargers,
-          hours_json: {
-            open: station.hours_open || '06:00',
-            close: station.hours_close || '23:00',
-            is_24h: station.is_24h || false,
-          },
-          amenities_json: station.amenities || [],
-          avg_rating: Math.round(avgRating * 10) / 10,
-          review_count: stationReviews.length,
-          min_price: chargers.length > 0 
-            ? Math.min(...chargers.map((c: Charger) => c.price_per_kwh))
-            : 0,
-          max_power: chargers.length > 0
-            ? Math.max(...chargers.map((c: Charger) => c.power_kw))
-            : 0,
-          available_chargers: chargers.filter((c: Charger) => c.status === 'available').length,
-        } as StationWithDetails;
+      // Sort by distance if available
+      allStations.sort((a, b) => {
+        const distA = a.distance_km ?? 100;
+        const distB = b.distance_km ?? 100;
+        return distA - distB;
       });
 
-      setStations(stationsWithDetails);
+      setStations(allStations);
+      console.log(`✅ Loaded ${supabaseStations.length} Supabase + ${ocmStations.length} OCM stations`);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {
@@ -104,6 +88,122 @@ export function useStations() {
   }, [fetchStations]);
 
   return { stations, loading, error, refetch: fetchStations };
+}
+
+// Fetch from Supabase (operator-created stations)
+async function fetchSupabaseStations(): Promise<StationWithDetails[]> {
+  if (!supabase) {
+    return [];
+  }
+
+  const { data: stationsData, error: stationsError } = await supabase
+    .from('stations')
+    .select(`
+      *,
+      chargers (*)
+    `)
+    .eq('status', 'approved');
+
+  if (stationsError) throw stationsError;
+
+  const { data: reviewsData } = await supabase
+    .from('reviews')
+    .select('station_id, rating');
+
+  const stationsWithDetails: StationWithDetails[] = (stationsData || []).map((station: StationData) => {
+    const chargers = station.chargers || [];
+    const stationReviews = (reviewsData || []).filter((r: ReviewData) => r.station_id === station.id);
+
+    const avgRating = stationReviews.length > 0
+      ? stationReviews.reduce((sum: number, r: ReviewData) => sum + r.rating, 0) / stationReviews.length
+      : 0;
+
+    return {
+      ...station,
+      chargers,
+      hours_json: {
+        open: station.hours_open || '06:00',
+        close: station.hours_close || '23:00',
+        is_24h: station.is_24h || false,
+      },
+      amenities_json: station.amenities || [],
+      avg_rating: Math.round(avgRating * 10) / 10,
+      review_count: stationReviews.length,
+      min_price: chargers.length > 0
+        ? Math.min(...chargers.map((c: Charger) => c.price_per_kwh))
+        : 0,
+      max_power: chargers.length > 0
+        ? Math.max(...chargers.map((c: Charger) => c.power_kw))
+        : 0,
+      available_chargers: chargers.filter((c: Charger) => c.status === 'available').length,
+      source: 'supabase' as const,
+    } as StationWithDetails;
+  });
+
+  return stationsWithDetails;
+}
+
+// Fetch from OpenChargeMap API
+async function fetchOpenChargeMapStations(): Promise<StationWithDetails[]> {
+  try {
+    const ocmStations = await fetchOCMStations();
+
+    // Convert OCM stations to our format
+    return ocmStations.map((ocm: OCMStation): StationWithDetails => ({
+      id: ocm.id,
+      operator_id: 'ocm',
+      name: ocm.name,
+      address: ocm.address,
+      lat: ocm.lat,
+      lng: ocm.lng,
+      provider: ocm.provider,
+      status: ocm.status as 'pending' | 'approved' | 'rejected',
+      created_at: new Date().toISOString(),
+      hours_json: {
+        open: ocm.hours.open,
+        close: ocm.hours.close,
+        is_24h: ocm.hours.is24h,
+      },
+      amenities_json: ocm.amenities,
+      chargers: ocm.chargers.map((c) => ({
+        id: c.id,
+        station_id: c.stationId,
+        connector_type: mapOCMConnectorType(c.connectorType),
+        power_kw: c.powerKw,
+        status: c.status as 'available' | 'occupied' | 'out_of_service',
+        price_per_kwh: c.pricePerKwh,
+      })),
+      avg_rating: ocm.avgRating ?? 0,
+      review_count: ocm.reviewCount,
+      min_price: ocm.chargers.length > 0
+        ? Math.min(...ocm.chargers.map((c) => c.pricePerKwh))
+        : 0,
+      max_power: ocm.chargers.length > 0
+        ? Math.max(...ocm.chargers.map((c) => c.powerKw))
+        : 0,
+      available_chargers: ocm.chargers.filter((c) => c.status === 'available').length,
+      source: 'openchargeMap' as const,
+      distance_km: ocm.distanceKm,
+    }));
+  } catch (error) {
+    console.error('Failed to fetch OpenChargeMap stations:', error);
+    return [];
+  }
+}
+
+// Map OCM connector types to our ConnectorType
+function mapOCMConnectorType(ocmType: string): 'CCS2' | 'Type2' | 'CHAdeMO' | 'GBT' {
+  const typeMap: Record<string, 'CCS2' | 'Type2' | 'CHAdeMO' | 'GBT'> = {
+    'CCS2': 'CCS2',
+    'CCS1': 'CCS2',
+    'CHAdeMO': 'CHAdeMO',
+    'Type2': 'Type2',
+    'Type1': 'Type2',
+    'Tesla': 'Type2',
+    'GB/T AC': 'GBT',
+    'GB/T DC': 'GBT',
+  };
+  return typeMap[ocmType] || 'Type2';
 }
 
 export function useStation(id: string) {
@@ -152,7 +252,7 @@ export function useStation(id: string) {
         amenities_json: data.amenities || [],
         avg_rating: Math.round(avgRating * 10) / 10,
         review_count: reviews?.length || 0,
-        min_price: chargers.length > 0 
+        min_price: chargers.length > 0
           ? Math.min(...chargers.map((c: Charger) => c.price_per_kwh))
           : 0,
         max_power: chargers.length > 0
