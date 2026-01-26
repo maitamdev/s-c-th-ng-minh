@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/contexts/AuthContext';
+import { toast } from 'sonner';
 
 export interface Favorite {
   id: string;
@@ -54,6 +55,7 @@ export function useFavorites() {
 
   const addFavorite = useCallback(async (stationId: string) => {
     if (!supabase || !user) {
+      toast.error('Please login to add favorites');
       return { error: 'Not authenticated' };
     }
 
@@ -67,8 +69,14 @@ export function useFavorites() {
 
       if (insertError) throw insertError;
       await fetchFavorites();
+
+      toast.success('✅ Added to favorites', {
+        description: 'Station saved to your favorites list',
+      });
+
       return { error: null };
     } catch (err) {
+      toast.error('Failed to add favorite');
       return { error: err instanceof Error ? err.message : 'Unknown error' };
     }
   }, [user, fetchFavorites]);
@@ -87,8 +95,14 @@ export function useFavorites() {
 
       if (deleteError) throw deleteError;
       await fetchFavorites();
+
+      toast.info('Removed from favorites', {
+        description: 'Station removed from your favorites',
+      });
+
       return { error: null };
     } catch (err) {
+      toast.error('Failed to remove favorite');
       return { error: err instanceof Error ? err.message : 'Unknown error' };
     }
   }, [user, fetchFavorites]);
@@ -105,14 +119,14 @@ export function useFavorites() {
     }
   }, [isFavorite, removeFavorite, addFavorite]);
 
-  return { 
-    favorites, 
-    loading, 
-    error, 
-    addFavorite, 
-    removeFavorite, 
-    isFavorite, 
+  return {
+    favorites,
+    loading,
+    error,
+    addFavorite,
+    removeFavorite,
+    isFavorite,
     toggleFavorite,
-    refetch: fetchFavorites 
+    refetch: fetchFavorites
   };
 }
