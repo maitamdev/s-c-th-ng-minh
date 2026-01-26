@@ -193,6 +193,31 @@
   .animation-delay-400 { animation-delay: 400ms; }
   .animation-delay-500 { animation-delay: 500ms; }
   .text-balance { text-wrap: balance; }
+  
+  /* iOS Safe Area utilities */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+  
+  /* Mobile bottom nav padding */
+  .pb-mobile-nav {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0));
+  }
+  
+  @media (min-width: 768px) {
+    .pb-mobile-nav {
+      padding-bottom: 0;
+    }
+  }
+  
+  /* Touch manipulation for mobile */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
 }
 
 /* Custom animations */

@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { BottomNav } from "@/components/BottomNav";
 import { usePageTracking } from "@/hooks/useAnalytics";
 import Landing from "./pages/Landing";
 import Explore from "./pages/Explore";
@@ -72,7 +73,7 @@ const App = () => (
                       <Route path="/help" element={<FAQ />} />
                       <Route path="/terms" element={<Terms />} />
                       <Route path="/privacy" element={<Privacy />} />
-                      
+
                       {/* Protected routes - require login */}
                       <Route path="/booking/:id" element={<ProtectedRoute><BookingPage /></ProtectedRoute>} />
                       <Route path="/onboarding" element={<ProtectedRoute><Onboarding /></ProtectedRoute>} />
@@ -83,7 +84,7 @@ const App = () => (
                       <Route path="/dashboard/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
                       <Route path="/dashboard/subscription" element={<ProtectedRoute><Subscription /></ProtectedRoute>} />
                       <Route path="/dashboard/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
-                      
+
                       {/* Operator routes - require login */}
                       <Route path="/operator" element={<ProtectedRoute><OperatorDashboard /></ProtectedRoute>} />
                       <Route path="/operator/stations" element={<ProtectedRoute><OperatorStations /></ProtectedRoute>} />
@@ -93,10 +94,11 @@ const App = () => (
                       <Route path="/operator/bookings" element={<ProtectedRoute><OperatorBookings /></ProtectedRoute>} />
                       <Route path="/operator/analytics" element={<ProtectedRoute><OperatorAnalytics /></ProtectedRoute>} />
                       <Route path="/operator/revenue" element={<ProtectedRoute><OperatorRevenue /></ProtectedRoute>} />
-                      
+
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </AnalyticsProvider>
+                  <BottomNav />
                 </BrowserRouter>
               </TooltipProvider>
             </LanguageProvider>
