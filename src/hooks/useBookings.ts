@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/contexts/AuthContext';
+import { toast } from 'sonner';
 
 export interface Booking {
   id: string;
@@ -44,7 +45,7 @@ export function useBookings() {
 
     try {
       const firebaseUserId = user.id;
-      
+
       const { data, error: fetchError } = await supabase
         .from('bookings')
         .select(`
@@ -80,13 +81,14 @@ export function useBookings() {
     notes?: string;
   }) => {
     if (!supabase || !user) {
+      toast.error('Please login to create booking');
       return { error: 'Not authenticated' };
     }
 
     try {
       // Use Firebase UID as user_id (stored as text in Supabase)
       const firebaseUserId = user.id;
-      
+
       const { data, error: insertError } = await supabase
         .from('bookings')
         .insert({
@@ -108,7 +110,7 @@ export function useBookings() {
         console.error('Booking insert error:', insertError);
         throw insertError;
       }
-      
+
       // Update charger status
       await supabase
         .from('chargers')
@@ -116,9 +118,24 @@ export function useBookings() {
         .eq('id', bookingData.charger_id);
 
       await fetchBookings();
+
+      // Success toast with booking details
+      const startTime = new Date(bookingData.start_time).toLocaleTimeString('vi-VN', {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+
+      toast.success('🎉 Booking confirmed!', {
+        description: `Your charging slot at ${startTime} is ready`,
+        duration: 5000,
+      });
+
       return { data, error: null };
     } catch (err) {
       console.error('Create booking error:', err);
+      toast.error('Booking failed', {
+        description: 'Please try again or contact support',
+      });
       return { data: null, error: err instanceof Error ? err.message : 'Unknown error' };
     }
   }, [user, fetchBookings]);
@@ -128,7 +145,7 @@ export function useBookings() {
 
     try {
       const booking = bookings.find(b => b.id === bookingId);
-      
+
       const { error: updateError } = await supabase
         .from('bookings')
         .update({ status: 'cancelled' })
