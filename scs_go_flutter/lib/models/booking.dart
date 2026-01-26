@@ -90,6 +90,9 @@ class Booking {
   // QR code data for check-in
   String get qrData => 'scsgo://checkin/$id';
 
+  // Getter for connector type (alias for chargerType)
+  String? get connectorType => chargerType;
+
   Booking copyWith({
     String? id,
     String? userId,

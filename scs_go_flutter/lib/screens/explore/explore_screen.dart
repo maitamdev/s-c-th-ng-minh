@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../config/theme.dart';
 import '../../providers/language_provider.dart';
@@ -16,7 +15,7 @@ class ExploreScreen extends StatefulWidget {
 }
 
 class _ExploreScreenState extends State<ExploreScreen> {
-  String _sortBy = 'ai_recommended';
+  String _sortBy = 'distance'; // Default to distance instead of AI
   String _searchQuery = '';
   final TextEditingController _searchController = TextEditingController();
 
@@ -28,7 +27,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
   bool _availableNow = false;
 
   final List<Map<String, dynamic>> _sortOptions = [
-    {'value': 'ai_recommended', 'icon': Icons.auto_awesome, 'label': 'AI'},
     {'value': 'distance', 'icon': Icons.near_me, 'label': 'Gần nhất'},
     {'value': 'price', 'icon': Icons.attach_money, 'label': 'Giá rẻ'},
     {'value': 'power', 'icon': Icons.bolt, 'label': 'Công suất'},
@@ -41,6 +39,101 @@ class _ExploreScreenState extends State<ExploreScreen> {
   void dispose() {
     _searchController.dispose();
     super.dispose();
+  }
+
+  // Show AI analysis bottom sheet
+  void _showAIAnalysisSheet(BuildContext context, List<Station> stations) {
+    final lang = context.read<LanguageProvider>();
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => DraggableScrollableSheet(
+        initialChildSize: 0.7,
+        minChildSize: 0.5,
+        maxChildSize: 0.95,
+        builder: (context, scrollController) => Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          child: Column(
+            children: [
+              // Handle bar
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 12),
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).dividerColor,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              // Header
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [AppColors.primary, AppColors.cyanLight],
+                        ),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(Icons.auto_awesome,
+                          color: Colors.white, size: 20),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            lang.isVietnamese
+                                ? 'AI Phân tích trạm sạc'
+                                : 'AI Station Analysis',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                          Text(
+                            lang.isVietnamese
+                                ? 'Gợi ý trạm sạc tối ưu dựa trên vị trí'
+                                : 'Optimal stations based on your location',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ],
+                      ),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.close),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ],
+                ),
+              ),
+              const Divider(),
+              // AI Recommendation Panel content
+              Expanded(
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  padding: const EdgeInsets.all(16),
+                  child: AIRecommendationPanel(
+                    stations: stations,
+                    hasLocation: true,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -63,14 +156,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     bottom: 100), // Space for floating nav
                 child: Column(
                   children: [
-                    // AI Recommendation Panel
+                    // AI Analysis Button (instead of always visible panel)
                     Padding(
                       padding: const EdgeInsets.all(16),
-                      child: AIRecommendationPanel(
-                        stations:
-                            _getFilteredStations(stationsProvider.stations),
-                        hasLocation: true,
-                      ),
+                      child: _buildAIAnalysisButton(
+                          context, lang, stationsProvider),
                     ),
 
                     // Sort options
@@ -92,6 +182,94 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 ),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAIAnalysisButton(
+      BuildContext context, LanguageProvider lang, StationsProvider provider) {
+    return InkWell(
+      onTap: () => _showAIAnalysisSheet(
+          context, _getFilteredStations(provider.stations)),
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              AppColors.primary.withOpacity(0.1),
+              AppColors.cyanLight.withOpacity(0.05),
+            ],
+          ),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [AppColors.primary, AppColors.cyanLight],
+                ),
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.primary.withOpacity(0.3),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child:
+                  const Icon(Icons.auto_awesome, color: Colors.white, size: 24),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        lang.isVietnamese ? 'AI Phân tích' : 'AI Analysis',
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                      ),
+                      const SizedBox(width: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: AppColors.primary,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: const Text(
+                          'AI',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    lang.isVietnamese
+                        ? 'Tìm trạm sạc tối ưu dựa trên vị trí của bạn'
+                        : 'Find optimal stations based on your location',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
+              ),
+            ),
+            const Icon(Icons.chevron_right, color: AppColors.primary),
           ],
         ),
       ),
@@ -218,12 +396,20 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   Text(option['label'] as String),
                 ],
               ),
+              backgroundColor: Theme.of(context).cardColor,
               selectedColor: AppColors.primary,
               checkmarkColor: Colors.white,
               labelStyle: TextStyle(
-                color: isSelected ? Colors.white : null,
+                color: isSelected
+                    ? Colors.white
+                    : Theme.of(context).textTheme.bodyMedium?.color,
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
+              ),
+              side: BorderSide(
+                color: isSelected
+                    ? AppColors.primary
+                    : Theme.of(context).dividerColor,
               ),
               onSelected: (selected) {
                 setState(() => _sortBy = option['value'] as String);
@@ -267,10 +453,19 @@ class _ExploreScreenState extends State<ExploreScreen> {
           FilterChip(
             selected: _openNow,
             label: Text(lang.isVietnamese ? 'Mở cửa' : 'Open Now'),
-            selectedColor: AppColors.success.withOpacity(0.2),
+            backgroundColor: Theme.of(context).cardColor,
+            selectedColor: AppColors.success,
+            checkmarkColor: Colors.white,
             labelStyle: TextStyle(
-              color: _openNow ? AppColors.success : null,
+              color: _openNow
+                  ? Colors.white
+                  : Theme.of(context).textTheme.bodyMedium?.color,
               fontSize: 13,
+              fontWeight: FontWeight.w500,
+            ),
+            side: BorderSide(
+              color:
+                  _openNow ? AppColors.success : Theme.of(context).dividerColor,
             ),
             onSelected: (selected) => setState(() => _openNow = selected),
           ),
@@ -280,10 +475,20 @@ class _ExploreScreenState extends State<ExploreScreen> {
           FilterChip(
             selected: _availableNow,
             label: Text(lang.isVietnamese ? 'Còn trống' : 'Available'),
-            selectedColor: AppColors.primary.withOpacity(0.2),
+            backgroundColor: Theme.of(context).cardColor,
+            selectedColor: AppColors.primary,
+            checkmarkColor: Colors.white,
             labelStyle: TextStyle(
-              color: _availableNow ? AppColors.primary : null,
+              color: _availableNow
+                  ? Colors.white
+                  : Theme.of(context).textTheme.bodyMedium?.color,
               fontSize: 13,
+              fontWeight: FontWeight.w500,
+            ),
+            side: BorderSide(
+              color: _availableNow
+                  ? AppColors.primary
+                  : Theme.of(context).dividerColor,
             ),
             onSelected: (selected) => setState(() => _availableNow = selected),
           ),
@@ -386,22 +591,23 @@ class _ExploreScreenState extends State<ExploreScreen> {
   }
 
   Widget _buildLoadingSkeleton() {
-    return ListView.builder(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      itemCount: 5,
-      itemBuilder: (context, index) {
-        return Container(
-          height: 160,
-          margin: const EdgeInsets.only(bottom: 12),
-          decoration: BoxDecoration(
-            color: Theme.of(context).cardColor,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: const Center(
-            child: CircularProgressIndicator(),
-          ),
-        );
-      },
+      child: Column(
+        children: List.generate(5, (index) {
+          return Container(
+            height: 160,
+            margin: const EdgeInsets.only(bottom: 12),
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: const Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }),
+      ),
     );
   }
 
@@ -511,10 +717,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
     // Sort
     switch (_sortBy) {
-      case 'distance':
-        filtered.sort(
-            (a, b) => (a.distanceKm ?? 100).compareTo(b.distanceKm ?? 100));
-        break;
       case 'price':
         filtered.sort((a, b) => a.minPrice.compareTo(b.minPrice));
         break;
@@ -524,18 +726,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
       case 'rating':
         filtered.sort((a, b) => (b.avgRating ?? 0).compareTo(a.avgRating ?? 0));
         break;
-      case 'ai_recommended':
+      case 'distance':
       default:
-        // AI score simulation - combine multiple factors
-        filtered.sort((a, b) {
-          final scoreA = (a.avgRating ?? 3) * 20 +
-              (100 - (a.distanceKm ?? 10) * 5) +
-              (a.availableChargers > 0 ? 30 : 0);
-          final scoreB = (b.avgRating ?? 3) * 20 +
-              (100 - (b.distanceKm ?? 10) * 5) +
-              (b.availableChargers > 0 ? 30 : 0);
-          return scoreB.compareTo(scoreA);
-        });
+        // Default: sort by distance (nearest first)
+        filtered.sort(
+            (a, b) => (a.distanceKm ?? 100).compareTo(b.distanceKm ?? 100));
         break;
     }
 

@@ -1,38 +1,122 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import '../models/station.dart';
+import '../services/open_charge_map_service.dart';
+import '../config/api_config.dart';
 
 class StationsProvider extends ChangeNotifier {
   List<Station> _stations = [];
   final List<Station> _favorites = [];
   bool _loading = false;
   String? _error;
+  bool _usingMockData = false;
+
+  final OpenChargeMapService _ocmService = OpenChargeMapService();
 
   List<Station> get stations => _stations;
   List<Station> get favorites => _favorites;
   bool get loading => _loading;
   String? get error => _error;
+  bool get usingMockData => _usingMockData;
 
   StationsProvider() {
     loadStations();
   }
 
-  Future<void> loadStations() async {
+  /// Load trạm sạc từ OpenChargeMap API
+  /// Fallback về mock data nếu API fail hoặc không có kết quả
+  Future<void> loadStations({double? latitude, double? longitude}) async {
     _loading = true;
     _error = null;
+    _usingMockData = false;
     notifyListeners();
 
     try {
-      // Mock data - will be replaced with actual API call
-      await Future.delayed(const Duration(milliseconds: 500));
+      // Lấy vị trí hiện tại nếu không truyền tham số
+      double lat = latitude ?? ApiConfig.defaultLatitude;
+      double lng = longitude ?? ApiConfig.defaultLongitude;
 
+      // Thử lấy GPS với timeout 5 giây
+      if (latitude == null && longitude == null) {
+        try {
+          final position =
+              await _getCurrentPosition().timeout(const Duration(seconds: 5));
+          if (position != null) {
+            lat = position.latitude;
+            lng = position.longitude;
+            debugPrint('📍 Using current location: $lat, $lng');
+          } else {
+            debugPrint('📍 GPS not available, using default HCM location');
+          }
+        } catch (e) {
+          debugPrint('⚠️ Could not get location: $e, using default');
+        }
+      }
+      debugPrint('📍 Location: $lat, $lng');
+
+      // Gọi OpenChargeMap API
+      debugPrint('🔌 Fetching stations from OpenChargeMap...');
+      final stations = await _ocmService.fetchStations(
+        latitude: lat,
+        longitude: lng,
+      );
+
+      if (stations.isNotEmpty) {
+        _stations = stations;
+        debugPrint('✅ Loaded ${stations.length} stations from OpenChargeMap');
+      } else {
+        // Không có trạm nào, dùng mock data
+        debugPrint('⚠️ No stations found, using mock data');
+        _stations = _getMockStations();
+        _usingMockData = true;
+      }
+
+      _loading = false;
+      notifyListeners();
+    } on OpenChargeMapException catch (e) {
+      debugPrint('❌ OpenChargeMap API Error: $e');
+      _error = 'Không thể tải dữ liệu từ server. Đang sử dụng dữ liệu mẫu.';
       _stations = _getMockStations();
+      _usingMockData = true;
       _loading = false;
       notifyListeners();
     } catch (e) {
-      _error = e.toString();
+      debugPrint('❌ Error loading stations: $e');
+      _error = 'Lỗi: $e. Đang sử dụng dữ liệu mẫu.';
+      _stations = _getMockStations();
+      _usingMockData = true;
       _loading = false;
       notifyListeners();
     }
+  }
+
+  /// Lấy vị trí hiện tại
+  Future<Position?> _getCurrentPosition() async {
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return null;
+    }
+
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return null;
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return null;
+    }
+
+    return await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.medium,
+    );
+  }
+
+  /// Refresh stations with current location
+  Future<void> refreshStations() async {
+    await loadStations();
   }
 
   Station? getStationById(String id) {

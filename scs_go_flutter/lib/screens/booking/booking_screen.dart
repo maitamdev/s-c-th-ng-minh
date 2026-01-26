@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../config/theme.dart';
+import '../../config/supabase_config.dart';
 import '../../providers/language_provider.dart';
 import '../../providers/stations_provider.dart';
 import '../../providers/booking_provider.dart';
@@ -21,6 +22,46 @@ class _BookingScreenState extends State<BookingScreen> {
   DateTime _selectedDate = DateTime.now();
   TimeOfDay _selectedTime = TimeOfDay.now();
   int _duration = 30; // minutes
+  List<String> _selectedServices = [];
+
+  // Danh sách dịch vụ bổ sung
+  static const List<Map<String, dynamic>> _availableServices = [
+    {
+      'id': 'car_wash',
+      'name_vi': 'Rửa xe',
+      'name_en': 'Car Wash',
+      'price': 50000,
+      'icon': Icons.local_car_wash
+    },
+    {
+      'id': 'lounge',
+      'name_vi': 'Phòng chờ VIP',
+      'name_en': 'VIP Lounge',
+      'price': 30000,
+      'icon': Icons.weekend
+    },
+    {
+      'id': 'coffee',
+      'name_vi': 'Cafe miễn phí',
+      'name_en': 'Free Coffee',
+      'price': 0,
+      'icon': Icons.coffee
+    },
+    {
+      'id': 'priority',
+      'name_vi': 'Ưu tiên sạc',
+      'name_en': 'Priority Charging',
+      'price': 20000,
+      'icon': Icons.flash_on
+    },
+    {
+      'id': 'parking',
+      'name_vi': 'Giữ xe miễn phí',
+      'name_en': 'Free Parking',
+      'price': 0,
+      'icon': Icons.local_parking
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -128,8 +169,16 @@ class _BookingScreenState extends State<BookingScreen> {
                     label: Text('$mins ${lang.isVietnamese ? 'phút' : 'min'}'),
                     selected: isSelected,
                     selectedColor: AppColors.primary,
+                    backgroundColor: Theme.of(context).cardColor,
+                    side: BorderSide(
+                      color: isSelected
+                          ? AppColors.primary
+                          : AppColors.primary.withOpacity(0.3),
+                    ),
                     labelStyle: TextStyle(
-                      color: isSelected ? Colors.white : null,
+                      color: isSelected ? Colors.white : AppColors.primary,
+                      fontWeight:
+                          isSelected ? FontWeight.w600 : FontWeight.normal,
                     ),
                     onSelected: (selected) {
                       if (selected) setState(() => _duration = mins);
@@ -139,6 +188,19 @@ class _BookingScreenState extends State<BookingScreen> {
               ),
 
               const SizedBox(height: 32),
+
+              // Dịch vụ bổ sung
+              Text(
+                lang.isVietnamese ? 'Dịch vụ bổ sung' : 'Additional Services',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
+              ),
+              const SizedBox(height: 12),
+              ..._availableServices
+                  .map((service) => _buildServiceItem(context, lang, service)),
+
+              const SizedBox(height: 24),
 
               // Summary card
               if (_selectedCharger != null)
@@ -337,11 +399,21 @@ class _BookingScreenState extends State<BookingScreen> {
 
   Widget _buildSummaryCard(
       BuildContext context, LanguageProvider lang, Station station) {
-    final estimatedCost = (_selectedCharger!.pricePerKwh *
+    final chargingCost = (_selectedCharger!.pricePerKwh *
             _selectedCharger!.powerKw *
             _duration /
             60)
         .toInt();
+
+    // Tính tổng phí dịch vụ
+    int servicesCost = 0;
+    for (final serviceId in _selectedServices) {
+      final service =
+          _availableServices.firstWhere((s) => s['id'] == serviceId);
+      servicesCost += service['price'] as int;
+    }
+
+    final totalCost = chargingCost + servicesCost;
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -368,11 +440,24 @@ class _BookingScreenState extends State<BookingScreen> {
               context,
               lang.isVietnamese ? 'Thời lượng' : 'Duration',
               '$_duration ${lang.isVietnamese ? 'phút' : 'min'}'),
+          _buildSummaryRow(
+            context,
+            lang.isVietnamese ? 'Phí sạc' : 'Charging Fee',
+            '${_formatPrice(chargingCost)}đ',
+          ),
+          if (servicesCost > 0)
+            _buildSummaryRow(
+              context,
+              lang.isVietnamese
+                  ? 'Dịch vụ (${_selectedServices.length})'
+                  : 'Services (${_selectedServices.length})',
+              '+${_formatPrice(servicesCost)}đ',
+            ),
           const Divider(),
           _buildSummaryRow(
             context,
-            lang.isVietnamese ? 'Ước tính chi phí' : 'Estimated Cost',
-            '${estimatedCost.toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},')}đ',
+            lang.isVietnamese ? 'Tổng cộng' : 'Total',
+            '${_formatPrice(totalCost)}đ',
             isBold: true,
           ),
         ],
@@ -405,6 +490,105 @@ class _BookingScreenState extends State<BookingScreen> {
     );
   }
 
+  Widget _buildServiceItem(BuildContext context, LanguageProvider lang,
+      Map<String, dynamic> service) {
+    final isSelected = _selectedServices.contains(service['id']);
+    final name = lang.isVietnamese ? service['name_vi'] : service['name_en'];
+    final price = service['price'] as int;
+    final icon = service['icon'] as IconData;
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        color: isSelected
+            ? AppColors.primary.withOpacity(0.1)
+            : Theme.of(context).cardColor,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color:
+              isSelected ? AppColors.primary : Theme.of(context).dividerColor,
+        ),
+      ),
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            if (isSelected) {
+              _selectedServices.remove(service['id']);
+            } else {
+              _selectedServices.add(service['id'] as String);
+            }
+          });
+        },
+        borderRadius: BorderRadius.circular(12),
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: isSelected
+                      ? AppColors.primary.withOpacity(0.2)
+                      : AppColors.primary.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(icon, color: AppColors.primary, size: 20),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ),
+                    if (price > 0)
+                      Text(
+                        '+${_formatPrice(price)}đ',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: AppColors.primary,
+                            ),
+                      )
+                    else
+                      Text(
+                        lang.isVietnamese ? 'Miễn phí' : 'Free',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: AppColors.success,
+                            ),
+                      ),
+                  ],
+                ),
+              ),
+              Checkbox(
+                value: isSelected,
+                onChanged: (value) {
+                  setState(() {
+                    if (value == true) {
+                      _selectedServices.add(service['id'] as String);
+                    } else {
+                      _selectedServices.remove(service['id']);
+                    }
+                  });
+                },
+                activeColor: AppColors.primary,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  String _formatPrice(int price) {
+    return price.toString().replaceAllMapped(
+          RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+          (Match m) => '${m[1]},',
+        );
+  }
+
   Widget _buildBottomBar(BuildContext context, LanguageProvider lang,
       Station station, bool canBook) {
     return Container(
@@ -434,7 +618,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ),
                 child: ElevatedButton.icon(
                   onPressed: _selectedCharger != null
-                      ? () => _confirmBooking(context, lang)
+                      ? () => _confirmBooking(context, lang, station)
                       : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
@@ -468,8 +652,58 @@ class _BookingScreenState extends State<BookingScreen> {
     );
   }
 
-  void _confirmBooking(BuildContext context, LanguageProvider lang) async {
+  void _confirmBooking(
+      BuildContext context, LanguageProvider lang, Station station) async {
     if (_selectedCharger == null) return;
+
+    // Check if user is authenticated
+    final userId = SupabaseConfig.currentUser?.id;
+    if (userId == null) {
+      // Show login required dialog
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Row(
+            children: [
+              const Icon(Icons.lock_outline, color: AppColors.warning),
+              const SizedBox(width: 8),
+              Flexible(
+                child: Text(
+                  lang.isVietnamese ? 'Yêu cầu đăng nhập' : 'Login Required',
+                  style: const TextStyle(fontSize: 18),
+                ),
+              ),
+            ],
+          ),
+          content: Text(
+            lang.isVietnamese
+                ? 'Bạn cần đăng nhập để đặt chỗ sạc. Bạn có muốn đăng nhập ngay bây giờ không?'
+                : 'You need to login to book a charging slot. Would you like to login now?',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: Text(lang.isVietnamese ? 'Hủy' : 'Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+                // Use go() instead of push() and use the outer context
+                GoRouter.of(context).go('/login');
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.primary,
+              ),
+              child: Text(
+                lang.isVietnamese ? 'Đăng nhập' : 'Login',
+                style: const TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
 
     // Show loading
     showDialog(
@@ -502,53 +736,26 @@ class _BookingScreenState extends State<BookingScreen> {
       startTime: startTime,
       durationMinutes: _duration,
       totalPrice: totalPrice,
+      stationName: station.name,
+      connectorType: _selectedCharger!.connectorType,
     );
 
     if (!context.mounted) return;
     Navigator.pop(context); // Close loading
 
     if (booking != null) {
-      // Success - navigate to booking detail
-      showDialog(
-        context: context,
-        builder: (ctx) => AlertDialog(
-          title: Row(
-            children: [
-              const Icon(Icons.check_circle, color: AppColors.success),
-              const SizedBox(width: 8),
-              Flexible(
-                child: Text(
-                  lang.isVietnamese
-                      ? 'Đặt chỗ thành công!'
-                      : 'Booking Confirmed!',
-                  style: const TextStyle(fontSize: 18),
-                ),
-              ),
-            ],
-          ),
+      // Success - show brief notification and navigate directly to QR screen
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
           content: Text(
-            lang.isVietnamese
-                ? 'Bạn đã đặt chỗ thành công. Xem mã QR để check-in.'
-                : 'Your booking is confirmed. View QR code to check-in.',
+            lang.isVietnamese ? 'Đặt chỗ thành công!' : 'Booking Confirmed!',
           ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(ctx);
-                context.go('/dashboard');
-              },
-              child: Text(lang.isVietnamese ? 'Về Dashboard' : 'Dashboard'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(ctx);
-                context.push('/booking-detail/${booking.id}');
-              },
-              child: Text(lang.isVietnamese ? 'Xem QR' : 'View QR'),
-            ),
-          ],
+          backgroundColor: AppColors.success,
+          duration: const Duration(seconds: 2),
         ),
       );
+      // Navigate directly to booking detail to show QR code
+      context.push('/booking-detail/${booking.id}');
     } else {
       // Error
       ScaffoldMessenger.of(context).showSnackBar(

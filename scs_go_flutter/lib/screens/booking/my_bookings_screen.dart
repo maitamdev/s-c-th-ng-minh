@@ -232,7 +232,8 @@ class _MyBookingsScreenState extends State<MyBookingsScreen>
                 ],
               ),
             ],
-            if (booking.isUpcoming || booking.isActive) ...[
+            // Show View QR button for all confirmed bookings
+            if (booking.status == 'confirmed') ...[
               const SizedBox(height: 12),
               Row(
                 children: [

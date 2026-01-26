@@ -51,8 +51,8 @@ class BookingDetailScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            // QR Code Card
-            if (booking.isUpcoming || booking.isActive)
+            // QR Code Card - Show for all confirmed bookings (until checked-in)
+            if (booking.status == 'confirmed')
               _buildQRCard(context, lang, booking, isDark),
 
             const SizedBox(height: 20),

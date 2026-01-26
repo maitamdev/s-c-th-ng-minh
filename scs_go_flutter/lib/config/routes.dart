@@ -11,6 +11,7 @@ import '../screens/settings/settings_screen.dart';
 import '../screens/vehicle/vehicle_screen.dart';
 import '../screens/favorites/favorites_screen.dart';
 import '../screens/history/history_screen.dart';
+import '../screens/trip_planner/trip_planner_screen.dart';
 import '../screens/main_shell.dart';
 
 final appRouter = GoRouter(
@@ -27,6 +28,13 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/auth',
       name: 'auth',
+      builder: (context, state) => const AuthScreen(),
+    ),
+
+    // Login (alias for auth)
+    GoRoute(
+      path: '/login',
+      name: 'login',
       builder: (context, state) => const AuthScreen(),
     ),
 
@@ -96,6 +104,11 @@ final appRouter = GoRouter(
       path: '/history',
       name: 'history',
       builder: (context, state) => const HistoryScreen(),
+    ),
+    GoRoute(
+      path: '/trip-planner',
+      name: 'tripPlanner',
+      builder: (context, state) => const TripPlannerScreen(),
     ),
   ],
 );

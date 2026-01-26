@@ -147,12 +147,18 @@ class AuthProvider extends ChangeNotifier {
       );
 
       if (response.user != null) {
-        // Update profile with name
-        await SupabaseConfig.client.from('profiles').upsert({
-          'id': response.user!.id,
-          'full_name': name,
-          'role': 'user',
-        });
+        // Try to update profile with name (may fail due to RLS)
+        try {
+          await SupabaseConfig.client.from('profiles').upsert({
+            'id': response.user!.id,
+            'full_name': name,
+            'role': 'user',
+          });
+        } catch (e) {
+          // RLS policy may block this, but auth succeeded
+          // Profile will be created by Supabase trigger or loaded later
+          debugPrint('Profile upsert skipped (RLS): $e');
+        }
 
         await _loadUserProfile(response.user!);
       }

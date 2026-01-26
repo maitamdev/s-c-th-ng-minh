@@ -21,7 +21,6 @@ class _MainShellState extends State<MainShell>
   final _tabs = [
     '/explore',
     '/dashboard',
-    '/favorites',
     '/settings',
   ];
 
@@ -35,11 +34,6 @@ class _MainShellState extends State<MainShell>
       'icon': Icons.dashboard_outlined,
       'activeIcon': Icons.dashboard,
       'label': 'Dashboard'
-    },
-    {
-      'icon': Icons.favorite_outline,
-      'activeIcon': Icons.favorite,
-      'label': 'favorites.title'
     },
     {
       'icon': Icons.settings_outlined,
@@ -193,23 +187,18 @@ class _MainShellState extends State<MainShell>
                   ? Colors.white
                   : Theme.of(context).textTheme.bodySmall?.color,
             ),
-            AnimatedSize(
-              duration: const Duration(milliseconds: 200),
-              curve: Curves.easeOut,
-              child: isSelected
-                  ? Padding(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: Text(
-                        label,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    )
-                  : const SizedBox.shrink(),
-            ),
+            if (isSelected)
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Text(
+                  label,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
           ],
         ),
       ),

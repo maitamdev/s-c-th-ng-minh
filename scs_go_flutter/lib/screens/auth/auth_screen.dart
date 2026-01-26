@@ -240,20 +240,32 @@ class _AuthScreenState extends State<AuthScreen>
           Tab(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 const Icon(Icons.person_outline, size: 18),
-                const SizedBox(width: 8),
-                Text(lang.t('auth.userAccount')),
+                const SizedBox(width: 6),
+                Flexible(
+                  child: Text(
+                    lang.t('auth.userAccount'),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ],
             ),
           ),
           Tab(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 const Icon(Icons.business, size: 18),
-                const SizedBox(width: 8),
-                Text(lang.t('auth.operatorAccount')),
+                const SizedBox(width: 6),
+                Flexible(
+                  child: Text(
+                    lang.t('auth.operatorAccount'),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ],
             ),
           ),
@@ -585,6 +597,7 @@ class _AuthScreenState extends State<AuthScreen>
     if (!_formKey.currentState!.validate()) return;
 
     setState(() => _loading = true);
+    final lang = context.read<LanguageProvider>();
 
     try {
       final auth = context.read<AuthProvider>();
@@ -604,10 +617,30 @@ class _AuthScreenState extends State<AuthScreen>
       }
     } catch (e) {
       if (mounted) {
+        String errorMessage = e.toString();
+
+        // Check for rate limiting error
+        if (errorMessage.contains('security purposes') ||
+            errorMessage.contains('after') &&
+                errorMessage.contains('seconds')) {
+          errorMessage = lang.isVietnamese
+              ? 'Bạn đã thử quá nhiều lần. Vui lòng đợi một chút rồi thử lại.'
+              : 'Too many attempts. Please wait a moment and try again.';
+        } else if (errorMessage.contains('Invalid login credentials')) {
+          errorMessage = lang.isVietnamese
+              ? 'Email hoặc mật khẩu không đúng.'
+              : 'Invalid email or password.';
+        } else if (errorMessage.contains('User already registered')) {
+          errorMessage = lang.isVietnamese
+              ? 'Email này đã được đăng ký.'
+              : 'This email is already registered.';
+        }
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(e.toString()),
+            content: Text(errorMessage),
             backgroundColor: AppColors.error,
+            duration: const Duration(seconds: 4),
           ),
         );
       }
@@ -620,6 +653,8 @@ class _AuthScreenState extends State<AuthScreen>
 
   Future<void> _handleGoogleSignIn() async {
     setState(() => _loading = true);
+    final lang = context.read<LanguageProvider>();
+
     try {
       final auth = context.read<AuthProvider>();
       await auth.signInWithGoogle();
@@ -628,10 +663,22 @@ class _AuthScreenState extends State<AuthScreen>
       }
     } catch (e) {
       if (mounted) {
+        String errorMessage = e.toString();
+
+        // Check for rate limiting error
+        if (errorMessage.contains('security purposes') ||
+            errorMessage.contains('after') &&
+                errorMessage.contains('seconds')) {
+          errorMessage = lang.isVietnamese
+              ? 'Bạn đã thử quá nhiều lần. Vui lòng đợi một chút rồi thử lại.'
+              : 'Too many attempts. Please wait a moment and try again.';
+        }
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(e.toString()),
+            content: Text(errorMessage),
             backgroundColor: AppColors.error,
+            duration: const Duration(seconds: 4),
           ),
         );
       }

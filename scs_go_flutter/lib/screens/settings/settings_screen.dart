@@ -46,47 +46,65 @@ class SettingsScreen extends StatelessWidget {
 
                   const SizedBox(height: 24),
 
-                  // Account section
-                  _buildSectionTitle(
-                      context, lang.isVietnamese ? 'Tài khoản' : 'Account'),
-                  _buildSettingsCard(context, [
-                    _buildSettingsTile(
-                      context,
-                      icon: Icons.person_outline,
-                      title: lang.t('settings.profile'),
-                      onTap: () {},
-                    ),
-                    const Divider(height: 1),
-                    _buildSettingsTile(
-                      context,
-                      icon: Icons.directions_car_outlined,
-                      title: lang.t('dashboard.myVehicle'),
-                      onTap: () => context.push('/vehicle'),
-                    ),
-                    const Divider(height: 1),
-                    _buildSettingsTile(
-                      context,
-                      icon: Icons.favorite_outline,
-                      title: lang.t('favorites.title'),
-                      onTap: () => context.push('/favorites'),
-                    ),
-                    const Divider(height: 1),
-                    _buildSettingsTile(
-                      context,
-                      icon: Icons.history,
-                      title: lang.isVietnamese
-                          ? 'Lịch sử sạc'
-                          : 'Charging History',
-                      onTap: () => context.push('/history'),
-                    ),
-                  ]),
-
-                  const SizedBox(height: 24),
+                  // Account section (only show when authenticated)
+                  if (auth.isAuthenticated) ...[
+                    _buildSectionTitle(
+                        context, lang.isVietnamese ? 'Tài khoản' : 'Account'),
+                    _buildSettingsCard(context, [
+                      _buildSettingsTile(
+                        context,
+                        icon: Icons.person_outline,
+                        title: lang.t('settings.profile'),
+                        onTap: () {},
+                      ),
+                      const Divider(height: 1),
+                      _buildSettingsTile(
+                        context,
+                        icon: Icons.directions_car_outlined,
+                        title: lang.t('dashboard.myVehicle'),
+                        onTap: () => context.push('/vehicle'),
+                      ),
+                      const Divider(height: 1),
+                      _buildSettingsTile(
+                        context,
+                        icon: Icons.favorite_outline,
+                        title: lang.t('favorites.title'),
+                        onTap: () => context.push('/favorites'),
+                      ),
+                      const Divider(height: 1),
+                      _buildSettingsTile(
+                        context,
+                        icon: Icons.history,
+                        title: lang.isVietnamese
+                            ? 'Lịch sử sạc'
+                            : 'Charging History',
+                        onTap: () => context.push('/history'),
+                      ),
+                      const Divider(height: 1),
+                      _buildSettingsTile(
+                        context,
+                        icon: Icons.calendar_month,
+                        title: lang.isVietnamese
+                            ? 'Lịch sử đặt chỗ'
+                            : 'Booking History',
+                        onTap: () => context.push('/my-bookings'),
+                      ),
+                    ]),
+                    const SizedBox(height: 24),
+                  ],
 
                   // Support section
                   _buildSectionTitle(
                       context, lang.isVietnamese ? 'Hỗ trợ' : 'Support'),
                   _buildSettingsCard(context, [
+                    _buildSettingsTile(
+                      context,
+                      icon: Icons.home_outlined,
+                      title:
+                          lang.isVietnamese ? 'Về trang chủ' : 'Back to Home',
+                      onTap: () => context.go('/'),
+                    ),
+                    const Divider(height: 1),
                     _buildSettingsTile(
                       context,
                       icon: Icons.help_outline,
@@ -168,6 +186,100 @@ class SettingsScreen extends StatelessWidget {
 
   Widget _buildProfileCard(
       BuildContext context, LanguageProvider lang, AuthProvider auth) {
+    // If not authenticated, show login card
+    if (!auth.isAuthenticated) {
+      return Container(
+        margin: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              AppColors.warning.withOpacity(0.1),
+              AppColors.warning.withOpacity(0.05),
+            ],
+          ),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: AppColors.warning.withOpacity(0.3)),
+        ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: AppColors.warning.withOpacity(0.2),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Center(
+                    child: Icon(
+                      Icons.person_outline,
+                      color: AppColors.warning,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        lang.isVietnamese ? 'Chưa đăng nhập' : 'Not logged in',
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        lang.isVietnamese
+                            ? 'Đăng nhập để sử dụng đầy đủ tính năng'
+                            : 'Login to access all features',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            SizedBox(
+              width: double.infinity,
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [AppColors.primary, AppColors.cyanLight],
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: ElevatedButton.icon(
+                  onPressed: () => context.push('/login'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                  ),
+                  icon: const Icon(Icons.login, color: Colors.white),
+                  label: Text(
+                    lang.isVietnamese ? 'Đăng nhập ngay' : 'Login Now',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    // Authenticated user profile card
     return Container(
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.all(20),

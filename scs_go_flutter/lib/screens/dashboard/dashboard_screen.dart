@@ -360,6 +360,15 @@ class DashboardScreen extends StatelessWidget {
       BuildContext context, LanguageProvider lang, bool isDark) {
     final actions = [
       {
+        'icon': Icons.route,
+        'title': lang.isVietnamese ? 'Lập lộ trình AI' : 'AI Trip Planner',
+        'subtitle': lang.isVietnamese
+            ? 'Tính toán điểm sạc trên đường đi'
+            : 'Calculate charging stops on route',
+        'route': '/trip-planner',
+        'color': AppColors.cyan,
+      },
+      {
         'icon': Icons.explore,
         'title': lang.t('dashboard.findStation'),
         'subtitle': lang.isVietnamese
@@ -367,6 +376,15 @@ class DashboardScreen extends StatelessWidget {
             : 'AI recommends best stations',
         'route': '/explore',
         'color': AppColors.primary,
+      },
+      {
+        'icon': Icons.favorite,
+        'title': lang.t('favorites.title'),
+        'subtitle': lang.isVietnamese
+            ? 'Xem trạm sạc yêu thích'
+            : 'View favorite stations',
+        'route': '/favorites',
+        'color': AppColors.error,
       },
       {
         'icon': Icons.directions_car,

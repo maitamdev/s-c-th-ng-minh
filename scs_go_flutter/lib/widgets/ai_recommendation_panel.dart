@@ -145,9 +145,11 @@ class _AIRecommendationPanelState extends State<AIRecommendationPanel> {
     final distance = station.distanceKm ?? 10.0;
     if (distance < 2) {
       score += 15;
-    } else if (distance < 5)
+    } else if (distance < 5) {
       score += 10;
-    else if (distance < 10) score += 5;
+    } else if (distance < 10) {
+      score += 5;
+    }
 
     // Price factor
     if (station.minPrice < 3500) score += 10;
