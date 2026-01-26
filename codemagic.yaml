@@ -3,6 +3,7 @@ workflows:
     name: iOS Release Build
     max_build_duration: 60
     instance_type: mac_mini_m1
+    working_directory: scs_go_flutter
     environment:
       flutter: stable
       xcode: latest
@@ -10,21 +11,19 @@ workflows:
     scripts:
       - name: Get Flutter dependencies
         script: |
-          cd scs_go_flutter
-          flutter packages pub get
+          flutter pub get
       - name: Build iOS (no codesign)
         script: |
-          cd scs_go_flutter
           flutter build ios --release --no-codesign
       - name: Package IPA
         script: |
-          cd scs_go_flutter/build/ios/iphoneos
-          mkdir Payload
+          cd build/ios/iphoneos
+          mkdir -p Payload
           mv Runner.app Payload/
           zip -r SCS-GO.ipa Payload
     artifacts:
-      - scs_go_flutter/build/ios/iphoneos/SCS-GO.ipa
-      - scs_go_flutter/build/ios/iphoneos/*.app
+      - build/ios/iphoneos/SCS-GO.ipa
+      - build/ios/iphoneos/*.app
     publishing:
       email:
         recipients:
