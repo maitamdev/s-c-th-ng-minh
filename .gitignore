@@ -27,3 +27,20 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Flutter specific (for scs_go_flutter subfolder)
+scs_go_flutter/.dart_tool/
+scs_go_flutter/.flutter-plugins
+scs_go_flutter/.flutter-plugins-dependencies
+scs_go_flutter/build/
+scs_go_flutter/.pub-cache/
+scs_go_flutter/.pub/
+
+# APK files (should be released via GitHub Releases, not committed)
+*.apk
+*.aab
+*.ipa
+
+# Lock files (optional - some teams commit these)
+# package-lock.json
+# bun.lockb
