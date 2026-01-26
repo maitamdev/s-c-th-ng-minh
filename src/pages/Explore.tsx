@@ -19,7 +19,7 @@ export default function Explore() {
   const { stations, loading: stationsLoading } = useStations();
   const { user } = useAuth();
   const { t } = useLanguage();
-  
+
   const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
   const [locationError, setLocationError] = useState<string | null>(null);
   const [locationLoading, setLocationLoading] = useState(true);
@@ -110,9 +110,9 @@ export default function Explore() {
       const a =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
         Math.cos((userLocation.lat * Math.PI) / 180) *
-          Math.cos((station.lat * Math.PI) / 180) *
-          Math.sin(dLng / 2) *
-          Math.sin(dLng / 2);
+        Math.cos((station.lat * Math.PI) / 180) *
+        Math.sin(dLng / 2) *
+        Math.sin(dLng / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       const distance = R * c;
 
@@ -207,7 +207,7 @@ export default function Explore() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-mobile-nav">
       <Header />
 
       <main className="pt-20 pb-8">
