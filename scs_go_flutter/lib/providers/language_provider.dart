@@ -115,6 +115,7 @@ class LanguageProvider extends ChangeNotifier {
 
       // Settings
       'settings.title': 'Cài đặt',
+      'settings.profile': 'Thông tin cá nhân',
       'settings.account': 'Tài khoản',
       'settings.theme': 'Giao diện',
       'settings.darkMode': 'Chế độ tối',
@@ -223,6 +224,7 @@ class LanguageProvider extends ChangeNotifier {
 
       // Settings
       'settings.title': 'Settings',
+      'settings.profile': 'Personal Information',
       'settings.account': 'Account',
       'settings.theme': 'Theme',
       'settings.darkMode': 'Dark Mode',
