@@ -36,15 +36,15 @@ export function InstallPWA() {
     const handleBeforeInstall = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
-      // Show banner after 30 seconds
-      setTimeout(() => setShowBanner(true), 30000);
+      // Show banner after 5 seconds (was 30)
+      setTimeout(() => setShowBanner(true), 5000);
     };
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstall);
 
-    // For iOS, show banner after delay
+    // For iOS, show banner after 5 seconds (was 30)
     if (isIOSDevice) {
-      setTimeout(() => setShowBanner(true), 30000);
+      setTimeout(() => setShowBanner(true), 5000);
     }
 
     return () => {
@@ -57,11 +57,11 @@ export function InstallPWA() {
 
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    
+
     if (outcome === 'accepted') {
       setShowBanner(false);
     }
-    
+
     setDeferredPrompt(null);
   };
 
@@ -92,7 +92,7 @@ export function InstallPWA() {
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
               <Smartphone className="w-6 h-6 text-primary" />
             </div>
-            
+
             <div className="flex-1">
               <h3 className="font-semibold text-foreground mb-1">
                 {t('pwa.title')}
