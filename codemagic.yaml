@@ -12,6 +12,9 @@ workflows:
       - name: Get Flutter dependencies
         script: |
           flutter pub get
+      - name: Create iOS platform
+        script: |
+          flutter create --platforms=ios .
       - name: Build iOS (no codesign)
         script: |
           flutter build ios --release --no-codesign
