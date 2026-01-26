@@ -87,7 +87,7 @@ export default function Landing() {
 
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-mobile-nav">
       <SEO />
       <Header />
       <InstallPWA />
@@ -267,7 +267,7 @@ export default function Landing() {
                   ease: "easeInOut",
                 }}
               />
-              
+
               {/* Rotating ring */}
               <motion.div
                 className="absolute w-72 h-72 md:w-80 md:h-80 rounded-full border-2 border-dashed border-primary/30"
@@ -278,7 +278,7 @@ export default function Landing() {
                   ease: "linear",
                 }}
               />
-              
+
               {/* Second rotating ring (opposite direction) */}
               <motion.div
                 className="absolute w-64 h-64 md:w-72 md:h-72 rounded-full border border-cyan-500/20"
@@ -332,7 +332,7 @@ export default function Landing() {
                 >
                   {/* Logo shadow/glow */}
                   <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-2xl transform scale-110" />
-                  
+
                   {/* Logo image */}
                   <motion.img
                     src="/logo.jpg"
@@ -348,7 +348,7 @@ export default function Landing() {
                       ease: "easeInOut",
                     }}
                   />
-                  
+
                   {/* Shine effect */}
                   <motion.div
                     className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-white/20 to-transparent"
