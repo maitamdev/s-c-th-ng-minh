@@ -112,7 +112,7 @@ export default function Landing() {
                 <span className="text-sm text-primary">{t('landing.badge')}</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight whitespace-nowrap">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight whitespace-nowrap">
                 {t('landing.hero.title')}{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
                   {t('landing.hero.highlight')}
