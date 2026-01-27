@@ -11,59 +11,89 @@ import {
 
 const teamMembers = [
     {
-        name: 'Nguyễn Văn A',
-        nameEn: 'Nguyen Van A',
-        role: 'CEO & Founder',
-        roleVi: 'CEO & Nhà sáng lập',
+        name: 'Sơn Hoàng Hiếu',
+        nameEn: 'Son Hoang Hieu',
+        role: 'CEO (Chief Executive Officer)',
+        roleVi: 'Giám đốc điều hành',
+        university: 'Trường Đại học Nguyễn Tất Thành',
+        universityEn: 'Nguyen Tat Thanh University',
+        faculty: 'Khoa Quản trị Kinh doanh',
+        facultyEn: 'Faculty of Business Administration',
+        studentId: '2200012147',
         image: '/team/member-1.jpg',
         linkedin: '#',
-        email: 'nguyenvana@scsgo.vn',
+        email: 'hieu.son@scsgo.vn',
     },
     {
-        name: 'Trần Thị B',
-        nameEn: 'Tran Thi B',
-        role: 'CTO',
-        roleVi: 'Giám đốc Công nghệ',
+        name: 'Vũ Thị Thơm',
+        nameEn: 'Vu Thi Thom',
+        role: 'CMO (Chief Marketing Officer)',
+        roleVi: 'Giám đốc tiếp thị',
+        university: 'Trường Đại học Nguyễn Tất Thành',
+        universityEn: 'Nguyen Tat Thanh University',
+        faculty: 'Khoa Quản trị Kinh doanh',
+        facultyEn: 'Faculty of Business Administration',
+        studentId: '2311559764',
         image: '/team/member-2.jpg',
         linkedin: '#',
-        email: 'tranthib@scsgo.vn',
+        email: 'thom.vu@scsgo.vn',
     },
     {
-        name: 'Lê Văn C',
-        nameEn: 'Le Van C',
-        role: 'Head of Product',
-        roleVi: 'Trưởng phòng Sản phẩm',
+        name: 'Nguyễn Thị Bích Trâm',
+        nameEn: 'Nguyen Thi Bich Tram',
+        role: 'CCO (Chief Creative Officer)',
+        roleVi: 'Giám đốc sáng tạo',
+        university: 'Trường Đại học Nguyễn Tất Thành',
+        universityEn: 'Nguyen Tat Thanh University',
+        faculty: 'Khoa Quản trị Kinh doanh',
+        facultyEn: 'Faculty of Business Administration',
+        studentId: '2311553463',
         image: '/team/member-3.jpg',
         linkedin: '#',
-        email: 'levanc@scsgo.vn',
+        email: 'tram.nguyen@scsgo.vn',
     },
     {
-        name: 'Phạm Thị D',
-        nameEn: 'Pham Thi D',
-        role: 'Head of Operations',
-        roleVi: 'Trưởng phòng Vận hành',
+        name: 'Bùi Thị Tuyên',
+        nameEn: 'Bui Thi Tuyen',
+        role: 'CFO (Chief Financial Officer)',
+        roleVi: 'Giám đốc tài chính',
+        university: 'Trường Đại học Công Nghiệp TP.HCM',
+        universityEn: 'HCMC University of Industry',
+        faculty: 'Khoa Quản trị Kinh doanh',
+        facultyEn: 'Faculty of Business Administration',
+        studentId: '22703911',
         image: '/team/member-4.jpg',
         linkedin: '#',
-        email: 'phamthid@scsgo.vn',
+        email: 'tuyen.bui@scsgo.vn',
     },
     {
-        name: 'Hoàng Văn E',
-        nameEn: 'Hoang Van E',
-        role: 'Lead Developer',
-        roleVi: 'Trưởng nhóm Phát triển',
+        name: 'Mai Trần Thiện Tâm',
+        nameEn: 'Mai Tran Thien Tam',
+        role: 'CTO (Chief Technology Officer)',
+        roleVi: 'Giám đốc công nghệ',
+        university: 'Đại học Hùng Vương TP.HCM',
+        universityEn: 'Hung Vuong University HCMC',
+        faculty: 'Khoa Kỹ Thuật Công Nghệ',
+        facultyEn: 'Faculty of Engineering Technology',
+        studentId: '2305CT2070',
         image: '/team/member-5.jpg',
         linkedin: '#',
         github: '#',
-        email: 'hoangvane@scsgo.vn',
+        email: 'tam.mai@scsgo.vn',
     },
     {
-        name: 'Vũ Thị F',
-        nameEn: 'Vu Thi F',
-        role: 'UX/UI Designer',
-        roleVi: 'Thiết kế UX/UI',
+        name: 'Trần Biểu',
+        nameEn: 'Tran Bieu',
+        role: 'COO (Chief Operations Officer)',
+        roleVi: 'Giám đốc vận hành',
+        university: 'Trường Đại Học Văn Hiến',
+        universityEn: 'Van Hien University',
+        faculty: 'Khoa Kinh Tế Quản Trị',
+        facultyEn: 'Faculty of Economics and Management',
+        studentId: '231A230072',
         image: '/team/member-6.jpg',
         linkedin: '#',
-        email: 'vuthif@scsgo.vn',
+        email: 'bieu.tran@scsgo.vn',
     },
 ];
 
@@ -121,9 +151,18 @@ export default function Team() {
                                     <h3 className="font-semibold text-lg mb-1">
                                         {language === 'vi' ? member.name : member.nameEn}
                                     </h3>
-                                    <p className="text-sm text-primary mb-3">
+                                    <p className="text-sm text-primary font-medium mb-2">
                                         {language === 'vi' ? member.roleVi : member.role}
                                     </p>
+
+                                    {/* University Info */}
+                                    <div className="text-xs text-muted-foreground mb-3 space-y-1">
+                                        <p className="font-medium">
+                                            {language === 'vi' ? member.university : member.universityEn}
+                                        </p>
+                                        <p>{language === 'vi' ? member.faculty : member.facultyEn}</p>
+                                        <p className="font-mono">MSSV: {member.studentId}</p>
+                                    </div>
 
                                     {/* Social Links */}
                                     <div className="flex items-center justify-center gap-2">
