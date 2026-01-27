@@ -26,7 +26,6 @@ import {
   Wallet,
   RefreshCw,
   Crosshair,
-  SlidersHorizontal,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -36,7 +35,6 @@ export default function Landing() {
   const [searchQuery, setSearchQuery] = useState('');
   const [distanceFilter, setDistanceFilter] = useState<'5' | '10' | '20'>('10');
   const [powerFilter, setPowerFilter] = useState<'60' | '120' | 'all'>('all');
-  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   const handleSearch = () => {
     navigate(`/explore?q=${encodeURIComponent(searchQuery)}&distance=${distanceFilter}&power=${powerFilter}`);
@@ -202,38 +200,16 @@ export default function Landing() {
                     </div>
                   </div>
 
-                  {/* Advanced filters button */}
+
+                  {/* AI Recommendation button */}
                   <button
-                    onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-                    className="flex items-center gap-1.5 text-muted-foreground hover:text-primary text-sm transition-colors"
+                    onClick={() => navigate('/explore?ai=true')}
+                    className="flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-primary/10 to-cyan-500/10 hover:from-primary/20 hover:to-cyan-500/20 border border-primary/30 rounded-lg text-primary hover:text-primary/80 text-sm font-medium transition-all"
                   >
-                    <SlidersHorizontal className="w-4 h-4" />
-                    {t('landing.filters.advanced')}
+                    <Sparkles className="w-4 h-4" />
+                    {t('landing.filters.aiRecommend')}
                   </button>
                 </div>
-
-                {/* Advanced filters drawer */}
-                {showAdvancedFilters && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    className="mt-4 pt-4 border-t border-border flex flex-wrap gap-3"
-                  >
-                    {[
-                      { id: 'available', label: t('landing.filters.available') },
-                      { id: 'cheap', label: t('landing.filters.cheap') },
-                      { id: 'vinfast', label: 'VinFast' },
-                      { id: 'evn', label: 'EVN' },
-                    ].map(filter => (
-                      <button
-                        key={filter.id}
-                        className="px-3 py-1.5 rounded-full text-sm bg-secondary text-muted-foreground hover:bg-primary hover:text-white transition-all"
-                      >
-                        {filter.label}
-                      </button>
-                    ))}
-                  </motion.div>
-                )}
               </div>
 
               {/* Single primary CTA */}
