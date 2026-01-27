@@ -8,6 +8,7 @@ import '../screens/booking/my_bookings_screen.dart';
 import '../screens/booking/booking_detail_screen.dart';
 import '../screens/dashboard/dashboard_screen.dart';
 import '../screens/settings/settings_screen.dart';
+import '../screens/team/team_screen.dart';
 import '../screens/vehicle/vehicle_screen.dart';
 import '../screens/favorites/favorites_screen.dart';
 import '../screens/history/history_screen.dart';
@@ -109,6 +110,11 @@ final appRouter = GoRouter(
       path: '/trip-planner',
       name: 'tripPlanner',
       builder: (context, state) => const TripPlannerScreen(),
+    ),
+    GoRoute(
+      path: '/team',
+      name: 'team',
+      builder: (context, state) => const TeamScreen(),
     ),
   ],
 );
