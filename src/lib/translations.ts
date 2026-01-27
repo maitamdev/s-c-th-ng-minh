@@ -98,8 +98,8 @@ export const translations = {
     'nav.settings': 'Cài đặt',
 
     // Landing
-    'landing.hero.title': 'Sạc xe điện',
-    'landing.hero.highlight': 'thông minh hơn',
+    'landing.hero.title': 'SẠC XE ĐIỆN',
+    'landing.hero.highlight': 'THÔNG MINH HƠN',
     'landing.hero.subtitle': 'Gợi ý trạm sạc tối ưu theo pin, thời gian và giá. Cập nhật trụ trống theo thời gian thực.',
     'landing.hero.cta': 'Khám phá ngay',
     'landing.hero.secondary': 'Xem bảng giá',
@@ -777,8 +777,8 @@ export const translations = {
     'nav.settings': 'Settings',
 
     // Landing
-    'landing.hero.title': 'Smart EV',
-    'landing.hero.highlight': 'Charging',
+    'landing.hero.title': 'SMART EV',
+    'landing.hero.highlight': 'CHARGING',
     'landing.hero.subtitle': 'AI-powered station recommendations based on battery, time and price. Real-time availability updates.',
     'landing.hero.cta': 'Explore now',
     'landing.hero.secondary': 'View pricing',
