@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
 import '../../config/theme.dart';
 import '../../providers/language_provider.dart';
 import '../../providers/stations_provider.dart';
@@ -330,6 +331,13 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     ),
                   ],
                 ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.people_outline),
+                tooltip: lang.isVietnamese ? 'Đội ngũ' : 'Our Team',
+                onPressed: () {
+                  context.push('/team');
+                },
               ),
               IconButton(
                 icon: const Icon(Icons.map_outlined),
