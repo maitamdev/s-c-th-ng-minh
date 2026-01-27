@@ -5,8 +5,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { TranslationKey } from '@/lib/translations';
-import { 
-  Menu, 
+import {
+  Menu,
   X,
   MapPin,
   LogIn,
@@ -21,6 +21,7 @@ import { cn } from '@/lib/utils';
 const navLinks: { href: string; labelKey: TranslationKey }[] = [
   { href: '/', labelKey: 'nav.home' },
   { href: '/explore', labelKey: 'nav.explore' },
+  { href: '/team', labelKey: 'nav.team' },
   { href: '/pricing', labelKey: 'nav.pricing' },
 ];
 
@@ -51,18 +52,18 @@ export function Header() {
   }, []);
 
   return (
-    <header 
+    <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled || !isHomePage
-          ? 'bg-card/95 backdrop-blur-xl border-b border-border/40 shadow-lg shadow-black/5' 
+          ? 'bg-card/95 backdrop-blur-xl border-b border-border/40 shadow-lg shadow-black/5'
           : 'bg-transparent'
       )}
     >
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <motion.div 
+          <motion.div
             className="w-12 h-12 rounded-xl overflow-hidden shadow-lg shadow-primary/25"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
@@ -83,8 +84,8 @@ export function Header() {
                   to={link.href}
                   className={cn(
                     'px-5 py-2 rounded-full text-sm font-medium transition-all duration-200',
-                    isActive 
-                      ? 'bg-background text-foreground shadow-sm' 
+                    isActive
+                      ? 'bg-background text-foreground shadow-sm'
                       : 'text-muted-foreground hover:text-foreground'
                   )}
                 >
@@ -158,7 +159,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <motion.div 
+        <motion.div
           className="md:hidden bg-card/98 backdrop-blur-xl border-t border-border/40"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -173,8 +174,8 @@ export function Header() {
                   to={link.href}
                   className={cn(
                     'block py-3 px-4 rounded-xl text-sm font-medium transition-colors',
-                    isActive 
-                      ? 'bg-primary/10 text-primary' 
+                    isActive
+                      ? 'bg-primary/10 text-primary'
                       : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
                   )}
                   onClick={() => setMobileMenuOpen(false)}
@@ -183,7 +184,7 @@ export function Header() {
                 </Link>
               );
             })}
-            
+
             {/* Mobile Theme & Language toggles */}
             <div className="flex items-center gap-2 py-3 px-4">
               <button

@@ -53,7 +53,7 @@ export const translations = {
     'common.km': 'km',
     'common.min': 'phút',
     'common.hour': 'giờ',
-    
+
     // Auth
     'auth.login': 'Đăng nhập',
     'auth.register': 'Đăng ký',
@@ -83,10 +83,11 @@ export const translations = {
     'auth.stationInfoDesc': 'Thêm trạm sạc đầu tiên của bạn',
     'auth.stationName': 'Tên trạm sạc',
     'auth.stationAddress': 'Địa chỉ trạm',
-    
+
     // Navigation
     'nav.home': 'Trang chủ',
     'nav.explore': 'Khám phá',
+    'nav.team': 'Đội ngũ',
     'nav.pricing': 'Bảng giá',
     'nav.dashboard': 'Tổng quan',
     'nav.vehicle': 'Xe của tôi',
@@ -196,7 +197,7 @@ export const translations = {
     'landing.features.realtimeDesc': 'Xem trạng thái trạm sạc và thời gian chờ',
     'landing.stats.users': 'Người dùng',
     'landing.stats.bookings': 'Lượt đặt chỗ',
-    
+
     // Explore
     'explore.title': 'Khám phá trạm sạc',
     'explore.subtitle': 'Tìm trạm sạc gần bạn',
@@ -218,7 +219,7 @@ export const translations = {
     'explore.noStations': 'Không tìm thấy trạm sạc',
     'explore.chargers': 'cổng sạc',
     'explore.availableNow': 'trống',
-    
+
     // Station Detail
     'station.bookNow': 'Đặt chỗ ngay',
     'station.directions': 'Chỉ đường',
@@ -230,7 +231,7 @@ export const translations = {
     'station.writeReview': 'Viết đánh giá',
     'station.prediction': 'Dự đoán đông đúc',
     'station.bestTime': 'Thời điểm tốt nhất',
-    
+
     // Booking
     'booking.title': 'Đặt chỗ sạc',
     'booking.selectCharger': 'Chọn cổng sạc',
@@ -272,7 +273,7 @@ export const translations = {
     'dashboard.myVehicle': 'Xe của tôi',
     'dashboard.noBookings': 'Chưa có đặt chỗ nào',
     'dashboard.noFavorites': 'Chưa có trạm yêu thích',
-    
+
     // My Bookings
     'bookings.title': 'Lịch đặt chỗ',
     'bookings.subtitle': 'Quản lý các lần đặt chỗ của bạn',
@@ -288,14 +289,14 @@ export const translations = {
     'bookings.status.completed': 'Hoàn thành',
     'bookings.status.cancelled': 'Đã hủy',
     'bookings.status.expired': 'Hết hạn',
-    
+
     // Favorites
     'favorites.title': 'Trạm yêu thích',
     'favorites.subtitle': 'Các trạm sạc bạn đã lưu',
     'favorites.noFavorites': 'Chưa có trạm yêu thích',
     'favorites.noFavoritesDesc': 'Thêm trạm vào yêu thích để truy cập nhanh',
     'favorites.remove': 'Bỏ yêu thích',
-    
+
     // Subscription
     'subscription.title': 'Gói dịch vụ',
     'subscription.subtitle': 'Quản lý gói đăng ký của bạn',
@@ -311,7 +312,7 @@ export const translations = {
     'subscription.unlimited': 'Không giới hạn',
     'subscription.needMore': 'Cần thêm tính năng?',
     'subscription.upgradeDesc': 'Nâng cấp để có thêm AI gợi ý và booking',
-    
+
     // Vehicle
     'vehicle.title': 'Xe của tôi',
     'vehicle.subtitle': 'Kết nối và quản lý xe điện',
@@ -371,12 +372,12 @@ export const translations = {
     'settings.dangerZone': 'Vùng nguy hiểm',
     'settings.deleteAccount': 'Xóa tài khoản',
     'settings.deleteAccountDesc': 'Xóa vĩnh viễn tài khoản và tất cả dữ liệu. Hành động này không thể hoàn tác.',
-    
+
     // Onboarding
     'onboarding.welcome': 'Chào mừng bạn!',
     'onboarding.welcomeDesc': 'Hoàn tất thông tin để bắt đầu sử dụng',
     'onboarding.tip': 'Bạn có thể kết nối xe điện sau trong phần Xe của tôi để AI gợi ý trạm sạc phù hợp hơn.',
-    
+
     // Pricing
     'pricing.title': 'Bảng giá',
     'pricing.subtitle': 'Chọn gói phù hợp với nhu cầu của bạn',
@@ -392,7 +393,7 @@ export const translations = {
     'pricing.faq': 'Câu hỏi thường gặp',
     'pricing.needHelp': 'Cần tư vấn thêm? Liên hệ với chúng tôi',
     'pricing.contactSupport': 'Liên hệ hỗ trợ',
-    
+
     // Pricing Plans - Driver
     'pricing.driver.free.desc': 'Cho người dùng mới bắt đầu',
     'pricing.driver.free.cta': 'Bắt đầu miễn phí',
@@ -400,7 +401,7 @@ export const translations = {
     'pricing.driver.plus.cta': 'Nâng cấp Plus',
     'pricing.driver.pro.desc': 'Cho người dùng chuyên nghiệp',
     'pricing.driver.pro.cta': 'Nâng cấp Pro',
-    
+
     // Pricing Plans - Operator
     'pricing.operator.free.desc': 'Cho chủ trạm nhỏ',
     'pricing.operator.free.cta': 'Bắt đầu miễn phí',
@@ -408,7 +409,7 @@ export const translations = {
     'pricing.operator.business.cta': 'Nâng cấp Business',
     'pricing.operator.enterprise.desc': 'Cho doanh nghiệp lớn',
     'pricing.operator.enterprise.cta': 'Liên hệ sales',
-    
+
     // Pricing Features
     'pricing.feature.viewMap': 'Xem bản đồ và tìm trạm',
     'pricing.feature.basicFilter': 'Bộ lọc cơ bản',
@@ -458,7 +459,7 @@ export const translations = {
     'pricing.feature.whiteLabel': 'White-label option',
     'pricing.feature.sla': 'SLA 99.9%',
     'pricing.feature.accountManager': 'Account manager riêng',
-    
+
     // FAQ
     'pricing.faq.cancel.q': 'Tôi có thể hủy gói bất cứ lúc nào không?',
     'pricing.faq.cancel.a': 'Có, bạn có thể hủy gói bất cứ lúc nào. Gói sẽ còn hiệu lực đến hết kỳ thanh toán hiện tại.',
@@ -468,7 +469,7 @@ export const translations = {
     'pricing.faq.payment.a': 'Chúng tôi hỗ trợ thanh toán qua thẻ Visa/Mastercard, chuyển khoản ngân hàng, và các ví điện tử phổ biến.',
     'pricing.faq.freeLimit.q': 'Gói Free có giới hạn thời gian không?',
     'pricing.faq.freeLimit.a': 'Không, gói Free hoàn toàn miễn phí và không giới hạn thời gian sử dụng.',
-    
+
     // Station Detail
     'station.recentReviews': 'Đánh giá gần đây',
     'station.user': 'Người dùng',
@@ -478,7 +479,7 @@ export const translations = {
     'station.bookAdvice': 'Đặt chỗ trước để đảm bảo có cổng sạc khi bạn đến',
     'station.cancelPolicy': 'Hủy miễn phí trước 30 phút • Giữ chỗ trong 10 phút',
     'station.contact': 'Liên hệ',
-    
+
     // Booking Page
     'booking.selectPort': 'Chọn cổng',
     'booking.selectHour': 'Chọn giờ',
@@ -492,7 +493,7 @@ export const translations = {
     'booking.minutes': 'phút',
     'booking.estimatedTotal': 'Tổng tạm tính',
     'booking.notFound': 'Không tìm thấy trạm sạc',
-    
+
     // Services
     'booking.service.coffee': 'Cà phê & Đồ uống',
     'booking.service.coffeeDesc': 'Thưởng thức cà phê trong khi chờ sạc',
@@ -515,7 +516,7 @@ export const translations = {
     'booking.service.lounge30': 'Phòng chờ 30 phút',
     'booking.service.lounge60': 'Phòng chờ 60 phút',
     'booking.enterPromo': 'Nhập mã giảm giá',
-    
+
     // Payment
     'booking.payment.title': 'Thanh toán',
     'booking.payment.selectMethod': 'Chọn phương thức thanh toán',
@@ -531,7 +532,7 @@ export const translations = {
     'booking.payment.orderDetails': 'Chi tiết đơn hàng',
     'booking.payment.chargingFee': 'Phí sạc xe',
     'booking.payment.additionalServices': 'Dịch vụ bổ sung',
-    
+
     // Confirm
     'booking.confirm.title': 'Xác nhận đặt chỗ',
     'booking.confirm.review': 'Kiểm tra lại thông tin trước khi xác nhận',
@@ -547,7 +548,7 @@ export const translations = {
     'booking.confirm.and': 'và',
     'booking.confirm.cancelPolicy': 'Chính sách hủy',
     'booking.confirm.ofSCS': 'của SCS GO.',
-    
+
     // Success
     'booking.success.title': 'Đặt chỗ thành công!',
     'booking.success.confirmed': 'Mã đặt chỗ của bạn đã được xác nhận',
@@ -731,7 +732,7 @@ export const translations = {
     'common.km': 'km',
     'common.min': 'min',
     'common.hour': 'hour',
-    
+
     // Auth
     'auth.login': 'Login',
     'auth.register': 'Register',
@@ -761,10 +762,11 @@ export const translations = {
     'auth.stationInfoDesc': 'Add your first charging station',
     'auth.stationName': 'Station Name',
     'auth.stationAddress': 'Station Address',
-    
+
     // Navigation
     'nav.home': 'Home',
     'nav.explore': 'Explore',
+    'nav.team': 'Team',
     'nav.pricing': 'Pricing',
     'nav.dashboard': 'Dashboard',
     'nav.vehicle': 'My Vehicle',
@@ -874,7 +876,7 @@ export const translations = {
     'landing.features.realtimeDesc': 'View station status and wait times',
     'landing.stats.users': 'Users',
     'landing.stats.bookings': 'Bookings',
-    
+
     // Explore
     'explore.title': 'Explore Stations',
     'explore.subtitle': 'Find charging stations near you',
@@ -896,7 +898,7 @@ export const translations = {
     'explore.noStations': 'No stations found',
     'explore.chargers': 'chargers',
     'explore.availableNow': 'available',
-    
+
     // Station Detail
     'station.bookNow': 'Book now',
     'station.directions': 'Directions',
@@ -908,7 +910,7 @@ export const translations = {
     'station.writeReview': 'Write review',
     'station.prediction': 'Crowd prediction',
     'station.bestTime': 'Best time to visit',
-    
+
     // Booking
     'booking.title': 'Book Charging',
     'booking.selectCharger': 'Select Charger',
@@ -950,7 +952,7 @@ export const translations = {
     'dashboard.myVehicle': 'My vehicle',
     'dashboard.noBookings': 'No bookings yet',
     'dashboard.noFavorites': 'No favorite stations',
-    
+
     // My Bookings
     'bookings.title': 'My Bookings',
     'bookings.subtitle': 'Manage your bookings',
@@ -966,14 +968,14 @@ export const translations = {
     'bookings.status.completed': 'Completed',
     'bookings.status.cancelled': 'Cancelled',
     'bookings.status.expired': 'Expired',
-    
+
     // Favorites
     'favorites.title': 'Favorite Stations',
     'favorites.subtitle': 'Stations you have saved',
     'favorites.noFavorites': 'No favorites yet',
     'favorites.noFavoritesDesc': 'Add stations to favorites for quick access',
     'favorites.remove': 'Remove',
-    
+
     // Subscription
     'subscription.title': 'Subscription',
     'subscription.subtitle': 'Manage your subscription',
@@ -989,7 +991,7 @@ export const translations = {
     'subscription.unlimited': 'Unlimited',
     'subscription.needMore': 'Need more features?',
     'subscription.upgradeDesc': 'Upgrade for more AI recommendations and bookings',
-    
+
     // Vehicle
     'vehicle.title': 'My Vehicle',
     'vehicle.subtitle': 'Connect and manage your EV',
@@ -1049,12 +1051,12 @@ export const translations = {
     'settings.dangerZone': 'Danger Zone',
     'settings.deleteAccount': 'Delete Account',
     'settings.deleteAccountDesc': 'Permanently delete your account and all data. This action cannot be undone.',
-    
+
     // Onboarding
     'onboarding.welcome': 'Welcome!',
     'onboarding.welcomeDesc': 'Complete your profile to get started',
     'onboarding.tip': 'You can connect your EV later in My Vehicle for better AI recommendations.',
-    
+
     // Pricing
     'pricing.title': 'Pricing',
     'pricing.subtitle': 'Choose a plan that fits your needs',
@@ -1070,7 +1072,7 @@ export const translations = {
     'pricing.faq': 'Frequently Asked Questions',
     'pricing.needHelp': 'Need more help? Contact us',
     'pricing.contactSupport': 'Contact Support',
-    
+
     // Pricing Plans - Driver
     'pricing.driver.free.desc': 'For new users',
     'pricing.driver.free.cta': 'Start for free',
@@ -1078,7 +1080,7 @@ export const translations = {
     'pricing.driver.plus.cta': 'Upgrade to Plus',
     'pricing.driver.pro.desc': 'For power users',
     'pricing.driver.pro.cta': 'Upgrade to Pro',
-    
+
     // Pricing Plans - Operator
     'pricing.operator.free.desc': 'For small operators',
     'pricing.operator.free.cta': 'Start for free',
@@ -1086,7 +1088,7 @@ export const translations = {
     'pricing.operator.business.cta': 'Upgrade to Business',
     'pricing.operator.enterprise.desc': 'For large enterprises',
     'pricing.operator.enterprise.cta': 'Contact sales',
-    
+
     // Pricing Features
     'pricing.feature.viewMap': 'View map and find stations',
     'pricing.feature.basicFilter': 'Basic filters',
@@ -1136,7 +1138,7 @@ export const translations = {
     'pricing.feature.whiteLabel': 'White-label option',
     'pricing.feature.sla': 'SLA 99.9%',
     'pricing.feature.accountManager': 'Dedicated account manager',
-    
+
     // FAQ
     'pricing.faq.cancel.q': 'Can I cancel anytime?',
     'pricing.faq.cancel.a': 'Yes, you can cancel anytime. Your plan will remain active until the end of the current billing period.',
@@ -1146,7 +1148,7 @@ export const translations = {
     'pricing.faq.payment.a': 'We accept Visa/Mastercard, bank transfer, and popular e-wallets.',
     'pricing.faq.freeLimit.q': 'Is the Free plan time-limited?',
     'pricing.faq.freeLimit.a': 'No, the Free plan is completely free with no time limit.',
-    
+
     // Station Detail
     'station.recentReviews': 'Recent Reviews',
     'station.user': 'User',
@@ -1156,7 +1158,7 @@ export const translations = {
     'station.bookAdvice': 'Book ahead to ensure a charger is available when you arrive',
     'station.cancelPolicy': 'Free cancellation 30 min before • Hold for 10 min',
     'station.contact': 'Contact',
-    
+
     // Booking Page
     'booking.selectPort': 'Select Port',
     'booking.selectHour': 'Select Time',
@@ -1170,7 +1172,7 @@ export const translations = {
     'booking.minutes': 'minutes',
     'booking.estimatedTotal': 'Estimated Total',
     'booking.notFound': 'Station not found',
-    
+
     // Services
     'booking.service.coffee': 'Coffee & Drinks',
     'booking.service.coffeeDesc': 'Enjoy coffee while waiting',
@@ -1193,7 +1195,7 @@ export const translations = {
     'booking.service.lounge30': '30-minute Lounge',
     'booking.service.lounge60': '60-minute Lounge',
     'booking.enterPromo': 'Enter promo code',
-    
+
     // Payment
     'booking.payment.title': 'Payment',
     'booking.payment.selectMethod': 'Select payment method',
@@ -1209,7 +1211,7 @@ export const translations = {
     'booking.payment.orderDetails': 'Order Details',
     'booking.payment.chargingFee': 'Charging Fee',
     'booking.payment.additionalServices': 'Additional Services',
-    
+
     // Confirm
     'booking.confirm.title': 'Confirm Booking',
     'booking.confirm.review': 'Review your booking details',
@@ -1225,7 +1227,7 @@ export const translations = {
     'booking.confirm.and': 'and',
     'booking.confirm.cancelPolicy': 'Cancellation Policy',
     'booking.confirm.ofSCS': 'of SCS GO.',
-    
+
     // Success
     'booking.success.title': 'Booking Successful!',
     'booking.success.confirmed': 'Your booking has been confirmed',

@@ -19,6 +19,7 @@ import Pricing from "./pages/Pricing";
 import Auth from "./pages/Auth";
 import ForgotPassword from "./pages/ForgotPassword";
 import Contact from "./pages/Contact";
+import Team from "./pages/Team";
 import FAQ from "./pages/FAQ";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
@@ -64,6 +65,7 @@ const App = () => (
                       {/* Public routes */}
                       <Route path="/" element={<Landing />} />
                       <Route path="/explore" element={<Explore />} />
+                      <Route path="/team" element={<Team />} />
                       <Route path="/station/:id" element={<StationDetail />} />
                       <Route path="/pricing" element={<Pricing />} />
                       <Route path="/auth" element={<Auth />} />
