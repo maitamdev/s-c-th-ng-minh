@@ -506,8 +506,235 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* WHY DIFFERENT SECTION */}
-      <section className="py-20 bg-gradient-to-b from-secondary/30 to-secondary/50">
+      {/* APP FEATURES SHOWCASE */}
+      <section className="py-20 bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Trải Nghiệm Đa Nền Tảng
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Sử dụng SCS Go mọi lúc, mọi nơi với ứng dụng mobile và web hiện đại
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Left: Mobile App Mockup */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="relative mx-auto max-w-sm">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-cyan-500/30 blur-3xl opacity-50" />
+
+                {/* Phone mockup */}
+                <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
+                  <div className="bg-black rounded-[2.5rem] overflow-hidden">
+                    {/* Notch */}
+                    <div className="h-6 bg-black relative">
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-2xl" />
+                    </div>
+
+                    {/* Screen content */}
+                    <img
+                      src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80"
+                      alt="Mobile App"
+                      className="w-full aspect-[9/16] object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Floating feature badges */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="absolute -right-4 top-1/4 bg-card border border-primary/30 rounded-2xl p-4 shadow-xl"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                      <Zap className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">Sạc Nhanh</p>
+                      <p className="text-xs text-muted-foreground">150kW DC</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                  className="absolute -left-4 bottom-1/4 bg-card border border-cyan-500/30 rounded-2xl p-4 shadow-xl"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-cyan-500" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">Gần Bạn</p>
+                      <p className="text-xs text-muted-foreground">2.3 km</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Right: Features List */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              {[
+                {
+                  icon: Brain,
+                  title: 'AI Gợi Ý Thông Minh',
+                  desc: 'Tìm trạm sạc phù hợp nhất dựa trên vị trí, xe và sở thích của bạn',
+                  color: 'primary'
+                },
+                {
+                  icon: MapPin,
+                  title: 'Bản Đồ Thời Gian Thực',
+                  desc: 'Xem tình trạng trống/bận của tất cả trạm sạc trên bản đồ',
+                  color: 'cyan-500'
+                },
+                {
+                  icon: Clock,
+                  title: 'Đặt Lịch Sạc',
+                  desc: 'Đặt trước cổng sạc để không phải chờ đợi',
+                  color: 'emerald-500'
+                },
+                {
+                  icon: Wallet,
+                  title: 'Thanh Toán Dễ Dàng',
+                  desc: 'Tích hợp ví điện tử, quét QR và thanh toán tự động',
+                  color: 'amber-500'
+                },
+              ].map((feature, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="flex items-start gap-4 group"
+                >
+                  <div className={`w-12 h-12 rounded-xl bg-${feature.color}/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                    <feature.icon className={`w-6 h-6 text-${feature.color}`} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground mb-1">{feature.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="pt-4"
+              >
+                <Button
+                  onClick={() => navigate('/explore')}
+                  className="bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-600 text-white px-6 py-3 rounded-xl shadow-lg shadow-primary/25"
+                >
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Khám Phá Ngay
+                </Button>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY DIFFERENT SECTION - Enhanced with Images */}
+      <section className="py-20 bg-gradient-to-b from-secondary/30 to-secondary/50 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t('landing.why.title')}</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">{t('landing.why.subtitle')}</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                ...whyDifferent[0],
+                image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'
+              },
+              {
+                ...whyDifferent[1],
+                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80'
+              },
+              {
+                ...whyDifferent[2],
+                image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80'
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-2xl transition-all duration-300"
+              >
+                {/* Image */}
+                <div className="aspect-video overflow-hidden relative">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-primary/90 backdrop-blur-sm flex items-center justify-center">
+                    <item.icon className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* CHARGING STATIONS GALLERY */}
+      <section className="py-20 bg-gradient-to-b from-background to-secondary/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -515,31 +742,84 @@ export default function Landing() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t('landing.why.title')}</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">{t('landing.why.subtitle')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Trạm Sạc Hiện Đại
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Khám phá mạng lưới trạm sạc xe điện chất lượng cao trên khắp Việt Nam
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {whyDifferent.map((item, idx) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {[
+              {
+                image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80',
+                title: 'Trạm Sạc Nhanh DC',
+                desc: 'Công suất lên đến 150kW'
+              },
+              {
+                image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800&q=80',
+                title: 'Trạm Sạc Thông Minh',
+                desc: 'Tích hợp thanh toán điện tử'
+              },
+              {
+                image: 'https://images.unsplash.com/photo-1609743522653-52354461eb27?w=800&q=80',
+                title: 'Trạm Sạc Công Cộng',
+                desc: 'Tiện lợi tại trung tâm thương mại'
+              },
+              {
+                image: 'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=800&q=80',
+                title: 'Trạm Sạc Cao Cấp',
+                desc: 'Trải nghiệm sạc premium'
+              },
+            ].map((item, idx) => (
               <motion.div
-                key={item.title}
+                key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-card/50 rounded-2xl p-6 border border-border hover:border-primary/30 transition-all hover:bg-card/80"
+                className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-primary" />
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+
+                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-white font-semibold text-lg mb-1">{item.title}</h3>
+                  <p className="text-white/80 text-sm">{item.desc}</p>
+                </div>
+
+                {/* Hover overlay with icon */}
+                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Zap className="w-5 h-5 text-white" />
+                </div>
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <Button
+              onClick={() => navigate('/explore')}
+              variant="outline"
+              className="border-primary/50 text-primary hover:bg-primary/10"
+            >
+              Xem Tất Cả Trạm Sạc
+              <ChevronRight className="w-4 h-4 ml-2" />
+            </Button>
+          </motion.div>
         </div>
       </section>
-
 
       {/* MAP PREVIEW SECTION */}
       <section className="py-20">
@@ -606,8 +886,8 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="py-20 bg-gradient-to-b from-secondary/50 to-secondary/30">
+      {/* TESTIMONIALS - Enhanced with Real Photos */}
+      <section className="py-20 bg-gradient-to-b from-secondary/50 to-secondary/30 relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -619,29 +899,62 @@ export default function Landing() {
             <p className="text-muted-foreground">{t('landing.testimonials.subtitle')}</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {testimonials.map((item, idx) => (
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                ...testimonials[0],
+                avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',
+                image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&q=80'
+              },
+              {
+                ...testimonials[1],
+                avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80',
+                image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&q=80'
+              },
+              {
+                ...testimonials[2],
+                avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',
+                image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&q=80'
+              },
+            ].map((item, idx) => (
               <motion.div
                 key={item.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-card/50 rounded-2xl p-6 border border-border"
+                className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-2xl transition-all duration-300"
               >
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-4 italic">"{item.text}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-cyan-500 flex items-center justify-center text-white font-bold">
-                    {item.name[0]}
+                {/* Card Content */}
+                <div className="p-6">
+                  {/* Stars */}
+                  <div className="flex items-center gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                    ))}
                   </div>
-                  <div>
-                    <p className="text-foreground font-medium">{item.name}</p>
-                    <p className="text-muted-foreground text-sm">{item.role}</p>
+
+                  {/* Quote */}
+                  <p className="text-muted-foreground mb-6 italic leading-relaxed">
+                    "{item.text}"
+                  </p>
+
+                  {/* User Info */}
+                  <div className="flex items-center gap-4">
+                    <div className="relative">
+                      <img
+                        src={item.avatar}
+                        alt={item.name}
+                        className="w-14 h-14 rounded-full object-cover ring-2 ring-primary/20"
+                      />
+                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-card flex items-center justify-center">
+                        <CheckCircle2 className="w-3 h-3 text-white" />
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-foreground font-semibold">{item.name}</p>
+                      <p className="text-muted-foreground text-sm">{item.role}</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -742,24 +1055,105 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="py-20 bg-gradient-to-r from-primary/20 to-cyan-500/20">
-        <div className="container mx-auto px-4">
+      {/* FINAL CTA - Premium Design with Background */}
+      <section className="relative py-32 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1920&q=80"
+            alt="EV Charging"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
+        </div>
+
+        {/* Animated particles */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-primary/30 rounded-full"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                opacity: [0.2, 1, 0.2],
+                scale: [1, 1.5, 1],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Content */}
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t('landing.finalCta.title')}</h2>
-            <p className="text-muted-foreground mb-8">{t('landing.finalCta.subtitle')}</p>
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 mb-6"
+            >
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm text-white font-medium">Miễn phí 100%</span>
+            </motion.div>
+
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              {t('landing.finalCta.title')}
+            </h2>
+            <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+              {t('landing.finalCta.subtitle')}
+            </p>
+
             <div className="flex flex-wrap justify-center gap-4">
               <Button
                 onClick={() => navigate('/explore')}
-                className="bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-600 text-white px-8 py-4 h-auto rounded-xl font-semibold text-lg shadow-lg shadow-primary/25"
+                className="bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-600 text-white px-10 py-6 h-auto rounded-xl font-semibold text-lg shadow-2xl shadow-primary/50 hover:shadow-primary/70 transition-all hover:scale-105"
               >
+                <Zap className="w-5 h-5 mr-2" />
                 {t('landing.finalCta.primary')}
               </Button>
+              <Button
+                onClick={() => navigate('/auth')}
+                variant="outline"
+                className="border-2 border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-10 py-6 h-auto rounded-xl font-semibold text-lg"
+              >
+                Đăng Ký Ngay
+              </Button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto">
+              {[
+                { value: '150+', label: 'Trạm sạc' },
+                { value: '500+', label: 'Cổng sạc' },
+                { value: '25K+', label: 'Lượt tìm kiếm' },
+              ].map((stat, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + idx * 0.1 }}
+                  className="text-center"
+                >
+                  <p className="text-3xl md:text-4xl font-bold text-white mb-1">{stat.value}</p>
+                  <p className="text-white/60 text-sm">{stat.label}</p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
