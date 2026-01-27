@@ -20,7 +20,7 @@ const teamMembers = [
         faculty: 'Khoa Quản trị Kinh doanh',
         facultyEn: 'Faculty of Business Administration',
         studentId: '2200012147',
-        image: '/team/member-1.jpg',
+        image: '/hieu.jpg',
         linkedin: '#',
         email: 'hieu.son@scsgo.vn',
     },
@@ -34,7 +34,7 @@ const teamMembers = [
         faculty: 'Khoa Quản trị Kinh doanh',
         facultyEn: 'Faculty of Business Administration',
         studentId: '2311559764',
-        image: '/team/member-2.jpg',
+        image: '/thom.jpg',
         linkedin: '#',
         email: 'thom.vu@scsgo.vn',
     },
@@ -48,7 +48,7 @@ const teamMembers = [
         faculty: 'Khoa Quản trị Kinh doanh',
         facultyEn: 'Faculty of Business Administration',
         studentId: '2311553463',
-        image: '/team/member-3.jpg',
+        image: '/tram.jpg',
         linkedin: '#',
         email: 'tram.nguyen@scsgo.vn',
     },
@@ -62,7 +62,7 @@ const teamMembers = [
         faculty: 'Khoa Quản trị Kinh doanh',
         facultyEn: 'Faculty of Business Administration',
         studentId: '22703911',
-        image: '/team/member-4.jpg',
+        image: '/tuyen.jpg',
         linkedin: '#',
         email: 'tuyen.bui@scsgo.vn',
     },
@@ -76,7 +76,7 @@ const teamMembers = [
         faculty: 'Khoa Kỹ Thuật Công Nghệ',
         facultyEn: 'Faculty of Engineering Technology',
         studentId: '2305CT2070',
-        image: '/team/member-5.jpg',
+        image: '/tam.jpg',
         linkedin: '#',
         github: '#',
         email: 'tam.mai@scsgo.vn',
@@ -91,7 +91,7 @@ const teamMembers = [
         faculty: 'Khoa Kinh Tế Quản Trị',
         facultyEn: 'Faculty of Economics and Management',
         studentId: '231A230072',
-        image: '/team/member-6.jpg',
+        image: '/bieu.jpg',
         linkedin: '#',
         email: 'bieu.tran@scsgo.vn',
     },
@@ -141,8 +141,12 @@ export default function Team() {
                                 {/* Avatar */}
                                 <div className="relative w-32 h-32 mx-auto mb-4">
                                     <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-cyan-400 opacity-20 group-hover:opacity-30 transition-opacity" />
-                                    <div className="relative w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-cyan-400/20 flex items-center justify-center overflow-hidden">
-                                        <Users className="w-16 h-16 text-primary" />
+                                    <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/20">
+                                        <img
+                                            src={member.image}
+                                            alt={language === 'vi' ? member.name : member.nameEn}
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
                                 </div>
 
