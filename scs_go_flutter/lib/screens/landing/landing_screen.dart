@@ -5,6 +5,7 @@ import 'package:geolocator/geolocator.dart';
 import '../../config/theme.dart';
 import '../../providers/language_provider.dart';
 import '../../providers/stations_provider.dart';
+import '../../widgets/top_nav_bar.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
@@ -209,6 +210,9 @@ class _LandingScreenState extends State<LandingScreen>
           SafeArea(
             child: Column(
               children: [
+                // Top Navigation Bar
+                const TopNavBar(),
+
                 // Content (scrollable)
                 Expanded(
                   child: SingleChildScrollView(
