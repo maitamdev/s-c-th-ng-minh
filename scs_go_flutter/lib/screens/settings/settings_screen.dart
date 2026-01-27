@@ -107,6 +107,13 @@ class SettingsScreen extends StatelessWidget {
                     const Divider(height: 1),
                     _buildSettingsTile(
                       context,
+                      icon: Icons.people_outline,
+                      title: lang.isVietnamese ? 'Đội ngũ' : 'Our Team',
+                      onTap: () => context.push('/team'),
+                    ),
+                    const Divider(height: 1),
+                    _buildSettingsTile(
+                      context,
                       icon: Icons.help_outline,
                       title:
                           lang.isVietnamese ? 'Trợ giúp & FAQ' : 'Help & FAQ',
