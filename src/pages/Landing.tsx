@@ -211,16 +211,6 @@ export default function Landing() {
                   </button>
                 </div>
               </div>
-
-              {/* Single primary CTA */}
-              <Button
-                onClick={() => navigate('/explore')}
-                size="lg"
-                className="bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-600 text-white px-8 py-4 h-auto rounded-xl font-semibold shadow-lg shadow-primary/25"
-              >
-                <MapPin className="w-5 h-5 mr-2" />
-                {t('landing.cta.explore')}
-              </Button>
             </motion.div>
 
             {/* Right: Animated Logo */}
