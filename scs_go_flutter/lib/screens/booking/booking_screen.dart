@@ -22,7 +22,7 @@ class _BookingScreenState extends State<BookingScreen> {
   DateTime _selectedDate = DateTime.now();
   TimeOfDay _selectedTime = TimeOfDay.now();
   int _duration = 30; // minutes
-  List<String> _selectedServices = [];
+  final List<String> _selectedServices = [];
 
   // Danh sách dịch vụ bổ sung
   static const List<Map<String, dynamic>> _availableServices = [

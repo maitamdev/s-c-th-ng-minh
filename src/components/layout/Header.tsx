@@ -83,7 +83,7 @@ export function Header() {
                   key={link.href}
                   to={link.href}
                   className={cn(
-                    'px-5 py-2 rounded-full text-sm font-medium transition-all duration-200',
+                    'px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 uppercase',
                     isActive
                       ? 'bg-background text-foreground shadow-sm'
                       : 'text-muted-foreground hover:text-foreground'
@@ -173,7 +173,7 @@ export function Header() {
                   key={link.href}
                   to={link.href}
                   className={cn(
-                    'block py-3 px-4 rounded-xl text-sm font-medium transition-colors',
+                    'block py-3 px-4 rounded-xl text-sm font-medium transition-colors uppercase',
                     isActive
                       ? 'bg-primary/10 text-primary'
                       : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'

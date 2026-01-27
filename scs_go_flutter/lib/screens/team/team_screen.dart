@@ -8,69 +8,69 @@ class TeamScreen extends StatelessWidget {
   const TeamScreen({super.key});
 
   static final List<TeamMember> _teamMembers = [
-    TeamMember(
+    const TeamMember(
       name: 'Nguyễn Minh Tuấn',
       role: 'CEO & Founder',
       description:
           'Lãnh đạo tầm nhìn với 15 năm kinh nghiệm trong lĩnh vực AI và năng lượng sạch.',
       avatarUrl: 'assets/team/member_1.png',
-      socialLinks: const [
+      socialLinks: [
         SocialLink(type: SocialType.linkedin, url: '#'),
         SocialLink(type: SocialType.twitter, url: '#'),
         SocialLink(type: SocialType.email, url: '#'),
       ],
     ),
-    TeamMember(
+    const TeamMember(
       name: 'Trần Thị Hương',
       role: 'Chief Tech Officer',
       description:
           'Kỹ sư Google cựu chiến binh chuyên về hệ thống phân tán và kiến trúc đám mây.',
       avatarUrl: 'assets/team/member_2.png',
-      socialLinks: const [
+      socialLinks: [
         SocialLink(type: SocialType.github, url: '#'),
         SocialLink(type: SocialType.linkedin, url: '#'),
       ],
     ),
-    TeamMember(
+    const TeamMember(
       name: 'Lê Quang Hải',
       role: 'Head of Design',
       description:
           'Nhà thiết kế đoạt giải thưởng tập trung vào giao diện người dùng và trải nghiệm.',
       avatarUrl: 'assets/team/member_3.png',
-      socialLinks: const [
+      socialLinks: [
         SocialLink(type: SocialType.twitter, url: '#'),
         SocialLink(type: SocialType.link, url: '#'),
       ],
     ),
-    TeamMember(
+    const TeamMember(
       name: 'Phạm Thu Hà',
       role: 'Lead Engineer',
       description:
           'Chuyên gia phát triển full-stack xây dựng môi trường siêu mở rộng.',
       avatarUrl: 'assets/team/member_4.png',
-      socialLinks: const [
+      socialLinks: [
         SocialLink(type: SocialType.github, url: '#'),
         SocialLink(type: SocialType.email, url: '#'),
       ],
     ),
-    TeamMember(
+    const TeamMember(
       name: 'Hoàng Văn Nam',
       role: 'Product Strategy',
       description:
           'Nhà tư duy chiến lược thúc đẩy tăng trưởng sản phẩm và mở rộng thị trường.',
       avatarUrl: 'assets/team/member_5.png',
-      socialLinks: const [
+      socialLinks: [
         SocialLink(type: SocialType.linkedin, url: '#'),
         SocialLink(type: SocialType.twitter, url: '#'),
       ],
     ),
-    TeamMember(
+    const TeamMember(
       name: 'Đỗ Thị Lan',
       role: 'Operations Director',
       description:
           'Đơn giản hóa hoạt động và xây dựng văn hóa làm việc từ xa hạng nhất.',
       avatarUrl: 'assets/team/member_6.png',
-      socialLinks: const [
+      socialLinks: [
         SocialLink(type: SocialType.linkedin, url: '#'),
         SocialLink(type: SocialType.email, url: '#'),
       ],
