@@ -32,6 +32,9 @@ import Favorites from "./pages/Favorites";
 import Subscription from "./pages/Subscription";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import Community from "./pages/Community";
+import Navigation from "./pages/Navigation";
+import TripPlanner from "./pages/TripPlanner";
 
 // Operator pages
 import OperatorDashboard from "./pages/operator/OperatorDashboard";
@@ -75,6 +78,9 @@ const App = () => (
                       <Route path="/help" element={<FAQ />} />
                       <Route path="/terms" element={<Terms />} />
                       <Route path="/privacy" element={<Privacy />} />
+                      <Route path="/community" element={<Community />} />
+                      <Route path="/navigation" element={<Navigation />} />
+                      <Route path="/trip-planner" element={<TripPlanner />} />
 
                       {/* Protected routes - require login */}
                       <Route path="/booking/:id" element={<ProtectedRoute><BookingPage /></ProtectedRoute>} />

@@ -21,6 +21,7 @@ class _MainShellState extends State<MainShell>
   final _tabs = [
     '/explore',
     '/dashboard',
+    '/community',
     '/settings',
   ];
 
@@ -34,6 +35,11 @@ class _MainShellState extends State<MainShell>
       'icon': Icons.dashboard_outlined,
       'activeIcon': Icons.dashboard,
       'label': 'Dashboard'
+    },
+    {
+      'icon': Icons.forum_outlined,
+      'activeIcon': Icons.forum,
+      'label': 'community'
     },
     {
       'icon': Icons.settings_outlined,
@@ -107,7 +113,7 @@ class _MainShellState extends State<MainShell>
                     label = 'Dashboard';
                     break;
                   case 2:
-                    label = lang.isVietnamese ? 'Yêu thích' : 'Favorites';
+                    label = lang.isVietnamese ? 'Cộng đồng' : 'Community';
                     break;
                   case 3:
                     label = lang.isVietnamese ? 'Cài đặt' : 'Settings';

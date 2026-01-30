@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:intl/intl.dart';
+import 'package:go_router/go_router.dart';
+import 'dart:ui' as ui;
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import '../../config/theme.dart';
 import '../../providers/language_provider.dart';
 import '../../providers/booking_provider.dart';
+import '../../providers/stations_provider.dart';
 import '../../models/booking.dart';
 
 class BookingDetailScreen extends StatelessWidget {
@@ -203,6 +210,43 @@ class BookingDetailScreen extends StatelessWidget {
                 color: Theme.of(context).textTheme.bodyMedium?.color,
               ),
             ),
+          ),
+          const SizedBox(height: 20),
+          // Action Buttons - Save & Navigate
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => _saveQRImage(context, lang, booking),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: AppColors.primary,
+                    side: BorderSide(color: AppColors.primary.withOpacity(0.5)),
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                  ),
+                  icon: const Icon(Icons.save_alt, size: 20),
+                  label: Text(
+                    lang.isVietnamese ? 'Lưu ảnh' : 'Save Image',
+                    style: const TextStyle(fontSize: 14),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: ElevatedButton.icon(
+                  onPressed: () => _navigateToStation(context, booking),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                  ),
+                  icon: const Icon(Icons.directions, size: 20),
+                  label: Text(
+                    lang.isVietnamese ? 'Chỉ đường' : 'Navigate',
+                    style: const TextStyle(fontSize: 14),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -494,6 +538,111 @@ class BookingDetailScreen extends StatelessWidget {
           ),
         );
       }
+    }
+  }
+
+  Future<void> _saveQRImage(
+      BuildContext context, LanguageProvider lang, Booking booking) async {
+    try {
+      // Request storage permission
+      if (Platform.isAndroid) {
+        final status = await Permission.storage.request();
+        if (!status.isGranted) {
+          if (context.mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(lang.isVietnamese
+                    ? 'Cần cấp quyền truy cập bộ nhớ'
+                    : 'Storage permission required'),
+                backgroundColor: AppColors.error,
+              ),
+            );
+          }
+          return;
+        }
+      }
+
+      // Create QR image
+      final qrValidationResult = QrValidator.validate(
+        data: booking.qrData,
+        version: QrVersions.auto,
+        errorCorrectionLevel: QrErrorCorrectLevel.L,
+      );
+
+      if (qrValidationResult.status == QrValidationStatus.valid) {
+        final qrCode = qrValidationResult.qrCode!;
+        final painter = QrPainter.withQr(
+          qr: qrCode,
+          color: Colors.black,
+          emptyColor: Colors.white,
+          gapless: true,
+        );
+
+        final picData =
+            await painter.toImageData(400, format: ui.ImageByteFormat.png);
+        if (picData != null) {
+          // Save to Pictures directory
+          final directory = Platform.isAndroid
+              ? Directory('/storage/emulated/0/Pictures/SCS_GO')
+              : await getApplicationDocumentsDirectory();
+
+          if (!await directory.exists()) {
+            await directory.create(recursive: true);
+          }
+
+          final fileName =
+              'QR_${booking.id.substring(0, 8)}_${DateTime.now().millisecondsSinceEpoch}.png';
+          final file = File('${directory.path}/$fileName');
+          await file.writeAsBytes(picData.buffer.asUint8List());
+
+          if (context.mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(lang.isVietnamese
+                    ? 'Đã lưu ảnh QR vào thư mục Pictures/SCS_GO'
+                    : 'QR image saved to Pictures/SCS_GO'),
+                backgroundColor: AppColors.success,
+                action: SnackBarAction(
+                  label: 'OK',
+                  textColor: Colors.white,
+                  onPressed: () {},
+                ),
+              ),
+            );
+          }
+        }
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(lang.isVietnamese
+                ? 'Lỗi khi lưu ảnh: $e'
+                : 'Error saving image: $e'),
+            backgroundColor: AppColors.error,
+          ),
+        );
+      }
+    }
+  }
+
+  void _navigateToStation(BuildContext context, Booking booking) {
+    try {
+      // Get station from provider
+      final stationProvider = context.read<StationsProvider>();
+      final station = stationProvider.stations.firstWhere(
+        (s) => s.name == booking.stationName,
+        orElse: () => stationProvider.stations.first,
+      );
+
+      context.push('/navigation', extra: station);
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Không tìm thấy trạm sạc'),
+          backgroundColor: AppColors.error,
+        ),
+      );
     }
   }
 }

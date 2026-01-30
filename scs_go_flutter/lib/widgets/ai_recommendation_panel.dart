@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:geolocator/geolocator.dart';
 import '../config/theme.dart';
 import '../providers/language_provider.dart';
 import '../models/station.dart';
+import '../providers/stations_provider.dart';
 
 enum OptimizationMode { balanced, fastest, cheapest, leastWait }
 
@@ -83,10 +85,62 @@ class _AIRecommendationPanelState extends State<AIRecommendationPanel> {
 
     setState(() => _isCalculating = true);
 
+    // Get current location to calculate distances
+    Position? currentPosition;
+    try {
+      currentPosition = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.medium,
+      ).timeout(const Duration(seconds: 3));
+    } catch (e) {
+      // Use default position if failed
+      currentPosition = Position(
+        latitude: 10.7769,
+        longitude: 106.7009,
+        timestamp: DateTime.now(),
+        accuracy: 0,
+        altitude: 0,
+        heading: 0,
+        speed: 0,
+        speedAccuracy: 0,
+        altitudeAccuracy: 0,
+        headingAccuracy: 0,
+      );
+    }
+
+    // Calculate distance for each station
+    final stationsWithDistance = widget.stations.map((station) {
+      final distance = Geolocator.distanceBetween(
+            currentPosition!.latitude,
+            currentPosition.longitude,
+            station.lat,
+            station.lng,
+          ) /
+          1000; // Convert to km
+
+      // Create new station with updated distance
+      return Station(
+        id: station.id,
+        operatorId: station.operatorId,
+        name: station.name,
+        address: station.address,
+        lat: station.lat,
+        lng: station.lng,
+        provider: station.provider,
+        hoursJson: station.hoursJson,
+        amenitiesJson: station.amenitiesJson,
+        status: station.status,
+        chargers: station.chargers,
+        avgRating: station.avgRating,
+        reviewCount: station.reviewCount,
+        distanceKm: distance,
+      );
+    }).toList();
+
     // Simulate AI processing
     await Future.delayed(const Duration(milliseconds: 500));
 
-    final recommendations = _getTopRecommendations(widget.stations, _mode, 3);
+    final recommendations =
+        _getTopRecommendations(stationsWithDistance, _mode, 3);
 
     if (mounted) {
       setState(() {

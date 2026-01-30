@@ -1,73 +1,202 @@
-# Welcome to your Lovable project
+# SCS GO - Smart EV Charging Station Finder
 
-## Project info
+**Hệ thống tìm kiếm và đặt chỗ trạm sạc xe điện thông minh**
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 📱 Giới thiệu
 
-## How can I edit this code?
+SCS GO là nền tảng tìm kiếm và đặt chỗ trạm sạc xe điện thông minh, tích hợp AI để gợi ý trạm sạc phù hợp nhất dựa trên vị trí, loại xe và sở thích của người dùng. Dự án bao gồm:
 
-There are several ways of editing your application.
+- 🌐 **Web Application** (React + TypeScript + Vite)
+- 📱 **Mobile Application** (Flutter)
+- 🤖 **AI Recommendation Engine**
+- 📊 **Operator Dashboard**
 
-**Use Lovable**
+## 🚀 Tính năng chính
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### Người dùng
+- ✅ Tìm kiếm trạm sạc theo vị trí, khoảng cách, công suất
+- ✅ AI gợi ý trạm sạc thông minh
+- ✅ Dự đoán mức độ đông đúc theo giờ
+- ✅ Đặt lịch sạc trước
+- ✅ Quản lý lịch sử sạc và booking
+- ✅ Yêu thích trạm sạc
+- ✅ Quản lý thông tin xe
+- ✅ PWA - Cài đặt như ứng dụng native
+- ✅ Hỗ trợ đa ngôn ngữ (Tiếng Việt/English)
+- ✅ Dark/Light mode
 
-Changes made via Lovable will be committed automatically to this repo.
+### Nhà điều hành trạm sạc
+- ✅ Dashboard quản lý trạm sạc
+- ✅ Thêm/sửa/xóa trạm sạc
+- ✅ Quản lý bookings
+- ✅ Thống kê và phân tích
+- ✅ Theo dõi doanh thu
 
-**Use your preferred IDE**
+## 🛠️ Công nghệ sử dụng
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Web Application
+- **Frontend**: React 18, TypeScript, Vite
+- **UI Framework**: Tailwind CSS, shadcn/ui
+- **State Management**: React Query, Context API
+- **Routing**: React Router v6
+- **Maps**: Leaflet, React Leaflet
+- **Animation**: Framer Motion
+- **Forms**: React Hook Form + Zod
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: Firebase Auth
+- **Deployment**: Vercel
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Mobile Application
+- **Framework**: Flutter
+- **Language**: Dart
+- **Build**: Codemagic CI/CD
 
-Follow these steps:
+## 📦 Cài đặt và chạy dự án
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+### Yêu cầu
+- Node.js >= 18.x
+- npm hoặc yarn
+- Flutter SDK (cho mobile app)
+
+### Web Application
+
+```bash
+# Clone repository
 git clone <YOUR_GIT_URL>
+cd s-c-th-ng-minh
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Cài đặt dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Tạo file .env từ .env.example
+cp .env.example .env
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Cập nhật các biến môi trường trong .env
+# VITE_SUPABASE_URL=your-supabase-url
+# VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+# VITE_OPENCHARGE_MAP_API_KEY=your-api-key
+
+# Chạy development server
 npm run dev
+
+# Build cho production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+### Mobile Application (Flutter)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Di chuyển vào thư mục Flutter
+cd scs_go_flutter
 
-**Use GitHub Codespaces**
+# Cài đặt dependencies
+flutter pub get
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Chạy trên emulator/device
+flutter run
 
-## What technologies are used for this project?
+# Build APK
+flutter build apk
 
-This project is built with:
+# Build iOS (chỉ trên macOS)
+flutter build ios
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📁 Cấu trúc dự án
 
-## How can I deploy this project?
+```
+s-c-th-ng-minh/
+├── src/
+│   ├── components/      # React components
+│   │   ├── layout/      # Header, Footer, Navigation
+│   │   ├── booking/     # Booking related components
+│   │   ├── stations/    # Station cards, filters
+│   │   └── ui/          # shadcn/ui components
+│   ├── pages/           # Page components
+│   │   ├── operator/    # Operator dashboard pages
+│   │   └── ...
+│   ├── contexts/        # React contexts (Auth, Theme, Language)
+│   ├── hooks/           # Custom React hooks
+│   ├── lib/             # Utilities, constants, translations
+│   ├── ai/              # AI recommendation engine
+│   ├── services/        # API services
+│   └── types/           # TypeScript type definitions
+├── scs_go_flutter/      # Flutter mobile app
+├── supabase/            # Database schema and migrations
+├── public/              # Static assets
+└── ...
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 🗄️ Database Setup
 
-Yes, you can!
+Database schema được quản lý bằng Supabase. Import file `supabase/schema.sql` vào Supabase project của bạn.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```sql
+-- Các bảng chính:
+- users              # Thông tin người dùng
+- stations           # Trạm sạc
+- chargers           # Cổng sạc
+- bookings           # Đặt chỗ
+- vehicles           # Thông tin xe
+- favorites          # Trạm yêu thích
+- reviews            # Đánh giá
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🔐 Environment Variables
+
+Tạo file `.env` với các biến sau:
+
+```env
+# Supabase
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+
+# OpenChargeMap API
+VITE_OPENCHARGE_MAP_API_KEY=your-api-key
+VITE_OPENCHARGE_MAP_BASE_URL=https://api.openchargemap.io/v3
+```
+
+## 🚢 Deployment
+
+### Web (Vercel)
+```bash
+# Deploy lên Vercel
+vercel deploy
+
+# Hoặc kết nối GitHub repo với Vercel để auto-deploy
+```
+
+### Mobile (Codemagic)
+- iOS: Sử dụng Codemagic workflow (xem `codemagic.yaml`)
+- Android: Build APK/AAB và upload lên Google Play Console
+
+## 📱 PWA Installation
+
+Web app hỗ trợ Progressive Web App (PWA):
+- Truy cập website trên mobile browser
+- Chọn "Add to Home Screen"
+- Sử dụng như ứng dụng native
+
+## 🤝 Contributing
+
+Dự án được phát triển bởi team SCS GO. Mọi đóng góp đều được hoan nghênh!
+
+## 📄 License
+
+Copyright © 2026 SCS GO Team. All rights reserved.
+
+## 📧 Contact
+
+- Email: maitamit062005@gmail.com
+- Website: https://scs-go.vercel.app
+
+## 🙏 Acknowledgments
+
+- shadcn/ui cho component library
+- Supabase cho backend infrastructure
+- OpenChargeMap cho dữ liệu trạm sạc
+- Unsplash cho hình ảnh

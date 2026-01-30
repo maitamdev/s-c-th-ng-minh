@@ -42,9 +42,18 @@ class StationsProvider extends ChangeNotifier {
           final position =
               await _getCurrentPosition().timeout(const Duration(seconds: 5));
           if (position != null) {
-            lat = position.latitude;
-            lng = position.longitude;
-            debugPrint('📍 Using current location: $lat, $lng');
+            // Kiểm tra nếu GPS nằm trong Việt Nam (lat: 8-24, lng: 102-110)
+            if (position.latitude >= 8.0 &&
+                position.latitude <= 24.0 &&
+                position.longitude >= 102.0 &&
+                position.longitude <= 110.0) {
+              lat = position.latitude;
+              lng = position.longitude;
+              debugPrint('📍 Using current location in VN: $lat, $lng');
+            } else {
+              debugPrint(
+                  '⚠️ GPS outside Vietnam (${position.latitude}, ${position.longitude}), using default HCM');
+            }
           } else {
             debugPrint('📍 GPS not available, using default HCM location');
           }
@@ -52,13 +61,14 @@ class StationsProvider extends ChangeNotifier {
           debugPrint('⚠️ Could not get location: $e, using default');
         }
       }
-      debugPrint('📍 Location: $lat, $lng');
+      debugPrint('📍 Final location: $lat, $lng');
 
-      // Gọi OpenChargeMap API
+      // Gọi OpenChargeMap API với country code VN
       debugPrint('🔌 Fetching stations from OpenChargeMap...');
       final stations = await _ocmService.fetchStations(
         latitude: lat,
         longitude: lng,
+        countryCode: 'VN', // Force VN để tránh lấy trạm ở nước khác
       );
 
       if (stations.isNotEmpty) {

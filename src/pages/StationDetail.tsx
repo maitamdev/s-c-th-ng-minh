@@ -7,8 +7,8 @@ import { PredictionChip } from '@/components/ui/prediction-chip';
 import { AIScoreBadge } from '@/components/ui/ai-score-badge';
 import { Button } from '@/components/ui/button';
 import { StationDetailSkeleton } from '@/components/ui/skeleton';
-import { ReviewModal } from '@/components/ReviewModal';
 import { ShareModal } from '@/components/ShareModal';
+import { ReviewSection } from '@/components/reviews';
 import { useStation } from '@/hooks/useStations';
 import { useFavorites } from '@/hooks/useFavorites';
 import { useAuth } from '@/contexts/AuthContext';
@@ -16,11 +16,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { CONNECTOR_LABELS } from '@/lib/constants';
 import { getSimplePrediction } from '@/ai/prediction';
 import { Charger, ChargerStatus } from '@/types';
-import { 
-  MapPin, 
-  Clock, 
-  Star, 
-  Zap, 
+import {
+  MapPin,
+  Clock,
+  Star,
+  Zap,
   ChevronLeft,
   Navigation,
   Heart,
@@ -54,7 +54,6 @@ export default function StationDetail() {
   const { user } = useAuth();
   const { t } = useLanguage();
   const [selectedCharger, setSelectedCharger] = useState<Charger | null>(null);
-  const [showReviewModal, setShowReviewModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
 
   const chargerStatusConfig: Record<ChargerStatus, { icon: React.ElementType; label: string; className: string }> = {
@@ -114,7 +113,7 @@ export default function StationDetail() {
           <div className="grid lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 space-y-6">
               {/* Hero Image */}
-              <motion.div 
+              <motion.div
                 className="relative h-64 md:h-80 rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-cyan-500/20"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -126,7 +125,7 @@ export default function StationDetail() {
                     <Zap className="w-20 h-20 text-primary/30" />
                   </div>
                 )}
-                
+
                 <div className="absolute top-4 left-4 flex gap-2">
                   {station.hours_json?.is_24h && (
                     <span className="px-2.5 py-1 bg-success/90 text-success-foreground rounded-full text-sm font-medium">
@@ -137,13 +136,13 @@ export default function StationDetail() {
                 </div>
 
                 <div className="absolute top-4 right-4 flex gap-2">
-                  <button 
+                  <button
                     onClick={handleToggleFavorite}
                     className="p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors"
                   >
                     <Heart className={cn('w-5 h-5', stationFavorite && 'fill-destructive text-destructive')} />
                   </button>
-                  <button 
+                  <button
                     onClick={() => setShowShareModal(true)}
                     className="p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors"
                   >
@@ -198,7 +197,7 @@ export default function StationDetail() {
                   <div className="flex items-center gap-2 text-sm">
                     <Clock className="w-4 h-4 text-muted-foreground" />
                     <span>
-                      {station.hours_json?.is_24h 
+                      {station.hours_json?.is_24h
                         ? t('station.open24h')
                         : `${station.hours_json?.open} - ${station.hours_json?.close}`
                       }
@@ -217,7 +216,7 @@ export default function StationDetail() {
                       {station.amenities_json.map((amenity) => {
                         const Icon = amenityIcons[amenity] || CheckCircle2;
                         return (
-                          <div 
+                          <div
                             key={amenity}
                             className="flex items-center gap-1.5 px-3 py-1.5 bg-secondary rounded-lg text-sm capitalize"
                           >
@@ -283,85 +282,28 @@ export default function StationDetail() {
                 </div>
               </motion.div>
 
-              {/* Reviews */}
-              {station.reviews && station.reviews.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold">{t('station.recentReviews')}</h3>
-                    {user && (
-                      <Button variant="outline" size="sm" onClick={() => setShowReviewModal(true)}>
-                        <Star className="w-4 h-4" />
-                        {t('station.writeReview')}
-                      </Button>
-                    )}
-                  </div>
-                  <div className="space-y-4">
-                    {station.reviews.slice(0, 5).map((review) => (
-                      <div key={review.id} className="card-premium p-4">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                            <User className="w-4 h-4 text-primary" />
-                          </div>
-                          <div className="flex-1">
-                            <p className="text-sm font-medium">{review.profiles?.full_name || t('station.user')}</p>
-                            <p className="text-xs text-muted-foreground">
-                              {new Date(review.created_at).toLocaleDateString('vi-VN')}
-                            </p>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            {Array.from({ length: 5 }).map((_, i) => (
-                              <Star 
-                                key={i}
-                                className={cn(
-                                  'w-4 h-4',
-                                  i < review.rating ? 'text-amber-500 fill-amber-500' : 'text-muted'
-                                )}
-                              />
-                            ))}
-                          </div>
-                        </div>
-                        {review.comment && (
-                          <p className="text-sm text-muted-foreground">{review.comment}</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Write Review Button (if no reviews yet) */}
-              {(!station.reviews || station.reviews.length === 0) && user && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="card-premium p-6 text-center"
-                >
-                  <Star className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
-                  <p className="text-muted-foreground mb-4">
-                    {t('station.reviews')} - Chưa có đánh giá nào
-                  </p>
-                  <Button variant="outline" onClick={() => setShowReviewModal(true)}>
-                    <Star className="w-4 h-4" />
-                    {t('station.writeReview')}
-                  </Button>
-                </motion.div>
-              )}
+              {/* Reviews Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <ReviewSection
+                  stationId={station.id}
+                  stationName={station.name}
+                />
+              </motion.div>
             </div>
 
             {/* Sidebar */}
             <div className="space-y-6">
-              <InsightsPanel 
-                station={station} 
+              <InsightsPanel
+                station={station}
                 planLevel={1}
-                onUpgrade={() => {}}
+                onUpgrade={() => { }}
               />
 
-              <motion.div 
+              <motion.div
                 className="card-premium p-6 sticky top-24"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -414,13 +356,6 @@ export default function StationDetail() {
       </main>
 
       {/* Modals */}
-      <ReviewModal
-        isOpen={showReviewModal}
-        onClose={() => setShowReviewModal(false)}
-        stationId={station.id}
-        stationName={station.name}
-        onSuccess={() => refetch()}
-      />
       <ShareModal
         isOpen={showShareModal}
         onClose={() => setShowShareModal(false)}

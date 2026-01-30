@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, MapPin, Calendar, User } from 'lucide-react';
+import { Home, MapPin, Calendar, User, Users, Route } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { cn } from '@/lib/utils';
 
@@ -13,7 +13,8 @@ interface NavItem {
 const navItems: NavItem[] = [
     { path: '/', icon: Home, label: 'Home' },
     { path: '/explore', icon: MapPin, label: 'Explore' },
-    { path: '/dashboard/bookings', icon: Calendar, label: 'Bookings', authRequired: true },
+    { path: '/community', icon: Users, label: 'Community' },
+    { path: '/trip-planner', icon: Route, label: 'Trip' },
     { path: '/dashboard', icon: User, label: 'Profile', authRequired: true },
 ];
 

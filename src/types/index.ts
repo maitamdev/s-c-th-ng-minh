@@ -96,11 +96,60 @@ export interface Review {
   id: string;
   user_id: string;
   station_id: string;
+  booking_id?: string;
   rating: number;
-  comment: string | null;
+  title?: string;
+  comment?: string;
+  is_verified: boolean;
+  helpful_count: number;
+  status: 'active' | 'hidden' | 'reported';
   created_at: string;
+  updated_at: string;
   // Relations
   profile?: Profile;
+  images?: ReviewImage[];
+  is_helpful?: boolean; // Current user has voted helpful
+}
+
+export interface ReviewImage {
+  id: string;
+  review_id: string;
+  image_url: string;
+  sort_order: number;
+  created_at: string;
+}
+
+export interface ReviewHelpful {
+  id: string;
+  review_id: string;
+  user_id: string;
+  created_at: string;
+}
+
+export interface ReviewStats {
+  average_rating: number;
+  total_reviews: number;
+  rating_distribution: {
+    1: number;
+    2: number;
+    3: number;
+    4: number;
+    5: number;
+  };
+}
+
+export interface CreateReviewInput {
+  station_id: string;
+  booking_id?: string;
+  rating: number;
+  title?: string;
+  comment?: string;
+}
+
+export interface UpdateReviewInput {
+  rating?: number;
+  title?: string;
+  comment?: string;
 }
 
 export interface Favorite {

@@ -13,7 +13,10 @@ import '../screens/vehicle/vehicle_screen.dart';
 import '../screens/favorites/favorites_screen.dart';
 import '../screens/history/history_screen.dart';
 import '../screens/trip_planner/trip_planner_screen.dart';
+import '../screens/community/community_screen.dart';
+import '../screens/navigation/navigation_screen.dart';
 import '../screens/main_shell.dart';
+import '../models/station.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -52,6 +55,11 @@ final appRouter = GoRouter(
           path: '/dashboard',
           name: 'dashboard',
           builder: (context, state) => const DashboardScreen(),
+        ),
+        GoRoute(
+          path: '/community',
+          name: 'community',
+          builder: (context, state) => const CommunityScreen(),
         ),
         GoRoute(
           path: '/favorites',
@@ -115,6 +123,14 @@ final appRouter = GoRouter(
       path: '/team',
       name: 'team',
       builder: (context, state) => const TeamScreen(),
+    ),
+    GoRoute(
+      path: '/navigation',
+      name: 'navigation',
+      builder: (context, state) {
+        final station = state.extra as Station;
+        return NavigationScreen(station: station);
+      },
     ),
   ],
 );

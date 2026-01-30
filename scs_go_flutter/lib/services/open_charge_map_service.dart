@@ -29,7 +29,7 @@ class OpenChargeMapService {
     final userLat = lat;
     final userLng = lng;
 
-    // Bỏ countrycode để lấy tất cả trạm gần vị trí
+    // Ưu tiên country code nếu có, nếu không thì lấy theo vị trí
     final uri = Uri.parse('${ApiConfig.openChargeMapBaseUrl}/poi').replace(
       queryParameters: {
         'output': 'json',
@@ -38,6 +38,12 @@ class OpenChargeMapService {
         'distance': distance.toString(),
         'distanceunit': 'km',
         'maxresults': max.toString(),
+        'compact': 'true',
+        'verbose': 'false',
+        // Ưu tiên VN nếu vị trí ở Việt Nam (lat: 8-24, lng: 102-110)
+        if (lat >= 8.0 && lat <= 24.0 && lng >= 102.0 && lng <= 110.0)
+          'countrycode': 'VN',
+        if (countryCode != null) 'countrycode': countryCode,
         if (ApiConfig.openChargeMapApiKey.isNotEmpty)
           'key': ApiConfig.openChargeMapApiKey,
       },
@@ -221,8 +227,10 @@ class OpenChargeMapService {
   }
 
   String _mapChargerStatus(Map<String, dynamic>? statusType) {
-    if (statusType == null) return 'unknown';
-    final isOperational = statusType['IsOperational'] as bool? ?? false;
+    if (statusType == null)
+      return 'available'; // Default available nếu không có thông tin
+    final isOperational =
+        statusType['IsOperational'] as bool? ?? true; // Default true
     if (isOperational) return 'available';
     return 'out_of_service';
   }

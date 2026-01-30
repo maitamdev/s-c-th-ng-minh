@@ -5,6 +5,7 @@ import '../../config/theme.dart';
 import '../../providers/language_provider.dart';
 import '../../providers/stations_provider.dart';
 import '../../models/station.dart';
+import '../navigation/navigation_screen.dart';
 
 class StationDetailScreen extends StatefulWidget {
   final String stationId;
@@ -623,24 +624,38 @@ class _StationDetailScreenState extends State<StationDetailScreen> {
             // Buttons row
             Row(
               children: [
-                OutlinedButton(
-                  onPressed: () {
-                    // Navigate
-                  },
-                  style: OutlinedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 14),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.green.shade400, Colors.green.shade600],
+                    ),
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Icon(Icons.directions, size: 20),
-                      const SizedBox(width: 6),
-                      Text(
-                        lang.isVietnamese ? 'Đường' : 'Go',
-                        style: const TextStyle(fontSize: 13),
-                      ),
-                    ],
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              NavigationScreen(station: station),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 14),
+                    ),
+                    icon: const Icon(Icons.navigation,
+                        color: Colors.white, size: 20),
+                    label: Text(
+                      lang.isVietnamese ? 'Chỉ đường' : 'Navigate',
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
                 const SizedBox(width: 12),
