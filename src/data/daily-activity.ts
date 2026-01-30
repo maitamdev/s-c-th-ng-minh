@@ -396,6 +396,7 @@ export const activityLog: Array<{ day: number; date: string; note: string }> = [
   { day: 392, date: '2026-01-27', note: 'style: adjust grid layout gaps' },
   { day: 393, date: '2026-01-28', note: 'refactor: enhance notification system' },
   { day: 394, date: '2026-01-29', note: 'chore: optimize bundle splitting' },
+  { day: 395, date: '2026-01-30', note: 'docs: add troubleshooting guide' },
 ];
-export const TOTAL_DAYS = 394;
+export const TOTAL_DAYS = 395;
 
