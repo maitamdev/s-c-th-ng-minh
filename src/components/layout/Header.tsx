@@ -21,6 +21,8 @@ import { cn } from '@/lib/utils';
 const navLinks: { href: string; labelKey: TranslationKey }[] = [
   { href: '/', labelKey: 'nav.home' },
   { href: '/explore', labelKey: 'nav.explore' },
+  { href: '/community', labelKey: 'nav.community' },
+  { href: '/trip-planner', labelKey: 'nav.tripPlanner' },
   { href: '/team', labelKey: 'nav.team' },
   { href: '/pricing', labelKey: 'nav.pricing' },
 ];

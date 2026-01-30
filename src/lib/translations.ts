@@ -87,6 +87,8 @@ export const translations = {
     // Navigation
     'nav.home': 'Trang chủ',
     'nav.explore': 'Khám phá',
+    'nav.community': 'Cộng đồng',
+    'nav.tripPlanner': 'Lộ trình',
     'nav.team': 'Đội ngũ',
     'nav.pricing': 'Bảng giá',
     'nav.dashboard': 'Tổng quan',
@@ -767,6 +769,8 @@ export const translations = {
     // Navigation
     'nav.home': 'Home',
     'nav.explore': 'Explore',
+    'nav.community': 'Community',
+    'nav.tripPlanner': 'Trip Planner',
     'nav.team': 'Team',
     'nav.pricing': 'Pricing',
     'nav.dashboard': 'Dashboard',
