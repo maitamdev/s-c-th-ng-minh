@@ -11,4 +11,5 @@
 // Update #9: refactor: simplify error message mapping in AuthContext (2026-02-13 12:51:00)
 // Update #10: docs: add inline comments to AI recommendation engine (2026-02-13 19:49:00)
 // Update #11: style: improve code formatting in openChargeMapService (2026-02-13 10:56:00)
+// Update #12: docs: document Firebase configuration setup (2026-02-14 10:17:00)
 
