@@ -14,4 +14,5 @@
 // Update #12: docs: document Firebase configuration setup (2026-02-14 10:17:00)
 // Update #13: refactor: add type safety to Supabase queries (2026-02-14 18:18:00)
 // Update #14: chore: update keywords meta tag for better SEO (2026-02-14 14:34:00)
+// Update #15: docs: add usage examples to useBookings hook (2026-02-15 20:22:00)
 
