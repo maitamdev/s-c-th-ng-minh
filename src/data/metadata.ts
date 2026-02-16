@@ -17,4 +17,5 @@
 // Update #15: docs: add usage examples to useBookings hook (2026-02-15 20:22:00)
 // Update #16: style: normalize spacing in component files (2026-02-15 10:13:00)
 // Update #17: refactor: improve error handling in booking creation (2026-02-15 10:46:00)
+// Update #18: docs: add architecture overview comments (2026-02-16 19:25:00)
 
