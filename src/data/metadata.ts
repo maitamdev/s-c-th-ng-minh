@@ -20,4 +20,5 @@
 // Update #18: docs: add architecture overview comments (2026-02-16 19:25:00)
 // Update #19: chore: update Open Graph meta tags (2026-02-16 14:43:00)
 // Update #20: refactor: optimize distance calculation function (2026-02-16 18:45:00)
+// Update #21: docs: document ThemeContext usage patterns (2026-02-16 12:05:00)
 
