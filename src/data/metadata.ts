@@ -18,4 +18,5 @@
 // Update #16: style: normalize spacing in component files (2026-02-15 10:13:00)
 // Update #17: refactor: improve error handling in booking creation (2026-02-15 10:46:00)
 // Update #18: docs: add architecture overview comments (2026-02-16 19:25:00)
+// Update #19: chore: update Open Graph meta tags (2026-02-16 14:43:00)
 
