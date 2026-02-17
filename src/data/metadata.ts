@@ -23,4 +23,5 @@
 // Update #21: docs: document ThemeContext usage patterns (2026-02-16 12:05:00)
 // Update #22: style: align CSS variable naming conventions (2026-02-17 21:26:00)
 // Update #23: refactor: improve type definitions for Station (2026-02-17 11:17:00)
+// Update #24: docs: add troubleshooting section to README (2026-02-17 09:07:00)
 
