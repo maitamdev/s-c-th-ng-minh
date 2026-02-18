@@ -25,4 +25,5 @@
 // Update #23: refactor: improve type definitions for Station (2026-02-17 11:17:00)
 // Update #24: docs: add troubleshooting section to README (2026-02-17 09:07:00)
 // Update #25: chore: configure Vite build optimization hints (2026-02-18 19:49:00)
+// Update #26: refactor: enhance LanguageContext with memo (2026-02-18 15:41:00)
 
