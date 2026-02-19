@@ -29,4 +29,5 @@
 // Update #27: docs: document protected route behavior (2026-02-18 09:33:00)
 // Update #28: style: format Tailwind class ordering (2026-02-19 14:39:00)
 // Update #29: refactor: add input validation to booking form (2026-02-19 19:26:00)
+// Update #30: docs: add contributing guidelines (2026-02-19 14:33:00)
 
