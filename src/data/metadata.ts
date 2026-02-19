@@ -30,4 +30,5 @@
 // Update #28: style: format Tailwind class ordering (2026-02-19 14:39:00)
 // Update #29: refactor: add input validation to booking form (2026-02-19 19:26:00)
 // Update #30: docs: add contributing guidelines (2026-02-19 14:33:00)
+// Update #31: chore: update Twitter card meta tags (2026-02-19 11:02:00)
 
