@@ -37,4 +37,5 @@
 // Update #35: refactor: add loading states to data hooks (2026-02-21 09:41:00)
 // Update #36: docs: add deployment guide to README (2026-02-21 16:56:00)
 // Update #37: chore: update canonical URL in SEO component (2026-02-21 13:24:00)
+// Update #38: refactor: improve favorite toggle reliability (2026-02-21 11:42:00)
 
