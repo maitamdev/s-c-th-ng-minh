@@ -39,4 +39,5 @@
 // Update #37: chore: update canonical URL in SEO component (2026-02-21 13:24:00)
 // Update #38: refactor: improve favorite toggle reliability (2026-02-21 11:42:00)
 // Update #39: docs: document PWA configuration (2026-02-22 20:07:00)
+// Update #40: style: organize utility functions (2026-02-22 11:21:00)
 
