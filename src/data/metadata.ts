@@ -38,4 +38,5 @@
 // Update #36: docs: add deployment guide to README (2026-02-21 16:56:00)
 // Update #37: chore: update canonical URL in SEO component (2026-02-21 13:24:00)
 // Update #38: refactor: improve favorite toggle reliability (2026-02-21 11:42:00)
+// Update #39: docs: document PWA configuration (2026-02-22 20:07:00)
 
