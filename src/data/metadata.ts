@@ -45,4 +45,5 @@
 // Update #43: chore: update favicon references (2026-02-23 12:53:00)
 // Update #44: refactor: improve notification system (2026-02-23 17:58:00)
 // Update #45: docs: document bottom navigation behavior (2026-02-24 15:35:00)
+// Update #46: style: clean up unused CSS variables (2026-02-24 19:39:00)
 
