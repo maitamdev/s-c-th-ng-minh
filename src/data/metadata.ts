@@ -47,4 +47,5 @@
 // Update #45: docs: document bottom navigation behavior (2026-02-24 15:35:00)
 // Update #46: style: clean up unused CSS variables (2026-02-24 19:39:00)
 // Update #47: refactor: add retry logic to API calls (2026-02-24 15:10:00)
+// Update #48: docs: add mobile responsiveness notes (2026-02-24 14:50:00)
 
