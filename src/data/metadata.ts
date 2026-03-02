@@ -66,4 +66,5 @@
 // Update #64: style: improve form layout consistency (2026-03-01 15:48:00)
 // Update #65: refactor: add debounce to search input (2026-03-02 21:19:00)
 // Update #66: docs: add FAQ page content guidelines (2026-03-02 14:54:00)
+// Update #67: chore: update license year to 2026 (2026-03-02 13:54:00)
 
