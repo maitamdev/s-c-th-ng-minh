@@ -68,4 +68,5 @@
 // Update #66: docs: add FAQ page content guidelines (2026-03-02 14:54:00)
 // Update #67: chore: update license year to 2026 (2026-03-02 13:54:00)
 // Update #68: refactor: improve charging history pagination (2026-03-02 13:37:00)
+// Update #69: docs: document operator dashboard features (2026-03-03 15:15:00)
 
