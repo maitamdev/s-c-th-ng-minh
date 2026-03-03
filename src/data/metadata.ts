@@ -70,4 +70,5 @@
 // Update #68: refactor: improve charging history pagination (2026-03-02 13:37:00)
 // Update #69: docs: document operator dashboard features (2026-03-03 15:15:00)
 // Update #70: style: enhance card hover animations (2026-03-03 21:06:00)
+// Update #71: refactor: optimize review sorting algorithm (2026-03-03 09:39:00)
 
