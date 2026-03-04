@@ -74,4 +74,5 @@
 // Update #72: docs: add internationalization guide (2026-03-04 16:32:00)
 // Update #73: chore: configure build source maps (2026-03-04 17:37:00)
 // Update #74: refactor: improve trip planner calculations (2026-03-04 15:14:00)
+// Update #75: docs: document community page features (2026-03-04 09:45:00)
 
