@@ -72,4 +72,5 @@
 // Update #70: style: enhance card hover animations (2026-03-03 21:06:00)
 // Update #71: refactor: optimize review sorting algorithm (2026-03-03 09:39:00)
 // Update #72: docs: add internationalization guide (2026-03-04 16:32:00)
+// Update #73: chore: configure build source maps (2026-03-04 17:37:00)
 
