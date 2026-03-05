@@ -77,4 +77,5 @@
 // Update #75: docs: document community page features (2026-03-04 09:45:00)
 // Update #76: style: standardize modal dialog sizes (2026-03-05 09:27:00)
 // Update #77: refactor: enhance pricing display logic (2026-03-05 09:46:00)
+// Update #78: docs: add accessibility guidelines (2026-03-05 12:35:00)
 
