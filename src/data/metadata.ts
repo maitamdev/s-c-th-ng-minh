@@ -88,4 +88,5 @@
 // Update #86: refactor: improve settings page organization (2026-03-08 11:35:00)
 // Update #87: docs: document Firebase Auth error codes (2026-03-08 18:10:00)
 // Update #88: style: enhance tooltip positioning (2026-03-08 15:22:00)
+// Update #89: refactor: add offline support indicators (2026-03-09 12:35:00)
 
