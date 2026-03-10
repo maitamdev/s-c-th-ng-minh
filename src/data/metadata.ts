@@ -94,4 +94,5 @@
 // Update #92: refactor: improve connector type mapping (2026-03-10 18:32:00)
 // Update #93: docs: document peak hours prediction (2026-03-10 11:02:00)
 // Update #94: style: improve responsive breakpoints (2026-03-10 17:26:00)
+// Update #95: refactor: enhance station detail layout (2026-03-10 13:04:00)
 
