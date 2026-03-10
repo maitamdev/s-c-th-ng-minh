@@ -91,4 +91,5 @@
 // Update #89: refactor: add offline support indicators (2026-03-09 12:35:00)
 // Update #90: docs: add changelog for version 1.0.0 (2026-03-09 12:27:00)
 // Update #91: chore: update dependency security notes (2026-03-09 15:47:00)
+// Update #92: refactor: improve connector type mapping (2026-03-10 18:32:00)
 
