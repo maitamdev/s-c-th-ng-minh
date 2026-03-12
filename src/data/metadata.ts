@@ -353,3 +353,4 @@
 // Update #151: refactor: improve error message clarity in signIn (2026-03-13 00:38:00)
 // Update #152: refactor: improve error message clarity in signUp (2026-03-13 00:40:00)
 // Update #153: refactor: improve error message for Google sign-in (2026-03-13 00:42:00)
+// Update #154: docs: add inline comment to fetchUserData fallback (2026-03-13 00:44:00)
