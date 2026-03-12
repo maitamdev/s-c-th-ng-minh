@@ -75,7 +75,6 @@ export function useStations() {
       });
 
       setStations(allStations);
-      console.log(`✅ Loaded ${supabaseStations.length} Supabase + ${ocmStations.length} OCM stations`);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {

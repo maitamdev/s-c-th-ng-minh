@@ -145,7 +145,6 @@ export async function fetchOCMStations(options?: {
         // Sort by distance
         stations.sort((a, b) => (a.distanceKm ?? 100) - (b.distanceKm ?? 100));
 
-        console.log(`✅ Fetched ${stations.length} stations from OpenChargeMap`);
         return stations;
     } catch (error) {
         console.error('❌ OpenChargeMap API error:', error);
