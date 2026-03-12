@@ -1,3 +1,4 @@
+// OperatorDashboard - Operator home with station, booking, and revenue overview
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { OperatorLayout } from '@/components/layout/OperatorLayout';
