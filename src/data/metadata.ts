@@ -382,3 +382,4 @@
 // Update #180: style: normalize import ordering in main.tsx (2026-03-13 01:36:00)
 // Update #181: style: normalize import ordering in AuthContext.tsx (2026-03-13 01:38:00)
 // Update #182: chore: add TypeScript strict mode documentation (2026-03-13 01:40:00)
+// Update #183: chore: document Vite alias configuration (2026-03-13 01:42:00)
