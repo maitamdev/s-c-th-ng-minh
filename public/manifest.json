@@ -1,12 +1,17 @@
 {
   "name": "SCS GO - Smart EV Charging",
   "short_name": "SCS GO",
-  "description": "Tìm trạm sạc xe điện thông minh với AI. Đặt chỗ trước, so sánh giá, theo dõi thời gian thực.",
+  "description": "T\u00ecm tr\u1ea1m s\u1ea1c xe \u0111i\u1ec7n th\u00f4ng minh v\u1edbi AI. \u0110\u1eb7t ch\u1ed7 tr\u01b0\u1edbc, so s\u00e1nh gi\u00e1, theo d\u00f5i th\u1eddi gian th\u1ef1c.",
   "start_url": "/",
+  "scope": "/",
+  "id": "/",
   "display": "standalone",
   "background_color": "#030712",
   "theme_color": "#10b981",
   "orientation": "portrait-primary",
+  "lang": "vi",
+  "dir": "ltr",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
@@ -24,14 +29,15 @@
   "categories": [
     "utilities",
     "navigation",
-    "lifestyle"
+    "lifestyle",
+    "transportation"
   ],
   "screenshots": [],
   "shortcuts": [
     {
-      "name": "Tìm trạm sạc",
-      "short_name": "Tìm trạm",
-      "description": "Tìm trạm sạc gần bạn",
+      "name": "T\u00ecm tr\u1ea1m s\u1ea1c",
+      "short_name": "T\u00ecm tr\u1ea1m",
+      "description": "T\u00ecm tr\u1ea1m s\u1ea1c g\u1ea7n b\u1ea1n",
       "url": "/explore",
       "icons": [
         {
@@ -41,10 +47,22 @@
       ]
     },
     {
-      "name": "Lịch đặt chỗ",
-      "short_name": "Đặt chỗ",
-      "description": "Xem lịch đặt chỗ của bạn",
+      "name": "L\u1ecbch \u0111\u1eb7t ch\u1ed7",
+      "short_name": "\u0110\u1eb7t ch\u1ed7",
+      "description": "Xem l\u1ecbch \u0111\u1eb7t ch\u1ed7 c\u1ee7a b\u1ea1n",
       "url": "/dashboard/bookings",
+      "icons": [
+        {
+          "src": "/logo.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "L\u1eadp k\u1ebf ho\u1ea1ch",
+      "short_name": "H\u00e0nh tr\u00ecnh",
+      "description": "L\u1eadp k\u1ebf ho\u1ea1ch chuy\u1ebfn \u0111i",
+      "url": "/trip-planner",
       "icons": [
         {
           "src": "/logo.jpg",
