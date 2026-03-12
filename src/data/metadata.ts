@@ -426,3 +426,4 @@
 // Update #214: fix(a11y): add aria-label to search input in Explore page (2026-03-12 23:26:30)
 // Update #215: fix(a11y): add aria-label to filter buttons in FiltersBar (2026-03-12 23:28:00)
 // Update #216: fix(a11y): add aria-expanded to accordion items in FAQ (2026-03-12 23:29:30)
+// Update #217: fix(a11y): add role=alert to error messages in Auth page (2026-03-12 23:31:00)
