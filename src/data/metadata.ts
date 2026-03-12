@@ -216,3 +216,4 @@
 // [2026-03-12 09:11:44 +0700] chore: polish PWA config
 // [2026-03-12 09:12:43 +0700] perf: streamline SEO metadata
 // [2026-03-12 09:13:52 +0700] fix: restructure analytics tracking
+// [2026-03-12 09:14:48 +0700] feat: fine-tune filter system
