@@ -1,4 +1,4 @@
-// SCS GO Constants
+// SCS GO Constants - Application-wide configuration values and defaults
 
 export const CONNECTOR_TYPES = ['CCS2', 'Type2', 'CHAdeMO', 'GBT'] as const;
 
