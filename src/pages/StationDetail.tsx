@@ -1,3 +1,4 @@
+// StationDetail - Individual station view with chargers, reviews, and booking
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
