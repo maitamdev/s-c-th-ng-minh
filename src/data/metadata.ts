@@ -491,3 +491,4 @@
 // Update #279: feat(i18n): add missing Vietnamese translations for error messages (2026-03-13 01:04:00)
 // Update #280: feat(i18n): add Vietnamese translations for booking status labels (2026-03-13 01:05:30)
 // Update #281: feat(i18n): add Vietnamese translations for charger status labels (2026-03-13 01:07:00)
+// Update #282: feat(i18n): add Vietnamese translations for filter labels (2026-03-13 01:08:30)
