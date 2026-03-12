@@ -235,3 +235,4 @@
 // [2026-03-12 11:30:22 +0700] feat: improve share modal
 // [2026-03-12 11:31:00 +0700] test: update onboarding flow
 // [2026-03-12 11:32:33 +0700] docs: optimize subscription logic
+// [2026-03-12 11:33:04 +0700] refactor: refactor favorites feature
