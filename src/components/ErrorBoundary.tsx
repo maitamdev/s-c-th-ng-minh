@@ -1,3 +1,4 @@
+// ErrorBoundary - Global error handling with user-friendly fallback UI
 import { Component, ErrorInfo, ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
 import { AlertTriangle, RefreshCw, Home } from 'lucide-react';
