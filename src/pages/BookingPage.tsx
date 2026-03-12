@@ -1,3 +1,4 @@
+// BookingPage - Full booking flow with station details and charger selection
 import { useState, useMemo, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
