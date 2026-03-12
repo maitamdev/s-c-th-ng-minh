@@ -328,3 +328,4 @@
 // Update #126: refactor: add readonly modifier to CONNECTOR_TYPES (2026-03-12 23:48:00)
 // Update #127: refactor: add readonly modifier to PROVIDERS array (2026-03-12 23:50:00)
 // Update #128: refactor: add readonly modifier to AMENITIES array (2026-03-12 23:52:00)
+// Update #129: refactor: add readonly modifier to VIETNAM_CITIES (2026-03-12 23:54:00)
