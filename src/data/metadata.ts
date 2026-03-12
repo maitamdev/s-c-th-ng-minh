@@ -252,3 +252,4 @@
 // [2026-03-12 13:47:18 +0700] test: optimize scroll behavior
 // [2026-03-12 13:48:44 +0700] docs: refactor image optimization
 // [2026-03-12 13:49:35 +0700] refactor: enhance font loading
+// [2026-03-12 14:50:07 +0700] style: clean up station search module
