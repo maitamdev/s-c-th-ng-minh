@@ -254,3 +254,4 @@
 // [2026-03-12 13:49:35 +0700] refactor: enhance font loading
 // [2026-03-12 14:50:07 +0700] style: clean up station search module
 // [2026-03-12 14:51:54 +0700] chore: fix booking flow
+// [2026-03-12 14:52:48 +0700] perf: add comments to auth system
