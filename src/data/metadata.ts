@@ -291,3 +291,4 @@
 // [2026-03-12 18:26:00 +0700] feat: polish FAQ section
 // [2026-03-12 18:27:07 +0700] test: streamline privacy policy
 // [2026-03-12 18:28:41 +0700] docs: restructure terms page
+// [2026-03-12 18:29:25 +0700] refactor: fine-tune footer component
