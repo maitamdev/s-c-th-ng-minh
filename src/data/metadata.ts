@@ -351,3 +351,4 @@
 // Update #149: docs: add @see reference to Leaflet docs (2026-03-13 00:34:00)
 // Update #150: docs: add @see reference to React Router docs (2026-03-13 00:36:00)
 // Update #151: refactor: improve error message clarity in signIn (2026-03-13 00:38:00)
+// Update #152: refactor: improve error message clarity in signUp (2026-03-13 00:40:00)
