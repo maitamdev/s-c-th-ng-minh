@@ -489,3 +489,4 @@
 // Update #277: feat(ux): add breadcrumb navigation for dashboard pages (2026-03-13 01:01:00)
 // Update #278: feat(ux): add keyboard shortcut hints to tooltips (2026-03-13 01:02:30)
 // Update #279: feat(i18n): add missing Vietnamese translations for error messages (2026-03-13 01:04:00)
+// Update #280: feat(i18n): add Vietnamese translations for booking status labels (2026-03-13 01:05:30)
