@@ -1,3 +1,4 @@
+// ShareModal - Station sharing dialog with clipboard and social sharing
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
