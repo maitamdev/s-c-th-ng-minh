@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Home, MapPin, User, Users, Route } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface NavItem {
     path: string;
@@ -11,16 +12,17 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-    { path: '/', icon: Home, label: 'Home' },
-    { path: '/explore', icon: MapPin, label: 'Explore' },
-    { path: '/community', icon: Users, label: 'Community' },
-    { path: '/trip-planner', icon: Route, label: 'Trip' },
-    { path: '/dashboard', icon: User, label: 'Profile', authRequired: true },
+    { path: '/', icon: Home, label: language === 'vi' ? 'Trang ch\u1EE7' : 'Home' },
+    { path: '/explore', icon: MapPin, label: language === 'vi' ? 'Kh\u00E1m ph\u00E1' : 'Explore' },
+    { path: '/community', icon: Users, label: language === 'vi' ? 'C\u1ED9ng \u0111\u1ED3ng' : 'Community' },
+    { path: '/trip-planner', icon: Route, label: language === 'vi' ? 'H\u00E0nh tr\u00ECnh' : 'Trip' },
+    { path: '/dashboard', icon: User, label: language === 'vi' ? 'C\u00E1 nh\u00E2n' : 'Profile', authRequired: true },
 ];
 
 export function BottomNav() {
     const location = useLocation();
     const { user } = useAuth();
+    const { language } = useLanguage();
 
     // Don't show on auth pages
     if (location.pathname.startsWith('/auth')) return null;
