@@ -329,3 +329,4 @@
 // Update #127: refactor: add readonly modifier to PROVIDERS array (2026-03-12 23:50:00)
 // Update #128: refactor: add readonly modifier to AMENITIES array (2026-03-12 23:52:00)
 // Update #129: refactor: add readonly modifier to VIETNAM_CITIES (2026-03-12 23:54:00)
+// Update #130: refactor: add readonly modifier to PEAK_HOURS (2026-03-12 23:56:00)
