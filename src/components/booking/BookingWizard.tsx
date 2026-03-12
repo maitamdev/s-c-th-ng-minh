@@ -1,3 +1,4 @@
+// BookingWizard - Multi-step booking form with time slot selection
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Station, Charger, Booking } from '@/types';
