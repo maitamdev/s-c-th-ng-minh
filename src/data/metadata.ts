@@ -475,3 +475,4 @@
 // Update #263: feat(pwa): add share target for receiving shared locations (2026-03-13 00:40:00)
 // Update #264: feat(ux): add skeleton loading for station cards (2026-03-13 00:41:30)
 // Update #265: feat(ux): add skeleton loading for booking list (2026-03-13 00:43:00)
+// Update #266: feat(ux): add pull-to-refresh gesture on mobile (2026-03-13 00:44:30)
