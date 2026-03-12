@@ -1,3 +1,4 @@
+// TripPlanner - Multi-stop trip planning with charging station routing
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
