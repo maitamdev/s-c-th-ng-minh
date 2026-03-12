@@ -1,3 +1,4 @@
+// Pricing - Subscription plan comparison and selection
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Header } from '@/components/layout/Header';
