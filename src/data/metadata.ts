@@ -315,3 +315,4 @@
 // Update #113: refactor: improve ConnectorType type safety (2026-03-12 23:22:00)
 // Update #114: refactor: improve ChargerStatus type definitions (2026-03-12 23:24:00)
 // Update #115: refactor: improve BookingStatus type definitions (2026-03-12 23:26:00)
+// Update #116: refactor: improve StationStatus type definitions (2026-03-12 23:28:00)
