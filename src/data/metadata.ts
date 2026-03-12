@@ -273,3 +273,4 @@
 // [2026-03-12 16:08:39 +0700] perf: reorganize vehicle settings
 // [2026-03-12 16:09:08 +0700] fix: simplify trip planner
 // [2026-03-12 16:10:38 +0700] feat: document community page
+// [2026-03-12 16:11:06 +0700] test: polish error handling
