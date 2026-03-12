@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, MapPin, Calendar, User, Users, Route } from 'lucide-react';
+import { Home, MapPin, User, Users, Route } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { cn } from '@/lib/utils';
 
