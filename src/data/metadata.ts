@@ -348,3 +348,4 @@
 // Update #146: docs: add @see reference to OpenChargeMap API docs (2026-03-13 00:28:00)
 // Update #147: docs: add @see reference to Firebase Auth docs (2026-03-13 00:30:00)
 // Update #148: docs: add @see reference to Supabase docs (2026-03-13 00:32:00)
+// Update #149: docs: add @see reference to Leaflet docs (2026-03-13 00:34:00)
