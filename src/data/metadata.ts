@@ -311,3 +311,4 @@
 // Update #109: docs: add JSDoc to Plan interface in types (2026-03-12 23:14:00)
 // Update #110: docs: add JSDoc to Subscription interface in types (2026-03-12 23:16:00)
 // Update #111: docs: add JSDoc to AIRecommendation interface in types (2026-03-12 23:18:00)
+// Update #112: docs: add JSDoc to StationFilters interface in types (2026-03-12 23:20:00)
