@@ -1,3 +1,4 @@
+// MobileHeader - Compact header for mobile dashboard pages
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, MoreVertical } from 'lucide-react';
 import { cn } from '@/lib/utils';
