@@ -1,3 +1,4 @@
+// SEO - React Helmet-based SEO meta tags manager for all pages
 import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
