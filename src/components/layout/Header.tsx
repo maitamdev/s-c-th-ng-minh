@@ -1,3 +1,4 @@
+// Header - Main navigation header with responsive desktop/mobile layouts
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
