@@ -117,7 +117,7 @@ export function Header() {
           <button
             onClick={toggleLanguage}
             className="p-2 rounded-lg hover:bg-secondary/80 transition-colors flex items-center gap-1"
-            title={language === 'vi' ? 'English' : 'Tiếng Việt'}
+            title={language === 'vi' ? 'English' : 'Ti\u1EBFng Vi\u1EC7t'} aria-label={language === 'vi' ? 'Switch to English' : 'Chuy\u1EC3n sang Ti\u1EBFng Vi\u1EC7t'}
           >
             <Globe className="w-5 h-5 text-muted-foreground" />
             <span className="text-xs font-medium text-muted-foreground uppercase">{language}</span>
