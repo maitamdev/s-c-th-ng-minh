@@ -285,3 +285,4 @@
 // [2026-03-12 17:20:25 +0700] docs: clean up share modal
 // [2026-03-12 17:21:28 +0700] refactor: fix onboarding flow
 // [2026-03-12 17:22:09 +0700] style: add comments to subscription logic
+// [2026-03-12 17:23:36 +0700] chore: reorganize favorites feature
