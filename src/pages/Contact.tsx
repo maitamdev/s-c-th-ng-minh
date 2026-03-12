@@ -1,3 +1,4 @@
+// Contact - Contact form and support information page
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Header } from '@/components/layout/Header';
