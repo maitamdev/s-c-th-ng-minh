@@ -1,3 +1,4 @@
+// AI Prediction Engine - Crowd level forecasting using time-based heuristics
 import { HourlyPrediction, GoldenHour, CrowdLevel, Booking, Station } from '@/types';
 import { PEAK_HOURS } from '@/lib/constants';
 
