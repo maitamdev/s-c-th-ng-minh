@@ -30,11 +30,12 @@ export default function ForgotPassword() {
           ? 'Vui lòng kiểm tra hộp thư của bạn.' 
           : 'Please check your inbox.',
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const firebaseError = error as { code?: string };
       let message = language === 'vi' ? 'Có lỗi xảy ra' : 'An error occurred';
-      if (error.code === 'auth/user-not-found') {
+      if (firebaseError.code === 'auth/user-not-found') {
         message = language === 'vi' ? 'Email không tồn tại trong hệ thống' : 'Email not found';
-      } else if (error.code === 'auth/invalid-email') {
+      } else if (firebaseError.code === 'auth/invalid-email') {
         message = language === 'vi' ? 'Email không hợp lệ' : 'Invalid email';
       }
       toast({

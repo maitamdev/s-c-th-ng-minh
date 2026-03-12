@@ -164,7 +164,7 @@ export default function Auth() {
     }));
   };
 
-  const updateCharger = (index: number, field: string, value: any) => {
+  const updateCharger = (index: number, field: string, value: string | number) => {
     setStationData(prev => ({
       ...prev,
       chargers: prev.chargers.map((c, i) => i === index ? { ...c, [field]: value } : c),

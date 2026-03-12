@@ -34,18 +34,21 @@ export default function ChargingHistory() {
     let filtered = bookings.filter(b => b.status === 'completed');
 
     switch (timeFilter) {
-      case 'week':
+      case 'week': {
         const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
         filtered = filtered.filter(b => new Date(b.created_at) >= weekAgo);
         break;
-      case 'month':
+      }
+      case 'month': {
         const monthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
         filtered = filtered.filter(b => new Date(b.created_at) >= monthAgo);
         break;
-      case 'year':
+      }
+      case 'year': {
         const yearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
         filtered = filtered.filter(b => new Date(b.created_at) >= yearAgo);
         break;
+      }
     }
 
     return filtered.sort((a, b) => 

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from '@/components/layout/Header';
@@ -47,7 +47,7 @@ export default function BookingPage() {
   ];
 
   // Additional services
-  const additionalServices = [
+  const additionalServices = useMemo(() => [
     {
       id: 'coffee',
       name: t('booking.service.coffee'),
@@ -92,7 +92,7 @@ export default function BookingPage() {
         { id: 'lounge-2', name: t('booking.service.lounge60'), price: 50000 },
       ],
     },
-  ];
+  ], [t]);
 
   const [currentStep, setCurrentStep] = useState<BookingStep>('charger');
   const [selectedCharger, setSelectedCharger] = useState<Charger | null>(null);
@@ -173,7 +173,7 @@ export default function BookingPage() {
     });
     
     return total;
-  }, [selectedCharger, duration, selectedServices]);
+  }, [selectedCharger, duration, selectedServices, additionalServices]);
 
   const toggleService = (itemId: string) => {
     setSelectedServices(prev => 
@@ -941,7 +941,7 @@ function BookingSuccess({
   const bookingCode = `SCS${Date.now().toString().slice(-8)}`;
   
   // Function to open navigation
-  const openNavigation = () => {
+  const openNavigation = useCallback(() => {
     const lat = station.lat;
     const lng = station.lng;
     const destination = encodeURIComponent(station.address);
@@ -962,7 +962,7 @@ function BookingSuccess({
       // Fallback to address search
       window.open(`https://www.google.com/maps/search/?api=1&query=${destination}`, '_blank');
     }
-  };
+  }, [station.lat, station.lng, station.address]);
 
   // Auto open navigation after 2 seconds
   useEffect(() => {
@@ -970,7 +970,7 @@ function BookingSuccess({
       openNavigation();
     }, 2000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [openNavigation]);
   
   return (
     <div className="min-h-screen bg-background">

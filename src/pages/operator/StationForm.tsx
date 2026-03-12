@@ -113,8 +113,8 @@ export default function StationForm() {
         toast({ title: t('common.success'), description: t('operator.stationCreated') });
       }
       navigate('/operator/stations');
-    } catch (error: any) {
-      toast({ title: t('common.error'), description: error.message, variant: 'destructive' });
+    } catch (error: unknown) {
+      toast({ title: t('common.error'), description: (error as Error).message, variant: 'destructive' });
     } finally {
       setLoading(false);
     }
@@ -138,7 +138,7 @@ export default function StationForm() {
     }
   };
 
-  const updateChargerField = (index: number, field: string, value: any) => {
+  const updateChargerField = (index: number, field: string, value: string | number) => {
     setChargers(chargers.map((c, i) => (i === index ? { ...c, [field]: value } : c)));
   };
 

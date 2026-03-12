@@ -37,7 +37,7 @@ export default function Explore() {
   const [optimizationMode, setOptimizationMode] = useState<OptimizationMode>('balanced');
 
   // Default vehicle for AI recommendations
-  const defaultVehicle: Vehicle = user?.vehicle || {
+  const defaultVehicle: Vehicle = useMemo(() => user?.vehicle || {
     id: 'demo',
     user_id: 'demo',
     name: 'Demo Vehicle',
@@ -46,7 +46,7 @@ export default function Explore() {
     consumption_kwh_per_100km: 18,
     preferred_connector: 'CCS2',
     updated_at: new Date().toISOString(),
-  };
+  }, [user?.vehicle]);
 
   // Get user location
   useEffect(() => {
