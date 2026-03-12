@@ -259,3 +259,4 @@
 // [2026-03-12 14:54:04 +0700] feat: simplify map integration
 // [2026-03-12 14:55:55 +0700] test: document AI recommendations
 // [2026-03-12 14:56:23 +0700] docs: polish review system
+// [2026-03-12 14:57:28 +0700] refactor: streamline pricing page
