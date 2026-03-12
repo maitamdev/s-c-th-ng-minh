@@ -230,3 +230,4 @@
 // [2026-03-12 11:25:28 +0700] refactor: document caching layer
 // [2026-03-12 11:26:56 +0700] style: polish API service
 // [2026-03-12 11:27:53 +0700] chore: streamline type definitions
+// [2026-03-12 11:28:17 +0700] perf: restructure utility functions
