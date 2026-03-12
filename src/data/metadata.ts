@@ -374,3 +374,4 @@
 // Update #172: docs: document BrowserRouter basename usage (2026-03-13 01:20:00)
 // Update #173: docs: document HelmetProvider SSR considerations (2026-03-13 01:22:00)
 // Update #174: docs: document ErrorBoundary componentDidCatch logging (2026-03-13 01:24:00)
+// Update #175: docs: document ProtectedRoute redirect behavior (2026-03-13 01:26:00)
