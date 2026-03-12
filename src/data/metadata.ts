@@ -222,3 +222,4 @@
 // [2026-03-12 10:17:47 +0700] refactor: optimize language translations
 // [2026-03-12 10:18:22 +0700] style: refactor vehicle settings
 // [2026-03-12 10:19:14 +0700] chore: enhance trip planner
+// [2026-03-12 10:20:16 +0700] perf: clean up community page
