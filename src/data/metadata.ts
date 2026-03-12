@@ -450,3 +450,4 @@
 // Update #238: perf: optimize recharts re-renders with memo (2026-03-13 00:02:30)
 // Update #239: perf: add useMemo to expensive station filter calculations (2026-03-13 00:04:00)
 // Update #240: perf: add useCallback to booking form handlers (2026-03-13 00:05:30)
+// Update #241: perf: memoize translation function in LanguageContext (2026-03-13 00:07:00)
