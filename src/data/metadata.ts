@@ -388,3 +388,4 @@
 // Update #186: chore: document ESLint rule overrides rationale (2026-03-13 01:48:00)
 // Update #187: perf: document lazy loading strategy for routes (2026-03-13 01:50:00)
 // Update #188: perf: document code splitting boundaries (2026-03-13 01:52:00)
+// Update #189: perf: document image optimization pipeline (2026-03-13 01:54:00)
