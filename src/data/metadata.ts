@@ -471,3 +471,4 @@
 // Update #259: feat(pwa): cache station images for offline viewing (2026-03-13 00:34:00)
 // Update #260: feat(pwa): add network status indicator component (2026-03-13 00:35:30)
 // Update #261: feat(pwa): improve SW update lifecycle management (2026-03-13 00:37:00)
+// Update #262: feat(pwa): add badge API for unread notifications (2026-03-13 00:38:30)
