@@ -281,3 +281,23 @@
       transition-duration: 0.01ms !important;
     }
   }
+/* Print styles */
+@media print {
+  .no-print,
+  nav,
+  footer,
+  .fixed {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+}
