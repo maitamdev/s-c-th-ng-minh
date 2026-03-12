@@ -250,3 +250,4 @@
 // [2026-03-12 13:45:08 +0700] fix: improve tooltip system
 // [2026-03-12 13:46:23 +0700] feat: update dropdown menus
 // [2026-03-12 13:47:18 +0700] test: optimize scroll behavior
+// [2026-03-12 13:48:44 +0700] docs: refactor image optimization
