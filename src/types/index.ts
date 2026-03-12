@@ -1,4 +1,4 @@
-// SCS GO Type Definitions
+// SCS GO Type Definitions - All shared interfaces, types, and enums for the application
 
 export type UserRole = 'user' | 'operator' | 'admin';
 export type PlanAudience = 'driver' | 'operator';
