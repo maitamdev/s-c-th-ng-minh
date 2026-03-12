@@ -265,3 +265,4 @@
 // [2026-03-12 15:00:41 +0700] perf: improve operator panel
 // [2026-03-12 15:01:26 +0700] fix: update PWA config
 // [2026-03-12 15:02:27 +0700] feat: optimize SEO metadata
+// [2026-03-12 15:03:56 +0700] test: refactor analytics tracking
