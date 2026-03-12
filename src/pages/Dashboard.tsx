@@ -1,3 +1,4 @@
+// Dashboard - User home dashboard with booking and vehicle overview
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
