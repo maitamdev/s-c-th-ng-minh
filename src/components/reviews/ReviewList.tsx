@@ -1,3 +1,4 @@
+// ReviewList - Paginated review list with sorting options
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpDown, Loader2 } from 'lucide-react';
