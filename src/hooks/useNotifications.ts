@@ -1,3 +1,4 @@
+// useNotifications - Push notification management and booking reminders
 import { useState, useEffect, useCallback } from 'react';
 
 interface NotificationOptions {
