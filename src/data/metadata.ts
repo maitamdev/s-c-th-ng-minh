@@ -287,3 +287,4 @@
 // [2026-03-12 17:22:09 +0700] style: add comments to subscription logic
 // [2026-03-12 17:23:36 +0700] chore: reorganize favorites feature
 // [2026-03-12 18:24:55 +0700] perf: simplify charging history
+// [2026-03-12 18:25:34 +0700] fix: document contact form
