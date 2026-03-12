@@ -499,3 +499,4 @@
 // Update #287: feat(i18n): add Vietnamese date formatting support (2026-03-13 01:16:00)
 // Update #288: feat(i18n): add Vietnamese number formatting with dot separator (2026-03-13 01:17:30)
 // Update #289: test: add unit test placeholder for useAuth hook (2026-03-13 01:19:00)
+// Update #290: test: add unit test placeholder for useBookings hook (2026-03-13 01:20:30)
