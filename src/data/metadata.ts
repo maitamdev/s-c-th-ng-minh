@@ -322,3 +322,4 @@
 // Update #120: docs: add @example to useLanguage hook (2026-03-12 23:36:00)
 // Update #121: docs: add @returns to trackEvent function (2026-03-12 23:38:00)
 // Update #122: docs: add @param descriptions to signIn method (2026-03-12 23:40:00)
+// Update #123: docs: add @param descriptions to signUp method (2026-03-12 23:42:00)
