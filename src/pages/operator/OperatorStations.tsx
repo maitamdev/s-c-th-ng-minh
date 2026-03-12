@@ -1,3 +1,4 @@
+// OperatorStations - Station CRUD list for operators
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
