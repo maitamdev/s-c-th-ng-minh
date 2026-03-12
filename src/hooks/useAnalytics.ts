@@ -1,3 +1,4 @@
+// useAnalytics - Page view tracking and custom event analytics
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
