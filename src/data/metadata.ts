@@ -443,3 +443,4 @@
 // Update #231: perf: add loading=lazy to community post images (2026-03-12 23:52:00)
 // Update #232: perf: add decoding=async to non-critical images (2026-03-12 23:53:30)
 // Update #233: perf: add will-change:transform to animated cards (2026-03-12 23:55:00)
+// Update #234: perf: optimize framer-motion animate presence (2026-03-12 23:56:30)
