@@ -1,3 +1,4 @@
+// Auth Page - Login and registration with email/password and Google OAuth
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
