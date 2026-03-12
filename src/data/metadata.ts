@@ -232,3 +232,4 @@
 // [2026-03-12 11:27:53 +0700] chore: streamline type definitions
 // [2026-03-12 11:28:17 +0700] perf: restructure utility functions
 // [2026-03-12 11:29:17 +0700] fix: fine-tune constants config
+// [2026-03-12 11:30:22 +0700] feat: improve share modal
