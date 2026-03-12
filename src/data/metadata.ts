@@ -318,3 +318,4 @@
 // Update #116: refactor: improve StationStatus type definitions (2026-03-12 23:28:00)
 // Update #117: style: organize type exports alphabetically (2026-03-12 23:30:00)
 // Update #118: docs: add @example to useAuth hook (2026-03-12 23:32:00)
+// Update #119: docs: add @example to useTheme hook (2026-03-12 23:34:00)
