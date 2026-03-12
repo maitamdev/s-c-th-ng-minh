@@ -5,6 +5,7 @@ const urlsToCache = [
   '/index.html',
   '/logo.jpg',
   '/manifest.json',
+  '/favicon.ico',
 ];
 
 // Install
