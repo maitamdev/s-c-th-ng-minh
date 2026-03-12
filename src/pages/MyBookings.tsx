@@ -1,3 +1,4 @@
+// MyBookings - Active and past booking management
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
