@@ -1,3 +1,4 @@
+// ReviewForm - Station review submission form with rating and text input
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
