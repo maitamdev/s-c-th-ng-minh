@@ -1,4 +1,4 @@
-﻿// SCS GO - Project Metadata
+// SCS GO - Project Metadata
 // Auto-updated configuration file
 // Update #1: docs: update project description in README (2026-02-10 14:48:00)
 // Update #2: style: format import statements in App.tsx (2026-02-11 16:19:00)
@@ -302,3 +302,4 @@
 // [2026-03-12 19:37:33 +0700] refactor: add comments to scroll behavior
 // [2026-03-12 19:38:35 +0700] style: reorganize image optimization
 // [2026-03-12 19:39:41 +0700] chore: simplify font loading
+// Update #103: docs: add JSDoc to Profile interface in types (2026-03-12 23:02:00)
