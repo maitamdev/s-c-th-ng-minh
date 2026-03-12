@@ -1,3 +1,4 @@
+// ReviewCard - Individual review display with helpful voting and moderation
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { format, formatDistanceToNow } from 'date-fns';
