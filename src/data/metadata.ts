@@ -343,3 +343,4 @@
 // Update #141: style: enhance leaflet popup styling for dark mode (2026-03-13 00:18:00)
 // Update #142: style: improve recharts text color consistency (2026-03-13 00:20:00)
 // Update #143: fix: improve noscript fallback styling in index.html (2026-03-13 00:22:00)
+// Update #144: fix: add loading=lazy to Footer logo image (2026-03-13 00:24:00)
