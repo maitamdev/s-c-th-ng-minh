@@ -493,3 +493,4 @@
 // Update #281: feat(i18n): add Vietnamese translations for charger status labels (2026-03-13 01:07:00)
 // Update #282: feat(i18n): add Vietnamese translations for filter labels (2026-03-13 01:08:30)
 // Update #283: feat(i18n): add Vietnamese translations for station amenities (2026-03-13 01:10:00)
+// Update #284: feat(i18n): add Vietnamese translations for subscription plans (2026-03-13 01:11:30)
