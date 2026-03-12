@@ -1,3 +1,4 @@
+// Community - User community forum with tips, reviews, and discussions
 import { useState, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
