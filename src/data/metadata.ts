@@ -262,3 +262,4 @@
 // [2026-03-12 14:57:28 +0700] refactor: streamline pricing page
 // [2026-03-12 14:58:02 +0700] style: restructure navigation component
 // [2026-03-12 15:59:02 +0700] chore: fine-tune dashboard layout
+// [2026-03-12 15:00:41 +0700] perf: improve operator panel
