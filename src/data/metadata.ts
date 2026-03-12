@@ -480,3 +480,4 @@
 // Update #268: feat(ux): add swipe gestures for booking cards (2026-03-13 00:47:30)
 // Update #269: feat(ux): add animated page transitions between routes (2026-03-13 00:49:00)
 // Update #270: feat(ux): add scroll-to-top button on long pages (2026-03-13 00:50:30)
+// Update #271: feat(ux): add confirm dialog before booking cancellation (2026-03-13 00:52:00)
