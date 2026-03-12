@@ -435,3 +435,4 @@
 // Update #223: fix(a11y): improve color contrast for success badges (2026-03-12 23:40:00)
 // Update #224: fix(a11y): add tabindex management to modal dialogs (2026-03-12 23:41:30)
 // Update #225: fix(a11y): add escape key handler to mobile menu (2026-03-12 23:43:00)
+// Update #226: fix(a11y): add aria-hidden to decorative icons (2026-03-12 23:44:30)
