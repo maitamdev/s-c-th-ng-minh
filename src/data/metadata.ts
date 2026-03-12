@@ -390,3 +390,4 @@
 // Update #188: perf: document code splitting boundaries (2026-03-13 01:52:00)
 // Update #189: perf: document image optimization pipeline (2026-03-13 01:54:00)
 // Update #190: docs: add architecture decision record for Firebase vs Supabase (2026-03-13 01:56:00)
+// Update #191: docs: add architecture decision record for PWA strategy (2026-03-13 01:58:00)
