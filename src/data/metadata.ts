@@ -338,3 +338,4 @@
 // Update #136: style: improve glow-primary shadow spread (2026-03-13 00:08:00)
 // Update #137: style: optimize skeleton animation timing (2026-03-13 00:10:00)
 // Update #138: style: improve custom scrollbar thumb radius (2026-03-13 00:12:00)
+// Update #139: perf: optimize animation delay utilities (2026-03-13 00:14:00)
