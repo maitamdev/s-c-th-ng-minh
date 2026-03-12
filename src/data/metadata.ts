@@ -366,3 +366,4 @@
 // Update #164: style: standardize transition duration across interactive elements (2026-03-13 01:04:00)
 // Update #165: perf: add will-change hint to animated header (2026-03-13 01:06:00)
 // Update #166: perf: add will-change hint to mobile menu animation (2026-03-13 01:08:00)
+// Update #167: perf: add will-change hint to bottom nav transitions (2026-03-13 01:10:00)
