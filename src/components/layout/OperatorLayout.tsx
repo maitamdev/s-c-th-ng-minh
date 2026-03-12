@@ -1,3 +1,4 @@
+// OperatorLayout - Admin layout with sidebar for operator management pages
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
