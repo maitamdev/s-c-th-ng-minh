@@ -1,3 +1,4 @@
+// AuthContext - Firebase authentication state management with Firestore user data
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { 
   User as FirebaseUser,
