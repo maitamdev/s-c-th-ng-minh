@@ -1,3 +1,4 @@
+// StationForm - Add/edit station form with charger and amenity configuration
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
