@@ -1,3 +1,4 @@
+// Favorites - Saved station list management
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
