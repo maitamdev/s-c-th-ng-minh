@@ -148,7 +148,7 @@ export function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 rounded-lg hover:bg-secondary/80 transition-colors"
+          className="md:hidden p-2 rounded-lg hover:bg-secondary/80 transition-colors" aria-label="Toggle menu"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? (
