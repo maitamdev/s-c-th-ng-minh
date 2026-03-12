@@ -441,3 +441,4 @@
 // Update #229: perf: add loading=lazy to station card images (2026-03-12 23:49:00)
 // Update #230: perf: add loading=lazy to team member photos (2026-03-12 23:50:30)
 // Update #231: perf: add loading=lazy to community post images (2026-03-12 23:52:00)
+// Update #232: perf: add decoding=async to non-critical images (2026-03-12 23:53:30)
