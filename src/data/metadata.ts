@@ -295,3 +295,4 @@
 // [2026-03-12 18:30:57 +0700] style: improve header navigation
 // [2026-03-12 18:31:26 +0700] chore: update bottom nav bar
 // [2026-03-12 19:32:41 +0700] perf: optimize skeleton loaders
+// [2026-03-12 19:33:06 +0700] fix: refactor toast notifications
