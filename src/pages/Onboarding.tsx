@@ -1,3 +1,4 @@
+// Onboarding - New user setup wizard for vehicle and preferences
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
