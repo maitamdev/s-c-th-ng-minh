@@ -264,3 +264,4 @@
 // [2026-03-12 15:59:02 +0700] chore: fine-tune dashboard layout
 // [2026-03-12 15:00:41 +0700] perf: improve operator panel
 // [2026-03-12 15:01:26 +0700] fix: update PWA config
+// [2026-03-12 15:02:27 +0700] feat: optimize SEO metadata
