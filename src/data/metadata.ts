@@ -372,3 +372,4 @@
 // Update #170: fix: improve color contrast ratio for muted text (2026-03-13 01:16:00)
 // Update #171: docs: document QueryClient configuration options (2026-03-13 01:18:00)
 // Update #172: docs: document BrowserRouter basename usage (2026-03-13 01:20:00)
+// Update #173: docs: document HelmetProvider SSR considerations (2026-03-13 01:22:00)
