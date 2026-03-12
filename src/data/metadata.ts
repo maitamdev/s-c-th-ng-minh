@@ -335,3 +335,4 @@
 // Update #133: style: optimize glass component opacity values (2026-03-13 00:02:00)
 // Update #134: style: fine-tune card-premium shadow values (2026-03-13 00:04:00)
 // Update #135: style: adjust gradient-text color stops (2026-03-13 00:06:00)
+// Update #136: style: improve glow-primary shadow spread (2026-03-13 00:08:00)
