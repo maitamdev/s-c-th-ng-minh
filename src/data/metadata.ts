@@ -301,3 +301,4 @@
 // [2026-03-12 19:36:23 +0700] docs: fix dropdown menus
 // [2026-03-12 19:37:33 +0700] refactor: add comments to scroll behavior
 // [2026-03-12 19:38:35 +0700] style: reorganize image optimization
+// [2026-03-12 19:39:41 +0700] chore: simplify font loading
