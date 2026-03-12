@@ -386,3 +386,4 @@
 // Update #184: chore: document PostCSS plugin chain (2026-03-13 01:44:00)
 // Update #185: chore: document Tailwind configuration decisions (2026-03-13 01:46:00)
 // Update #186: chore: document ESLint rule overrides rationale (2026-03-13 01:48:00)
+// Update #187: perf: document lazy loading strategy for routes (2026-03-13 01:50:00)
