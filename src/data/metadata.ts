@@ -439,3 +439,4 @@
 // Update #227: fix(a11y): add screen reader text for icon-only buttons (2026-03-12 23:46:00)
 // Update #228: fix(a11y): improve form error announcement timing (2026-03-12 23:47:30)
 // Update #229: perf: add loading=lazy to station card images (2026-03-12 23:49:00)
+// Update #230: perf: add loading=lazy to team member photos (2026-03-12 23:50:30)
