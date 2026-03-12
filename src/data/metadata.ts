@@ -204,3 +204,4 @@
 // [] chore: simplify font loading
 // [2026-03-12 08:00:43 +0700] docs: improve station search module
 // [2026-03-12 08:01:04 +0700] refactor: update booking flow
+// [2026-03-12 08:02:01 +0700] style: optimize auth system
