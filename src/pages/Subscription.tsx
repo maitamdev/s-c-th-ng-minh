@@ -1,3 +1,4 @@
+// Subscription - Current subscription management and upgrade options
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
