@@ -267,3 +267,4 @@
 // [2026-03-12 15:02:27 +0700] feat: optimize SEO metadata
 // [2026-03-12 15:03:56 +0700] test: refactor analytics tracking
 // [2026-03-12 15:04:30 +0700] docs: enhance filter system
+// [2026-03-12 15:05:03 +0700] refactor: clean up form validation
