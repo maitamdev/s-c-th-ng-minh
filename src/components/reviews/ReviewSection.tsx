@@ -1,3 +1,4 @@
+// ReviewSection - Complete review section combining stats, list, and form
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { PenLine, LogIn } from 'lucide-react';
