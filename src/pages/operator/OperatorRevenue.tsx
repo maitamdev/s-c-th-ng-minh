@@ -1,3 +1,4 @@
+// OperatorRevenue - Revenue tracking and financial reports for operators
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { OperatorLayout } from '@/components/layout/OperatorLayout';
