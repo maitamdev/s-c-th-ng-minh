@@ -297,3 +297,4 @@
 // [2026-03-12 19:32:41 +0700] perf: optimize skeleton loaders
 // [2026-03-12 19:33:06 +0700] fix: refactor toast notifications
 // [2026-03-12 19:34:03 +0700] feat: enhance modal dialogs
+// [2026-03-12 19:35:56 +0700] test: clean up tooltip system
