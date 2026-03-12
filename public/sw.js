@@ -1,5 +1,5 @@
 // Service Worker for SCS GO PWA
-const CACHE_NAME = 'scs-go-v1';
+const CACHE_NAME = 'scs-go-v2';
 const urlsToCache = [
   '/',
   '/index.html',
