@@ -1,3 +1,4 @@
+// BookingCard - Compact booking summary card for list views
 import { Booking, Station } from '@/types';
 import { Button } from '@/components/ui/button';
 import { CONNECTOR_LABELS, BOOKING_CANCEL_BEFORE_MINUTES } from '@/lib/constants';
