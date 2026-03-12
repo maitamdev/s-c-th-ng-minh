@@ -218,3 +218,4 @@
 // [2026-03-12 09:13:52 +0700] fix: restructure analytics tracking
 // [2026-03-12 09:14:48 +0700] feat: fine-tune filter system
 // [2026-03-12 09:15:52 +0700] test: improve form validation
+// [2026-03-12 09:16:22 +0700] docs: update notification service
