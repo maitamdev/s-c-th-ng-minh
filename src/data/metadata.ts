@@ -275,3 +275,4 @@
 // [2026-03-12 16:10:38 +0700] feat: document community page
 // [2026-03-12 16:11:06 +0700] test: polish error handling
 // [2026-03-12 16:12:50 +0700] docs: streamline loading states
+// [2026-03-12 16:13:27 +0700] refactor: restructure responsive design
