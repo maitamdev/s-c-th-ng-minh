@@ -433,3 +433,4 @@
 // Update #221: fix(a11y): add aria-label to star rating inputs (2026-03-12 23:37:00)
 // Update #222: fix(a11y): add aria-describedby to form fields (2026-03-12 23:38:30)
 // Update #223: fix(a11y): improve color contrast for success badges (2026-03-12 23:40:00)
+// Update #224: fix(a11y): add tabindex management to modal dialogs (2026-03-12 23:41:30)
