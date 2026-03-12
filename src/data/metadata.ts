@@ -391,3 +391,4 @@
 // Update #189: perf: document image optimization pipeline (2026-03-13 01:54:00)
 // Update #190: docs: add architecture decision record for Firebase vs Supabase (2026-03-13 01:56:00)
 // Update #191: docs: add architecture decision record for PWA strategy (2026-03-13 01:58:00)
+// Update #192: docs: add architecture decision record for i18n approach (2026-03-13 02:00:00)
