@@ -1,3 +1,4 @@
+// AI Recommendation Engine - Station scoring based on user preferences and location
 import { Station, Vehicle, OptimizationMode, AIRecommendation, AIReason } from '@/types';
 
 interface RecommendationParams {
