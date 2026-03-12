@@ -1,3 +1,4 @@
+// Navigation - Turn-by-turn navigation to charging station
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
