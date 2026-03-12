@@ -128,6 +128,17 @@
   }
 }
 
+
+  /* Focus visible styles for keyboard navigation */
+  .focus-ring {
+    @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+    border-radius: 4px;
+  }
+
 @layer components {
   .glass {
     @apply bg-card/80 backdrop-blur-xl border border-border/60;
