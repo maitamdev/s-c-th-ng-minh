@@ -51,7 +51,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a 
-                href="https://facebook.com" 
+                href="https://facebook.com" aria-label="Facebook" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
@@ -59,7 +59,7 @@ export function Footer() {
                 <Facebook className="w-4 h-4" />
               </a>
               <a 
-                href="https://youtube.com" 
+                href="https://youtube.com" aria-label="YouTube" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
@@ -67,7 +67,7 @@ export function Footer() {
                 <Youtube className="w-4 h-4" />
               </a>
               <a 
-                href="https://zalo.me" 
+                href="https://zalo.me" aria-label="Zalo" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
