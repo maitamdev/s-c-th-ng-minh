@@ -358,3 +358,4 @@
 // Update #156: docs: add inline comment to PWA install prompt handler (2026-03-13 00:48:00)
 // Update #157: docs: add inline comment to booking reminder scheduler (2026-03-13 00:50:00)
 // Update #158: docs: add inline comment to notification permission flow (2026-03-13 00:52:00)
+// Update #159: refactor: improve theme persistence key naming (2026-03-13 00:54:00)
