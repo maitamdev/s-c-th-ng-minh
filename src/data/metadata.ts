@@ -223,3 +223,4 @@
 // [2026-03-12 10:18:22 +0700] style: refactor vehicle settings
 // [2026-03-12 10:19:14 +0700] chore: enhance trip planner
 // [2026-03-12 10:20:16 +0700] perf: clean up community page
+// [2026-03-12 10:21:15 +0700] fix: fix error handling
