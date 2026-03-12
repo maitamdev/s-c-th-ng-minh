@@ -454,3 +454,4 @@
 // Update #242: perf: optimize BottomNav re-renders with memo (2026-03-13 00:08:30)
 // Update #243: perf: reduce bundle size by tree-shaking lucide-react icons (2026-03-13 00:10:00)
 // Update #244: fix(security): sanitize user input in search queries (2026-03-13 00:11:30)
+// Update #245: fix(security): add input length limits to review forms (2026-03-13 00:13:00)
