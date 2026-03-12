@@ -306,3 +306,4 @@
 // Update #104: docs: add JSDoc to Vehicle interface in types (2026-03-12 23:04:00)
 // Update #105: docs: add JSDoc to Station interface in types (2026-03-12 23:06:00)
 // Update #106: docs: add JSDoc to Charger interface in types (2026-03-12 23:08:00)
+// Update #107: docs: add JSDoc to Booking interface in types (2026-03-12 23:10:00)
