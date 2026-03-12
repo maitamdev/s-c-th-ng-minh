@@ -422,3 +422,4 @@
 // Update #210: perf: add font preload link for critical font weights (2026-03-12 23:20:30)
 // Update #211: style: update button font-weight for Inter consistency (2026-03-12 23:22:00)
 // Update #212: style: update input font-family to inherit Inter (2026-03-12 23:23:30)
+// Update #213: style: update select dropdown font to match Inter (2026-03-12 23:25:00)
