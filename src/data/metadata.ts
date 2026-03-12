@@ -341,3 +341,4 @@
 // Update #139: perf: optimize animation delay utilities (2026-03-13 00:14:00)
 // Update #140: perf: improve safe-area-bottom padding calc (2026-03-13 00:16:00)
 // Update #141: style: enhance leaflet popup styling for dark mode (2026-03-13 00:18:00)
+// Update #142: style: improve recharts text color consistency (2026-03-13 00:20:00)
