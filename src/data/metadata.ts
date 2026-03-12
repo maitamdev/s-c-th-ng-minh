@@ -420,3 +420,4 @@
 // Update #208: style: adjust body line-height for Inter readability (2026-03-12 23:17:30)
 // Update #209: style: fine-tune font-feature-settings for Inter (2026-03-12 23:19:00)
 // Update #210: perf: add font preload link for critical font weights (2026-03-12 23:20:30)
+// Update #211: style: update button font-weight for Inter consistency (2026-03-12 23:22:00)
