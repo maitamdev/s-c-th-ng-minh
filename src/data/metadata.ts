@@ -445,3 +445,4 @@
 // Update #233: perf: add will-change:transform to animated cards (2026-03-12 23:55:00)
 // Update #234: perf: optimize framer-motion animate presence (2026-03-12 23:56:30)
 // Update #235: perf: add content-visibility:auto to off-screen sections (2026-03-12 23:58:00)
+// Update #236: perf: reduce Leaflet tile opacity transition duration (2026-03-12 23:59:30)
