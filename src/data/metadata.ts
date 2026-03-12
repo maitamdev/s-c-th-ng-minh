@@ -290,3 +290,4 @@
 // [2026-03-12 18:25:34 +0700] fix: document contact form
 // [2026-03-12 18:26:00 +0700] feat: polish FAQ section
 // [2026-03-12 18:27:07 +0700] test: streamline privacy policy
+// [2026-03-12 18:28:41 +0700] docs: restructure terms page
