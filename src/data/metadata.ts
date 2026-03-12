@@ -448,3 +448,4 @@
 // Update #236: perf: reduce Leaflet tile opacity transition duration (2026-03-12 23:59:30)
 // Update #237: perf: defer non-critical CSS with media queries (2026-03-13 00:01:00)
 // Update #238: perf: optimize recharts re-renders with memo (2026-03-13 00:02:30)
+// Update #239: perf: add useMemo to expensive station filter calculations (2026-03-13 00:04:00)
