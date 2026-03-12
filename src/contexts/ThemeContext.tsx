@@ -1,3 +1,4 @@
+// ThemeContext - Dark/Light/System theme management with localStorage persistence
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Theme = 'light' | 'dark' | 'system';
