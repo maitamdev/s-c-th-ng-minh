@@ -415,3 +415,4 @@
 // Update #213: chore: finalize web application code quality pass (2026-03-13 02:42:00)
 // Update #204: style: optimize Inter font weight loading for body text (2026-03-12 23:11:30)
 // Update #205: style: optimize Inter font weight loading for headings (2026-03-12 23:13:00)
+// Update #206: style: add font-display swap for faster text rendering (2026-03-12 23:14:30)
