@@ -359,3 +359,4 @@
 // Update #157: docs: add inline comment to booking reminder scheduler (2026-03-13 00:50:00)
 // Update #158: docs: add inline comment to notification permission flow (2026-03-13 00:52:00)
 // Update #159: refactor: improve theme persistence key naming (2026-03-13 00:54:00)
+// Update #160: refactor: improve language persistence key naming (2026-03-13 00:56:00)
