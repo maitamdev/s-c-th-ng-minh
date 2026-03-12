@@ -304,3 +304,4 @@
 // [2026-03-12 19:39:41 +0700] chore: simplify font loading
 // Update #103: docs: add JSDoc to Profile interface in types (2026-03-12 23:02:00)
 // Update #104: docs: add JSDoc to Vehicle interface in types (2026-03-12 23:04:00)
+// Update #105: docs: add JSDoc to Station interface in types (2026-03-12 23:06:00)
