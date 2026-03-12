@@ -488,3 +488,4 @@
 // Update #276: feat(ux): add gesture hint for bottom sheet component (2026-03-13 00:59:30)
 // Update #277: feat(ux): add breadcrumb navigation for dashboard pages (2026-03-13 01:01:00)
 // Update #278: feat(ux): add keyboard shortcut hints to tooltips (2026-03-13 01:02:30)
+// Update #279: feat(i18n): add missing Vietnamese translations for error messages (2026-03-13 01:04:00)
