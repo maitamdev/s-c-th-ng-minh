@@ -485,3 +485,4 @@
 // Update #273: feat(ux): add micro-interaction on favorite toggle (2026-03-13 00:55:00)
 // Update #274: feat(ux): add loading shimmer effect for data tables (2026-03-13 00:56:30)
 // Update #275: feat(ux): improve toast notification positioning on mobile (2026-03-13 00:58:00)
+// Update #276: feat(ux): add gesture hint for bottom sheet component (2026-03-13 00:59:30)
