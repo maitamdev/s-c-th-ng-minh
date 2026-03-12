@@ -248,3 +248,4 @@
 // [2026-03-12 13:43:47 +0700] chore: restructure toast notifications
 // [2026-03-12 13:44:43 +0700] perf: fine-tune modal dialogs
 // [2026-03-12 13:45:08 +0700] fix: improve tooltip system
+// [2026-03-12 13:46:23 +0700] feat: update dropdown menus
