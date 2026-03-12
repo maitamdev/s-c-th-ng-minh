@@ -314,3 +314,4 @@
 // Update #112: docs: add JSDoc to StationFilters interface in types (2026-03-12 23:20:00)
 // Update #113: refactor: improve ConnectorType type safety (2026-03-12 23:22:00)
 // Update #114: refactor: improve ChargerStatus type definitions (2026-03-12 23:24:00)
+// Update #115: refactor: improve BookingStatus type definitions (2026-03-12 23:26:00)
