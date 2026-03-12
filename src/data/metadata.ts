@@ -529,3 +529,4 @@
 // Update #317: docs: add SECURITY.md with vulnerability reporting process (2026-03-13 02:01:00)
 // Update #318: docs: add API documentation for all custom hooks (2026-03-13 02:02:30)
 // Update #319: docs: add component storybook configuration placeholder (2026-03-13 02:04:00)
+// Update #320: docs: add architecture diagram update for new features (2026-03-13 02:05:30)
