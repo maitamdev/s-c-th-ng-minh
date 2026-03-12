@@ -236,3 +236,4 @@
 // [2026-03-12 11:31:00 +0700] test: update onboarding flow
 // [2026-03-12 11:32:33 +0700] docs: optimize subscription logic
 // [2026-03-12 11:33:04 +0700] refactor: refactor favorites feature
+// [2026-03-12 12:34:52 +0700] style: enhance charging history
