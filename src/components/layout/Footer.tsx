@@ -53,7 +53,7 @@ export function Footer() {
               <a 
                 href="https://facebook.com" aria-label="Facebook" 
                 target="_blank" 
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
               >
                 <Facebook className="w-4 h-4" />
@@ -61,7 +61,7 @@ export function Footer() {
               <a 
                 href="https://youtube.com" aria-label="YouTube" 
                 target="_blank" 
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
               >
                 <Youtube className="w-4 h-4" />
@@ -69,7 +69,7 @@ export function Footer() {
               <a 
                 href="https://zalo.me" aria-label="Zalo" 
                 target="_blank" 
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
