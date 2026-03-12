@@ -220,3 +220,4 @@
 // [2026-03-12 09:15:52 +0700] test: improve form validation
 // [2026-03-12 09:16:22 +0700] docs: update notification service
 // [2026-03-12 10:17:47 +0700] refactor: optimize language translations
+// [2026-03-12 10:18:22 +0700] style: refactor vehicle settings
