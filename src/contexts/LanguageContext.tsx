@@ -1,3 +1,4 @@
+// LanguageContext - Vietnamese/English i18n with localStorage persistence
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { translations, TranslationKey } from '@/lib/translations';
 
