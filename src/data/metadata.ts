@@ -280,3 +280,4 @@
 // [2026-03-12 17:15:38 +0700] chore: improve caching layer
 // [2026-03-12 17:16:10 +0700] perf: update API service
 // [2026-03-12 17:17:15 +0700] fix: optimize type definitions
+// [2026-03-12 17:18:03 +0700] feat: refactor utility functions
