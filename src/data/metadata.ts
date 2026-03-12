@@ -394,3 +394,4 @@
 // Update #192: docs: add architecture decision record for i18n approach (2026-03-13 02:00:00)
 // Update #193: docs: add architecture decision record for state management (2026-03-13 02:02:00)
 // Update #194: docs: add architecture decision record for routing strategy (2026-03-13 02:04:00)
+// Update #195: fix: document CORS configuration for Supabase (2026-03-13 02:06:00)
