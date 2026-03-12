@@ -246,3 +246,4 @@
 // [2026-03-12 12:41:21 +0700] refactor: polish bottom nav bar
 // [2026-03-12 13:42:50 +0700] style: streamline skeleton loaders
 // [2026-03-12 13:43:47 +0700] chore: restructure toast notifications
+// [2026-03-12 13:44:43 +0700] perf: fine-tune modal dialogs
