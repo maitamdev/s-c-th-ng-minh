@@ -1,3 +1,4 @@
+// Explore - Station search and map view with advanced filters
 import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Header } from '@/components/layout/Header';
