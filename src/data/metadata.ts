@@ -242,3 +242,4 @@
 // [2026-03-12 12:37:04 +0700] fix: add comments to privacy policy
 // [2026-03-12 12:38:00 +0700] feat: reorganize terms page
 // [2026-03-12 12:39:21 +0700] test: simplify footer component
+// [2026-03-12 12:40:23 +0700] docs: document header navigation
