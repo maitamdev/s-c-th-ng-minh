@@ -349,3 +349,4 @@
 // Update #147: docs: add @see reference to Firebase Auth docs (2026-03-13 00:30:00)
 // Update #148: docs: add @see reference to Supabase docs (2026-03-13 00:32:00)
 // Update #149: docs: add @see reference to Leaflet docs (2026-03-13 00:34:00)
+// Update #150: docs: add @see reference to React Router docs (2026-03-13 00:36:00)
