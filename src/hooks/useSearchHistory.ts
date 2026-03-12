@@ -1,3 +1,4 @@
+// useSearchHistory - Search term persistence in localStorage
 import { useState, useEffect } from 'react';
 
 const STORAGE_KEY = 'scs_search_history';
