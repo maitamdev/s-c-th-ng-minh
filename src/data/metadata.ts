@@ -346,3 +346,4 @@
 // Update #144: fix: add loading=lazy to Footer logo image (2026-03-13 00:24:00)
 // Update #145: fix: add width and height to Header logo image (2026-03-13 00:26:00)
 // Update #146: docs: add @see reference to OpenChargeMap API docs (2026-03-13 00:28:00)
+// Update #147: docs: add @see reference to Firebase Auth docs (2026-03-13 00:30:00)
