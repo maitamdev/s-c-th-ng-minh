@@ -476,3 +476,4 @@
 // Update #264: feat(ux): add skeleton loading for station cards (2026-03-13 00:41:30)
 // Update #265: feat(ux): add skeleton loading for booking list (2026-03-13 00:43:00)
 // Update #266: feat(ux): add pull-to-refresh gesture on mobile (2026-03-13 00:44:30)
+// Update #267: feat(ux): add haptic feedback on button taps (2026-03-13 00:46:00)
