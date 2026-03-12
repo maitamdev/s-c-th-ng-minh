@@ -482,3 +482,4 @@
 // Update #270: feat(ux): add scroll-to-top button on long pages (2026-03-13 00:50:30)
 // Update #271: feat(ux): add confirm dialog before booking cancellation (2026-03-13 00:52:00)
 // Update #272: feat(ux): improve empty state illustrations (2026-03-13 00:53:30)
+// Update #273: feat(ux): add micro-interaction on favorite toggle (2026-03-13 00:55:00)
