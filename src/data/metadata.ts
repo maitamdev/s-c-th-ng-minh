@@ -526,3 +526,4 @@
 // Update #314: docs: add CONTRIBUTING.md with development guidelines (2026-03-13 01:56:30)
 // Update #315: docs: add CHANGELOG.md with version history (2026-03-13 01:58:00)
 // Update #316: docs: add CODE_OF_CONDUCT.md for open source (2026-03-13 01:59:30)
+// Update #317: docs: add SECURITY.md with vulnerability reporting process (2026-03-13 02:01:00)
