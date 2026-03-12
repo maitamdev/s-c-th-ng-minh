@@ -243,3 +243,4 @@
 // [2026-03-12 12:38:00 +0700] feat: reorganize terms page
 // [2026-03-12 12:39:21 +0700] test: simplify footer component
 // [2026-03-12 12:40:23 +0700] docs: document header navigation
+// [2026-03-12 12:41:21 +0700] refactor: polish bottom nav bar
