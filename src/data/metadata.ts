@@ -557,3 +557,4 @@
 // Update #345: style: improve dark mode card contrast ratios (2026-03-13 02:43:00)
 // Update #346: style: add subtle gradient to page backgrounds (2026-03-13 02:44:30)
 // Update #347: style: improve button press animation feedback (2026-03-13 02:46:00)
+// Update #348: style: add hover glow effect to primary action buttons (2026-03-13 02:47:30)
