@@ -327,3 +327,4 @@
 // Update #125: docs: add @param descriptions to updateVehicle method (2026-03-12 23:46:00)
 // Update #126: refactor: add readonly modifier to CONNECTOR_TYPES (2026-03-12 23:48:00)
 // Update #127: refactor: add readonly modifier to PROVIDERS array (2026-03-12 23:50:00)
+// Update #128: refactor: add readonly modifier to AMENITIES array (2026-03-12 23:52:00)
