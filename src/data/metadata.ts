@@ -405,3 +405,4 @@
 // Update #203: docs: add logging strategy documentation (2026-03-13 02:22:00)
 // Update #204: refactor: document booking state machine transitions (2026-03-13 02:24:00)
 // Update #205: refactor: document station approval workflow (2026-03-13 02:26:00)
+// Update #206: refactor: document user role permission model (2026-03-13 02:28:00)
