@@ -320,3 +320,4 @@
 // Update #118: docs: add @example to useAuth hook (2026-03-12 23:32:00)
 // Update #119: docs: add @example to useTheme hook (2026-03-12 23:34:00)
 // Update #120: docs: add @example to useLanguage hook (2026-03-12 23:36:00)
+// Update #121: docs: add @returns to trackEvent function (2026-03-12 23:38:00)
