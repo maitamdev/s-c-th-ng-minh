@@ -1,3 +1,4 @@
+// ReviewStats - Rating distribution chart and average score display
 import { motion } from 'framer-motion';
 import { Star, MessageSquare } from 'lucide-react';
 import { ReviewStats as ReviewStatsType } from '@/types';
