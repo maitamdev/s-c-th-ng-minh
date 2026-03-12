@@ -1,3 +1,4 @@
+// BottomNav - Mobile bottom navigation bar with auth-aware tab visibility
 import { Link, useLocation } from 'react-router-dom';
 import { Home, MapPin, User, Users, Route } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
