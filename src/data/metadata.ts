@@ -371,3 +371,4 @@
 // Update #169: fix: add focus-visible styles to interactive elements (2026-03-13 01:14:00)
 // Update #170: fix: improve color contrast ratio for muted text (2026-03-13 01:16:00)
 // Update #171: docs: document QueryClient configuration options (2026-03-13 01:18:00)
+// Update #172: docs: document BrowserRouter basename usage (2026-03-13 01:20:00)
