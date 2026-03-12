@@ -238,3 +238,4 @@
 // [2026-03-12 11:33:04 +0700] refactor: refactor favorites feature
 // [2026-03-12 12:34:52 +0700] style: enhance charging history
 // [2026-03-12 12:35:13 +0700] chore: clean up contact form
+// [2026-03-12 12:36:56 +0700] perf: fix FAQ section
