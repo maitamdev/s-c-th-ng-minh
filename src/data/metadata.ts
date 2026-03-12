@@ -279,3 +279,4 @@
 // [2026-03-12 16:14:25 +0700] style: fine-tune accessibility
 // [2026-03-12 17:15:38 +0700] chore: improve caching layer
 // [2026-03-12 17:16:10 +0700] perf: update API service
+// [2026-03-12 17:17:15 +0700] fix: optimize type definitions
