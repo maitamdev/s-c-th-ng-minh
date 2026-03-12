@@ -1,3 +1,4 @@
+// StationCard - Station preview card with rating, price, and availability
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Station } from '@/types';
