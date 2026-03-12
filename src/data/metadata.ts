@@ -210,3 +210,4 @@
 // [2026-03-12 08:05:36 +0700] fix: clean up AI recommendations
 // [2026-03-12 08:06:30 +0700] feat: fix review system
 // [2026-03-12 08:07:34 +0700] test: add comments to pricing page
+// [2026-03-12 08:08:46 +0700] docs: reorganize navigation component
