@@ -215,3 +215,4 @@
 // [2026-03-12 09:10:57 +0700] style: document operator panel
 // [2026-03-12 09:11:44 +0700] chore: polish PWA config
 // [2026-03-12 09:12:43 +0700] perf: streamline SEO metadata
+// [2026-03-12 09:13:52 +0700] fix: restructure analytics tracking
