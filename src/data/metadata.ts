@@ -282,3 +282,4 @@
 // [2026-03-12 17:17:15 +0700] fix: optimize type definitions
 // [2026-03-12 17:18:03 +0700] feat: refactor utility functions
 // [2026-03-12 17:19:42 +0700] test: enhance constants config
+// [2026-03-12 17:20:25 +0700] docs: clean up share modal
