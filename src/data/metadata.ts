@@ -213,3 +213,4 @@
 // [2026-03-12 08:08:46 +0700] docs: reorganize navigation component
 // [2026-03-12 09:09:36 +0700] refactor: simplify dashboard layout
 // [2026-03-12 09:10:57 +0700] style: document operator panel
+// [2026-03-12 09:11:44 +0700] chore: polish PWA config
