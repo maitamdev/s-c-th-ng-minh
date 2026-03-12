@@ -269,3 +269,4 @@
 // [2026-03-12 15:04:30 +0700] docs: enhance filter system
 // [2026-03-12 15:05:03 +0700] refactor: clean up form validation
 // [2026-03-12 15:06:51 +0700] style: fix notification service
+// [2026-03-12 16:07:16 +0700] chore: add comments to language translations
