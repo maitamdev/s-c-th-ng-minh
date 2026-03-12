@@ -228,3 +228,4 @@
 // [2026-03-12 10:23:47 +0700] test: reorganize responsive design
 // [2026-03-12 10:24:57 +0700] docs: simplify accessibility
 // [2026-03-12 11:25:28 +0700] refactor: document caching layer
+// [2026-03-12 11:26:56 +0700] style: polish API service
