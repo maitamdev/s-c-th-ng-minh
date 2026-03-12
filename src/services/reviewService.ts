@@ -1,3 +1,4 @@
+// Review Service - Supabase-backed review CRUD with image support
 import { supabase } from '@/lib/supabase';
 import { Review, ReviewStats, CreateReviewInput, UpdateReviewInput, ReviewImage } from '@/types';
 
