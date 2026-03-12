@@ -1,3 +1,4 @@
+// InsightsPanel - AI-powered crowd prediction and golden hour insights
 import { Station, HourlyPrediction, GoldenHour } from '@/types';
 import { getHourlyPredictions, getGoldenHours, getCurrentPrediction } from '@/ai/prediction';
 import { PredictionChip } from '@/components/ui/prediction-chip';
