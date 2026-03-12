@@ -458,3 +458,4 @@
 // Update #246: fix(security): validate email format on client side (2026-03-13 00:14:30)
 // Update #247: fix(security): add CSRF token placeholder for API calls (2026-03-13 00:16:00)
 // Update #248: fix(security): sanitize station name display against XSS (2026-03-13 00:17:30)
+// Update #249: fix(security): add rate limiting check for AI calls (2026-03-13 00:19:00)
