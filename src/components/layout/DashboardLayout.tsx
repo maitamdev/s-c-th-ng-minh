@@ -1,3 +1,4 @@
+// DashboardLayout - Sidebar navigation layout for user dashboard pages
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
