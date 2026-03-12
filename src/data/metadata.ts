@@ -467,3 +467,4 @@
 // Update #255: feat(pwa): add background sync for pending bookings (2026-03-13 00:28:00)
 // Update #256: feat(pwa): add periodic sync for station data refresh (2026-03-13 00:29:30)
 // Update #257: feat(pwa): improve app install banner timing logic (2026-03-13 00:31:00)
+// Update #258: feat(pwa): add update available notification banner (2026-03-13 00:32:30)
