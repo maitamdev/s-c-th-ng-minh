@@ -513,3 +513,4 @@
 // Update #301: refactor: extract empty state to shared component (2026-03-13 01:37:00)
 // Update #302: refactor: create shared badge component for status labels (2026-03-13 01:38:30)
 // Update #303: refactor: create shared price display component (2026-03-13 01:40:00)
+// Update #304: refactor: extract map marker logic to custom hook (2026-03-13 01:41:30)
