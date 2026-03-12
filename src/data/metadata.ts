@@ -364,3 +364,4 @@
 // Update #162: style: standardize border-radius values across components (2026-03-13 01:00:00)
 // Update #163: style: standardize shadow values across card components (2026-03-13 01:02:00)
 // Update #164: style: standardize transition duration across interactive elements (2026-03-13 01:04:00)
+// Update #165: perf: add will-change hint to animated header (2026-03-13 01:06:00)
