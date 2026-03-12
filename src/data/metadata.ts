@@ -559,3 +559,4 @@
 // Update #347: style: improve button press animation feedback (2026-03-13 02:46:00)
 // Update #348: style: add hover glow effect to primary action buttons (2026-03-13 02:47:30)
 // Update #349: style: improve mobile menu slide animation timing (2026-03-13 02:49:00)
+// Update #350: style: add backdrop blur to popover components (2026-03-13 02:50:30)
