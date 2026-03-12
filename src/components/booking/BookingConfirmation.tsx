@@ -1,3 +1,4 @@
+// BookingConfirmation - Post-booking success confirmation with details
 import { motion } from 'framer-motion';
 import { Booking } from '@/types';
 import { Button } from '@/components/ui/button';
