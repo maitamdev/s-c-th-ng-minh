@@ -331,3 +331,4 @@
 // Update #129: refactor: add readonly modifier to VIETNAM_CITIES (2026-03-12 23:54:00)
 // Update #130: refactor: add readonly modifier to PEAK_HOURS (2026-03-12 23:56:00)
 // Update #131: style: improve CSS variable naming in light mode (2026-03-12 23:58:00)
+// Update #132: style: improve CSS variable naming in dark mode (2026-03-13 00:00:00)
