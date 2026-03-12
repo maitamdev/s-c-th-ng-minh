@@ -1,3 +1,4 @@
+// RatingStars - Interactive star rating input and display component
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
