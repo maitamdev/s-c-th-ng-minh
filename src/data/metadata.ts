@@ -561,3 +561,4 @@
 // Update #349: style: improve mobile menu slide animation timing (2026-03-13 02:49:00)
 // Update #350: style: add backdrop blur to popover components (2026-03-13 02:50:30)
 // Update #351: style: improve table cell padding for readability (2026-03-13 02:52:00)
+// Update #352: style: add subtle border to input focus state (2026-03-13 02:53:30)
