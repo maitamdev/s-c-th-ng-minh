@@ -1,3 +1,4 @@
+// useStations - Station listing with filtering, sorting, and search
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Station, Charger } from '@/types';
