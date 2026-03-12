@@ -278,3 +278,4 @@
 // [2026-03-12 16:13:27 +0700] refactor: restructure responsive design
 // [2026-03-12 16:14:25 +0700] style: fine-tune accessibility
 // [2026-03-12 17:15:38 +0700] chore: improve caching layer
+// [2026-03-12 17:16:10 +0700] perf: update API service
