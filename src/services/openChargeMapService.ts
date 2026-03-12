@@ -1,3 +1,4 @@
+// OpenChargeMap Service - External API integration for global charging station data
 // OpenChargeMap API Service
 // Fetches real charging station data from OpenChargeMap.io
 
