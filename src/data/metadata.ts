@@ -261,3 +261,4 @@
 // [2026-03-12 14:56:23 +0700] docs: polish review system
 // [2026-03-12 14:57:28 +0700] refactor: streamline pricing page
 // [2026-03-12 14:58:02 +0700] style: restructure navigation component
+// [2026-03-12 15:59:02 +0700] chore: fine-tune dashboard layout
