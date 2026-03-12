@@ -256,3 +256,4 @@
 // [2026-03-12 14:51:54 +0700] chore: fix booking flow
 // [2026-03-12 14:52:48 +0700] perf: add comments to auth system
 // [2026-03-12 14:53:02 +0700] fix: reorganize theme engine
+// [2026-03-12 14:54:04 +0700] feat: simplify map integration
