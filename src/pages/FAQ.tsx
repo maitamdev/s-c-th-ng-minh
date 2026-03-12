@@ -1,3 +1,4 @@
+// FAQ - Frequently asked questions with accordion UI
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from '@/components/layout/Header';
