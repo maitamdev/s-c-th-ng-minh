@@ -87,7 +87,7 @@
   }
 
   html {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -233,7 +233,7 @@
 /* Leaflet map overrides */
 .leaflet-container {
   @apply rounded-xl;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 
 .leaflet-popup-content-wrapper {
