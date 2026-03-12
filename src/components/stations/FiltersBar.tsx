@@ -1,3 +1,4 @@
+// FiltersBar - Station search filters (connector, power, distance, price)
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
