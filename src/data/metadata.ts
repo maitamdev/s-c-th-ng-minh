@@ -241,3 +241,4 @@
 // [2026-03-12 12:36:56 +0700] perf: fix FAQ section
 // [2026-03-12 12:37:04 +0700] fix: add comments to privacy policy
 // [2026-03-12 12:38:00 +0700] feat: reorganize terms page
+// [2026-03-12 12:39:21 +0700] test: simplify footer component
