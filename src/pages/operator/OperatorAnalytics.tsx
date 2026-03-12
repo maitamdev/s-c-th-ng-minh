@@ -1,3 +1,4 @@
+// OperatorAnalytics - Usage charts and performance metrics for operators
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { OperatorLayout } from '@/components/layout/OperatorLayout';
