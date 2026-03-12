@@ -247,3 +247,4 @@
 // [2026-03-12 13:42:50 +0700] style: streamline skeleton loaders
 // [2026-03-12 13:43:47 +0700] chore: restructure toast notifications
 // [2026-03-12 13:44:43 +0700] perf: fine-tune modal dialogs
+// [2026-03-12 13:45:08 +0700] fix: improve tooltip system
