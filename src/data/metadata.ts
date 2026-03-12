@@ -452,3 +452,4 @@
 // Update #240: perf: add useCallback to booking form handlers (2026-03-13 00:05:30)
 // Update #241: perf: memoize translation function in LanguageContext (2026-03-13 00:07:00)
 // Update #242: perf: optimize BottomNav re-renders with memo (2026-03-13 00:08:30)
+// Update #243: perf: reduce bundle size by tree-shaking lucide-react icons (2026-03-13 00:10:00)
