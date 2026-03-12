@@ -11,7 +11,7 @@ interface SEOProps {
 const defaultMeta = {
   title: 'SCS GO - Smart EV Charging',
   description: 'Tìm trạm sạc xe điện thông minh với AI. Đặt chỗ trước, so sánh giá, theo dõi thời gian thực.',
-  image: 'https://scs-go.vercel.app/og-image.png',
+  image: 'https://scs-go.vercel.app/og-image.svg',
   url: 'https://scs-go.vercel.app',
 };
 
