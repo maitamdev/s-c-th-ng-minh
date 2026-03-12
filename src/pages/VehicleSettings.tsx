@@ -1,3 +1,4 @@
+// VehicleSettings - Electric vehicle profile management
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
