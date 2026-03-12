@@ -271,3 +271,4 @@
 // [2026-03-12 15:06:51 +0700] style: fix notification service
 // [2026-03-12 16:07:16 +0700] chore: add comments to language translations
 // [2026-03-12 16:08:39 +0700] perf: reorganize vehicle settings
+// [2026-03-12 16:09:08 +0700] fix: simplify trip planner
