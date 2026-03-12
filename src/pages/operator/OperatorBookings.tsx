@@ -1,3 +1,4 @@
+// OperatorBookings - Booking management with status filtering for operators
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { OperatorLayout } from '@/components/layout/OperatorLayout';
