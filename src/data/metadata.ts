@@ -380,3 +380,4 @@
 // Update #178: refactor: add explicit return types to service functions (2026-03-13 01:32:00)
 // Update #179: style: normalize import ordering in App.tsx (2026-03-13 01:34:00)
 // Update #180: style: normalize import ordering in main.tsx (2026-03-13 01:36:00)
+// Update #181: style: normalize import ordering in AuthContext.tsx (2026-03-13 01:38:00)
