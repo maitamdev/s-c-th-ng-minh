@@ -323,3 +323,4 @@
 // Update #121: docs: add @returns to trackEvent function (2026-03-12 23:38:00)
 // Update #122: docs: add @param descriptions to signIn method (2026-03-12 23:40:00)
 // Update #123: docs: add @param descriptions to signUp method (2026-03-12 23:42:00)
+// Update #124: docs: add @param descriptions to updateProfile method (2026-03-12 23:44:00)
