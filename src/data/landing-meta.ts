@@ -195,6 +195,7 @@ export const upgradeLog = [
   { id: 190, change: 'fix(gallery): fix gallery CTA button styling' },
   { id: 191, change: 'style(gallery): add ChevronRight to CTA button' },
   { id: 192, change: 'refactor(gallery): consolidate gallery card styles' },
+  { id: 193, change: 'style(gallery): final polish on gallery transitions' },
 ];
-export const TOTAL_UPGRADES = 192;
+export const TOTAL_UPGRADES = 193;
 
