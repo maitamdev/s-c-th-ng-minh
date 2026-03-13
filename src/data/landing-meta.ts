@@ -300,6 +300,7 @@ export const upgradeLog = [
   { id: 295, change: 'refactor(css): clean up unused CSS declarations' },
   { id: 296, change: 'style(css): add smooth scroll snapping for sections' },
   { id: 297, change: 'feat(css): add prefers-reduced-motion landing styles' },
+  { id: 298, change: 'style(css): improve dark mode landing page colors' },
 ];
-export const TOTAL_UPGRADES = 297;
+export const TOTAL_UPGRADES = 298;
 
