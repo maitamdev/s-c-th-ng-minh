@@ -258,6 +258,7 @@ export const upgradeLog = [
   { id: 253, change: 'style(pricing): final polish on pricing section' },
   { id: 254, change: 'feat(pricing): add decorative blur background' },
   { id: 255, change: 'style(pricing): improve pricing section vertical padding' },
+  { id: 256, change: 'fix(pricing): fix pricing feature icon alignment' },
 ];
-export const TOTAL_UPGRADES = 255;
+export const TOTAL_UPGRADES = 256;
 
