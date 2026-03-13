@@ -52,6 +52,7 @@ export const upgradeLog = [
   { id: 47, change: 'refactor(stats): extract StatCounter as reusable component' },
   { id: 48, change: 'style(stats): improve stat card rounded corners' },
   { id: 49, change: 'fix(stats): fix counter animation for percentage values' },
+  { id: 50, change: 'style(stats): add subtle border-border/50 to stat cards' },
 ];
-export const TOTAL_UPGRADES = 49;
+export const TOTAL_UPGRADES = 50;
 
