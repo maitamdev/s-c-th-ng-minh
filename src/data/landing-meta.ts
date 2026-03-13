@@ -193,6 +193,7 @@ export const upgradeLog = [
   { id: 188, change: 'feat(gallery): add Globe icon for public access card' },
   { id: 189, change: 'style(gallery): improve gallery icon container size' },
   { id: 190, change: 'fix(gallery): fix gallery CTA button styling' },
+  { id: 191, change: 'style(gallery): add ChevronRight to CTA button' },
 ];
-export const TOTAL_UPGRADES = 190;
+export const TOTAL_UPGRADES = 191;
 
