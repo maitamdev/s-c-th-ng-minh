@@ -122,6 +122,7 @@ export const upgradeLog = [
   { id: 117, change: 'refactor(features): optimize feature animation delays' },
   { id: 118, change: 'style(features): add shadow-primary/5 hover effect' },
   { id: 119, change: 'feat(features): add violet gradient for AI feature' },
+  { id: 120, change: 'style(features): improve feature description line-height' },
 ];
-export const TOTAL_UPGRADES = 119;
+export const TOTAL_UPGRADES = 120;
 
