@@ -129,6 +129,7 @@ export const upgradeLog = [
   { id: 124, change: 'style(features): refine feature section gradient bg' },
   { id: 125, change: 'feat(features): add amber gradient for pricing feature' },
   { id: 126, change: 'style(features): improve feature icon scale animation' },
+  { id: 127, change: 'fix(features): fix feature card border transitions' },
 ];
-export const TOTAL_UPGRADES = 126;
+export const TOTAL_UPGRADES = 127;
 
