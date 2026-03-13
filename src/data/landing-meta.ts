@@ -85,6 +85,7 @@ export const upgradeLog = [
   { id: 80, change: 'style(steps): refine step section background' },
   { id: 81, change: 'refactor(steps): update step data to use translations' },
   { id: 82, change: 'style(steps): add group-hover state to step cards' },
+  { id: 83, change: 'feat(steps): add section intro badge component' },
 ];
-export const TOTAL_UPGRADES = 82;
+export const TOTAL_UPGRADES = 83;
 
