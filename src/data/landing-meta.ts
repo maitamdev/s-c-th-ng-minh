@@ -53,6 +53,7 @@ export const upgradeLog = [
   { id: 48, change: 'style(stats): improve stat card rounded corners' },
   { id: 49, change: 'fix(stats): fix counter animation for percentage values' },
   { id: 50, change: 'style(stats): add subtle border-border/50 to stat cards' },
+  { id: 51, change: 'style(trust): upgrade connector type badges design' },
 ];
-export const TOTAL_UPGRADES = 50;
+export const TOTAL_UPGRADES = 51;
 
