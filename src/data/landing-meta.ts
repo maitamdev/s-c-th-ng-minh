@@ -6,6 +6,7 @@ export const upgradeLog = [
   { id: 1, change: 'feat(landing): add parallax scroll effect to hero section' },
   { id: 2, change: 'style(hero): upgrade headline typography with tighter tracking' },
   { id: 3, change: 'style(hero): add gradient underline animation to highlight text' },
+  { id: 4, change: 'refactor(hero): remove whitespace-nowrap causing mobile overflow' },
 ];
-export const TOTAL_UPGRADES = 3;
+export const TOTAL_UPGRADES = 4;
 
