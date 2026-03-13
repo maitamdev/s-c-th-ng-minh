@@ -173,6 +173,7 @@ export const upgradeLog = [
   { id: 168, change: 'refactor(gallery): restructure gallery data with icons' },
   { id: 169, change: 'style(gallery): improve gallery image zoom duration' },
   { id: 170, change: 'feat(gallery): add Bolt section intro badge' },
+  { id: 171, change: 'style(gallery): refine gallery card border effects' },
 ];
-export const TOTAL_UPGRADES = 170;
+export const TOTAL_UPGRADES = 171;
 
