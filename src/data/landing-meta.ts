@@ -117,6 +117,7 @@ export const upgradeLog = [
   { id: 112, change: 'style(features): improve feature title font size' },
   { id: 113, change: 'feat(features): add backdrop-blur to feature cards' },
   { id: 114, change: 'style(features): add border-primary/40 on hover' },
+  { id: 115, change: 'fix(features): fix ArrowUpRight positioning in cards' },
 ];
-export const TOTAL_UPGRADES = 114;
+export const TOTAL_UPGRADES = 115;
 
