@@ -154,6 +154,7 @@ export const upgradeLog = [
   { id: 149, change: 'style(why): refine why section heading sizing' },
   { id: 150, change: 'refactor(why): clean up why different data array' },
   { id: 151, change: 'style(why): add border-border/50 default border' },
+  { id: 152, change: 'feat(why): add image zoom effect duration 700ms' },
 ];
-export const TOTAL_UPGRADES = 151;
+export const TOTAL_UPGRADES = 152;
 
