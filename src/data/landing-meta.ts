@@ -83,6 +83,7 @@ export const upgradeLog = [
   { id: 78, change: 'style(steps): improve step description max-width' },
   { id: 79, change: 'fix(steps): fix connection line positioning' },
   { id: 80, change: 'style(steps): refine step section background' },
+  { id: 81, change: 'refactor(steps): update step data to use translations' },
 ];
-export const TOTAL_UPGRADES = 80;
+export const TOTAL_UPGRADES = 81;
 
