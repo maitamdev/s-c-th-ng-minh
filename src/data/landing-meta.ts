@@ -100,6 +100,7 @@ export const upgradeLog = [
   { id: 95, change: 'feat(steps): increase max-width for step section' },
   { id: 96, change: 'style(steps): improve step icon shadow on hover' },
   { id: 97, change: 'fix(steps): ensure step connection line gradient' },
+  { id: 98, change: 'style(steps): add primary/3 background blob' },
 ];
-export const TOTAL_UPGRADES = 97;
+export const TOTAL_UPGRADES = 98;
 
