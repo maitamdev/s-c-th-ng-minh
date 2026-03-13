@@ -239,6 +239,7 @@ export const upgradeLog = [
   { id: 234, change: 'refactor(pricing): split price and period display' },
   { id: 235, change: 'style(pricing): add shadow-primary/10 to Pro card' },
   { id: 236, change: 'feat(pricing): add Pro card -mt-4 elevation' },
+  { id: 237, change: 'style(pricing): improve pricing feature check styling' },
 ];
-export const TOTAL_UPGRADES = 236;
+export const TOTAL_UPGRADES = 237;
 
