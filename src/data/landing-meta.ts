@@ -170,6 +170,7 @@ export const upgradeLog = [
   { id: 165, change: 'style(why): improve why section vertical padding' },
   { id: 166, change: 'feat(gallery): add info overlay always visible' },
   { id: 167, change: 'style(gallery): add icon badge to gallery cards' },
+  { id: 168, change: 'refactor(gallery): restructure gallery data with icons' },
 ];
-export const TOTAL_UPGRADES = 167;
+export const TOTAL_UPGRADES = 168;
 
