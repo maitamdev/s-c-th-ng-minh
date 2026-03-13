@@ -112,6 +112,7 @@ export const upgradeLog = [
   { id: 107, change: 'feat(features): add section intro badge' },
   { id: 108, change: 'style(features): add hover elevation effect to cards' },
   { id: 109, change: 'fix(features): fix bento grid responsive breakpoints' },
+  { id: 110, change: 'style(features): refine feature card background opacity' },
 ];
-export const TOTAL_UPGRADES = 109;
+export const TOTAL_UPGRADES = 110;
 
