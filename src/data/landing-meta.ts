@@ -102,6 +102,7 @@ export const upgradeLog = [
   { id: 97, change: 'fix(steps): ensure step connection line gradient' },
   { id: 98, change: 'style(steps): add primary/3 background blob' },
   { id: 99, change: 'refactor(steps): consolidate step component styles' },
+  { id: 100, change: 'style(steps): final polish on step section spacing' },
 ];
-export const TOTAL_UPGRADES = 99;
+export const TOTAL_UPGRADES = 100;
 
