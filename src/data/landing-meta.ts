@@ -249,6 +249,7 @@ export const upgradeLog = [
   { id: 244, change: 'fix(pricing): fix Pro card popular badge positioning' },
   { id: 245, change: 'style(pricing): refine pricing section heading size' },
   { id: 246, change: 'refactor(pricing): clean up pricing feature lists' },
+  { id: 247, change: 'style(pricing): add border-2 to Pro card emphasis' },
 ];
-export const TOTAL_UPGRADES = 246;
+export const TOTAL_UPGRADES = 247;
 
