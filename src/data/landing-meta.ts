@@ -182,6 +182,7 @@ export const upgradeLog = [
   { id: 177, change: 'style(gallery): improve gallery card bottom content' },
   { id: 178, change: 'fix(gallery): fix gallery grid responsive layout' },
   { id: 179, change: 'style(gallery): refine gallery card rounded corners' },
+  { id: 180, change: 'refactor(gallery): clean up gallery data structure' },
 ];
-export const TOTAL_UPGRADES = 179;
+export const TOTAL_UPGRADES = 180;
 
