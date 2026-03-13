@@ -73,6 +73,7 @@ export const upgradeLog = [
   { id: 68, change: 'feat(trust): add smooth hover transitions to badges' },
   { id: 69, change: 'style(trust): update trust section padding values' },
   { id: 70, change: 'fix(trust): ensure consistent trust badge heights' },
+  { id: 71, change: 'feat(steps): add connection line between steps' },
 ];
-export const TOTAL_UPGRADES = 70;
+export const TOTAL_UPGRADES = 71;
 
