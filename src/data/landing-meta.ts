@@ -17,6 +17,7 @@ export const upgradeLog = [
   { id: 12, change: 'fix(hero): improve responsive text sizing on mobile' },
   { id: 13, change: 'style(hero): add soft glow background blobs' },
   { id: 14, change: 'refactor(hero): optimize framer-motion animation configs' },
+  { id: 15, change: 'feat(hero): add star rating display in social proof' },
 ];
-export const TOTAL_UPGRADES = 14;
+export const TOTAL_UPGRADES = 15;
 
