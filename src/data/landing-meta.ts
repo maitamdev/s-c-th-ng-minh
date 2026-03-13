@@ -97,6 +97,7 @@ export const upgradeLog = [
   { id: 92, change: 'style(steps): add subtle background blur to section' },
   { id: 93, change: 'refactor(steps): clean up step animation configurations' },
   { id: 94, change: 'style(steps): refine step description leading-relaxed' },
+  { id: 95, change: 'feat(steps): increase max-width for step section' },
 ];
-export const TOTAL_UPGRADES = 94;
+export const TOTAL_UPGRADES = 95;
 
