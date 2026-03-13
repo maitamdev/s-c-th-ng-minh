@@ -68,6 +68,7 @@ export const upgradeLog = [
   { id: 63, change: 'style(trust): refine trust section bottom border' },
   { id: 64, change: 'fix(trust): fix trust badge alignment on mobile' },
   { id: 65, change: 'style(trust): add card/60 background to trust badges' },
+  { id: 66, change: 'refactor(trust): clean up trust bar data structure' },
 ];
-export const TOTAL_UPGRADES = 65;
+export const TOTAL_UPGRADES = 66;
 
