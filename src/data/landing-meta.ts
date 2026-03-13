@@ -51,6 +51,7 @@ export const upgradeLog = [
   { id: 46, change: 'style(stats): adjust stat section vertical padding' },
   { id: 47, change: 'refactor(stats): extract StatCounter as reusable component' },
   { id: 48, change: 'style(stats): improve stat card rounded corners' },
+  { id: 49, change: 'fix(stats): fix counter animation for percentage values' },
 ];
-export const TOTAL_UPGRADES = 48;
+export const TOTAL_UPGRADES = 49;
 
