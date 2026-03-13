@@ -244,6 +244,7 @@ export const upgradeLog = [
   { id: 239, change: 'style(pricing): refine pricing CTA button heights' },
   { id: 240, change: 'refactor(pricing): optimize pricing animation delays' },
   { id: 241, change: 'style(pricing): add gradient background to pricing section' },
+  { id: 242, change: 'feat(pricing): add view-all link with ChevronRight' },
 ];
-export const TOTAL_UPGRADES = 241;
+export const TOTAL_UPGRADES = 242;
 
