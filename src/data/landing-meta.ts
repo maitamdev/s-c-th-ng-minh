@@ -132,6 +132,7 @@ export const upgradeLog = [
   { id: 127, change: 'fix(features): fix feature card border transitions' },
   { id: 128, change: 'style(features): add decorative blur background' },
   { id: 129, change: 'refactor(features): optimize feature rendering logic' },
+  { id: 130, change: 'style(features): improve feature section heading' },
 ];
-export const TOTAL_UPGRADES = 129;
+export const TOTAL_UPGRADES = 130;
 
