@@ -157,6 +157,7 @@ export const upgradeLog = [
   { id: 152, change: 'feat(why): add image zoom effect duration 700ms' },
   { id: 153, change: 'style(why): improve why card description spacing' },
   { id: 154, change: 'fix(why): ensure consistent why card dimensions' },
+  { id: 155, change: 'style(why): refine why section max-width' },
 ];
-export const TOTAL_UPGRADES = 154;
+export const TOTAL_UPGRADES = 155;
 
