@@ -44,6 +44,7 @@ export const upgradeLog = [
   { id: 39, change: 'fix(stats): fix stat grid responsive breakpoints' },
   { id: 40, change: 'style(stats): update stat card border effects' },
   { id: 41, change: 'refactor(stats): clean up stat data array structure' },
+  { id: 42, change: 'style(stats): add hover shadow-primary/5 to stat cards' },
 ];
-export const TOTAL_UPGRADES = 41;
+export const TOTAL_UPGRADES = 42;
 
