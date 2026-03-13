@@ -282,6 +282,7 @@ export const upgradeLog = [
   { id: 277, change: 'feat(cta): add lazy loading to background image' },
   { id: 278, change: 'style(cta): improve CTA stat label opacity' },
   { id: 279, change: 'fix(cta): fix CTA button alignment on mobile' },
+  { id: 280, change: 'style(cta): refine CTA section bottom padding' },
 ];
-export const TOTAL_UPGRADES = 279;
+export const TOTAL_UPGRADES = 280;
 
