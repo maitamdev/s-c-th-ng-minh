@@ -280,6 +280,8 @@ export const upgradeLog = [
   { id: 275, change: 'refactor(cta): optimize CTA animation performance' },
   { id: 276, change: 'style(cta): add primary/40 shadow to main CTA' },
   { id: 277, change: 'feat(cta): add lazy loading to background image' },
+  { id: 278, change: 'style(cta): improve CTA stat label opacity' },
+  { id: 279, change: 'fix(cta): fix CTA button alignment on mobile' },
 ];
-export const TOTAL_UPGRADES = 277;
+export const TOTAL_UPGRADES = 279;
 
