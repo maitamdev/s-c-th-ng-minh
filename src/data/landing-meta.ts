@@ -34,6 +34,7 @@ export const upgradeLog = [
   { id: 29, change: 'feat(stats): add useCounter hook with intersection observer' },
   { id: 30, change: 'style(stats): add gradient icon backgrounds for stats' },
   { id: 31, change: 'refactor(stats): remove redundant impact stats section' },
+  { id: 32, change: 'style(stats): improve stat card hover elevation effect' },
 ];
-export const TOTAL_UPGRADES = 31;
+export const TOTAL_UPGRADES = 32;
 
