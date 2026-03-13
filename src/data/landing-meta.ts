@@ -77,6 +77,7 @@ export const upgradeLog = [
   { id: 72, change: 'style(steps): upgrade step icon containers to 2xl rounded' },
   { id: 73, change: 'feat(steps): add step number badge on icon corner' },
   { id: 74, change: 'style(steps): improve step title typography' },
+  { id: 75, change: 'refactor(steps): add Play icon badge to section header' },
 ];
-export const TOTAL_UPGRADES = 74;
+export const TOTAL_UPGRADES = 75;
 
