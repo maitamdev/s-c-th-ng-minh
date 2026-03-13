@@ -297,6 +297,7 @@ export const upgradeLog = [
   { id: 292, change: 'style(css): improve glow effect shadow values' },
   { id: 293, change: 'fix(css): ensure consistent border-radius values' },
   { id: 294, change: 'style(css): refine focus ring styling for inputs' },
+  { id: 295, change: 'refactor(css): clean up unused CSS declarations' },
 ];
-export const TOTAL_UPGRADES = 294;
+export const TOTAL_UPGRADES = 295;
 
