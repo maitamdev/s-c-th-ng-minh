@@ -160,6 +160,7 @@ export const upgradeLog = [
   { id: 155, change: 'style(why): refine why section max-width' },
   { id: 156, change: 'refactor(why): optimize why animation stagger' },
   { id: 157, change: 'style(why): improve stat overlay typography' },
+  { id: 158, change: 'feat(why): add stat label below stat value' },
 ];
-export const TOTAL_UPGRADES = 157;
+export const TOTAL_UPGRADES = 158;
 
