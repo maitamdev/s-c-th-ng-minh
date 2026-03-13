@@ -147,6 +147,7 @@ export const upgradeLog = [
   { id: 142, change: 'fix(why): fix image aspect ratio consistency' },
   { id: 143, change: 'style(why): improve why card content padding' },
   { id: 144, change: 'refactor(why): add lazy loading to why images' },
+  { id: 145, change: 'style(why): add shadow-primary/5 hover to cards' },
 ];
-export const TOTAL_UPGRADES = 144;
+export const TOTAL_UPGRADES = 145;
 
