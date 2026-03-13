@@ -251,6 +251,7 @@ export const upgradeLog = [
   { id: 246, change: 'refactor(pricing): clean up pricing feature lists' },
   { id: 247, change: 'style(pricing): add border-2 to Pro card emphasis' },
   { id: 248, change: 'feat(pricing): add shadow-lg to Pro CTA button' },
+  { id: 249, change: 'style(pricing): improve business tier price display' },
 ];
-export const TOTAL_UPGRADES = 248;
+export const TOTAL_UPGRADES = 249;
 
