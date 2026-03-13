@@ -81,6 +81,7 @@ export const upgradeLog = [
   { id: 76, change: 'style(steps): add gradient shadow to step icons' },
   { id: 77, change: 'feat(steps): add hover scale effect on step icons' },
   { id: 78, change: 'style(steps): improve step description max-width' },
+  { id: 79, change: 'fix(steps): fix connection line positioning' },
 ];
-export const TOTAL_UPGRADES = 78;
+export const TOTAL_UPGRADES = 79;
 
