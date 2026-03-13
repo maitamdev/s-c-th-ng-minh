@@ -191,6 +191,7 @@ export const upgradeLog = [
   { id: 186, change: 'refactor(gallery): optimize gallery animations' },
   { id: 187, change: 'style(gallery): refine gallery section gradient bg' },
   { id: 188, change: 'feat(gallery): add Globe icon for public access card' },
+  { id: 189, change: 'style(gallery): improve gallery icon container size' },
 ];
-export const TOTAL_UPGRADES = 188;
+export const TOTAL_UPGRADES = 189;
 
