@@ -223,6 +223,7 @@ export const upgradeLog = [
   { id: 218, change: 'feat(testimonials): add Owner suffix to user roles' },
   { id: 219, change: 'style(testimonials): refine testimonial avatar ring' },
   { id: 220, change: 'fix(testimonials): fix Quote icon color opacity' },
+  { id: 221, change: 'style(testimonials): update testimonial section max-w' },
 ];
-export const TOTAL_UPGRADES = 220;
+export const TOTAL_UPGRADES = 221;
 
