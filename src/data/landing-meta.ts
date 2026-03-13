@@ -88,6 +88,7 @@ export const upgradeLog = [
   { id: 83, change: 'feat(steps): add section intro badge component' },
   { id: 84, change: 'style(steps): improve step vertical rhythm' },
   { id: 85, change: 'fix(steps): fix step number badge border styling' },
+  { id: 86, change: 'style(steps): refine step icon gradient from-to colors' },
 ];
-export const TOTAL_UPGRADES = 85;
+export const TOTAL_UPGRADES = 86;
 
