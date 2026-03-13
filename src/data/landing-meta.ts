@@ -70,6 +70,7 @@ export const upgradeLog = [
   { id: 65, change: 'style(trust): add card/60 background to trust badges' },
   { id: 66, change: 'refactor(trust): clean up trust bar data structure' },
   { id: 67, change: 'style(trust): improve trust signal text opacity' },
+  { id: 68, change: 'feat(trust): add smooth hover transitions to badges' },
 ];
-export const TOTAL_UPGRADES = 67;
+export const TOTAL_UPGRADES = 68;
 
