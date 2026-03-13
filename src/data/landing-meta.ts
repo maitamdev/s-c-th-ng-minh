@@ -283,6 +283,7 @@ export const upgradeLog = [
   { id: 278, change: 'style(cta): improve CTA stat label opacity' },
   { id: 279, change: 'fix(cta): fix CTA button alignment on mobile' },
   { id: 280, change: 'style(cta): refine CTA section bottom padding' },
+  { id: 281, change: 'refactor(cta): consolidate CTA animation configs' },
 ];
-export const TOTAL_UPGRADES = 280;
+export const TOTAL_UPGRADES = 281;
 
