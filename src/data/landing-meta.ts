@@ -93,6 +93,7 @@ export const upgradeLog = [
   { id: 88, change: 'style(steps): update step card text alignment' },
   { id: 89, change: 'feat(steps): add decorative blur background element' },
   { id: 90, change: 'style(steps): improve step section heading size' },
+  { id: 91, change: 'fix(steps): fix steps grid gap on tablet' },
 ];
-export const TOTAL_UPGRADES = 90;
+export const TOTAL_UPGRADES = 91;
 
