@@ -207,6 +207,7 @@ export const upgradeLog = [
   { id: 202, change: 'fix(testimonials): fix testimonial card padding' },
   { id: 203, change: 'style(testimonials): add border-t divider above user' },
   { id: 204, change: 'refactor(testimonials): add lazy loading to avatars' },
+  { id: 205, change: 'style(testimonials): improve testimonial card elevation' },
 ];
-export const TOTAL_UPGRADES = 204;
+export const TOTAL_UPGRADES = 205;
 
