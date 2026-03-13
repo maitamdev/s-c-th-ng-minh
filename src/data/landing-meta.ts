@@ -5,6 +5,7 @@ export const LANDING_VERSION = '2.0.0';
 export const upgradeLog = [
   { id: 1, change: 'feat(landing): add parallax scroll effect to hero section' },
   { id: 2, change: 'style(hero): upgrade headline typography with tighter tracking' },
+  { id: 3, change: 'style(hero): add gradient underline animation to highlight text' },
 ];
-export const TOTAL_UPGRADES = 2;
+export const TOTAL_UPGRADES = 3;
 
