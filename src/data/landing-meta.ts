@@ -163,6 +163,7 @@ export const upgradeLog = [
   { id: 158, change: 'feat(why): add stat label below stat value' },
   { id: 159, change: 'style(why): refine why image gradient layers' },
   { id: 160, change: 'fix(why): fix why card hover shadow effect' },
+  { id: 161, change: 'style(why): update why section subtitle styling' },
 ];
-export const TOTAL_UPGRADES = 160;
+export const TOTAL_UPGRADES = 161;
 
