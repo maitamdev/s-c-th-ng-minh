@@ -288,6 +288,7 @@ export const upgradeLog = [
   { id: 283, change: 'feat(cta): improve CTA secondary button backdrop' },
   { id: 284, change: 'style(cta): add via-primary/8 gradient layer' },
   { id: 285, change: 'fix(cta): ensure CTA stats responsive grid' },
+  { id: 286, change: 'style(css): add landing section spacing utilities' },
 ];
-export const TOTAL_UPGRADES = 285;
+export const TOTAL_UPGRADES = 286;
 
