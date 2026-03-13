@@ -155,6 +155,7 @@ export const upgradeLog = [
   { id: 150, change: 'refactor(why): clean up why different data array' },
   { id: 151, change: 'style(why): add border-border/50 default border' },
   { id: 152, change: 'feat(why): add image zoom effect duration 700ms' },
+  { id: 153, change: 'style(why): improve why card description spacing' },
 ];
-export const TOTAL_UPGRADES = 152;
+export const TOTAL_UPGRADES = 153;
 
