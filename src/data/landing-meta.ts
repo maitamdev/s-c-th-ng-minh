@@ -236,6 +236,7 @@ export const upgradeLog = [
   { id: 231, change: 'style(pricing): upgrade popular badge gradient' },
   { id: 232, change: 'fix(pricing): fix pricing card border hierarchy' },
   { id: 233, change: 'style(pricing): refine pricing amount typography' },
+  { id: 234, change: 'refactor(pricing): split price and period display' },
 ];
-export const TOTAL_UPGRADES = 233;
+export const TOTAL_UPGRADES = 234;
 
