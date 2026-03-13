@@ -268,6 +268,7 @@ export const upgradeLog = [
   { id: 263, change: 'refactor(cta): simplify particle animation config' },
   { id: 264, change: 'style(cta): upgrade CTA headline typography' },
   { id: 265, change: 'feat(cta): add ArrowRight to secondary CTA button' },
+  { id: 266, change: 'style(cta): improve CTA button shadow effects' },
 ];
-export const TOTAL_UPGRADES = 265;
+export const TOTAL_UPGRADES = 266;
 
