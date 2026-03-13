@@ -177,6 +177,7 @@ export const upgradeLog = [
   { id: 172, change: 'fix(gallery): fix gallery card hover transitions' },
   { id: 173, change: 'style(gallery): improve gallery overlay gradient' },
   { id: 174, change: 'refactor(gallery): add lazy loading to gallery images' },
+  { id: 175, change: 'style(gallery): add primary/90 icon backgrounds' },
 ];
-export const TOTAL_UPGRADES = 174;
+export const TOTAL_UPGRADES = 175;
 
