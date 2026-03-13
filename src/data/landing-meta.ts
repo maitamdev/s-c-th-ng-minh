@@ -270,6 +270,7 @@ export const upgradeLog = [
   { id: 265, change: 'feat(cta): add ArrowRight to secondary CTA button' },
   { id: 266, change: 'style(cta): improve CTA button shadow effects' },
   { id: 267, change: 'fix(cta): fix CTA section responsive text sizing' },
+  { id: 268, change: 'style(cta): refine CTA badge styling' },
 ];
-export const TOTAL_UPGRADES = 267;
+export const TOTAL_UPGRADES = 268;
 
