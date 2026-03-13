@@ -57,6 +57,7 @@ export const upgradeLog = [
   { id: 52, change: 'feat(trust): add hover scale animation to trust badges' },
   { id: 53, change: 'style(trust): improve trust section typography' },
   { id: 54, change: 'refactor(trust): add uppercase tracking-wider to title' },
+  { id: 55, change: 'style(trust): enhance trust badge border hover states' },
 ];
-export const TOTAL_UPGRADES = 54;
+export const TOTAL_UPGRADES = 55;
 
