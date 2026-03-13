@@ -140,6 +140,7 @@ export const upgradeLog = [
   { id: 135, change: 'refactor(features): consolidate feature card styles' },
   { id: 136, change: 'feat(why): add stat badge overlay on images' },
   { id: 137, change: 'style(why): upgrade image hover scale to 110%' },
+  { id: 138, change: 'refactor(why): restructure why data with stat values' },
 ];
-export const TOTAL_UPGRADES = 137;
+export const TOTAL_UPGRADES = 138;
 
