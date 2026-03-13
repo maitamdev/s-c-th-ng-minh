@@ -151,6 +151,7 @@ export const upgradeLog = [
   { id: 146, change: 'feat(why): add icon container on stat badges' },
   { id: 147, change: 'style(why): improve why card title typography' },
   { id: 148, change: 'fix(why): fix why card border transitions' },
+  { id: 149, change: 'style(why): refine why section heading sizing' },
 ];
-export const TOTAL_UPGRADES = 148;
+export const TOTAL_UPGRADES = 149;
 
