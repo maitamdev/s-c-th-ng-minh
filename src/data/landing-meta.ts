@@ -11,6 +11,7 @@ export const upgradeLog = [
   { id: 6, change: 'style(hero): improve hero badge with pulse dot indicator' },
   { id: 7, change: 'feat(hero): add social proof avatars row below search' },
   { id: 8, change: 'style(hero): enhance search bar with glassmorphism effect' },
+  { id: 9, change: 'refactor(hero): simplify search filters for cleaner UX' },
 ];
-export const TOTAL_UPGRADES = 8;
+export const TOTAL_UPGRADES = 9;
 
