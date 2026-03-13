@@ -149,6 +149,7 @@ export const upgradeLog = [
   { id: 144, change: 'refactor(why): add lazy loading to why images' },
   { id: 145, change: 'style(why): add shadow-primary/5 hover to cards' },
   { id: 146, change: 'feat(why): add icon container on stat badges' },
+  { id: 147, change: 'style(why): improve why card title typography' },
 ];
-export const TOTAL_UPGRADES = 146;
+export const TOTAL_UPGRADES = 147;
 
