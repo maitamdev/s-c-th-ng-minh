@@ -104,6 +104,7 @@ export const upgradeLog = [
   { id: 99, change: 'refactor(steps): consolidate step component styles' },
   { id: 100, change: 'style(steps): final polish on step section spacing' },
   { id: 101, change: 'feat(features): implement bento grid layout' },
+  { id: 102, change: 'style(features): add col-span for featured items' },
 ];
-export const TOTAL_UPGRADES = 101;
+export const TOTAL_UPGRADES = 102;
 
