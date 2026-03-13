@@ -98,6 +98,7 @@ export const upgradeLog = [
   { id: 93, change: 'refactor(steps): clean up step animation configurations' },
   { id: 94, change: 'style(steps): refine step description leading-relaxed' },
   { id: 95, change: 'feat(steps): increase max-width for step section' },
+  { id: 96, change: 'style(steps): improve step icon shadow on hover' },
 ];
-export const TOTAL_UPGRADES = 95;
+export const TOTAL_UPGRADES = 96;
 
