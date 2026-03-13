@@ -243,6 +243,7 @@ export const upgradeLog = [
   { id: 238, change: 'fix(pricing): fix pricing card responsive alignment' },
   { id: 239, change: 'style(pricing): refine pricing CTA button heights' },
   { id: 240, change: 'refactor(pricing): optimize pricing animation delays' },
+  { id: 241, change: 'style(pricing): add gradient background to pricing section' },
 ];
-export const TOTAL_UPGRADES = 240;
+export const TOTAL_UPGRADES = 241;
 
