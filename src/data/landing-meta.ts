@@ -208,6 +208,7 @@ export const upgradeLog = [
   { id: 203, change: 'style(testimonials): add border-t divider above user' },
   { id: 204, change: 'refactor(testimonials): add lazy loading to avatars' },
   { id: 205, change: 'style(testimonials): improve testimonial card elevation' },
+  { id: 206, change: 'feat(testimonials): add curly quote typography' },
 ];
-export const TOTAL_UPGRADES = 205;
+export const TOTAL_UPGRADES = 206;
 
