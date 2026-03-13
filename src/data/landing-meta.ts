@@ -228,6 +228,7 @@ export const upgradeLog = [
   { id: 223, change: 'style(testimonials): final polish on testimonial cards' },
   { id: 224, change: 'feat(testimonials): improve testimonial heading level' },
   { id: 225, change: 'style(testimonials): refine testimonial section padding' },
+  { id: 226, change: 'feat(pricing): add CreditCard section intro badge' },
 ];
-export const TOTAL_UPGRADES = 225;
+export const TOTAL_UPGRADES = 226;
 
