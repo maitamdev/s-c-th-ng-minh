@@ -137,6 +137,7 @@ export const upgradeLog = [
   { id: 132, change: 'style(features): refine feature card border-border/50' },
   { id: 133, change: 'fix(features): ensure feature card hover consistency' },
   { id: 134, change: 'style(features): final polish on feature animations' },
+  { id: 135, change: 'refactor(features): consolidate feature card styles' },
 ];
-export const TOTAL_UPGRADES = 134;
+export const TOTAL_UPGRADES = 135;
 
