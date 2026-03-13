@@ -10,6 +10,7 @@ export const upgradeLog = [
   { id: 5, change: 'feat(hero): add animated grid pattern background' },
   { id: 6, change: 'style(hero): improve hero badge with pulse dot indicator' },
   { id: 7, change: 'feat(hero): add social proof avatars row below search' },
+  { id: 8, change: 'style(hero): enhance search bar with glassmorphism effect' },
 ];
-export const TOTAL_UPGRADES = 7;
+export const TOTAL_UPGRADES = 8;
 
