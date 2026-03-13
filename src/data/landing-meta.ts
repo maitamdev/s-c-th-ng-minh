@@ -219,6 +219,7 @@ export const upgradeLog = [
   { id: 214, change: 'fix(testimonials): ensure consistent card heights' },
   { id: 215, change: 'style(testimonials): add decorative blur background' },
   { id: 216, change: 'refactor(testimonials): consolidate testimonial styles' },
+  { id: 217, change: 'style(testimonials): improve testimonial section gap' },
 ];
-export const TOTAL_UPGRADES = 216;
+export const TOTAL_UPGRADES = 217;
 
