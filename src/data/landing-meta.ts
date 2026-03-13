@@ -277,6 +277,7 @@ export const upgradeLog = [
   { id: 272, change: 'style(cta): improve CTA subtitle line-height' },
   { id: 273, change: 'fix(cta): fix CTA overlay gradient direction' },
   { id: 274, change: 'style(cta): refine CTA particle positioning range' },
+  { id: 275, change: 'refactor(cta): optimize CTA animation performance' },
 ];
-export const TOTAL_UPGRADES = 274;
+export const TOTAL_UPGRADES = 275;
 
