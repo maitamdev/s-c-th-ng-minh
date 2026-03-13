@@ -136,6 +136,7 @@ export const upgradeLog = [
   { id: 131, change: 'feat(features): add group transition effects' },
   { id: 132, change: 'style(features): refine feature card border-border/50' },
   { id: 133, change: 'fix(features): ensure feature card hover consistency' },
+  { id: 134, change: 'style(features): final polish on feature animations' },
 ];
-export const TOTAL_UPGRADES = 133;
+export const TOTAL_UPGRADES = 134;
 
