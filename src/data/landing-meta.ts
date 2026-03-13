@@ -48,6 +48,7 @@ export const upgradeLog = [
   { id: 43, change: 'feat(stats): add timestamp footnote for data freshness' },
   { id: 44, change: 'style(stats): refine stat icon container sizing' },
   { id: 45, change: 'fix(stats): ensure all stat values display correctly' },
+  { id: 46, change: 'style(stats): adjust stat section vertical padding' },
 ];
-export const TOTAL_UPGRADES = 45;
+export const TOTAL_UPGRADES = 46;
 
