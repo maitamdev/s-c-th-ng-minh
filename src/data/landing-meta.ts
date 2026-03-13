@@ -295,6 +295,7 @@ export const upgradeLog = [
   { id: 290, change: 'style(css): optimize gradient-text utility' },
   { id: 291, change: 'feat(css): add landing-specific animation keyframes' },
   { id: 292, change: 'style(css): improve glow effect shadow values' },
+  { id: 293, change: 'fix(css): ensure consistent border-radius values' },
 ];
-export const TOTAL_UPGRADES = 292;
+export const TOTAL_UPGRADES = 293;
 
