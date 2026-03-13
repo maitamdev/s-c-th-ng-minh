@@ -14,6 +14,7 @@ export const upgradeLog = [
   { id: 9, change: 'refactor(hero): simplify search filters for cleaner UX' },
   { id: 10, change: 'feat(hero): add quick city selector tags below search' },
   { id: 11, change: 'style(hero): upgrade CTA button with scale hover animation' },
+  { id: 12, change: 'fix(hero): improve responsive text sizing on mobile' },
 ];
-export const TOTAL_UPGRADES = 11;
+export const TOTAL_UPGRADES = 12;
 
