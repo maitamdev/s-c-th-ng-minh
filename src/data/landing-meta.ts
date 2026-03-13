@@ -31,6 +31,7 @@ export const upgradeLog = [
   { id: 26, change: 'feat(stats): implement animated counter component' },
   { id: 27, change: 'refactor(stats): merge duplicate stat sections into one' },
   { id: 28, change: 'style(stats): add glass card effect to stat items' },
+  { id: 29, change: 'feat(stats): add useCounter hook with intersection observer' },
 ];
-export const TOTAL_UPGRADES = 28;
+export const TOTAL_UPGRADES = 29;
 
