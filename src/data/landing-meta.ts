@@ -105,6 +105,7 @@ export const upgradeLog = [
   { id: 100, change: 'style(steps): final polish on step section spacing' },
   { id: 101, change: 'feat(features): implement bento grid layout' },
   { id: 102, change: 'style(features): add col-span for featured items' },
+  { id: 103, change: 'feat(features): add ArrowUpRight hover reveal' },
 ];
-export const TOTAL_UPGRADES = 102;
+export const TOTAL_UPGRADES = 103;
 
