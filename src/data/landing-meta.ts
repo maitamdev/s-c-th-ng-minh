@@ -175,6 +175,7 @@ export const upgradeLog = [
   { id: 170, change: 'feat(gallery): add Bolt section intro badge' },
   { id: 171, change: 'style(gallery): refine gallery card border effects' },
   { id: 172, change: 'fix(gallery): fix gallery card hover transitions' },
+  { id: 173, change: 'style(gallery): improve gallery overlay gradient' },
 ];
-export const TOTAL_UPGRADES = 172;
+export const TOTAL_UPGRADES = 173;
 
