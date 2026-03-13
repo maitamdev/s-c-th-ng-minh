@@ -180,6 +180,7 @@ export const upgradeLog = [
   { id: 175, change: 'style(gallery): add primary/90 icon backgrounds' },
   { id: 176, change: 'feat(gallery): add Smart Station card with IoT label' },
   { id: 177, change: 'style(gallery): improve gallery card bottom content' },
+  { id: 178, change: 'fix(gallery): fix gallery grid responsive layout' },
 ];
-export const TOTAL_UPGRADES = 177;
+export const TOTAL_UPGRADES = 178;
 
