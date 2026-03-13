@@ -22,6 +22,7 @@ export const upgradeLog = [
   { id: 17, change: 'fix(hero): fix search input focus ring styling' },
   { id: 18, change: 'style(hero): improve badge border opacity for subtlety' },
   { id: 19, change: 'refactor(hero): clean up hero right-side logo animation' },
+  { id: 20, change: 'style(hero): add floating info badges around logo' },
 ];
-export const TOTAL_UPGRADES = 19;
+export const TOTAL_UPGRADES = 20;
 
