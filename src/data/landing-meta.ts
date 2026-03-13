@@ -20,6 +20,7 @@ export const upgradeLog = [
   { id: 15, change: 'feat(hero): add star rating display in social proof' },
   { id: 16, change: 'style(hero): refine hero section vertical rhythm' },
   { id: 17, change: 'fix(hero): fix search input focus ring styling' },
+  { id: 18, change: 'style(hero): improve badge border opacity for subtlety' },
 ];
-export const TOTAL_UPGRADES = 17;
+export const TOTAL_UPGRADES = 18;
 
