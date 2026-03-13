@@ -71,6 +71,7 @@ export const upgradeLog = [
   { id: 66, change: 'refactor(trust): clean up trust bar data structure' },
   { id: 67, change: 'style(trust): improve trust signal text opacity' },
   { id: 68, change: 'feat(trust): add smooth hover transitions to badges' },
+  { id: 69, change: 'style(trust): update trust section padding values' },
 ];
-export const TOTAL_UPGRADES = 68;
+export const TOTAL_UPGRADES = 69;
 
