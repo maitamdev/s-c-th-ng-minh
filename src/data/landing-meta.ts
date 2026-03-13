@@ -260,6 +260,7 @@ export const upgradeLog = [
   { id: 255, change: 'style(pricing): improve pricing section vertical padding' },
   { id: 256, change: 'fix(pricing): fix pricing feature icon alignment' },
   { id: 257, change: 'style(pricing): add flex-shrink-0 to check icons' },
+  { id: 258, change: 'refactor(pricing): optimize pricing section layout' },
 ];
-export const TOTAL_UPGRADES = 257;
+export const TOTAL_UPGRADES = 258;
 
