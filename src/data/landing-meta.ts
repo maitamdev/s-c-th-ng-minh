@@ -134,6 +134,7 @@ export const upgradeLog = [
   { id: 129, change: 'refactor(features): optimize feature rendering logic' },
   { id: 130, change: 'style(features): improve feature section heading' },
   { id: 131, change: 'feat(features): add group transition effects' },
+  { id: 132, change: 'style(features): refine feature card border-border/50' },
 ];
-export const TOTAL_UPGRADES = 131;
+export const TOTAL_UPGRADES = 132;
 
