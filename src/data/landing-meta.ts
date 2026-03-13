@@ -262,6 +262,7 @@ export const upgradeLog = [
   { id: 257, change: 'style(pricing): add flex-shrink-0 to check icons' },
   { id: 258, change: 'refactor(pricing): optimize pricing section layout' },
   { id: 259, change: 'style(pricing): refine pricing month label styling' },
+  { id: 260, change: 'feat(pricing): improve pricing gradient overlay' },
 ];
-export const TOTAL_UPGRADES = 259;
+export const TOTAL_UPGRADES = 260;
 
