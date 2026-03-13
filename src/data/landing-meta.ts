@@ -144,6 +144,7 @@ export const upgradeLog = [
   { id: 139, change: 'style(why): improve image gradient overlay opacity' },
   { id: 140, change: 'feat(why): add floating stat badge on images' },
   { id: 141, change: 'style(why): refine why card border hover states' },
+  { id: 142, change: 'fix(why): fix image aspect ratio consistency' },
 ];
-export const TOTAL_UPGRADES = 141;
+export const TOTAL_UPGRADES = 142;
 
