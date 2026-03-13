@@ -153,6 +153,7 @@ export const upgradeLog = [
   { id: 148, change: 'fix(why): fix why card border transitions' },
   { id: 149, change: 'style(why): refine why section heading sizing' },
   { id: 150, change: 'refactor(why): clean up why different data array' },
+  { id: 151, change: 'style(why): add border-border/50 default border' },
 ];
-export const TOTAL_UPGRADES = 150;
+export const TOTAL_UPGRADES = 151;
 
