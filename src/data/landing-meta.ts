@@ -294,6 +294,7 @@ export const upgradeLog = [
   { id: 289, change: 'refactor(css): add animation-delay-500 utility' },
   { id: 290, change: 'style(css): optimize gradient-text utility' },
   { id: 291, change: 'feat(css): add landing-specific animation keyframes' },
+  { id: 292, change: 'style(css): improve glow effect shadow values' },
 ];
-export const TOTAL_UPGRADES = 291;
+export const TOTAL_UPGRADES = 292;
 
