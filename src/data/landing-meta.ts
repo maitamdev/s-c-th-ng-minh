@@ -273,6 +273,7 @@ export const upgradeLog = [
   { id: 268, change: 'style(cta): refine CTA badge styling' },
   { id: 269, change: 'refactor(cta): use translation keys for CTA text' },
   { id: 270, change: 'style(cta): add active:scale-100 to primary button' },
+  { id: 271, change: 'feat(cta): add bottom stats row with translations' },
 ];
-export const TOTAL_UPGRADES = 270;
+export const TOTAL_UPGRADES = 271;
 
