@@ -96,6 +96,7 @@ export const upgradeLog = [
   { id: 91, change: 'fix(steps): fix steps grid gap on tablet' },
   { id: 92, change: 'style(steps): add subtle background blur to section' },
   { id: 93, change: 'refactor(steps): clean up step animation configurations' },
+  { id: 94, change: 'style(steps): refine step description leading-relaxed' },
 ];
-export const TOTAL_UPGRADES = 93;
+export const TOTAL_UPGRADES = 94;
 
