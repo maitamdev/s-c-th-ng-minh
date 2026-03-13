@@ -121,6 +121,7 @@ export const upgradeLog = [
   { id: 116, change: 'style(features): refine feature card padding values' },
   { id: 117, change: 'refactor(features): optimize feature animation delays' },
   { id: 118, change: 'style(features): add shadow-primary/5 hover effect' },
+  { id: 119, change: 'feat(features): add violet gradient for AI feature' },
 ];
-export const TOTAL_UPGRADES = 118;
+export const TOTAL_UPGRADES = 119;
 
