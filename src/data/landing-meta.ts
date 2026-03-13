@@ -23,6 +23,7 @@ export const upgradeLog = [
   { id: 18, change: 'style(hero): improve badge border opacity for subtlety' },
   { id: 19, change: 'refactor(hero): clean up hero right-side logo animation' },
   { id: 20, change: 'style(hero): add floating info badges around logo' },
+  { id: 21, change: 'feat(hero): add verified badge floating card' },
 ];
-export const TOTAL_UPGRADES = 20;
+export const TOTAL_UPGRADES = 21;
 
