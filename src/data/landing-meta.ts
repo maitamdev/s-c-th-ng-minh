@@ -40,6 +40,7 @@ export const upgradeLog = [
   { id: 35, change: 'feat(stats): add subtle gradient background to section' },
   { id: 36, change: 'style(stats): improve stat label text styling' },
   { id: 37, change: 'refactor(stats): optimize StatCounter component props' },
+  { id: 38, change: 'style(stats): add primary/5 gradient overlay to section' },
 ];
-export const TOTAL_UPGRADES = 37;
+export const TOTAL_UPGRADES = 38;
 
