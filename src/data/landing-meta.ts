@@ -213,6 +213,7 @@ export const upgradeLog = [
   { id: 208, change: 'fix(testimonials): fix testimonial responsive grid' },
   { id: 209, change: 'style(testimonials): add backdrop-blur to cards' },
   { id: 210, change: 'refactor(testimonials): optimize testimonial animations' },
+  { id: 211, change: 'style(testimonials): improve verified badge positioning' },
 ];
-export const TOTAL_UPGRADES = 210;
+export const TOTAL_UPGRADES = 211;
 
