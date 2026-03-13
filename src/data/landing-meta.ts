@@ -232,6 +232,7 @@ export const upgradeLog = [
   { id: 227, change: 'style(pricing): enhance Pro tier card with scale effect' },
   { id: 228, change: 'refactor(pricing): add negative margin for Pro emphasis' },
   { id: 229, change: 'style(pricing): improve pricing card backdrop-blur' },
+  { id: 230, change: 'feat(pricing): add star emoji to popular badge' },
 ];
-export const TOTAL_UPGRADES = 229;
+export const TOTAL_UPGRADES = 230;
 
