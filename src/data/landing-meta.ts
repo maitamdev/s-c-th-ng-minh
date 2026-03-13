@@ -230,6 +230,7 @@ export const upgradeLog = [
   { id: 225, change: 'style(testimonials): refine testimonial section padding' },
   { id: 226, change: 'feat(pricing): add CreditCard section intro badge' },
   { id: 227, change: 'style(pricing): enhance Pro tier card with scale effect' },
+  { id: 228, change: 'refactor(pricing): add negative margin for Pro emphasis' },
 ];
-export const TOTAL_UPGRADES = 227;
+export const TOTAL_UPGRADES = 228;
 
