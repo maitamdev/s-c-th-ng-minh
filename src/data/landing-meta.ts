@@ -301,6 +301,7 @@ export const upgradeLog = [
   { id: 296, change: 'style(css): add smooth scroll snapping for sections' },
   { id: 297, change: 'feat(css): add prefers-reduced-motion landing styles' },
   { id: 298, change: 'style(css): improve dark mode landing page colors' },
+  { id: 299, change: 'fix(css): ensure print styles exclude landing effects' },
 ];
-export const TOTAL_UPGRADES = 298;
+export const TOTAL_UPGRADES = 299;
 
