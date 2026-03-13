@@ -171,6 +171,7 @@ export const upgradeLog = [
   { id: 166, change: 'feat(gallery): add info overlay always visible' },
   { id: 167, change: 'style(gallery): add icon badge to gallery cards' },
   { id: 168, change: 'refactor(gallery): restructure gallery data with icons' },
+  { id: 169, change: 'style(gallery): improve gallery image zoom duration' },
 ];
-export const TOTAL_UPGRADES = 168;
+export const TOTAL_UPGRADES = 169;
 
