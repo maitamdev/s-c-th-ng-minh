@@ -9,6 +9,7 @@ export const upgradeLog = [
   { id: 4, change: 'refactor(hero): remove whitespace-nowrap causing mobile overflow' },
   { id: 5, change: 'feat(hero): add animated grid pattern background' },
   { id: 6, change: 'style(hero): improve hero badge with pulse dot indicator' },
+  { id: 7, change: 'feat(hero): add social proof avatars row below search' },
 ];
-export const TOTAL_UPGRADES = 6;
+export const TOTAL_UPGRADES = 7;
 
