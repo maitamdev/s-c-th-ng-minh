@@ -115,6 +115,7 @@ export const upgradeLog = [
   { id: 110, change: 'style(features): refine feature card background opacity' },
   { id: 111, change: 'refactor(features): add iconColor property to features' },
   { id: 112, change: 'style(features): improve feature title font size' },
+  { id: 113, change: 'feat(features): add backdrop-blur to feature cards' },
 ];
-export const TOTAL_UPGRADES = 112;
+export const TOTAL_UPGRADES = 113;
 
