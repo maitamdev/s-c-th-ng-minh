@@ -254,6 +254,7 @@ export const upgradeLog = [
   { id: 249, change: 'style(pricing): improve business tier price display' },
   { id: 250, change: 'fix(pricing): ensure pricing grid items-start alignment' },
   { id: 251, change: 'style(pricing): refine pricing card rounded corners' },
+  { id: 252, change: 'refactor(pricing): consolidate pricing card styles' },
 ];
-export const TOTAL_UPGRADES = 251;
+export const TOTAL_UPGRADES = 252;
 
