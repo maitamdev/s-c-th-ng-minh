@@ -226,6 +226,7 @@ export const upgradeLog = [
   { id: 221, change: 'style(testimonials): update testimonial section max-w' },
   { id: 222, change: 'refactor(testimonials): clean up testimonial data array' },
   { id: 223, change: 'style(testimonials): final polish on testimonial cards' },
+  { id: 224, change: 'feat(testimonials): improve testimonial heading level' },
 ];
-export const TOTAL_UPGRADES = 223;
+export const TOTAL_UPGRADES = 224;
 
