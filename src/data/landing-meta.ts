@@ -240,6 +240,7 @@ export const upgradeLog = [
   { id: 235, change: 'style(pricing): add shadow-primary/10 to Pro card' },
   { id: 236, change: 'feat(pricing): add Pro card -mt-4 elevation' },
   { id: 237, change: 'style(pricing): improve pricing feature check styling' },
+  { id: 238, change: 'fix(pricing): fix pricing card responsive alignment' },
 ];
-export const TOTAL_UPGRADES = 237;
+export const TOTAL_UPGRADES = 238;
 
