@@ -220,6 +220,7 @@ export const upgradeLog = [
   { id: 215, change: 'style(testimonials): add decorative blur background' },
   { id: 216, change: 'refactor(testimonials): consolidate testimonial styles' },
   { id: 217, change: 'style(testimonials): improve testimonial section gap' },
+  { id: 218, change: 'feat(testimonials): add Owner suffix to user roles' },
 ];
-export const TOTAL_UPGRADES = 217;
+export const TOTAL_UPGRADES = 218;
 
