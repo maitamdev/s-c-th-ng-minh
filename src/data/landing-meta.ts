@@ -188,6 +188,7 @@ export const upgradeLog = [
   { id: 183, change: 'style(gallery): improve gallery section heading' },
   { id: 184, change: 'fix(gallery): ensure gallery card aspect ratio' },
   { id: 185, change: 'style(gallery): add cursor-pointer to gallery cards' },
+  { id: 186, change: 'refactor(gallery): optimize gallery animations' },
 ];
-export const TOTAL_UPGRADES = 185;
+export const TOTAL_UPGRADES = 186;
 
