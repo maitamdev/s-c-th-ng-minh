@@ -162,6 +162,7 @@ export const upgradeLog = [
   { id: 157, change: 'style(why): improve stat overlay typography' },
   { id: 158, change: 'feat(why): add stat label below stat value' },
   { id: 159, change: 'style(why): refine why image gradient layers' },
+  { id: 160, change: 'fix(why): fix why card hover shadow effect' },
 ];
-export const TOTAL_UPGRADES = 159;
+export const TOTAL_UPGRADES = 160;
 
