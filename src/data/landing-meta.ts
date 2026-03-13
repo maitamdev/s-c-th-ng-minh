@@ -125,6 +125,7 @@ export const upgradeLog = [
   { id: 120, change: 'style(features): improve feature description line-height' },
   { id: 121, change: 'fix(features): ensure consistent feature card heights' },
   { id: 122, change: 'style(features): add emerald gradient for booking feature' },
+  { id: 123, change: 'refactor(features): clean up feature data array' },
 ];
-export const TOTAL_UPGRADES = 122;
+export const TOTAL_UPGRADES = 123;
 
