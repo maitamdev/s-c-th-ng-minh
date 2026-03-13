@@ -212,6 +212,7 @@ export const upgradeLog = [
   { id: 207, change: 'style(testimonials): refine star rating sizing' },
   { id: 208, change: 'fix(testimonials): fix testimonial responsive grid' },
   { id: 209, change: 'style(testimonials): add backdrop-blur to cards' },
+  { id: 210, change: 'refactor(testimonials): optimize testimonial animations' },
 ];
-export const TOTAL_UPGRADES = 209;
+export const TOTAL_UPGRADES = 210;
 
