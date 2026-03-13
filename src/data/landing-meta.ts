@@ -216,6 +216,7 @@ export const upgradeLog = [
   { id: 211, change: 'style(testimonials): improve verified badge positioning' },
   { id: 212, change: 'feat(testimonials): add hover shadow-primary/5' },
   { id: 213, change: 'style(testimonials): refine testimonial text size' },
+  { id: 214, change: 'fix(testimonials): ensure consistent card heights' },
 ];
-export const TOTAL_UPGRADES = 213;
+export const TOTAL_UPGRADES = 214;
 
