@@ -292,6 +292,7 @@ export const upgradeLog = [
   { id: 287, change: 'style(css): add landing card hover transition class' },
   { id: 288, change: 'style(css): improve glass effect utility classes' },
   { id: 289, change: 'refactor(css): add animation-delay-500 utility' },
+  { id: 290, change: 'style(css): optimize gradient-text utility' },
 ];
-export const TOTAL_UPGRADES = 289;
+export const TOTAL_UPGRADES = 290;
 
