@@ -290,6 +290,7 @@ export const upgradeLog = [
   { id: 285, change: 'fix(cta): ensure CTA stats responsive grid' },
   { id: 286, change: 'style(css): add landing section spacing utilities' },
   { id: 287, change: 'style(css): add landing card hover transition class' },
+  { id: 288, change: 'style(css): improve glass effect utility classes' },
 ];
-export const TOTAL_UPGRADES = 287;
+export const TOTAL_UPGRADES = 288;
 
