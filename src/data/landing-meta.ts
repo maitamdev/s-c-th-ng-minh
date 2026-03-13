@@ -293,6 +293,7 @@ export const upgradeLog = [
   { id: 288, change: 'style(css): improve glass effect utility classes' },
   { id: 289, change: 'refactor(css): add animation-delay-500 utility' },
   { id: 290, change: 'style(css): optimize gradient-text utility' },
+  { id: 291, change: 'feat(css): add landing-specific animation keyframes' },
 ];
-export const TOTAL_UPGRADES = 290;
+export const TOTAL_UPGRADES = 291;
 
