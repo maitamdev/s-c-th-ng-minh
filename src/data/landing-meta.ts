@@ -59,6 +59,7 @@ export const upgradeLog = [
   { id: 54, change: 'refactor(trust): add uppercase tracking-wider to title' },
   { id: 55, change: 'style(trust): enhance trust badge border hover states' },
   { id: 56, change: 'feat(trust): add BadgeCheck icon for verified signal' },
+  { id: 57, change: 'style(trust): refine trust badge padding and spacing' },
 ];
-export const TOTAL_UPGRADES = 56;
+export const TOTAL_UPGRADES = 57;
 
