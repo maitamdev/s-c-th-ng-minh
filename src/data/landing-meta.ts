@@ -107,6 +107,7 @@ export const upgradeLog = [
   { id: 102, change: 'style(features): add col-span for featured items' },
   { id: 103, change: 'feat(features): add ArrowUpRight hover reveal' },
   { id: 104, change: 'style(features): add per-feature gradient backgrounds' },
+  { id: 105, change: 'refactor(features): restructure feature data with gradients' },
 ];
-export const TOTAL_UPGRADES = 104;
+export const TOTAL_UPGRADES = 105;
 
