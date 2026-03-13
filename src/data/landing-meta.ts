@@ -62,6 +62,7 @@ export const upgradeLog = [
   { id: 57, change: 'style(trust): refine trust badge padding and spacing' },
   { id: 58, change: 'fix(trust): improve trust section responsive layout' },
   { id: 59, change: 'style(trust): add backdrop-blur to connector badges' },
+  { id: 60, change: 'refactor(trust): update trust signals icon selection' },
 ];
-export const TOTAL_UPGRADES = 59;
+export const TOTAL_UPGRADES = 60;
 
