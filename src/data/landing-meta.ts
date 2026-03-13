@@ -27,6 +27,7 @@ export const upgradeLog = [
   { id: 22, change: 'style(hero): refine logo glow and shine effects' },
   { id: 23, change: 'fix(hero): improve scroll indicator positioning' },
   { id: 24, change: 'style(hero): update scroll indicator animation timing' },
+  { id: 25, change: 'refactor(hero): consolidate hero background layer styles' },
 ];
-export const TOTAL_UPGRADES = 24;
+export const TOTAL_UPGRADES = 25;
 
