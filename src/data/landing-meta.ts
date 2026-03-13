@@ -298,6 +298,7 @@ export const upgradeLog = [
   { id: 293, change: 'fix(css): ensure consistent border-radius values' },
   { id: 294, change: 'style(css): refine focus ring styling for inputs' },
   { id: 295, change: 'refactor(css): clean up unused CSS declarations' },
+  { id: 296, change: 'style(css): add smooth scroll snapping for sections' },
 ];
-export const TOTAL_UPGRADES = 295;
+export const TOTAL_UPGRADES = 296;
 
