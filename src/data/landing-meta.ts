@@ -269,6 +269,7 @@ export const upgradeLog = [
   { id: 264, change: 'style(cta): upgrade CTA headline typography' },
   { id: 265, change: 'feat(cta): add ArrowRight to secondary CTA button' },
   { id: 266, change: 'style(cta): improve CTA button shadow effects' },
+  { id: 267, change: 'fix(cta): fix CTA section responsive text sizing' },
 ];
-export const TOTAL_UPGRADES = 266;
+export const TOTAL_UPGRADES = 267;
 
