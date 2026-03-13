@@ -296,6 +296,7 @@ export const upgradeLog = [
   { id: 291, change: 'feat(css): add landing-specific animation keyframes' },
   { id: 292, change: 'style(css): improve glow effect shadow values' },
   { id: 293, change: 'fix(css): ensure consistent border-radius values' },
+  { id: 294, change: 'style(css): refine focus ring styling for inputs' },
 ];
-export const TOTAL_UPGRADES = 293;
+export const TOTAL_UPGRADES = 294;
 
