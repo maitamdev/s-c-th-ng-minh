@@ -167,6 +167,7 @@ export const upgradeLog = [
   { id: 162, change: 'refactor(why): consolidate why card styles' },
   { id: 163, change: 'style(why): final polish on why card transitions' },
   { id: 164, change: 'feat(why): add via-black/20 to image gradient' },
+  { id: 165, change: 'style(why): improve why section vertical padding' },
 ];
-export const TOTAL_UPGRADES = 164;
+export const TOTAL_UPGRADES = 165;
 
