@@ -198,6 +198,7 @@ export const upgradeLog = [
   { id: 193, change: 'style(gallery): final polish on gallery transitions' },
   { id: 194, change: 'feat(gallery): add Award icon for premium card' },
   { id: 195, change: 'style(gallery): improve gallery section spacing' },
+  { id: 196, change: 'feat(testimonials): add Quote icon decoration' },
 ];
-export const TOTAL_UPGRADES = 195;
+export const TOTAL_UPGRADES = 196;
 
