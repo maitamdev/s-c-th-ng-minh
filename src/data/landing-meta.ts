@@ -285,6 +285,7 @@ export const upgradeLog = [
   { id: 280, change: 'style(cta): refine CTA section bottom padding' },
   { id: 281, change: 'refactor(cta): consolidate CTA animation configs' },
   { id: 282, change: 'style(cta): final polish on CTA transitions' },
+  { id: 283, change: 'feat(cta): improve CTA secondary button backdrop' },
 ];
-export const TOTAL_UPGRADES = 282;
+export const TOTAL_UPGRADES = 283;
 
