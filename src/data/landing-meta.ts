@@ -299,6 +299,7 @@ export const upgradeLog = [
   { id: 294, change: 'style(css): refine focus ring styling for inputs' },
   { id: 295, change: 'refactor(css): clean up unused CSS declarations' },
   { id: 296, change: 'style(css): add smooth scroll snapping for sections' },
+  { id: 297, change: 'feat(css): add prefers-reduced-motion landing styles' },
 ];
-export const TOTAL_UPGRADES = 296;
+export const TOTAL_UPGRADES = 297;
 
