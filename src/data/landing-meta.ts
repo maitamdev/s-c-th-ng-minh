@@ -152,6 +152,7 @@ export const upgradeLog = [
   { id: 147, change: 'style(why): improve why card title typography' },
   { id: 148, change: 'fix(why): fix why card border transitions' },
   { id: 149, change: 'style(why): refine why section heading sizing' },
+  { id: 150, change: 'refactor(why): clean up why different data array' },
 ];
-export const TOTAL_UPGRADES = 149;
+export const TOTAL_UPGRADES = 150;
 
