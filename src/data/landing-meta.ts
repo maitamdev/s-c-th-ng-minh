@@ -113,6 +113,7 @@ export const upgradeLog = [
   { id: 108, change: 'style(features): add hover elevation effect to cards' },
   { id: 109, change: 'fix(features): fix bento grid responsive breakpoints' },
   { id: 110, change: 'style(features): refine feature card background opacity' },
+  { id: 111, change: 'refactor(features): add iconColor property to features' },
 ];
-export const TOTAL_UPGRADES = 110;
+export const TOTAL_UPGRADES = 111;
 
