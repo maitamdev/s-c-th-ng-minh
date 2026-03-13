@@ -159,6 +159,7 @@ export const upgradeLog = [
   { id: 154, change: 'fix(why): ensure consistent why card dimensions' },
   { id: 155, change: 'style(why): refine why section max-width' },
   { id: 156, change: 'refactor(why): optimize why animation stagger' },
+  { id: 157, change: 'style(why): improve stat overlay typography' },
 ];
-export const TOTAL_UPGRADES = 156;
+export const TOTAL_UPGRADES = 157;
 
