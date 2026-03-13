@@ -241,6 +241,7 @@ export const upgradeLog = [
   { id: 236, change: 'feat(pricing): add Pro card -mt-4 elevation' },
   { id: 237, change: 'style(pricing): improve pricing feature check styling' },
   { id: 238, change: 'fix(pricing): fix pricing card responsive alignment' },
+  { id: 239, change: 'style(pricing): refine pricing CTA button heights' },
 ];
-export const TOTAL_UPGRADES = 238;
+export const TOTAL_UPGRADES = 239;
 
