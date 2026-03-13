@@ -30,6 +30,7 @@ export const upgradeLog = [
   { id: 25, change: 'refactor(hero): consolidate hero background layer styles' },
   { id: 26, change: 'feat(stats): implement animated counter component' },
   { id: 27, change: 'refactor(stats): merge duplicate stat sections into one' },
+  { id: 28, change: 'style(stats): add glass card effect to stat items' },
 ];
-export const TOTAL_UPGRADES = 27;
+export const TOTAL_UPGRADES = 28;
 
