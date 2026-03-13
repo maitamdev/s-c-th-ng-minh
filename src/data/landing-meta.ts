@@ -18,6 +18,7 @@ export const upgradeLog = [
   { id: 13, change: 'style(hero): add soft glow background blobs' },
   { id: 14, change: 'refactor(hero): optimize framer-motion animation configs' },
   { id: 15, change: 'feat(hero): add star rating display in social proof' },
+  { id: 16, change: 'style(hero): refine hero section vertical rhythm' },
 ];
-export const TOTAL_UPGRADES = 15;
+export const TOTAL_UPGRADES = 16;
 
