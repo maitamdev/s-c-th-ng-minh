@@ -142,6 +142,7 @@ export const upgradeLog = [
   { id: 137, change: 'style(why): upgrade image hover scale to 110%' },
   { id: 138, change: 'refactor(why): restructure why data with stat values' },
   { id: 139, change: 'style(why): improve image gradient overlay opacity' },
+  { id: 140, change: 'feat(why): add floating stat badge on images' },
 ];
-export const TOTAL_UPGRADES = 139;
+export const TOTAL_UPGRADES = 140;
 
