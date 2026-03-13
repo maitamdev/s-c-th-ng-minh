@@ -36,6 +36,7 @@ export const upgradeLog = [
   { id: 31, change: 'refactor(stats): remove redundant impact stats section' },
   { id: 32, change: 'style(stats): improve stat card hover elevation effect' },
   { id: 33, change: 'fix(stats): ensure counter animation triggers on scroll' },
+  { id: 34, change: 'style(stats): refine stat number typography weight' },
 ];
-export const TOTAL_UPGRADES = 33;
+export const TOTAL_UPGRADES = 34;
 
