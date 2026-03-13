@@ -247,6 +247,8 @@ export const upgradeLog = [
   { id: 242, change: 'feat(pricing): add view-all link with ChevronRight' },
   { id: 243, change: 'style(pricing): improve free tier card hover state' },
   { id: 244, change: 'fix(pricing): fix Pro card popular badge positioning' },
+  { id: 245, change: 'style(pricing): refine pricing section heading size' },
+  { id: 246, change: 'refactor(pricing): clean up pricing feature lists' },
 ];
-export const TOTAL_UPGRADES = 244;
+export const TOTAL_UPGRADES = 246;
 
