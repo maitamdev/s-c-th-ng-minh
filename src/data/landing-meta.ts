@@ -60,6 +60,7 @@ export const upgradeLog = [
   { id: 55, change: 'style(trust): enhance trust badge border hover states' },
   { id: 56, change: 'feat(trust): add BadgeCheck icon for verified signal' },
   { id: 57, change: 'style(trust): refine trust badge padding and spacing' },
+  { id: 58, change: 'fix(trust): improve trust section responsive layout' },
 ];
-export const TOTAL_UPGRADES = 57;
+export const TOTAL_UPGRADES = 58;
 
