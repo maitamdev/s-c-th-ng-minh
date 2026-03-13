@@ -210,6 +210,7 @@ export const upgradeLog = [
   { id: 205, change: 'style(testimonials): improve testimonial card elevation' },
   { id: 206, change: 'feat(testimonials): add curly quote typography' },
   { id: 207, change: 'style(testimonials): refine star rating sizing' },
+  { id: 208, change: 'fix(testimonials): fix testimonial responsive grid' },
 ];
-export const TOTAL_UPGRADES = 207;
+export const TOTAL_UPGRADES = 208;
 
