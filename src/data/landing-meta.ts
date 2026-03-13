@@ -45,6 +45,7 @@ export const upgradeLog = [
   { id: 40, change: 'style(stats): update stat card border effects' },
   { id: 41, change: 'refactor(stats): clean up stat data array structure' },
   { id: 42, change: 'style(stats): add hover shadow-primary/5 to stat cards' },
+  { id: 43, change: 'feat(stats): add timestamp footnote for data freshness' },
 ];
-export const TOTAL_UPGRADES = 42;
+export const TOTAL_UPGRADES = 43;
 
