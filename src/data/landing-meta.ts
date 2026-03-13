@@ -114,6 +114,7 @@ export const upgradeLog = [
   { id: 109, change: 'fix(features): fix bento grid responsive breakpoints' },
   { id: 110, change: 'style(features): refine feature card background opacity' },
   { id: 111, change: 'refactor(features): add iconColor property to features' },
+  { id: 112, change: 'style(features): improve feature title font size' },
 ];
-export const TOTAL_UPGRADES = 111;
+export const TOTAL_UPGRADES = 112;
 
