@@ -256,6 +256,7 @@ export const upgradeLog = [
   { id: 251, change: 'style(pricing): refine pricing card rounded corners' },
   { id: 252, change: 'refactor(pricing): consolidate pricing card styles' },
   { id: 253, change: 'style(pricing): final polish on pricing section' },
+  { id: 254, change: 'feat(pricing): add decorative blur background' },
 ];
-export const TOTAL_UPGRADES = 253;
+export const TOTAL_UPGRADES = 254;
 
