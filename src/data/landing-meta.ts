@@ -12,6 +12,7 @@ export const upgradeLog = [
   { id: 7, change: 'feat(hero): add social proof avatars row below search' },
   { id: 8, change: 'style(hero): enhance search bar with glassmorphism effect' },
   { id: 9, change: 'refactor(hero): simplify search filters for cleaner UX' },
+  { id: 10, change: 'feat(hero): add quick city selector tags below search' },
 ];
-export const TOTAL_UPGRADES = 9;
+export const TOTAL_UPGRADES = 10;
 
