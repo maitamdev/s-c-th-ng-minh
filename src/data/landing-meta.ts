@@ -89,6 +89,7 @@ export const upgradeLog = [
   { id: 84, change: 'style(steps): improve step vertical rhythm' },
   { id: 85, change: 'fix(steps): fix step number badge border styling' },
   { id: 86, change: 'style(steps): refine step icon gradient from-to colors' },
+  { id: 87, change: 'refactor(steps): optimize step animation stagger timing' },
 ];
-export const TOTAL_UPGRADES = 86;
+export const TOTAL_UPGRADES = 87;
 
