@@ -145,6 +145,7 @@ export const upgradeLog = [
   { id: 140, change: 'feat(why): add floating stat badge on images' },
   { id: 141, change: 'style(why): refine why card border hover states' },
   { id: 142, change: 'fix(why): fix image aspect ratio consistency' },
+  { id: 143, change: 'style(why): improve why card content padding' },
 ];
-export const TOTAL_UPGRADES = 142;
+export const TOTAL_UPGRADES = 143;
 
