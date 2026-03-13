@@ -184,6 +184,7 @@ export const upgradeLog = [
   { id: 179, change: 'style(gallery): refine gallery card rounded corners' },
   { id: 180, change: 'refactor(gallery): clean up gallery data structure' },
   { id: 181, change: 'style(gallery): add border-primary/40 hover state' },
+  { id: 182, change: 'feat(gallery): add CTA button below gallery' },
 ];
-export const TOTAL_UPGRADES = 181;
+export const TOTAL_UPGRADES = 182;
 
