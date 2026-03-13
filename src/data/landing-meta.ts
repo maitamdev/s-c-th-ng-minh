@@ -166,6 +166,7 @@ export const upgradeLog = [
   { id: 161, change: 'style(why): update why section subtitle styling' },
   { id: 162, change: 'refactor(why): consolidate why card styles' },
   { id: 163, change: 'style(why): final polish on why card transitions' },
+  { id: 164, change: 'feat(why): add via-black/20 to image gradient' },
 ];
-export const TOTAL_UPGRADES = 163;
+export const TOTAL_UPGRADES = 164;
 
