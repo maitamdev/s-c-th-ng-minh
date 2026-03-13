@@ -289,6 +289,7 @@ export const upgradeLog = [
   { id: 284, change: 'style(cta): add via-primary/8 gradient layer' },
   { id: 285, change: 'fix(cta): ensure CTA stats responsive grid' },
   { id: 286, change: 'style(css): add landing section spacing utilities' },
+  { id: 287, change: 'style(css): add landing card hover transition class' },
 ];
-export const TOTAL_UPGRADES = 286;
+export const TOTAL_UPGRADES = 287;
 
