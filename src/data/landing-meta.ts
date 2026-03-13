@@ -13,6 +13,7 @@ export const upgradeLog = [
   { id: 8, change: 'style(hero): enhance search bar with glassmorphism effect' },
   { id: 9, change: 'refactor(hero): simplify search filters for cleaner UX' },
   { id: 10, change: 'feat(hero): add quick city selector tags below search' },
+  { id: 11, change: 'style(hero): upgrade CTA button with scale hover animation' },
 ];
-export const TOTAL_UPGRADES = 10;
+export const TOTAL_UPGRADES = 11;
 
