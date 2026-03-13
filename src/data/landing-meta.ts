@@ -181,6 +181,7 @@ export const upgradeLog = [
   { id: 176, change: 'feat(gallery): add Smart Station card with IoT label' },
   { id: 177, change: 'style(gallery): improve gallery card bottom content' },
   { id: 178, change: 'fix(gallery): fix gallery grid responsive layout' },
+  { id: 179, change: 'style(gallery): refine gallery card rounded corners' },
 ];
-export const TOTAL_UPGRADES = 178;
+export const TOTAL_UPGRADES = 179;
 
