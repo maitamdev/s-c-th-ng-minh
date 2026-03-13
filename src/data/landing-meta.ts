@@ -29,6 +29,7 @@ export const upgradeLog = [
   { id: 24, change: 'style(hero): update scroll indicator animation timing' },
   { id: 25, change: 'refactor(hero): consolidate hero background layer styles' },
   { id: 26, change: 'feat(stats): implement animated counter component' },
+  { id: 27, change: 'refactor(stats): merge duplicate stat sections into one' },
 ];
-export const TOTAL_UPGRADES = 26;
+export const TOTAL_UPGRADES = 27;
 
