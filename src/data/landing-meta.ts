@@ -8,6 +8,7 @@ export const upgradeLog = [
   { id: 3, change: 'style(hero): add gradient underline animation to highlight text' },
   { id: 4, change: 'refactor(hero): remove whitespace-nowrap causing mobile overflow' },
   { id: 5, change: 'feat(hero): add animated grid pattern background' },
+  { id: 6, change: 'style(hero): improve hero badge with pulse dot indicator' },
 ];
-export const TOTAL_UPGRADES = 5;
+export const TOTAL_UPGRADES = 6;
 
