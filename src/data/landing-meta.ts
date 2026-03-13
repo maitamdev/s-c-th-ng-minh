@@ -35,6 +35,7 @@ export const upgradeLog = [
   { id: 30, change: 'style(stats): add gradient icon backgrounds for stats' },
   { id: 31, change: 'refactor(stats): remove redundant impact stats section' },
   { id: 32, change: 'style(stats): improve stat card hover elevation effect' },
+  { id: 33, change: 'fix(stats): ensure counter animation triggers on scroll' },
 ];
-export const TOTAL_UPGRADES = 32;
+export const TOTAL_UPGRADES = 33;
 
