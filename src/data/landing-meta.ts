@@ -204,6 +204,7 @@ export const upgradeLog = [
   { id: 199, change: 'style(testimonials): improve quote text typography' },
   { id: 200, change: 'feat(testimonials): add Users section intro badge' },
   { id: 201, change: 'style(testimonials): refine testimonial card borders' },
+  { id: 202, change: 'fix(testimonials): fix testimonial card padding' },
 ];
-export const TOTAL_UPGRADES = 201;
+export const TOTAL_UPGRADES = 202;
 
