@@ -26,6 +26,7 @@ export const upgradeLog = [
   { id: 21, change: 'feat(hero): add verified badge floating card' },
   { id: 22, change: 'style(hero): refine logo glow and shine effects' },
   { id: 23, change: 'fix(hero): improve scroll indicator positioning' },
+  { id: 24, change: 'style(hero): update scroll indicator animation timing' },
 ];
-export const TOTAL_UPGRADES = 23;
+export const TOTAL_UPGRADES = 24;
 
