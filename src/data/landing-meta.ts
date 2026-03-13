@@ -95,6 +95,7 @@ export const upgradeLog = [
   { id: 90, change: 'style(steps): improve step section heading size' },
   { id: 91, change: 'fix(steps): fix steps grid gap on tablet' },
   { id: 92, change: 'style(steps): add subtle background blur to section' },
+  { id: 93, change: 'refactor(steps): clean up step animation configurations' },
 ];
-export const TOTAL_UPGRADES = 92;
+export const TOTAL_UPGRADES = 93;
 
