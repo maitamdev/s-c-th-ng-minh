@@ -194,6 +194,7 @@ export const upgradeLog = [
   { id: 189, change: 'style(gallery): improve gallery icon container size' },
   { id: 190, change: 'fix(gallery): fix gallery CTA button styling' },
   { id: 191, change: 'style(gallery): add ChevronRight to CTA button' },
+  { id: 192, change: 'refactor(gallery): consolidate gallery card styles' },
 ];
-export const TOTAL_UPGRADES = 191;
+export const TOTAL_UPGRADES = 192;
 
