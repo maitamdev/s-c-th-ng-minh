@@ -119,6 +119,7 @@ export const upgradeLog = [
   { id: 114, change: 'style(features): add border-primary/40 on hover' },
   { id: 115, change: 'fix(features): fix ArrowUpRight positioning in cards' },
   { id: 116, change: 'style(features): refine feature card padding values' },
+  { id: 117, change: 'refactor(features): optimize feature animation delays' },
 ];
-export const TOTAL_UPGRADES = 116;
+export const TOTAL_UPGRADES = 117;
 
