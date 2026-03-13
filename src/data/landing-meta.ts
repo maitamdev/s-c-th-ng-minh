@@ -91,6 +91,7 @@ export const upgradeLog = [
   { id: 86, change: 'style(steps): refine step icon gradient from-to colors' },
   { id: 87, change: 'refactor(steps): optimize step animation stagger timing' },
   { id: 88, change: 'style(steps): update step card text alignment' },
+  { id: 89, change: 'feat(steps): add decorative blur background element' },
 ];
-export const TOTAL_UPGRADES = 88;
+export const TOTAL_UPGRADES = 89;
 
