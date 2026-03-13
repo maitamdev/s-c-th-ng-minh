@@ -217,6 +217,7 @@ export const upgradeLog = [
   { id: 212, change: 'feat(testimonials): add hover shadow-primary/5' },
   { id: 213, change: 'style(testimonials): refine testimonial text size' },
   { id: 214, change: 'fix(testimonials): ensure consistent card heights' },
+  { id: 215, change: 'style(testimonials): add decorative blur background' },
 ];
-export const TOTAL_UPGRADES = 214;
+export const TOTAL_UPGRADES = 215;
 
