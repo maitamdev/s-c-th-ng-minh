@@ -245,6 +245,7 @@ export const upgradeLog = [
   { id: 240, change: 'refactor(pricing): optimize pricing animation delays' },
   { id: 241, change: 'style(pricing): add gradient background to pricing section' },
   { id: 242, change: 'feat(pricing): add view-all link with ChevronRight' },
+  { id: 243, change: 'style(pricing): improve free tier card hover state' },
 ];
-export const TOTAL_UPGRADES = 242;
+export const TOTAL_UPGRADES = 243;
 
