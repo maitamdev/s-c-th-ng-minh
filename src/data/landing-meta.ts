@@ -133,6 +133,7 @@ export const upgradeLog = [
   { id: 128, change: 'style(features): add decorative blur background' },
   { id: 129, change: 'refactor(features): optimize feature rendering logic' },
   { id: 130, change: 'style(features): improve feature section heading' },
+  { id: 131, change: 'feat(features): add group transition effects' },
 ];
-export const TOTAL_UPGRADES = 130;
+export const TOTAL_UPGRADES = 131;
 
