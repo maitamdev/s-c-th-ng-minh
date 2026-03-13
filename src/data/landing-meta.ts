@@ -32,6 +32,7 @@ export const upgradeLog = [
   { id: 27, change: 'refactor(stats): merge duplicate stat sections into one' },
   { id: 28, change: 'style(stats): add glass card effect to stat items' },
   { id: 29, change: 'feat(stats): add useCounter hook with intersection observer' },
+  { id: 30, change: 'style(stats): add gradient icon backgrounds for stats' },
 ];
-export const TOTAL_UPGRADES = 29;
+export const TOTAL_UPGRADES = 30;
 
