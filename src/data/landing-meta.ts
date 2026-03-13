@@ -75,6 +75,7 @@ export const upgradeLog = [
   { id: 70, change: 'fix(trust): ensure consistent trust badge heights' },
   { id: 71, change: 'feat(steps): add connection line between steps' },
   { id: 72, change: 'style(steps): upgrade step icon containers to 2xl rounded' },
+  { id: 73, change: 'feat(steps): add step number badge on icon corner' },
 ];
-export const TOTAL_UPGRADES = 72;
+export const TOTAL_UPGRADES = 73;
 
