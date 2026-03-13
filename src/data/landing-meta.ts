@@ -215,6 +215,7 @@ export const upgradeLog = [
   { id: 210, change: 'refactor(testimonials): optimize testimonial animations' },
   { id: 211, change: 'style(testimonials): improve verified badge positioning' },
   { id: 212, change: 'feat(testimonials): add hover shadow-primary/5' },
+  { id: 213, change: 'style(testimonials): refine testimonial text size' },
 ];
-export const TOTAL_UPGRADES = 212;
+export const TOTAL_UPGRADES = 213;
 
