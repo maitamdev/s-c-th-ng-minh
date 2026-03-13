@@ -231,6 +231,7 @@ export const upgradeLog = [
   { id: 226, change: 'feat(pricing): add CreditCard section intro badge' },
   { id: 227, change: 'style(pricing): enhance Pro tier card with scale effect' },
   { id: 228, change: 'refactor(pricing): add negative margin for Pro emphasis' },
+  { id: 229, change: 'style(pricing): improve pricing card backdrop-blur' },
 ];
-export const TOTAL_UPGRADES = 228;
+export const TOTAL_UPGRADES = 229;
 
