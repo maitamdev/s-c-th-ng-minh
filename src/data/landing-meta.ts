@@ -265,6 +265,7 @@ export const upgradeLog = [
   { id: 260, change: 'feat(pricing): improve pricing gradient overlay' },
   { id: 261, change: 'feat(cta): reduce particle count for cleaner look' },
   { id: 262, change: 'style(cta): improve CTA background overlay opacity' },
+  { id: 263, change: 'refactor(cta): simplify particle animation config' },
 ];
-export const TOTAL_UPGRADES = 262;
+export const TOTAL_UPGRADES = 263;
 
