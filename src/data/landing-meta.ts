@@ -41,6 +41,7 @@ export const upgradeLog = [
   { id: 36, change: 'style(stats): improve stat label text styling' },
   { id: 37, change: 'refactor(stats): optimize StatCounter component props' },
   { id: 38, change: 'style(stats): add primary/5 gradient overlay to section' },
+  { id: 39, change: 'fix(stats): fix stat grid responsive breakpoints' },
 ];
-export const TOTAL_UPGRADES = 38;
+export const TOTAL_UPGRADES = 39;
 
