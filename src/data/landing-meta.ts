@@ -286,6 +286,7 @@ export const upgradeLog = [
   { id: 281, change: 'refactor(cta): consolidate CTA animation configs' },
   { id: 282, change: 'style(cta): final polish on CTA transitions' },
   { id: 283, change: 'feat(cta): improve CTA secondary button backdrop' },
+  { id: 284, change: 'style(cta): add via-primary/8 gradient layer' },
 ];
-export const TOTAL_UPGRADES = 283;
+export const TOTAL_UPGRADES = 284;
 
