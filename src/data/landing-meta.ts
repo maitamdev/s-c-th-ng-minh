@@ -233,6 +233,7 @@ export const upgradeLog = [
   { id: 228, change: 'refactor(pricing): add negative margin for Pro emphasis' },
   { id: 229, change: 'style(pricing): improve pricing card backdrop-blur' },
   { id: 230, change: 'feat(pricing): add star emoji to popular badge' },
+  { id: 231, change: 'style(pricing): upgrade popular badge gradient' },
 ];
-export const TOTAL_UPGRADES = 230;
+export const TOTAL_UPGRADES = 231;
 
