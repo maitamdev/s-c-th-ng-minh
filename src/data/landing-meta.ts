@@ -156,6 +156,7 @@ export const upgradeLog = [
   { id: 151, change: 'style(why): add border-border/50 default border' },
   { id: 152, change: 'feat(why): add image zoom effect duration 700ms' },
   { id: 153, change: 'style(why): improve why card description spacing' },
+  { id: 154, change: 'fix(why): ensure consistent why card dimensions' },
 ];
-export const TOTAL_UPGRADES = 153;
+export const TOTAL_UPGRADES = 154;
 
