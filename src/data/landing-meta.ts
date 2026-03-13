@@ -150,6 +150,7 @@ export const upgradeLog = [
   { id: 145, change: 'style(why): add shadow-primary/5 hover to cards' },
   { id: 146, change: 'feat(why): add icon container on stat badges' },
   { id: 147, change: 'style(why): improve why card title typography' },
+  { id: 148, change: 'fix(why): fix why card border transitions' },
 ];
-export const TOTAL_UPGRADES = 147;
+export const TOTAL_UPGRADES = 148;
 
