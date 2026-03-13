@@ -38,6 +38,7 @@ export const upgradeLog = [
   { id: 33, change: 'fix(stats): ensure counter animation triggers on scroll' },
   { id: 34, change: 'style(stats): refine stat number typography weight' },
   { id: 35, change: 'feat(stats): add subtle gradient background to section' },
+  { id: 36, change: 'style(stats): improve stat label text styling' },
 ];
-export const TOTAL_UPGRADES = 35;
+export const TOTAL_UPGRADES = 36;
 
