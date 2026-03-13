@@ -43,6 +43,7 @@ export const upgradeLog = [
   { id: 38, change: 'style(stats): add primary/5 gradient overlay to section' },
   { id: 39, change: 'fix(stats): fix stat grid responsive breakpoints' },
   { id: 40, change: 'style(stats): update stat card border effects' },
+  { id: 41, change: 'refactor(stats): clean up stat data array structure' },
 ];
-export const TOTAL_UPGRADES = 40;
+export const TOTAL_UPGRADES = 41;
 
