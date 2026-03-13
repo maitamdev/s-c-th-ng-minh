@@ -174,6 +174,7 @@ export const upgradeLog = [
   { id: 169, change: 'style(gallery): improve gallery image zoom duration' },
   { id: 170, change: 'feat(gallery): add Bolt section intro badge' },
   { id: 171, change: 'style(gallery): refine gallery card border effects' },
+  { id: 172, change: 'fix(gallery): fix gallery card hover transitions' },
 ];
-export const TOTAL_UPGRADES = 171;
+export const TOTAL_UPGRADES = 172;
 
