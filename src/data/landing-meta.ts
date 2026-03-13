@@ -179,6 +179,7 @@ export const upgradeLog = [
   { id: 174, change: 'refactor(gallery): add lazy loading to gallery images' },
   { id: 175, change: 'style(gallery): add primary/90 icon backgrounds' },
   { id: 176, change: 'feat(gallery): add Smart Station card with IoT label' },
+  { id: 177, change: 'style(gallery): improve gallery card bottom content' },
 ];
-export const TOTAL_UPGRADES = 176;
+export const TOTAL_UPGRADES = 177;
 
