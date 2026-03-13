@@ -49,6 +49,7 @@ export const upgradeLog = [
   { id: 44, change: 'style(stats): refine stat icon container sizing' },
   { id: 45, change: 'fix(stats): ensure all stat values display correctly' },
   { id: 46, change: 'style(stats): adjust stat section vertical padding' },
+  { id: 47, change: 'refactor(stats): extract StatCounter as reusable component' },
 ];
-export const TOTAL_UPGRADES = 46;
+export const TOTAL_UPGRADES = 47;
 
