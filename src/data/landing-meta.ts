@@ -274,6 +274,7 @@ export const upgradeLog = [
   { id: 269, change: 'refactor(cta): use translation keys for CTA text' },
   { id: 270, change: 'style(cta): add active:scale-100 to primary button' },
   { id: 271, change: 'feat(cta): add bottom stats row with translations' },
+  { id: 272, change: 'style(cta): improve CTA subtitle line-height' },
 ];
-export const TOTAL_UPGRADES = 271;
+export const TOTAL_UPGRADES = 272;
 
