@@ -279,6 +279,7 @@ export const upgradeLog = [
   { id: 274, change: 'style(cta): refine CTA particle positioning range' },
   { id: 275, change: 'refactor(cta): optimize CTA animation performance' },
   { id: 276, change: 'style(cta): add primary/40 shadow to main CTA' },
+  { id: 277, change: 'feat(cta): add lazy loading to background image' },
 ];
-export const TOTAL_UPGRADES = 276;
+export const TOTAL_UPGRADES = 277;
 
