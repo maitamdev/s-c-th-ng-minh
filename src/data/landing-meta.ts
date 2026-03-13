@@ -264,6 +264,7 @@ export const upgradeLog = [
   { id: 259, change: 'style(pricing): refine pricing month label styling' },
   { id: 260, change: 'feat(pricing): improve pricing gradient overlay' },
   { id: 261, change: 'feat(cta): reduce particle count for cleaner look' },
+  { id: 262, change: 'style(cta): improve CTA background overlay opacity' },
 ];
-export const TOTAL_UPGRADES = 261;
+export const TOTAL_UPGRADES = 262;
 
