@@ -138,6 +138,7 @@ export const upgradeLog = [
   { id: 133, change: 'fix(features): ensure feature card hover consistency' },
   { id: 134, change: 'style(features): final polish on feature animations' },
   { id: 135, change: 'refactor(features): consolidate feature card styles' },
+  { id: 136, change: 'feat(why): add stat badge overlay on images' },
 ];
-export const TOTAL_UPGRADES = 135;
+export const TOTAL_UPGRADES = 136;
 
