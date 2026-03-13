@@ -164,6 +164,7 @@ export const upgradeLog = [
   { id: 159, change: 'style(why): refine why image gradient layers' },
   { id: 160, change: 'fix(why): fix why card hover shadow effect' },
   { id: 161, change: 'style(why): update why section subtitle styling' },
+  { id: 162, change: 'refactor(why): consolidate why card styles' },
 ];
-export const TOTAL_UPGRADES = 161;
+export const TOTAL_UPGRADES = 162;
 
