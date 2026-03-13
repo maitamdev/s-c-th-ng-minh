@@ -123,6 +123,7 @@ export const upgradeLog = [
   { id: 118, change: 'style(features): add shadow-primary/5 hover effect' },
   { id: 119, change: 'feat(features): add violet gradient for AI feature' },
   { id: 120, change: 'style(features): improve feature description line-height' },
+  { id: 121, change: 'fix(features): ensure consistent feature card heights' },
 ];
-export const TOTAL_UPGRADES = 120;
+export const TOTAL_UPGRADES = 121;
 
